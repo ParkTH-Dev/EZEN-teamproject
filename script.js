@@ -30,6 +30,7 @@ fetch(categoryInfo)
       categoryDiv.id = category.id;
       categorySpan.className = "name";
       categorySpan.innerText = category.name;
+      attr.value = category.img;
       categoryImg.setAttributeNode(attr);
       categoryDiv.append(categoryImg, categorySpan);
       headerCategory.appendChild(categoryDiv);

@@ -2,7 +2,7 @@
   "data": [
     {
       "name": "컬리세일",
-      "img": "",
+      "img": "./img/categoryIcon/1.png",
       "subdata": [
         { "name": "특가상품" },
         { "name": "한정수량" },
@@ -13,7 +13,7 @@
     },
     {
       "name": "채소",
-      "img": "",
+      "img": "./img/categoryIcon/2.png",
       "subdata": [
         { "name": "친환경" },
         { "name": "고구마・감자・당근" },
@@ -27,7 +27,7 @@
     },
     {
       "name": "과일・견과・쌀",
-      "img": "",
+      "img": "./img/categoryIcon/3.png",
       "subdata": [
         { "name": "친환경" },
         { "name": "제철과일" },
@@ -41,7 +41,7 @@
     },
     {
       "name": "수산・해산・건어물",
-      "img": "",
+      "img": "./img/categoryIcon/4.png",
       "subdata": [
         { "name": "제철수산" },
         { "name": "생선류" },
@@ -55,7 +55,7 @@
     },
     {
       "name": "정육・가공육・계란",
-      "img": "",
+      "img": "./img/categoryIcon/5.png",
       "subdata": [
         { "name": "국내산 소고기" },
         { "name": "수입산 소고기" },
@@ -68,7 +68,7 @@
     },
     {
       "name": "국・반찬・메인요리",
-      "img": "",
+      "img": "./img/categoryIcon/6.png",
       "subdata": [
         { "name": "국・탕・찌개" },
         { "name": "밀키트・메인요리" },
@@ -80,7 +80,7 @@
     },
     {
       "name": "간편식・밀키트・샐러드",
-      "img": "",
+      "img": "./img/categoryIcon/7.png",
       "subdata": [
         { "name": "밥류" },
         { "name": "국・탕・찌개" },
@@ -94,7 +94,7 @@
     },
     {
       "name": "면・양념・오일",
-      "img": "",
+      "img": "./img/categoryIcon/8.png",
       "subdata": [
         { "name": "파스타・면류" },
         { "name": "빵・핫도그" },
@@ -104,7 +104,7 @@
     },
     {
       "name": "생수・음료",
-      "img": "",
+      "img": "./img/categoryIcon/9.png",
       "subdata": [
         { "name": "생수・탄산수" },
         { "name": "음료・주스・우유" },
@@ -113,8 +113,25 @@
       ]
     },
     {
+      "name": "커피・차",
+      "img": "./img/categoryIcon/10.png",
+      "subdata": [
+        { "name": "스페셜티 원두" },
+        { "name": "홀빈・분쇄 원두" },
+        { "name": "드립백・커피백" },
+        { "name": "캡슐커피" },
+        { "name": "인스턴트커피・커피믹스" },
+        { "name": "콜드브루・커피음료" },
+        { "name": "녹차・보리차・홍차" },
+        { "name": "액상차・청・코코아・밀크티" },
+        { "name": "커피・차 선물세트" },
+        { "name": "커피머신" },
+        { "name": "커피용품" }
+      ]
+    },
+    {
       "name": "간식・과자・떡",
-      "img": "",
+      "img": "./img/categoryIcon/11.png",
       "subdata": [
         { "name": "과자・스낵・쿠키" },
         { "name": "초콜릿・젤리" },
@@ -124,7 +141,7 @@
     },
     {
       "name": "베이커리",
-      "img": "",
+      "img": "./img/categoryIcon/12.png",
       "subdata": [
         { "name": "식빵・빵류" },
         { "name": "베이글・머핀" },
@@ -134,7 +151,7 @@
     },
     {
       "name": "유제품",
-      "img": "",
+      "img": "./img/categoryIcon/13.png",
       "subdata": [
         { "name": "우유・요거트" },
         { "name": "치즈" },
@@ -143,7 +160,7 @@
     },
     {
       "name": "건강식품",
-      "img": "",
+      "img": "./img/categoryIcon/14.png",
       "subdata": [
         { "name": "영양제" },
         { "name": "홍삼・인삼" },
@@ -152,7 +169,7 @@
     },
     {
       "name": "와인・위스키",
-      "img": "",
+      "img": "./img/categoryIcon/15.png",
       "subdata": [
         { "name": "와인" },
         { "name": "위스키" },
@@ -161,7 +178,7 @@
     },
     {
       "name": "전통주",
-      "img": "",
+      "img": "./img/categoryIcon/16.png",
       "subdata": [
         { "name": "막걸리" },
         { "name": "소주" },
@@ -170,7 +187,7 @@
     },
     {
       "name": "주방용품",
-      "img": "",
+      "img": "./img/categoryIcon/17.png",
       "subdata": [
         { "name": "주방도구" },
         { "name": "조리도구" },
@@ -179,7 +196,7 @@
     },
     {
       "name": "생활용품・리빙",
-      "img": "",
+      "img": "./img/categoryIcon/18.png",
       "subdata": [
         { "name": "욕실용품" },
         { "name": "청소용품" },
@@ -188,7 +205,7 @@
     },
     {
       "name": "가전제품",
-      "img": "",
+      "img": "./img/categoryIcon/19.png",
       "subdata": [
         { "name": "주방가전" },
         { "name": "생활가전" },
@@ -197,7 +214,7 @@
     },
     {
       "name": "가구・인테리어",
-      "img": "",
+      "img": "./img/categoryIcon/20.png",
       "subdata": [
         { "name": "가구" },
         { "name": "침구류" },
@@ -206,7 +223,7 @@
     },
     {
       "name": "유아동",
-      "img": "",
+      "img": "./img/categoryIcon/21.png",
       "subdata": [
         { "name": "유아용품" },
         { "name": "아동용품" },
@@ -215,7 +232,7 @@
     },
     {
       "name": "스포츠・레저・캠핑",
-      "img": "",
+      "img": "./img/categoryIcon/22.png",
       "subdata": [
         { "name": "스포츠용품" },
         { "name": "레저용품" },
@@ -224,7 +241,7 @@
     },
     {
       "name": "반려동물",
-      "img": "",
+      "img": "./img/categoryIcon/23.png",
       "subdata": [
         { "name": "강아지 용품" },
         { "name": "고양이 용품" },
@@ -233,7 +250,7 @@
     },
     {
       "name": "럭셔리뷰티",
-      "img": "",
+      "img": "./img/categoryIcon/24.png",
       "subdata": [
         { "name": "스킨케어" },
         { "name": "메이크업" },
@@ -242,7 +259,7 @@
     },
     {
       "name": "스킨케어・메이크업",
-      "img": "",
+      "img": "./img/categoryIcon/25.png",
       "subdata": [
         { "name": "스킨케어" },
         { "name": "메이크업" },
@@ -251,7 +268,7 @@
     },
     {
       "name": "헤어・바디・구강",
-      "img": "",
+      "img": "./img/categoryIcon/26.png",
       "subdata": [
         { "name": "샴푸・컨디셔너" },
         { "name": "바디워시・스크럽" },
@@ -260,7 +277,7 @@
     },
     {
       "name": "패션",
-      "img": "",
+      "img": "./img/categoryIcon/27.png",
       "subdata": [
         { "name": "여성의류" },
         { "name": "남성의류" },
@@ -269,7 +286,7 @@
     },
     {
       "name": "컬리상품권",
-      "img": "",
+      "img": "./img/categoryIcon/28.png",
       "subdata": [{ "name": "온라인상품권" }, { "name": "오프라인상품권" }]
     }
   ]
