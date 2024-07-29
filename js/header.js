@@ -1,6 +1,8 @@
 const categoryBtn = document.querySelector(".lnb");
 const categoryGnb = document.querySelector(".category");
 const subCategoryGnb = document.querySelector(".subCategory");
+const customerServiceBtn = document.querySelector(".customerServiceBtn");
+const customerService = document.querySelector(".customerService");
 
 categoryBtn.addEventListener("mouseover", () => {
   categoryGnb.classList.add("active");
@@ -8,8 +10,14 @@ categoryBtn.addEventListener("mouseover", () => {
 categoryBtn.addEventListener("mouseout", () => {
   categoryGnb.classList.remove("active");
 });
+customerServiceBtn.addEventListener("mouseover", () => {
+  customerService.classList.add("active");
+});
+customerServiceBtn.addEventListener("mouseout", () => {
+  customerService.classList.remove("active");
+});
 
-const categoryInfo = "./headerCategory.json";
+const categoryInfo = ".././json/headerCategory.json";
 fetch(categoryInfo)
   .then((respone) => respone.json())
   .then((data) => {

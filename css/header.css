@@ -24,6 +24,7 @@ header .header_wrapper .inner {
 header .header_wrapper .inner .header_top_bar {
   display: flex;
   justify-content: flex-end;
+  position: relative;
 }
 header .header_wrapper .inner .header_top_bar span {
   cursor: pointer;
@@ -33,6 +34,23 @@ header .header_wrapper .inner .header_top_bar span {
 }
 header .header_wrapper .inner .header_top_bar span:first-child {
   color: #5f0080;
+}
+header .header_wrapper .inner .header_top_bar span .customerService {
+  background: #fff;
+  font-size: 12px;
+  position: absolute;
+  top: 35px;
+  right: 0;
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  color: #333;
+  padding: 8px;
+  padding-right: 40px;
+  border: 1px solid #ddd;
+}
+header .header_wrapper .inner .header_top_bar span .customerService.active {
+  display: flex;
 }
 header .header_wrapper .inner .header_main {
   width: 100%;
@@ -228,6 +246,12 @@ footer .footer_wrapper .inner .footer_left .footer_left_info .left_info h2 {
   border: 1px solid #d7d7d7;
   border-radius: 4px;
   font-weight: normal;
+  transition: all 0.3s;
+}
+footer .footer_wrapper .inner .footer_left .footer_left_info .left_info h2:hover {
+  background: #5f0080;
+  color: white;
+  border: 1px solid #5f0080;
 }
 footer .footer_wrapper .inner .footer_left .footer_left_info .left_info div {
   display: flex;

@@ -31,10 +31,10 @@ header {
     .inner {
       width: 1050px;
       height: 100%;
-      // position: relative;
       .header_top_bar {
         display: flex;
         justify-content: flex-end;
+        position: relative;
         span {
           cursor: pointer;
           padding: 10px;
@@ -42,6 +42,23 @@ header {
           color: #333;
           &:first-child {
             color: map-get($color, main-color);
+          }
+          .customerService {
+            background: #fff;
+            font-size: 12px;
+            position: absolute;
+            top: 35px;
+            right: 0;
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            color: #333;
+            padding: 8px;
+            padding-right: 40px;
+            border: 1px solid #ddd;
+            &.active {
+              display: flex;
+            }
           }
         }
       }
@@ -243,6 +260,12 @@ footer {
               border: 1px solid #d7d7d7;
               border-radius: 4px;
               font-weight: normal;
+              transition: all 0.3s;
+              &:hover {
+                background: map-get($color, main-color);
+                color: white;
+                border: 1px solid map-get($color, main-color);
+              }
             }
             div {
               display: flex;
