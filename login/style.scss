@@ -1,0 +1,115 @@
+/*font*/
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Noto+Sans+KR:wght@100..900&family=Overpass:ital,wght@0,100..900;1,100..900&display=swap");
+
+/*reset*/
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+ul,
+li {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/*variable*/
+$color: (
+  color-light: #fff,
+  color-line: #f4f4f4,
+  main: #5f0080,
+);
+
+$point-color: (
+  main-light: #bd76ff,
+  main-light2: #faf4ff,
+  main-dark: #652c91,
+  point-blue: #7897bc,
+);
+
+$font-color: (
+  font-point-red: #fa612f,
+  font1: #333333,
+  font2: #666666,
+  font3: #999999,
+  font4: #b5b5b5,
+);
+
+/*login*/
+.login_container {
+  font: normal 16px/1rem "Noto Sans KR", sans-serif;
+  width: 100%;
+  height: 565px;
+  .login_inner {
+    border: 1px solid #f00;
+    height: 100%;
+    width: 1050px;
+    margin: 0 auto;
+    .login_wrap {
+      width: 340px;
+      margin: auto;
+      border: 1px solid #0f0;
+      h1 {
+        text-align: center;
+        margin-top: 70px;
+        font: 600 1.5rem/1 "Noto Sans KR", sans-serif;
+      }
+      .login_main {
+        form {
+          .id_password {
+            margin: 29px 0 13px 0;
+            input {
+              width: 100%;
+              height: 54px;
+              border: 1px solid map-get($font-color, font4);
+              border-radius: 4px;
+              padding-left: 10px;
+              &[type="text"] {
+                margin-bottom: 12px;
+              }
+              &::placeholder {
+                font-size: 0.8rem;
+                color: map-get($font-color, font3);
+                opacity: 1;
+                transition: all 0.3s;
+              }
+              &:focus {
+                outline: 1px solid map-get($color, main);
+                &::placeholder {
+                  opacity: 0;
+                }
+              }
+            }
+          }
+          .find_container {
+            width: 100%;
+            display: flex;
+            justify-content: end;
+            font-size: 0.8rem;
+            gap: 3px;
+          }
+          .loginBtn_inner {
+            display: flex;
+            flex-direction: column;
+            margin: 16px 0 36px 0;
+            gap: 12px;
+            input {
+              height: 54px;
+              border-radius: 4px;
+              &:nth-child(1) {
+                background: map-get($color, main);
+                color: map-get($color, color-light);
+                font-size: 1rem;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
