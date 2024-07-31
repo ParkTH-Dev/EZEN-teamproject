@@ -4,6 +4,19 @@
 // reset
 @import url("./reset.scss");
 
+$color: (
+  bg-light-color: #fff,
+  main-color: #5f0080,
+  point1-color: #bd76ff,
+  point2-color: #26074d,
+  point3-color: #652c91,
+  point4-color: #7897bc,
+  point5-color: #a864d8,
+  point6-color: #faf4ff,
+);
+
+$main-width: 1050px;
+
 // common
 #app_container {
   width: 100%;
@@ -32,7 +45,77 @@
       padding: 20px 23px;
       background: rgba($color: #000000, $alpha: 0.5);
       border-radius: 50%;
-      color: #fff;
+      color: map-get($color, bg-light-color);
+    }
+  }
+  .main_banner_counter {
+    width: 1280px;
+    margin: 0 auto;
+    position: relative;
+    top: -15%;
+    .counter_wrapper {
+      position: absolute;
+      right: 0%;
+      text-align: right;
+      padding: 5px 20px;
+      background: rgba($color: #000000, $alpha: 0.2);
+      border-radius: 30px;
+      color: map-get($color, bg-light-color);
+    }
+  }
+}
+
+// category_icon
+#category_area {
+  width: $main-width;
+  height: 145px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 30px;
+  .category_item {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    text-align: center;
+    cursor: pointer;
+    &:hover {
+      .category_item_icon {
+        .icon_img {
+          img {
+            transform: translate(-50%, -50%) scale(110%);
+          }
+        }
+      }
+      .category_item_text {
+        color: map-get($color, main-color);
+      }
+    }
+    .category_item_icon {
+      width: 105px;
+      height: 105px;
+      position: relative;
+      .icon_img {
+        img {
+          width: 60px;
+          height: 60px;
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          object-fit: cover;
+          transition: all 0.3s;
+        }
+      }
+      .icon_bg {
+        width: 100%;
+        height: 100%;
+        background: #ededed;
+        border-radius: 50%;
+      }
     }
   }
 }
