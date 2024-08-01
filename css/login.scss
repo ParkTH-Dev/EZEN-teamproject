@@ -46,19 +46,18 @@ $font-color: (
   width: 100%;
   height: 565px;
   .login_inner {
-    border: 1px solid #f00;
     height: 100%;
     width: 1050px;
     margin: 0 auto;
     .login_wrap {
       width: 340px;
       margin: auto;
-      border: 1px solid #0f0;
       h1 {
         text-align: center;
         margin-top: 70px;
         font: 600 1.5rem/1 "Noto Sans KR", sans-serif;
       }
+      /*상단 로그인 페이지*/
       .login_main {
         form {
           .id_password {
@@ -100,16 +99,52 @@ $font-color: (
             gap: 12px;
             input {
               height: 54px;
-              border-radius: 4px;
+              font-size: 1.2rem;
+              font-weight: 500;
+              cursor: pointer;
               &:nth-child(1) {
                 background: map-get($color, main);
                 color: map-get($color, color-light);
-                font-size: 1rem;
+                border: 1px solid map-get($color, main);
+                transition: all 0.3s;
+              }
+              &:nth-child(2) {
+                background: map-get($color, color-light);
+                border: 1px solid map-get($color, main);
+                color: map-get($color, main);
+                transition: all 0.3s;
               }
             }
           }
         }
       }
+      /*하단 간편로그인*/
+      .login_easy {
+        padding-top: 28px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        & > div {
+          font-size: 0.8rem;
+          color: map-get($font-color, font4);
+        }
+        & > ul {
+          padding: 18px 40px;
+          display: flex;
+          width: 100%;
+          justify-content: space-between;
+        }
+      }
+    }
+  }
+}
+
+/*mobail*/
+@media screen and (max-width: 1050px) {
+  .login_container {
+    .login_inner {
+      width: 390px;
     }
   }
 }
