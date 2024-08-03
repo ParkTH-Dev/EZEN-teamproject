@@ -14,7 +14,6 @@ $color: (
 .container {
   color: #333;
   width: 100%;
-  height: 1500px;
   display: flex;
   justify-content: center;
   .inner {
@@ -23,6 +22,7 @@ $color: (
     border: 1px solid red;
     .productInfo {
       margin-top: 60px;
+      margin-bottom: 40px;
       display: flex;
       justify-content: space-between;
       .info_img {
@@ -76,6 +76,57 @@ $color: (
           }
           .share {
             object-fit: cover;
+            position: relative;
+            .share_modal {
+              display: none;
+              width: 300px;
+              background-color: #fff;
+              position: absolute;
+              top: 50px;
+              right: 0;
+              box-shadow: 0 0 10px rgba($color: #000000, $alpha: 0.2);
+              padding: 24px;
+              //   display: flex;
+              flex-direction: column;
+              justify-content: center;
+              align-items: center;
+              gap: 20px;
+              & > .top {
+                width: 100%;
+                height: 100%;
+                display: flex;
+                justify-content: space-around;
+                & > div {
+                  display: flex;
+                  gap: 10px;
+                  align-items: center;
+                  font-weight: bold;
+                  font-size: 14px;
+                }
+              }
+              & > .bottom {
+                width: 100%;
+                height: 40px;
+                display: flex;
+                input {
+                  flex: 2;
+                  border: none;
+                  background-color: #ddd;
+                  font-size: 12px;
+                  padding: 6px;
+                }
+                & > span {
+                  flex: 1.5;
+                  color: map-get($color, main-color);
+                  border: 1px solid map-get($color, main-color);
+                  font-weight: bold;
+                  display: flex;
+                  justify-content: center;
+                  align-items: center;
+                  font-size: 14px;
+                }
+              }
+            }
           }
         }
         .desc_price {
@@ -247,6 +298,137 @@ $color: (
             }
           }
         }
+      }
+      .info_modal {
+        display: none;
+        position: fixed;
+        z-index: 10;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background: #fff;
+        box-shadow: 0 0 10px rgba($color: #000000, $alpha: 0.5);
+        .modal_desc {
+          width: 100%;
+          height: 100%;
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
+          align-items: center;
+          & > span {
+            padding: 10px;
+            width: 100%;
+            background-color: map-get($color, main-color);
+            color: #fff;
+            text-align: center;
+            & > .fa-xmark {
+              cursor: pointer;
+              position: absolute;
+              top: 11px;
+              right: 14px;
+              font-size: 20px;
+            }
+          }
+          & > ul {
+            display: flex;
+            flex-direction: column;
+            padding: 10px;
+            li {
+              padding: 20px 10px;
+              display: flex;
+              border-bottom: 1px solid #ddd;
+
+              h4 {
+                width: 140px;
+                font-size: 14px;
+                color: #666;
+                font-weight: normal;
+              }
+              & > div {
+                width: 450px;
+                font-size: 14px;
+                display: flex;
+                flex-direction: column;
+                h5 {
+                  font-size: 12px;
+                  font-weight: normal;
+                  color: #666;
+                }
+              }
+              &:last-child {
+                border-bottom: none;
+              }
+            }
+          }
+        }
+      }
+    }
+    .top_review {
+      margin-bottom: 20px;
+      display: flex;
+      & > .item {
+        padding: 10px;
+        width: 340px;
+        border: 2px solid map-get($color, point6-color);
+        display: flex;
+        gap: 21px;
+        font-size: 12px;
+        img {
+          object-fit: cover;
+        }
+        .desc {
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
+          .userId {
+            color: map-get($color, point3-color);
+          }
+          .like {
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            color: #999;
+            font-size: 10px;
+            & > div {
+              border: 1px solid #ddd;
+              padding: 2px 5px;
+              border-radius: 23px;
+            }
+          }
+        }
+      }
+    }
+    .productGnb {
+      position: sticky;
+      top: 0;
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      margin-bottom: 24px;
+      .gnbItem {
+        background: #fff;
+        border: 1px solid #ddd;
+        border-right: none;
+        width: 100%;
+        height: 58px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 16px;
+        &:first-child {
+          border: 1px solid map-get($color, main-color);
+          background-color: map-get($color, main-color);
+          color: #fff;
+        }
+        &:last-child {
+          border-right: 1px solid #ddd;
+        }
+      }
+    }
+    .productImg {
+      text-align: center;
+      img {
+        object-fit: cover;
       }
     }
   }
