@@ -1,0 +1,235 @@
+@import "./reset.css";
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&display=swap");
+.container {
+  color: #333;
+  width: 100%;
+  height: 1500px;
+  display: flex;
+  justify-content: center;
+}
+.container .inner {
+  width: 1050px;
+  height: 100%;
+  border: 1px solid red;
+}
+.container .inner .productInfo {
+  margin-top: 60px;
+  display: flex;
+  justify-content: space-between;
+}
+.container .inner .productInfo .info_img {
+  width: 430px;
+  height: 550px;
+  position: relative;
+}
+.container .inner .productInfo .info_img img {
+  width: 100%;
+  height: 100%;
+  border-radius: 6px;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.container .inner .productInfo .info_img .slide_num {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  background-color: #fff;
+  padding: 5px 14px;
+  border-radius: 34px;
+}
+.container .inner .productInfo .info_desc {
+  width: 556px;
+}
+.container .inner .productInfo .info_desc .desc_header {
+  margin-bottom: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.container .inner .productInfo .info_desc .desc_header .desc_title .subtitle {
+  display: flex;
+  gap: 5px;
+  margin-bottom: 5px;
+}
+.container .inner .productInfo .info_desc .desc_header .desc_title .subtitle span {
+  font-size: 14px;
+  color: #fff;
+  padding: 5px 10px;
+  border-radius: 20px;
+  background: #5f0080;
+}
+.container .inner .productInfo .info_desc .desc_header .desc_title .subtitle span:last-child {
+  background-color: #7897bc;
+}
+.container .inner .productInfo .info_desc .desc_header .desc_title .title h1 {
+  font-size: 24px;
+  font-weight: 500;
+}
+.container .inner .productInfo .info_desc .desc_header .share {
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.container .inner .productInfo .info_desc .desc_price {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin-bottom: 19px;
+  margin-bottom: 45px;
+}
+.container .inner .productInfo .info_desc .desc_price h4 {
+  font-size: 16px;
+  font-weight: 300;
+  color: #999;
+  display: flex;
+  align-items: center;
+}
+.container .inner .productInfo .info_desc .desc_price h4 img {
+  width: 16px;
+}
+.container .inner .productInfo .info_desc .desc_price h2 {
+  font-size: 30px;
+}
+.container .inner .productInfo .info_desc .desc_price h2 b {
+  color: #fa612f;
+}
+.container .inner .productInfo .info_desc .desc_price > span {
+  font-size: 24px;
+  font-weight: 200;
+}
+.container .inner .productInfo .info_desc .desc_shipping {
+  padding: 20px 0;
+  border-top: 1px solid #ddd;
+  display: flex;
+  justify-content: space-between;
+}
+.container .inner .productInfo .info_desc .desc_shipping > span {
+  color: #666;
+  font-size: 14px;
+}
+.container .inner .productInfo .info_desc .desc_shipping .shipping_info {
+  width: 428px;
+  display: flex;
+  flex-direction: column;
+}
+.container .inner .productInfo .info_desc .desc_shipping .shipping_info h4 {
+  margin-bottom: 5px;
+  color: #333;
+  font-weight: normal;
+}
+.container .inner .productInfo .info_desc .desc_shipping .shipping_info span {
+  font-size: 12px;
+  color: #666;
+}
+.container .inner .productInfo .info_desc .desc_choice {
+  padding: 20px 0;
+  border-top: 1px solid #ddd;
+  display: flex;
+  justify-content: space-between;
+}
+.container .inner .productInfo .info_desc .desc_choice > span {
+  color: #666;
+  font-size: 14px;
+}
+.container .inner .productInfo .info_desc .desc_choice .choice_box {
+  border: 1px solid #ddd;
+  width: 428px;
+  padding: 11px 15px;
+}
+.container .inner .productInfo .info_desc .desc_choice .choice_box h4 {
+  margin-bottom: 12px;
+  font-size: 14px;
+  font-weight: 400;
+}
+.container .inner .productInfo .info_desc .desc_choice .choice_box > div {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.container .inner .productInfo .info_desc .desc_choice .choice_box > div .quantity {
+  border: 1px solid #ddd;
+  border-radius: 3px;
+  width: 88px;
+  padding: 5px 0;
+  display: flex;
+  justify-content: space-around;
+}
+.container .inner .productInfo .info_desc .desc_choice .choice_box > div > .price {
+  display: flex;
+  gap: 5px;
+  font-size: 12px;
+}
+.container .inner .productInfo .info_desc .desc_choice .choice_box > div > .price span:first-child {
+  color: #999;
+}
+.container .inner .productInfo .info_desc .desc_choice .choice_box > div > .price span:last-child {
+  font-weight: bold;
+}
+.container .inner .productInfo .info_desc .desc_info {
+  display: flex;
+  gap: 4px;
+  margin-bottom: 6px;
+}
+.container .inner .productInfo .info_desc .desc_info > .sale {
+  display: flex;
+  justify-content: space-between;
+  width: 350px;
+  padding: 14px 10px;
+  background-color: #faf4ff;
+  font-size: 12px;
+}
+.container .inner .productInfo .info_desc .desc_info > .sale .fa-solid {
+  font-size: 16px;
+  color: #5f0080;
+}
+.container .inner .productInfo .info_desc .desc_info > .info {
+  border: 1px solid rgba(95, 0, 128, 0.4);
+  border-radius: 4px;
+  width: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 30px;
+  font-size: 16px;
+}
+.container .inner .productInfo .info_desc .desc_info > .info .fa-solid {
+  color: #5f0080;
+}
+.container .inner .productInfo .info_desc .desc_cart {
+  width: 100%;
+  display: flex;
+  gap: 4px;
+}
+.container .inner .productInfo .info_desc .desc_cart .item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid #ddd;
+  border-radius: 3px;
+  width: 56px;
+  height: 56px;
+  font-size: 26px;
+  color: #5f0080;
+}
+.container .inner .productInfo .info_desc .desc_cart .cartIn {
+  width: 432px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  background-color: #5f0080;
+  border-radius: 3px;
+}
+.container .inner .productInfo .info_desc .desc_totalPrice {
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+  padding: 10px 0;
+  gap: 20px;
+}
+.container .inner .productInfo .info_desc .desc_totalPrice h1 {
+  font-size: 20px;
+}
+.container .inner .productInfo .info_desc .desc_totalPrice h1 b {
+  margin-right: 6px;
+  font-size: 32px;
+}
