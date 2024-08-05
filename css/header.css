@@ -67,7 +67,12 @@ header .header_wrapper .inner .header_main .header_main_left span {
   cursor: pointer;
   font-size: 18px;
 }
-header .header_wrapper .inner .header_main .header_main_left span:first-of-type {
+header
+  .header_wrapper
+  .inner
+  .header_main
+  .header_main_left
+  span:first-of-type {
   color: #5f0080;
   font-weight: 500;
 }
@@ -89,7 +94,12 @@ header .header_wrapper .inner .header_main .header_main_center input {
 header .header_wrapper .inner .header_main .header_main_center input:focus {
   outline: none;
 }
-header .header_wrapper .inner .header_main .header_main_center .fa-magnifying-glass {
+header
+  .header_wrapper
+  .inner
+  .header_main
+  .header_main_center
+  .fa-magnifying-glass {
   cursor: pointer;
   font-size: 20px;
   position: absolute;
@@ -159,7 +169,13 @@ header .header_wrapper .inner .header_bottom_gnb .lnb .category.active {
 header .header_wrapper .inner .header_bottom_gnb .lnb .category.active div {
   transition: all 0.3s;
 }
-header .header_wrapper .inner .header_bottom_gnb .lnb .category.active div:hover {
+header
+  .header_wrapper
+  .inner
+  .header_bottom_gnb
+  .lnb
+  .category.active
+  div:hover {
   background-color: #e9e9e9;
   color: #5f0080;
 }
@@ -248,7 +264,13 @@ footer .footer_wrapper .inner .footer_left .footer_left_info .left_info h2 {
   font-weight: normal;
   transition: all 0.3s;
 }
-footer .footer_wrapper .inner .footer_left .footer_left_info .left_info h2:hover {
+footer
+  .footer_wrapper
+  .inner
+  .footer_left
+  .footer_left_info
+  .left_info
+  h2:hover {
   background: #5f0080;
   color: white;
   border: 1px solid #5f0080;
