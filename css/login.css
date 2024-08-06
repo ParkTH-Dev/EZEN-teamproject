@@ -123,6 +123,11 @@ a {
   display: flex;
   width: 100%;
   justify-content: space-between;
+  position: relative;
+}
+.login_container .login_inner .login_wrap .login_easy > ul::before {
+  content: "";
+  background: #fff;
 }
 
 /*mobail*/

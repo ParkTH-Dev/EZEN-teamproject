@@ -134,6 +134,11 @@ $font-color: (
           display: flex;
           width: 100%;
           justify-content: space-between;
+          position: relative;
+          &::before {
+            content: "";
+            background: #fff;
+          }
         }
       }
     }
