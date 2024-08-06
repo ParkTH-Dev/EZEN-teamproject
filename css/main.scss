@@ -29,10 +29,14 @@ $main-width: 1050px;
   width: 100%;
   height: 370px;
   position: relative;
+  &:hover > .main_banner_arrow {
+    opacity: 1;
+  }
   .bg_img {
     width: 100%;
     height: 100%;
     background: url("../img/main/main_01.png") center/cover no-repeat;
+    cursor: pointer;
   }
   .main_banner_arrow {
     width: 1280px;
@@ -42,6 +46,9 @@ $main-width: 1050px;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+    transition: all 0.3s;
+    opacity: 0;
+    cursor: pointer;
     .fa-solid {
       padding: 20px 23px;
       background: rgba($color: #000000, $alpha: 0.5);
@@ -285,6 +292,7 @@ $main-width: 1050px;
     top: 60%;
     left: 50%;
     transform: translate(-50%, -50%);
+    transition: all 0.3s;
     .live_slide_btn {
       i {
         font-size: 20px;

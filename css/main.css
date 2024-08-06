@@ -10,10 +10,14 @@
   height: 370px;
   position: relative;
 }
+#main_banner:hover > .main_banner_arrow {
+  opacity: 1;
+}
 #main_banner .bg_img {
   width: 100%;
   height: 100%;
   background: url("../img/main/main_01.png") center/cover no-repeat;
+  cursor: pointer;
 }
 #main_banner .main_banner_arrow {
   width: 1280px;
@@ -23,6 +27,9 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  transition: all 0.3s;
+  opacity: 0;
+  cursor: pointer;
 }
 #main_banner .main_banner_arrow .fa-solid {
   padding: 20px 23px;
@@ -254,6 +261,7 @@
   top: 60%;
   left: 50%;
   transform: translate(-50%, -50%);
+  transition: all 0.3s;
 }
 #live_area .live_slide_arrow .live_slide_btn i {
   font-size: 20px;
