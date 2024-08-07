@@ -18,6 +18,22 @@ $color: (
 
 $main-width: 1050px;
 
+// animation
+@keyframes clockHand {
+  0% {
+    transform: rotate(0);
+    transform-origin: left center;
+  }
+  80% {
+    transform: rotate(0);
+    transform-origin: left center;
+  }
+  100% {
+    transform: rotate(360deg);
+    transform-origin: left center;
+  }
+}
+
 // common
 #app_container {
   width: 100%;
@@ -311,4 +327,143 @@ $main-width: 1050px;
   width: 100%;
   text-align: center;
   cursor: pointer;
+  margin-bottom: 95px;
+}
+
+#today_area {
+  width: 100%;
+  margin-bottom: 95px;
+  .today_contents_area {
+    width: $main-width;
+    margin: 0 auto;
+    display: flex;
+    gap: 8px;
+    .today_first_area {
+      width: 345px;
+      h2 {
+        font-size: 30px;
+      }
+      p {
+        margin-top: -20px;
+        padding-left: 40px;
+        font-size: 17px;
+        color: #aaa;
+      }
+      .time_area {
+        width: 255px;
+        height: 80px;
+        background: #eee;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 12px;
+        border-radius: 80px;
+        .clock_icon {
+          width: 45px;
+          height: 45px;
+          position: relative;
+          .clock_back {
+            width: 100%;
+            height: 100%;
+            background: map-get($color, main-color);
+            border-radius: 50%;
+          }
+          .clock_hand1 {
+            position: absolute;
+            top: 8px;
+            left: 50%;
+            width: 3px;
+            height: 18px;
+            border-radius: 3px;
+            background: #eee;
+            transform: translateX(-50%);
+          }
+          .clock_hand2 {
+            position: absolute;
+            top: 50%;
+            left: 23px;
+            width: 15px;
+            height: 3px;
+            border-radius: 3px;
+            background: #eee;
+            transform: translateY(-50%);
+            animation: clockHand 3s linear infinite;
+          }
+        }
+        .timer_number {
+          font-size: 36px;
+          font-weight: 700;
+          margin-top: -5px;
+        }
+      }
+    }
+    .today_item_area {
+      width: 345px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      .product_img {
+        border-radius: 15px;
+        overflow: hidden;
+        img {
+          width: 100%;
+          height: 475px;
+          transform: scale(110%);
+          object-fit: cover;
+        }
+      }
+      .product_cartin {
+        width: 100%;
+        height: 50px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 5px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        font-size: 22px;
+        transition: all 0.3s;
+        cursor: pointer;
+        i {
+          font-size: 20px;
+          padding-top: 3px;
+        }
+        &:hover {
+          background: map-get($color, main-color);
+          color: map-get($color, bg-light-color);
+        }
+      }
+      .product_info {
+        display: flex;
+        flex-direction: column;
+        .today_product_name {
+          font-size: 22px;
+          margin-top: -5px;
+        }
+        .today_price {
+          font-size: 20px;
+          text-decoration: line-through;
+          color: #b5b5b5;
+          margin-top: -10px;
+        }
+        .today_salePrice {
+          display: flex;
+          gap: 10px;
+          font-size: 22px;
+          font-weight: 700;
+          margin-top: -40px;
+          .today_rating {
+            color: map-get($color, point-orange-color);
+          }
+        }
+        .comment_text {
+          display: flex;
+          align-items: center;
+          gap: 3px;
+          color: #999;
+          margin-top: -20px;
+        }
+      }
+    }
+  }
 }

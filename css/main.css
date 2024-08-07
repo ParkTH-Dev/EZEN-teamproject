@@ -1,5 +1,19 @@
 @import url("https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&display=swap");
 @import url("./reset.scss");
+@keyframes clockHand {
+  0% {
+    transform: rotate(0);
+    transform-origin: left center;
+  }
+  80% {
+    transform: rotate(0);
+    transform-origin: left center;
+  }
+  100% {
+    transform: rotate(360deg);
+    transform-origin: left center;
+  }
+}
 #app_container {
   width: 100%;
   font-family: "Noto Sans KR", sans-serif;
@@ -276,4 +290,144 @@
   width: 100%;
   text-align: center;
   cursor: pointer;
+  margin-bottom: 95px;
+}
+
+#today_area {
+  width: 100%;
+  margin-bottom: 95px;
+}
+#today_area .today_contents_area {
+  width: 1050px;
+  margin: 0 auto;
+  display: flex;
+  gap: 8px;
+}
+#today_area .today_contents_area .today_first_area {
+  width: 345px;
+}
+#today_area .today_contents_area .today_first_area h2 {
+  font-size: 30px;
+}
+#today_area .today_contents_area .today_first_area p {
+  margin-top: -20px;
+  padding-left: 40px;
+  font-size: 17px;
+  color: #aaa;
+}
+#today_area .today_contents_area .today_first_area .time_area {
+  width: 255px;
+  height: 80px;
+  background: #eee;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  border-radius: 80px;
+}
+#today_area .today_contents_area .today_first_area .time_area .clock_icon {
+  width: 45px;
+  height: 45px;
+  position: relative;
+}
+#today_area .today_contents_area .today_first_area .time_area .clock_icon .clock_back {
+  width: 100%;
+  height: 100%;
+  background: #5f0080;
+  border-radius: 50%;
+}
+#today_area .today_contents_area .today_first_area .time_area .clock_icon .clock_hand1 {
+  position: absolute;
+  top: 8px;
+  left: 50%;
+  width: 3px;
+  height: 18px;
+  border-radius: 3px;
+  background: #eee;
+  transform: translateX(-50%);
+}
+#today_area .today_contents_area .today_first_area .time_area .clock_icon .clock_hand2 {
+  position: absolute;
+  top: 50%;
+  left: 23px;
+  width: 15px;
+  height: 3px;
+  border-radius: 3px;
+  background: #eee;
+  transform: translateY(-50%);
+  animation: clockHand 3s linear infinite;
+}
+#today_area .today_contents_area .today_first_area .time_area .timer_number {
+  font-size: 36px;
+  font-weight: 700;
+  margin-top: -5px;
+}
+#today_area .today_contents_area .today_item_area {
+  width: 345px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+#today_area .today_contents_area .today_item_area .product_img {
+  border-radius: 15px;
+  overflow: hidden;
+}
+#today_area .today_contents_area .today_item_area .product_img img {
+  width: 100%;
+  height: 475px;
+  transform: scale(110%);
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+#today_area .today_contents_area .today_item_area .product_cartin {
+  width: 100%;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 22px;
+  transition: all 0.3s;
+  cursor: pointer;
+}
+#today_area .today_contents_area .today_item_area .product_cartin i {
+  font-size: 20px;
+  padding-top: 3px;
+}
+#today_area .today_contents_area .today_item_area .product_cartin:hover {
+  background: #5f0080;
+  color: #fff;
+}
+#today_area .today_contents_area .today_item_area .product_info {
+  display: flex;
+  flex-direction: column;
+}
+#today_area .today_contents_area .today_item_area .product_info .today_product_name {
+  font-size: 22px;
+  margin-top: -5px;
+}
+#today_area .today_contents_area .today_item_area .product_info .today_price {
+  font-size: 20px;
+  text-decoration: line-through;
+  color: #b5b5b5;
+  margin-top: -10px;
+}
+#today_area .today_contents_area .today_item_area .product_info .today_salePrice {
+  display: flex;
+  gap: 10px;
+  font-size: 22px;
+  font-weight: 700;
+  margin-top: -40px;
+}
+#today_area .today_contents_area .today_item_area .product_info .today_salePrice .today_rating {
+  color: #fa622f;
+}
+#today_area .today_contents_area .today_item_area .product_info .comment_text {
+  display: flex;
+  align-items: center;
+  gap: 3px;
+  color: #999;
+  margin-top: -20px;
 }
