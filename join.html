@@ -3,123 +3,153 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!--bootstrap-->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
+      crossorigin="anonymous"
+    />
+    <!--fontawsome-->
     <script
       src="https://kit.fontawesome.com/f75707ac34.js"
       crossorigin="anonymous"
     ></script>
+    <!--custcom-->
     <link rel="stylesheet" href="./css/join.css" />
     <title>Document</title>
   </head>
   <body>
-    <div class="join_container">
+    <div id="join_container">
       <div class="join_inner">
         <div id="title">
           <h1>회원가입</h1>
           <h4><span class="star">*</span>필수입력사항</h4>
         </div>
-        <div id="main">
-          <form action="">
-            <ul>
+        <main id="main">
+          <form action="http://127.0.0.1:5500" method="get">
+            <ul id="private">
               <li>
                 <div>
                   아이디
                   <span class="star">*</span>
                 </div>
-                <input
-                  type="text"
-                  name="userId"
-                  id="userId"
-                  placeholder="아이디를 입력해주세요"
-                />
-                <input class="CheckBtn" type="button" value="중복확인" />
+                <div>
+                  <input
+                    type="text"
+                    name="userId"
+                    id="userId"
+                    placeholder="아이디를 입력해주세요"
+                  />
+                </div>
+                <div></div>
               </li>
               <li>
                 <div>
                   비밀번호
                   <span class="star">*</span>
                 </div>
-                <input
-                  type="password"
-                  name="userpw"
-                  id="userpw"
-                  placeholder="비밀번호를 입력해주세요"
-                />
+                <div>
+                  <input
+                    type="password"
+                    name="userpw"
+                    id="userpw"
+                    placeholder="비밀번호를 입력해주세요"
+                  />
+                </div>
+                <div></div>
               </li>
               <li>
                 <div>
                   비밀번호확인
                   <span class="star">*</span>
                 </div>
-                <input
-                  type="password"
-                  name="pwCheck"
-                  id="pwCheck"
-                  placeholder="비밀번호를 한번 더 입력해주세요"
-                />
+                <div>
+                  <input
+                    type="password"
+                    name="pwCheck"
+                    id="pwCheck"
+                    placeholder="비밀번호를 한번 더 입력해주세요"
+                  />
+                </div>
+                <div></div>
               </li>
               <li>
                 <div>
                   이름
                   <span class="star">*</span>
                 </div>
-                <input
-                  type="text"
-                  name="userName"
-                  id="userName"
-                  placeholder="이름을 입력해주세요"
-                />
+                <div>
+                  <input
+                    type="text"
+                    name="userName"
+                    id="userName"
+                    placeholder="이름을 입력해주세요"
+                  />
+                </div>
+                <div></div>
               </li>
               <li>
                 <div>
                   이메일
                   <span class="star">*</span>
                 </div>
-                <input
-                  type="text"
-                  name="userEmail"
-                  id="userEmail"
-                  placeholder="예:marketkurly"
-                />
-                <div>@</div>
-                <div class="btnSelct">
-                  <button type="button" class="btnText">선택하기</button>
-                  <button>
-                    <img src="./img/login_img/다운로드.svg" alt="email" />
-                  </button>
+                <div class="emailinner">
+                  <div>
+                    <input
+                      type="text"
+                      name="userEmail"
+                      id="userEmail"
+                      placeholder="예:marketkurly"
+                    />
+                  </div>
+                  <div>
+                    <div>@</div>
+                    <select name="email" id="email">
+                      <option value="none" selected disabled>선택하기</option>
+                      <option value="naver">naver.com</option>
+                      <option value="gmail">gmail.com</option>
+                      <option value="hanmail">hanmail.net</option>
+                      <option value="kakao">kakao.com</option>
+                      <option value="daum">daum.net</option>
+                      <option value="hotmail">hotmail.com</option>
+                      <option value="yahoo">yahoo.co.kr</option>
+                      <option value="direct">직접입력</option>
+                    </select>
+                    <input type="text" name="emailDr" id="emailDr" />
+                  </div>
                 </div>
-                <div class="btnList">
-                  <button type="button" class="btnItem">naver.com</button>
-                  <button type="button" class="btnItem">gmail.com</button>
-                  <button type="button" class="btnItem">hanmail.net</button>
-                  <button type="button" class="btnItem">kakao.com</button>
-                  <button type="button" class="btnItem">daum.net</button>
-                  <button type="button" class="btnItem">hotmail.com</button>
-                  <button type="button" class="btnItem">yahoo.co.kr</button>
-                  <button type="button" class="btnItem">직접입력</button>
-                </div>
+                <div></div>
               </li>
               <li>
                 <div>
                   휴대폰
                   <span class="star">*</span>
                 </div>
-                <input
-                  type="text"
-                  name="userPhon"
-                  id="userPhon"
-                  placeholder="숫자만 입력해주세요"
-                />
-                <input class="checkBtn" type="button" value="인증번호 받기" />
+                <div>
+                  <input
+                    type="text"
+                    name="userPhon"
+                    id="userPhon"
+                    placeholder="숫자만 입력해주세요"
+                  />
+                </div>
+                <div>
+                  <input class="checkBtn" type="button" value="인증번호 받기" />
+                </div>
               </li>
               <li>
                 <div>
                   주소
                   <span class="star">*</span>
                 </div>
-                <button class="address">
-                  <i class="fa-solid fa-magnifying-glass"></i>
-                  주소검색
-                </button>
+                <div>
+                  <button class="address">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                    주소검색
+                  </button>
+                </div>
+                <div></div>
               </li>
               <li>
                 <div>성별</div>
@@ -131,9 +161,10 @@
                   <input type="radio" name="genders" id="genderHdn" />
                   <label for="genderHdn">선택안함</label>
                 </div>
+                <div></div>
               </li>
               <li>
-                <div>생년월일</div>
+                <div class="subname">생년월일</div>
                 <div class="birth">
                   <input type="text" name="year" id="year" placeholder="YYYY" />
                   <span>/</span>
@@ -141,6 +172,7 @@
                   <span>/</span>
                   <input type="text" name="day" id="day" placeholder="DD" />
                 </div>
+                <div></div>
               </li>
               <li>
                 <div>추가입력 사항</div>
@@ -150,52 +182,309 @@
                   <input type="radio" name="Additional" id="participationE" />
                   <label for="participationE">참여 이벤트명</label>
                 </div>
+                <div></div>
               </li>
               <li class="hidden-add">
-                <div class="invit-hidden">
-                  <div>
-                    <div></div>
-                    <input
-                      type="text"
-                      name="invite-text"
-                      id="invite-text"
-                      placeholder="추천인 아이디를 입력해 주세요"
-                    />
-                    <input type="button" value="아이디 확인" />
-                  </div>
-                  <div>
-                    <div></div>
-                    <p>
-                      가입 후 7일 내 첫주문 배송완료 시,친구초대 이벤트 적립금이
-                      지급됩니다.
-                    </p>
-                  </div>
+                <div></div>
+                <div>
+                  <input
+                    type="text"
+                    name="invite-text"
+                    id="invite-text"
+                    placeholder="추천인 아이디를 입력해 주세요"
+                  />
                 </div>
-                <div class="participation-hidden">
-                  <div>
-                    <div></div>
-                    <input
-                      type="text"
-                      name="participation-text"
-                      id="participation-text"
-                      placeholder="참여 이벤트명을 입력해 주세요"
-                    />
-                  </div>
-                  <div>
-                    <div></div>
-                    <ul>
-                      <li>
-                        추천인 아이디와 참여 이벤트명 중 하나만 선택 가능합니다
-                      </li>
-                      <li>가입 이후는 수정이 불가능합니다</li>
-                      <li>대소문자 및 띄어쓰기에 유의해주세요</li>
-                    </ul>
-                  </div>
-                </div>
+                <div><input type="button" value="아이디 확인" /></div>
               </li>
             </ul>
+            <div id="checkinner">
+              <div>
+                이용약관동의
+                <span class="star">*</span>
+              </div>
+              <div>
+                <ul id="checkList">
+                  <li>
+                    <input type="checkbox" name="allCheck" id="allCheck" />
+                    <label for="allCheck">
+                      <div class="chackIcon">
+                        <svg
+                          width="24"
+                          height="24"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            d="M23.5 12C23.5 18.3513 18.3513 23.5 12 23.5C5.64873 23.5 0.5 18.3513 0.5 12C0.5 5.64873 5.64873 0.5 12 0.5C18.3513 0.5 23.5 5.64873 23.5 12Z"
+                            stroke="#ddd"
+                            fill="#fff"
+                          ></path>
+                          <path
+                            d="M7 12.6667L10.3846 16L18 8.5"
+                            stroke="#ddd"
+                            stroke-width="1.5"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                          ></path>
+                        </svg>
+                      </div>
+                      <span>전체 동의합니다.</span>
+                    </label>
+                    <p>
+                      선택항목에 동의하지 않은 경우도 회원가입 및 일반적인
+                      서비스를 이용할 수 있습니다.
+                    </p>
+                  </li>
+                  <li>
+                    <input type="checkbox" name="termsCheck" id="termsCheck" />
+                    <label for="termsCheck">
+                      <div class="chackIcon">
+                        <svg
+                          width="24"
+                          height="24"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            d="M23.5 12C23.5 18.3513 18.3513 23.5 12 23.5C5.64873 23.5 0.5 18.3513 0.5 12C0.5 5.64873 5.64873 0.5 12 0.5C18.3513 0.5 23.5 5.64873 23.5 12Z"
+                            stroke="#ddd"
+                            fill="#fff"
+                          ></path>
+                          <path
+                            d="M7 12.6667L10.3846 16L18 8.5"
+                            stroke="#ddd"
+                            stroke-width="1.5"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                          ></path>
+                        </svg>
+                      </div>
+                      <span
+                        >이용약관 동의
+                        <b>(필수)</b>
+                      </span>
+                    </label>
+                    <div class="modal termsM">
+                      <div>
+                        약관보기
+                        <span>
+                          <i class="fa-solid fa-chevron-right"></i>
+                        </span>
+                      </div>
+                    </div>
+                  </li>
+                  <li>
+                    <input
+                      type="checkbox"
+                      name="privateCheck"
+                      id="privateCheck"
+                    />
+                    <label for="privateCheck">
+                      <div class="chackIcon">
+                        <svg
+                          width="24"
+                          height="24"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            d="M23.5 12C23.5 18.3513 18.3513 23.5 12 23.5C5.64873 23.5 0.5 18.3513 0.5 12C0.5 5.64873 5.64873 0.5 12 0.5C18.3513 0.5 23.5 5.64873 23.5 12Z"
+                            stroke="#ddd"
+                            fill="#fff"
+                          ></path>
+                          <path
+                            d="M7 12.6667L10.3846 16L18 8.5"
+                            stroke="#ddd"
+                            stroke-width="1.5"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                          ></path>
+                        </svg>
+                      </div>
+                      <span
+                        >개인정보 수집·이용동의
+                        <b>(필수)</b>
+                      </span>
+                    </label>
+                    <div class="modal privateM">
+                      <div>
+                        약관보기
+                        <span>
+                          <i class="fa-solid fa-chevron-right"></i>
+                        </span>
+                      </div>
+                    </div>
+                  </li>
+                  <li>
+                    <input
+                      type="checkbox"
+                      name="private2Check"
+                      id="private2Check"
+                    />
+                    <label for="private2Check">
+                      <div class="chackIcon">
+                        <svg
+                          width="24"
+                          height="24"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            d="M23.5 12C23.5 18.3513 18.3513 23.5 12 23.5C5.64873 23.5 0.5 18.3513 0.5 12C0.5 5.64873 5.64873 0.5 12 0.5C18.3513 0.5 23.5 5.64873 23.5 12Z"
+                            stroke="#ddd"
+                            fill="#fff"
+                          ></path>
+                          <path
+                            d="M7 12.6667L10.3846 16L18 8.5"
+                            stroke="#ddd"
+                            stroke-width="1.5"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                          ></path>
+                        </svg>
+                      </div>
+                      <span
+                        >개인정보 수집·이용동의
+                        <b>(선택)</b>
+                      </span>
+                    </label>
+                    <div class="modal private2M">
+                      <div>
+                        약관보기
+                        <span>
+                          <i class="fa-solid fa-chevron-right"></i>
+                        </span>
+                      </div>
+                    </div>
+                  </li>
+                  <li>
+                    <input type="checkbox" name="receive" id="receive" />
+                    <label for="receive">
+                      <div>
+                        <div class="chackIcon">
+                          <svg
+                            width="24"
+                            height="24"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <path
+                              d="M23.5 12C23.5 18.3513 18.3513 23.5 12 23.5C5.64873 23.5 0.5 18.3513 0.5 12C0.5 5.64873 5.64873 0.5 12 0.5C18.3513 0.5 23.5 5.64873 23.5 12Z"
+                              stroke="#ddd"
+                              fill="#fff"
+                            ></path>
+                            <path
+                              d="M7 12.6667L10.3846 16L18 8.5"
+                              stroke="#ddd"
+                              stroke-width="1.5"
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                            ></path>
+                          </svg>
+                        </div>
+                        <span
+                          >무료배송,할인쿠폰 등 해택/정보 수신 동의
+                          <b>(선택)</b></span
+                        >
+                      </div>
+                    </label>
+                    <div class="checkBttm">
+                      <input type="checkbox" name="sns" id="sns" />
+                      <label for="sns">
+                        <div class="chackIcon">
+                          <svg
+                            width="24"
+                            height="24"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <path
+                              d="M23.5 12C23.5 18.3513 18.3513 23.5 12 23.5C5.64873 23.5 0.5 18.3513 0.5 12C0.5 5.64873 5.64873 0.5 12 0.5C18.3513 0.5 23.5 5.64873 23.5 12Z"
+                              stroke="#ddd"
+                              fill="#fff"
+                            ></path>
+                            <path
+                              d="M7 12.6667L10.3846 16L18 8.5"
+                              stroke="#ddd"
+                              stroke-width="1.5"
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                            ></path>
+                          </svg>
+                        </div>
+                        <span>SNS</span>
+                      </label>
+                      <input type="checkbox" name="emailck" id="emailck" />
+                      <label for="emailck">
+                        <div class="chackIcon">
+                          <svg
+                            width="24"
+                            height="24"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <path
+                              d="M23.5 12C23.5 18.3513 18.3513 23.5 12 23.5C5.64873 23.5 0.5 18.3513 0.5 12C0.5 5.64873 5.64873 0.5 12 0.5C18.3513 0.5 23.5 5.64873 23.5 12Z"
+                              stroke="#ddd"
+                              fill="#fff"
+                            ></path>
+                            <path
+                              d="M7 12.6667L10.3846 16L18 8.5"
+                              stroke="#ddd"
+                              stroke-width="1.5"
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                            ></path>
+                          </svg>
+                        </div>
+                        <span>이메일</span>
+                      </label>
+                    </div>
+                  </li>
+                  <li>
+                    <input type="checkbox" name="14Age" id="14Age" />
+                    <label for="14Age">
+                      <div class="chackIcon">
+                        <svg
+                          width="24"
+                          height="24"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            d="M23.5 12C23.5 18.3513 18.3513 23.5 12 23.5C5.64873 23.5 0.5 18.3513 0.5 12C0.5 5.64873 5.64873 0.5 12 0.5C18.3513 0.5 23.5 5.64873 23.5 12Z"
+                            stroke="#ddd"
+                            fill="#fff"
+                          ></path>
+                          <path
+                            d="M7 12.6667L10.3846 16L18 8.5"
+                            stroke="#ddd"
+                            stroke-width="1.5"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                          ></path>
+                        </svg>
+                      </div>
+                      <span
+                        >본인은 만 14세 이상입니다.
+                        <b>(필수)</b>
+                      </span>
+                    </label>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <input type="submit" value="가입하기" />
           </form>
-        </div>
+        </main>
       </div>
     </div>
   </body>

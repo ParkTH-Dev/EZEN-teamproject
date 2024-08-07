@@ -1,0 +1,113 @@
+/*font*/
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Noto+Sans+KR:wght@100..900&family=Overpass:ital,wght@0,100..900;1,100..900&display=swap");
+/*variable*/
+/*reset*/
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+ul,
+li {
+  list-style: none;
+}
+
+/*custom*/
+#join_container {
+  font: normal 16px/1rem "Noto Sans KR", sans-serif;
+  width: 1080px;
+  margin: 0 auto;
+  color: #333333;
+}
+#join_container .join_inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+#join_container .join_inner #title {
+  width: 750px;
+  border-bottom: 2px solid;
+}
+#join_container .join_inner #title h1 {
+  text-align: center;
+  font: bold 1.5rem/1;
+  margin: 30px 0 50px;
+}
+#join_container .join_inner #title h4 {
+  display: flex;
+  justify-content: end;
+  margin-bottom: 10px;
+  font-size: 0.6rem;
+  color: #727272;
+}
+#join_container .join_inner #title h4 span {
+  color: #ef7793;
+}
+#join_container .join_inner #main {
+  width: 750px;
+}
+#join_container .join_inner #main form #private {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #f00;
+  width: 100%;
+}
+#join_container .join_inner #main form #private li {
+  height: 60px;
+  padding: 10px 20px;
+  display: flex;
+}
+#join_container .join_inner #main form #private li > div:nth-child(1) {
+  width: 200px;
+}
+#join_container .join_inner #main form #private li > div:nth-child(2) {
+  width: calc(100% - 380px);
+}
+#join_container .join_inner #main form #private li > div:nth-child(3) {
+  width: 180px;
+}
+#join_container .join_inner #main form #private li input[type=text], #join_container .join_inner #main form #private li input[type=password] {
+  width: 100%;
+  padding: 10px;
+  outline: none;
+  border: 1px solid #c5c5c5;
+}
+#join_container .join_inner #main form #private li .emailinner {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  border: 1px solid #c5c5c5;
+}
+#join_container .join_inner #main form #private li .emailinner > div {
+  flex-grow: 1;
+  border: none;
+}
+#join_container .join_inner #main form #private li .emailinner > div input {
+  border: none;
+}
+#join_container .join_inner #main form #private li .emailinner > div:nth-child(2) {
+  display: flex;
+  align-items: center;
+}
+#join_container .join_inner #main form #private li .emailinner > div:nth-child(2) select {
+  border: none;
+}
+#join_container .join_inner #main form #private li .emailinner > div:nth-child(2) input {
+  display: none;
+}
+#join_container .join_inner #main form #private li .birth {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid #c5c5c5;
+  border-radius: 4px;
+}
+#join_container .join_inner #main form #private li .birth > input {
+  flex-grow: 1;
+  border: none;
+  height: 80%;
+  text-align: center;
+}
