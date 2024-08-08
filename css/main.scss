@@ -6,6 +6,7 @@
 
 $color: (
   bg-light-color: #fff,
+  bg-black-color: #000,
   main-color: #5f0080,
   point1-color: #bd76ff,
   point2-color: #26074d,
@@ -150,13 +151,13 @@ $main-width: 1050px;
   height: auto;
   position: relative;
   margin-bottom: 92px;
-  h2 {
+  & > h2 {
     text-align: center;
     margin-top: 100px;
     font-size: 35px;
     font-weight: 700;
   }
-  p {
+  & > p {
     text-align: center;
     font-size: 20px;
     margin-top: -25px;
@@ -350,51 +351,61 @@ $main-width: 1050px;
         color: #aaa;
       }
       .time_area {
-        width: 255px;
+        width: 220px;
         height: 80px;
         background: #eee;
         display: flex;
-        justify-content: center;
         align-items: center;
         gap: 12px;
+        padding: 0 20px;
         border-radius: 80px;
-        .clock_icon {
-          width: 45px;
-          height: 45px;
-          position: relative;
-          .clock_back {
-            width: 100%;
-            height: 100%;
-            background: map-get($color, main-color);
-            border-radius: 50%;
-          }
-          .clock_hand1 {
-            position: absolute;
-            top: 8px;
-            left: 50%;
-            width: 3px;
-            height: 18px;
-            border-radius: 3px;
-            background: #eee;
-            transform: translateX(-50%);
-          }
-          .clock_hand2 {
-            position: absolute;
-            top: 50%;
-            left: 23px;
-            width: 15px;
-            height: 3px;
-            border-radius: 3px;
-            background: #eee;
-            transform: translateY(-50%);
-            animation: clockHand 3s linear infinite;
-          }
+      }
+      .time_area2 {
+        width: 165px;
+        height: 80px;
+        background: #eee;
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        padding: 0 20px;
+        border-radius: 80px;
+      }
+      .clock_icon {
+        width: 45px;
+        height: 45px;
+        position: relative;
+        .clock_back {
+          width: 100%;
+          height: 100%;
+          background: map-get($color, main-color);
+          border-radius: 50%;
         }
-        .timer_number {
-          font-size: 36px;
-          font-weight: 700;
-          margin-top: -5px;
+        .clock_hand1 {
+          position: absolute;
+          top: 8px;
+          left: 50%;
+          width: 3px;
+          height: 18px;
+          border-radius: 3px;
+          background: #eee;
+          transform: translateX(-50%);
         }
+        .clock_hand2 {
+          position: absolute;
+          top: 50%;
+          left: 22px;
+          width: 15px;
+          height: 3px;
+          border-radius: 3px;
+          background: #eee;
+          transform: translateY(-50%);
+          animation: clockHand 3s linear infinite;
+        }
+      }
+      .timer_number {
+        font-size: 36px;
+        font-weight: 700;
+        margin-top: -5px;
       }
     }
     .today_item_area {
@@ -405,28 +416,31 @@ $main-width: 1050px;
       .product_img {
         border-radius: 15px;
         overflow: hidden;
+        height: 475px;
         img {
           width: 100%;
-          height: 475px;
-          transform: scale(110%);
           object-fit: cover;
+          transition: all 0.5s;
+          &:hover {
+            transform: scale(103%);
+          }
         }
       }
       .product_cartin {
         width: 100%;
-        height: 50px;
+        height: 35px;
         display: flex;
         justify-content: center;
         align-items: center;
         gap: 5px;
         border: 1px solid #ddd;
         border-radius: 5px;
-        font-size: 22px;
+        font-size: 16px;
         transition: all 0.3s;
         cursor: pointer;
         i {
-          font-size: 20px;
-          padding-top: 3px;
+          font-size: 14px;
+          padding-top: 2px;
         }
         &:hover {
           background: map-get($color, main-color);
@@ -437,11 +451,11 @@ $main-width: 1050px;
         display: flex;
         flex-direction: column;
         .today_product_name {
-          font-size: 22px;
-          margin-top: -5px;
+          font-size: 16px;
+          margin-top: 0px;
         }
         .today_price {
-          font-size: 20px;
+          font-size: 14px;
           text-decoration: line-through;
           color: #b5b5b5;
           margin-top: -10px;
@@ -449,9 +463,9 @@ $main-width: 1050px;
         .today_salePrice {
           display: flex;
           gap: 10px;
-          font-size: 22px;
+          font-size: 20px;
           font-weight: 700;
-          margin-top: -40px;
+          margin-top: -30px;
           .today_rating {
             color: map-get($color, point-orange-color);
           }
@@ -460,9 +474,219 @@ $main-width: 1050px;
           display: flex;
           align-items: center;
           gap: 3px;
+          font-size: 12px;
           color: #999;
           margin-top: -20px;
         }
+      }
+    }
+    .today_item_area2 {
+      width: 700px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      .product_img {
+        border-radius: 15px;
+        overflow: hidden;
+        height: 475px;
+        img {
+          width: 100%;
+          object-fit: cover;
+          transition: all 0.5s;
+          &:hover {
+            transform: scale(103%);
+          }
+        }
+      }
+      .product_cartin {
+        width: 100%;
+        height: 35px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 5px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        font-size: 16px;
+        transition: all 0.3s;
+        cursor: pointer;
+        i {
+          font-size: 14px;
+          padding-top: 2px;
+        }
+        &:hover {
+          background: map-get($color, main-color);
+          color: map-get($color, bg-light-color);
+        }
+      }
+      .product_info {
+        display: flex;
+        flex-direction: column;
+        .today_product_name {
+          font-size: 16px;
+          margin-top: 0px;
+        }
+        .today_price {
+          font-size: 14px;
+          text-decoration: line-through;
+          color: #b5b5b5;
+          margin-top: -10px;
+        }
+        .today_salePrice {
+          display: flex;
+          gap: 10px;
+          font-size: 20px;
+          font-weight: 700;
+          margin-top: -30px;
+          .today_rating {
+            color: map-get($color, point-orange-color);
+          }
+        }
+        .comment_text {
+          display: flex;
+          align-items: center;
+          gap: 3px;
+          font-size: 12px;
+          color: #999;
+          margin-top: -20px;
+        }
+      }
+    }
+  }
+}
+
+#product_list {
+  width: 100%;
+  height: auto;
+  position: relative;
+  margin-bottom: 95px;
+  & > h2 {
+    text-align: center;
+    margin-top: 100px;
+    font-size: 35px;
+    font-weight: 700;
+  }
+  & > p {
+    text-align: center;
+    font-size: 20px;
+    margin-top: -25px;
+    margin-bottom: 30px;
+  }
+  .product_slide_area {
+    width: $main-width;
+    margin: 0 auto;
+    display: flex;
+    gap: 10px;
+    .product_item {
+      width: 255px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      .product_item_img {
+        border-radius: 8px;
+        overflow: hidden;
+        height: 330px;
+        position: relative;
+        &:hover > img {
+          transform: scale(103%);
+        }
+        img {
+          width: 100%;
+          object-fit: cover;
+          transition: all 0.5s;
+        }
+        .rating_coupon {
+          position: absolute;
+          top: 0;
+          left: 0;
+          font-size: 14px;
+          color: map-get($color, bg-light-color);
+          background: map-get($color, point1-color);
+          padding: 5px 10px;
+          border-radius: 5px;
+          margin: 8px;
+        }
+        .benefits {
+          width: 100%;
+          height: 40px;
+          position: absolute;
+          bottom: 0;
+          color: map-get($color, bg-light-color);
+          text-align: center;
+          line-height: 40px;
+          background: rgba(map-get($color, bg-black-color), $alpha: 0.5);
+        }
+      }
+      .product_cartin {
+        width: 100%;
+        height: 35px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 5px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        font-size: 16px;
+        transition: all 0.3s;
+        cursor: pointer;
+        i {
+          font-size: 14px;
+          padding-top: 2px;
+        }
+        &:hover {
+          background: map-get($color, main-color);
+          color: map-get($color, bg-light-color);
+        }
+      }
+      .product_item_text {
+        .product_name {
+          font-size: 16px;
+          margin-top: 0;
+        }
+        .product_price {
+          font-size: 14px;
+          text-decoration: line-through;
+          color: #b5b5b5;
+          margin-top: -10px;
+        }
+        .product_salePrice {
+          display: flex;
+          gap: 8px;
+          font-size: 20px;
+          font-weight: 700;
+          margin-top: -35px;
+          .product_rating {
+            color: map-get($color, point-orange-color);
+          }
+        }
+        .comment_text {
+          display: flex;
+          font-size: 12px;
+          align-items: center;
+          gap: 3px;
+          color: #999;
+          margin-top: -20px;
+        }
+      }
+    }
+  }
+  .product_slide_arrow {
+    width: calc($main-width + 60px);
+    display: flex;
+    justify-content: space-between;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    transition: all 0.3s;
+    .product_slide_btn {
+      i {
+        font-size: 20px;
+        padding: 15px 20px;
+        background: map-get($color, bg-light-color);
+        border-radius: 50%;
+        box-shadow: 0 0 5px rgba($color: #000000, $alpha: 0.2);
+        cursor: pointer;
       }
     }
   }
