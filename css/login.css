@@ -1,4 +1,3 @@
-@charset "UTF-8";
 /*font*/
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Noto+Sans+KR:wght@100..900&family=Overpass:ital,wght@0,100..900;1,100..900&display=swap");
 /*reset*/
@@ -33,8 +32,8 @@ a {
 .login_container .login_inner .login_wrap {
   width: 340px;
   margin: auto;
-  /*상단 로그인 페이지*/
-  /*하단 간편로그인*/
+  /*top*/
+  /*bottom*/
 }
 .login_container .login_inner .login_wrap h1 {
   text-align: center;
@@ -83,6 +82,14 @@ a {
   font-size: 0.8rem;
   gap: 3px;
 }
+.login_container .login_inner .login_wrap .login_main form .find_container > a {
+  border-bottom: 1px solid #fff;
+  transition: all 0.3s;
+}
+.login_container .login_inner .login_wrap .login_main form .find_container > a:hover {
+  color: #5f0080;
+  border-bottom: 1px solid #5f0080;
+}
 .login_container .login_inner .login_wrap .login_main form .loginBtn_inner {
   display: flex;
   flex-direction: column;
@@ -91,7 +98,7 @@ a {
 }
 .login_container .login_inner .login_wrap .login_main form .loginBtn_inner input {
   height: 54px;
-  font-size: 1.2rem;
+  font-size: 1rem;
   font-weight: 500;
   cursor: pointer;
 }
@@ -118,16 +125,32 @@ a {
   font-size: 0.8rem;
   color: #b5b5b5;
 }
+.login_container .login_inner .login_wrap .login_easy > div > a {
+  transition: all 0.3s;
+}
+.login_container .login_inner .login_wrap .login_easy > div > a:hover {
+  color: #5f0080;
+}
 .login_container .login_inner .login_wrap .login_easy > ul {
   padding: 18px 40px;
   display: flex;
   width: 100%;
   justify-content: space-between;
+}
+.login_container .login_inner .login_wrap .login_easy > ul li {
   position: relative;
 }
-.login_container .login_inner .login_wrap .login_easy > ul::before {
+.login_container .login_inner .login_wrap .login_easy > ul li::before {
   content: "";
-  background: #fff;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0);
+  transition: all 0.3s;
+}
+.login_container .login_inner .login_wrap .login_easy > ul li:hover::before {
+  content: "";
+  background: rgba(255, 255, 255, 0.5);
 }
 
 /*mobail*/

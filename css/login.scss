@@ -57,7 +57,7 @@ $font-color: (
         margin-top: 70px;
         font: 600 1.5rem/1 "Noto Sans KR", sans-serif;
       }
-      /*상단 로그인 페이지*/
+      /*top*/
       .login_main {
         form {
           .id_password {
@@ -91,6 +91,14 @@ $font-color: (
             justify-content: end;
             font-size: 0.8rem;
             gap: 3px;
+            & > a {
+              border-bottom: 1px solid map-get($color, color-light);
+              transition: all 0.3s;
+              &:hover {
+                color: map-get($color, main);
+                border-bottom: 1px solid map-get($color, main);
+              }
+            }
           }
           .loginBtn_inner {
             display: flex;
@@ -99,7 +107,7 @@ $font-color: (
             gap: 12px;
             input {
               height: 54px;
-              font-size: 1.2rem;
+              font-size: 1rem;
               font-weight: 500;
               cursor: pointer;
               &:nth-child(1) {
@@ -118,7 +126,7 @@ $font-color: (
           }
         }
       }
-      /*하단 간편로그인*/
+      /*bottom*/
       .login_easy {
         padding-top: 28px;
         display: flex;
@@ -128,16 +136,32 @@ $font-color: (
         & > div {
           font-size: 0.8rem;
           color: map-get($font-color, font4);
+          & > a {
+            transition: all 0.3s;
+            &:hover {
+              color: map-get($color, main);
+            }
+          }
         }
         & > ul {
           padding: 18px 40px;
           display: flex;
           width: 100%;
           justify-content: space-between;
-          position: relative;
-          &::before {
-            content: "";
-            background: #fff;
+          li {
+            position: relative;
+            &::before {
+              content: "";
+              position: absolute;
+              width: 100%;
+              height: 100%;
+              background: rgba(255, 255, 255, 0);
+              transition: all 0.3s;
+            }
+            &:hover::before {
+              content: "";
+              background: rgba(255, 255, 255, 0.5);
+            }
           }
         }
       }
