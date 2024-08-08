@@ -24,6 +24,8 @@ li {
   display: flex;
   flex-direction: column;
   align-items: center;
+  /*title*/
+  /*form*/
 }
 #join_container .join_inner #title {
   width: 750px;
@@ -47,54 +49,81 @@ li {
 #join_container .join_inner #main {
   width: 750px;
 }
+#join_container .join_inner #main form {
+  /*---join top private---*/
+}
 #join_container .join_inner #main form #private {
   display: flex;
   flex-direction: column;
+  justify-content: center;
   border: 1px solid #f00;
   width: 100%;
 }
 #join_container .join_inner #main form #private li {
   height: 60px;
-  padding: 10px 20px;
+  padding: 10px 16px;
   display: flex;
+  line-height: 40px;
+  /*top 1 td*/
+  /*top 2 td*/
+  /*top 3 td*/
+  /*email Two Td*/
+  /*Birth*/
 }
 #join_container .join_inner #main form #private li > div:nth-child(1) {
   width: 200px;
 }
 #join_container .join_inner #main form #private li > div:nth-child(2) {
   width: calc(100% - 380px);
+  text-align: center;
 }
 #join_container .join_inner #main form #private li > div:nth-child(3) {
   width: 180px;
+  text-align: center;
 }
 #join_container .join_inner #main form #private li input[type=text], #join_container .join_inner #main form #private li input[type=password] {
   width: 100%;
-  padding: 10px;
+  height: 40px;
   outline: none;
   border: 1px solid #c5c5c5;
+  padding-left: 10px;
 }
-#join_container .join_inner #main form #private li .emailinner {
+#join_container .join_inner #main form #private li .emailTwo {
   width: 100%;
   height: 100%;
   display: flex;
-  align-items: center;
+  line-height: 37px;
   border: 1px solid #c5c5c5;
 }
-#join_container .join_inner #main form #private li .emailinner > div {
+#join_container .join_inner #main form #private li .emailTwo > div {
   flex-grow: 1;
+}
+#join_container .join_inner #main form #private li .emailTwo > div:nth-child(1) {
+  height: 100%;
+  width: 100%;
+}
+#join_container .join_inner #main form #private li .emailTwo > div:nth-child(1) input {
+  height: 36px;
   border: none;
 }
-#join_container .join_inner #main form #private li .emailinner > div input {
-  border: none;
-}
-#join_container .join_inner #main form #private li .emailinner > div:nth-child(2) {
+#join_container .join_inner #main form #private li .emailTwo > div:nth-child(2) {
   display: flex;
   align-items: center;
+  width: 100%;
+  height: 100%;
 }
-#join_container .join_inner #main form #private li .emailinner > div:nth-child(2) select {
+#join_container .join_inner #main form #private li .emailTwo > div:nth-child(2) select {
+  width: 100%;
+  height: 100%;
   border: none;
 }
-#join_container .join_inner #main form #private li .emailinner > div:nth-child(2) input {
+#join_container .join_inner #main form #private li .emailTwo > div:nth-child(2) select:focus {
+  outline: none;
+}
+#join_container .join_inner #main form #private li .emailTwo > div:nth-child(2) select option {
+  font-size: 0.8rem;
+}
+#join_container .join_inner #main form #private li .emailTwo > div:nth-child(2) input[type=text] {
   display: none;
 }
 #join_container .join_inner #main form #private li .birth {

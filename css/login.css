@@ -33,7 +33,7 @@ a {
   width: 340px;
   margin: auto;
   /*top*/
-  /*bottom*/
+  /*easylogin bottom*/
 }
 .login_container .login_inner .login_wrap h1 {
   text-align: center;
@@ -100,6 +100,7 @@ a {
   height: 54px;
   font-size: 1rem;
   font-weight: 500;
+  border-radius: 4px;
   cursor: pointer;
 }
 .login_container .login_inner .login_wrap .login_main form .loginBtn_inner input:nth-child(1) {
@@ -132,10 +133,15 @@ a {
   color: #5f0080;
 }
 .login_container .login_inner .login_wrap .login_easy > ul {
-  padding: 18px 40px;
+  margin-top: 20px;
   display: flex;
+  justify-content: center;
   width: 100%;
-  justify-content: space-between;
+  gap: 26px;
+}
+.login_container .login_inner .login_wrap .login_easy > ul a > img {
+  width: 40px;
+  height: 40px;
 }
 .login_container .login_inner .login_wrap .login_easy > ul li {
   position: relative;
@@ -147,6 +153,7 @@ a {
   height: 100%;
   background: rgba(255, 255, 255, 0);
   transition: all 0.3s;
+  cursor: pointer;
 }
 .login_container .login_inner .login_wrap .login_easy > ul li:hover::before {
   content: "";

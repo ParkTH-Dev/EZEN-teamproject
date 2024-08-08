@@ -109,6 +109,7 @@ $font-color: (
               height: 54px;
               font-size: 1rem;
               font-weight: 500;
+              border-radius: 4px;
               cursor: pointer;
               &:nth-child(1) {
                 background: map-get($color, main);
@@ -126,7 +127,7 @@ $font-color: (
           }
         }
       }
-      /*bottom*/
+      /*easylogin bottom*/
       .login_easy {
         padding-top: 28px;
         display: flex;
@@ -144,10 +145,15 @@ $font-color: (
           }
         }
         & > ul {
-          padding: 18px 40px;
+          margin-top: 20px;
           display: flex;
+          justify-content: center;
           width: 100%;
-          justify-content: space-between;
+          gap: 26px;
+          a > img {
+            width: 40px;
+            height: 40px;
+          }
           li {
             position: relative;
             &::before {
@@ -157,6 +163,7 @@ $font-color: (
               height: 100%;
               background: rgba(255, 255, 255, 0);
               transition: all 0.3s;
+              cursor: pointer;
             }
             &:hover::before {
               content: "";
