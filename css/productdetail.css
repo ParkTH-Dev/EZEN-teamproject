@@ -144,7 +144,7 @@
   color: #fa612f;
 }
 .container .inner .productInfo .info_desc .desc_price > span {
-  font-size: 24px;
+  font-size: 20px;
   font-weight: 200;
 }
 .container .inner .productInfo .info_desc .desc_shipping {
@@ -200,14 +200,14 @@
   border: 1px solid #ddd;
   border-radius: 3px;
   width: 88px;
-  padding: 5px 0;
+  padding: 3px 0;
   display: flex;
   justify-content: space-around;
 }
 .container .inner .productInfo .info_desc .desc_choice .choice_box > div > .price {
   display: flex;
   gap: 5px;
-  font-size: 12px;
+  font-size: 16px;
 }
 .container .inner .productInfo .info_desc .desc_choice .choice_box > div > .price span:first-child {
   color: #999;
@@ -265,7 +265,7 @@
   color: #5f0080;
   transition: all 0.3s;
 }
-.container .inner .productInfo .info_desc .desc_cart .item:first-child:hover {
+.container .inner .productInfo .info_desc .desc_cart .item:hover {
   background-color: #5f0080;
   border: 1px solid #5f0080;
   color: #fff;
@@ -279,6 +279,7 @@
   color: #fff;
   background-color: #5f0080;
   border-radius: 3px;
+  margin-left: 1.5px;
 }
 .container .inner .productInfo .info_desc .desc_totalPrice {
   display: flex;
