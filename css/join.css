@@ -11,11 +11,12 @@
 ul,
 li {
   list-style: none;
+  padding-left: 0;
 }
 
 /*custom*/
 #join_container {
-  font: normal 16px/1rem "Noto Sans KR", sans-serif;
+  font: normal 16px/1 "Noto Sans KR", sans-serif;
   width: 1080px;
   margin: 0 auto;
   color: #333333;
@@ -28,7 +29,7 @@ li {
   /*form*/
 }
 #join_container .join_inner #title {
-  width: 750px;
+  width: 640px;
   border-bottom: 2px solid;
 }
 #join_container .join_inner #title h1 {
@@ -40,24 +41,26 @@ li {
   display: flex;
   justify-content: end;
   margin-bottom: 10px;
-  font-size: 0.6rem;
+  font-size: 0.9rem;
   color: #727272;
 }
 #join_container .join_inner #title h4 span {
   color: #ef7793;
 }
 #join_container .join_inner #main {
-  width: 750px;
+  width: 640px;
 }
 #join_container .join_inner #main form {
+  width: 640px;
   /*---join top private---*/
 }
 #join_container .join_inner #main form #private {
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  border: 1px solid #f00;
   width: 100%;
+}
+#join_container .join_inner #main form #private .star {
+  color: #ef7793;
 }
 #join_container .join_inner #main form #private li {
   height: 60px;
@@ -68,24 +71,43 @@ li {
   /*top 2 td*/
   /*top 3 td*/
   /*email Two Td*/
+  /*adrass*/
   /*Birth*/
+  /*gender*/
+  /*invit*/
 }
 #join_container .join_inner #main form #private li > div:nth-child(1) {
-  width: 200px;
+  width: 150px;
 }
 #join_container .join_inner #main form #private li > div:nth-child(2) {
-  width: calc(100% - 380px);
+  width: calc(100% - 270px);
   text-align: center;
 }
 #join_container .join_inner #main form #private li > div:nth-child(3) {
-  width: 180px;
+  width: 120px;
   text-align: center;
+}
+#join_container .join_inner #main form #private li > div:nth-child(3) > input {
+  width: 80%;
+  height: 40px;
+  margin-right: 10px;
+  line-height: 10px;
+  background: #fff;
+  color: #c5c5c5;
+  border: 1px solid #c5c5c5;
+  border-radius: 4px;
+}
+#join_container .join_inner #main form #private li > div:nth-child(3) > input .action {
+  color: #5f0080;
+  border: 1px solid #5f0080;
+  border-radius: 4px;
 }
 #join_container .join_inner #main form #private li input[type=text], #join_container .join_inner #main form #private li input[type=password] {
   width: 100%;
   height: 40px;
   outline: none;
   border: 1px solid #c5c5c5;
+  border-radius: 4px;
   padding-left: 10px;
 }
 #join_container .join_inner #main form #private li .emailTwo {
@@ -94,6 +116,8 @@ li {
   display: flex;
   line-height: 37px;
   border: 1px solid #c5c5c5;
+  border-radius: 4px;
+  color: #333333;
 }
 #join_container .join_inner #main form #private li .emailTwo > div {
   flex-grow: 1;
@@ -111,20 +135,46 @@ li {
   align-items: center;
   width: 100%;
   height: 100%;
+  position: relative;
 }
 #join_container .join_inner #main form #private li .emailTwo > div:nth-child(2) select {
-  width: 100%;
+  width: 90%;
+  right: 0;
   height: 100%;
   border: none;
+  z-index: 1;
+  position: absolute;
+  color: #727272;
 }
 #join_container .join_inner #main form #private li .emailTwo > div:nth-child(2) select:focus {
   outline: none;
 }
 #join_container .join_inner #main form #private li .emailTwo > div:nth-child(2) select option {
-  font-size: 0.8rem;
+  font-size: 1rem;
 }
-#join_container .join_inner #main form #private li .emailTwo > div:nth-child(2) input[type=text] {
+#join_container .join_inner #main form #private li .emailTwo > div:nth-child(2) .hiddenS {
   display: none;
+  height: 99%;
+  width: 76%;
+  position: absolute;
+  right: 20px;
+  top: 0;
+}
+#join_container .join_inner #main form #private li .emailTwo > div:nth-child(2) .hiddenS > input {
+  border: none;
+  height: 100%;
+  border-radius: 0;
+}
+#join_container .join_inner #main form #private li .emailTwo > div:nth-child(2) .hiddenS.active {
+  display: block;
+  z-index: 2;
+}
+#join_container .join_inner #main form #private li .address {
+  width: 100%;
+  background: #fff;
+  color: #5f0080;
+  border: 1px solid #5f0080;
+  border-radius: 4px;
 }
 #join_container .join_inner #main form #private li .birth {
   width: 100%;
@@ -139,4 +189,110 @@ li {
   border: none;
   height: 80%;
   text-align: center;
+}
+#join_container .join_inner #main form #private li .genders {
+  display: flex;
+  justify-content: space-between;
+}
+#join_container .join_inner #main form #private li .genders span {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+}
+#join_container .join_inner #main form #private li .genders span input[type=radio],
+#join_container .join_inner #main form #private li .genders span label {
+  cursor: pointer;
+}
+#join_container .join_inner #main form #private li .genders span input[type=radio] {
+  cursor: pointer;
+  margin-top: 8px;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  border: 1px solid #5f0080;
+  border-radius: 50%;
+  width: 1.2rem;
+  height: 1.2rem;
+}
+#join_container .join_inner #main form #private li .genders span input[type=radio]:checked {
+  border: 7px solid #5f0080;
+}
+#join_container .join_inner #main form #private li .Additional {
+  display: flex;
+  justify-content: space-between;
+}
+#join_container .join_inner #main form #private li .Additional span {
+  display: flex;
+  justify-content: center;
+  gap: 4px;
+}
+#join_container .join_inner #main form #private li .Additional span input[type=radio],
+#join_container .join_inner #main form #private li .Additional span label {
+  cursor: pointer;
+}
+#join_container .join_inner #main form #private li .Additional span input[type=radio] {
+  cursor: pointer;
+  margin-top: 8px;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  border: 1px solid #5f0080;
+  border-radius: 50%;
+  width: 1.2rem;
+  height: 1.2rem;
+}
+#join_container .join_inner #main form #private li .Additional span input[type=radio]:checked {
+  border: 7px solid #5f0080;
+}
+
+/*media*/
+@media screen and (max-width: 1050px) {
+  #join_container {
+    font: normal 14px/1 "Noto Sans KR";
+    width: 390px;
+  }
+  #join_container .join_inner #title {
+    width: 390px;
+  }
+  #join_container .join_inner #title h4 {
+    font-size: 0.8rem;
+  }
+  #join_container .join_inner #main {
+    width: 390px;
+    /*form*/
+  }
+  #join_container .join_inner #main form {
+    width: 390px;
+  }
+  #join_container .join_inner #main form #private li {
+    flex-direction: column;
+    height: 100%;
+    width: 390px;
+    padding: 3px 0;
+  }
+  #join_container .join_inner #main form #private li > div:nth-child(1) {
+    width: 100%;
+    margin-bottom: 6px;
+  }
+  #join_container .join_inner #main form #private li > div:nth-child(2) {
+    width: 100%;
+    margin-bottom: 6px;
+  }
+  #join_container .join_inner #main form #private li > div:nth-child(3) {
+    width: 100%;
+  }
+  #join_container .join_inner #main form #private li > div:nth-child(3) > input {
+    width: 100%;
+  }
+  #join_container .join_inner #main form #private li input[type=text], #join_container .join_inner #main form #private li input[type=password] {
+    width: 100%;
+    height: 40px;
+    outline: none;
+    border: 1px solid #c5c5c5;
+    border-radius: 4px;
+    padding-left: 10px;
+  }
+  #join_container .join_inner #main form #private li .birth > input {
+    border: none;
+  }
 }

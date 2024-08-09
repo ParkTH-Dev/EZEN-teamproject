@@ -24,13 +24,16 @@ $font-color: (
 ul,
 li {
   list-style: none;
+  padding-left: 0;
 }
 
 /*custom*/
+
 #join_container {
-  font: normal 16px/1rem "Noto Sans KR", sans-serif;
+  font: normal 16px/1 "Noto Sans KR", sans-serif;
   width: 1080px;
   margin: 0 auto;
+
   color: map-get($font-color, font-dark);
   .join_inner {
     display: flex;
@@ -39,7 +42,7 @@ li {
 
     /*title*/
     #title {
-      width: 750px;
+      width: 640px;
       border-bottom: 2px solid;
       h1 {
         text-align: center;
@@ -50,7 +53,7 @@ li {
         display: flex;
         justify-content: end;
         margin-bottom: 10px;
-        font-size: 0.6rem;
+        font-size: 0.9rem;
         color: map-get($font-color, font-light);
         span {
           color: map-get($font-color, font-red);
@@ -59,15 +62,17 @@ li {
     }
     /*form*/
     #main {
-      width: 750px;
+      width: 640px;
       form {
+        width: 640px;
         /*---join top private---*/
         #private {
           display: flex;
           flex-direction: column;
-          justify-content: center;
-          border: 1px solid #f00;
           width: 100%;
+          .star {
+            color: map-get($font-color, font-red);
+          }
           li {
             height: 60px;
             padding: 10px 16px;
@@ -75,17 +80,32 @@ li {
             line-height: 40px;
             /*top 1 td*/
             & > div:nth-child(1) {
-              width: 200px;
+              width: 150px;
             }
             /*top 2 td*/
             & > div:nth-child(2) {
-              width: calc(100% - 380px);
+              width: calc(100% - 270px);
               text-align: center;
             }
             /*top 3 td*/
             & > div:nth-child(3) {
-              width: 180px;
+              width: 120px;
               text-align: center;
+              & > input {
+                width: 80%;
+                height: 40px;
+                margin-right: 10px;
+                line-height: 10px;
+                background: map-get($color, light);
+                color: map-get($font-color, font-line);
+                border: 1px solid map-get($font-color, font-line);
+                border-radius: 4px;
+                .action {
+                  color: map-get($color, main);
+                  border: 1px solid map-get($color, main);
+                  border-radius: 4px;
+                }
+              }
             }
             & input[type="text"],
             & input[type="password"] {
@@ -93,6 +113,7 @@ li {
               height: 40px;
               outline: none;
               border: 1px solid map-get($font-color, font-line);
+              border-radius: 4px;
               padding-left: 10px;
             }
 
@@ -103,6 +124,8 @@ li {
               display: flex;
               line-height: 37px;
               border: 1px solid map-get($font-color, font-line);
+              border-radius: 4px;
+              color: map-get($font-color, font-dark);
               & > div {
                 flex-grow: 1;
                 &:nth-child(1) {
@@ -118,24 +141,51 @@ li {
                   align-items: center;
                   width: 100%;
                   height: 100%;
+                  position: relative;
                   select {
-                    width: 100%;
+                    width: 90%;
+                    right: 0;
                     height: 100%;
                     border: none;
+                    z-index: 1;
+                    position: absolute;
+                    color: map-get($font-color, font-light);
                     &:focus {
                       outline: none;
                     }
                     option {
-                      font-size: 0.8rem;
+                      font-size: 1rem;
                     }
                   }
-                  input[type="text"] {
+                  .hiddenS {
                     display: none;
+                    height: 99%;
+                    width: 76%;
+                    position: absolute;
+                    right: 20px;
+                    top: 0;
+                    & > input {
+                      border: none;
+                      height: 100%;
+                      border-radius: 0;
+                    }
+                    &.active {
+                      display: block;
+                      z-index: 2;
+                    }
                   }
                 }
               }
             }
 
+            /*adrass*/
+            .address {
+              width: 100%;
+              background: map-get($color, light);
+              color: map-get($color, main);
+              border: 1px solid map-get($color, main);
+              border-radius: 4px;
+            }
             /*Birth*/
             .birth {
               width: 100%;
@@ -149,6 +199,118 @@ li {
                 border: none;
                 height: 80%;
                 text-align: center;
+              }
+            }
+            /*gender*/
+            .genders {
+              display: flex;
+              justify-content: space-between;
+              span {
+                display: flex;
+                justify-content: center;
+                gap: 8px;
+                input[type="radio"],
+                label {
+                  cursor: pointer;
+                }
+                input[type="radio"] {
+                  cursor: pointer;
+                  margin-top: 8px;
+                  appearance: none;
+                  border: 1px solid map-get($color, main);
+                  border-radius: 50%;
+                  width: 1.2rem;
+                  height: 1.2rem;
+                  &:checked {
+                    border: 7px solid map-get($color, main);
+                  }
+                }
+              }
+            }
+            /*invit*/
+            .Additional {
+              display: flex;
+              justify-content: space-between;
+              span {
+                display: flex;
+                justify-content: center;
+                gap: 4px;
+                input[type="radio"],
+                label {
+                  cursor: pointer;
+                }
+                input[type="radio"] {
+                  cursor: pointer;
+                  margin-top: 8px;
+                  appearance: none;
+                  border: 1px solid map-get($color, main);
+                  border-radius: 50%;
+                  width: 1.2rem;
+                  height: 1.2rem;
+                  &:checked {
+                    border: 7px solid map-get($color, main);
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+/*media*/
+@media screen and (max-width: 1050px) {
+  #join_container {
+    font: normal 14px/1 "Noto Sans KR";
+    width: 390px;
+    .join_inner {
+      #title {
+        width: 390px;
+        h4 {
+          font-size: 0.8rem;
+        }
+      }
+      #main {
+        width: 390px;
+
+        /*form*/
+        form {
+          width: 390px;
+          #private {
+            li {
+              flex-direction: column;
+              height: 100%;
+              width: 390px;
+              padding: 3px 0;
+              & > div:nth-child(1) {
+                width: 100%;
+                margin-bottom: 6px;
+              }
+              & > div:nth-child(2) {
+                width: 100%;
+                margin-bottom: 6px;
+              }
+              & > div:nth-child(3) {
+                width: 100%;
+                & > input {
+                  width: 100%;
+                }
+              }
+              & input[type="text"],
+              & input[type="password"] {
+                width: 100%;
+                height: 40px;
+                outline: none;
+                border: 1px solid map-get($font-color, font-line);
+                border-radius: 4px;
+                padding-left: 10px;
+              }
+              .birth {
+                & > input {
+                  border: none;
+                }
               }
             }
           }

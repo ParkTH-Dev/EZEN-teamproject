@@ -109,6 +109,7 @@
                       placeholder="예:marketkurly"
                     />
                   </div>
+                  <!--email two td-->
                   <div>
                     <div>@</div>
                     <select name="email" id="email">
@@ -122,7 +123,9 @@
                       <option value="yahoo">yahoo.co.kr</option>
                       <option value="direct">직접입력</option>
                     </select>
-                    <input type="text" name="emailDr" id="emailDr" />
+                    <div class="hiddenS">
+                      <input type="text" name="emailDr" id="emailDr" />
+                    </div>
                   </div>
                 </div>
                 <div></div>
@@ -163,12 +166,18 @@
               <li>
                 <div>성별</div>
                 <div class="genders">
-                  <input type="radio" name="genders" id="male" />
-                  <label for="male">남자</label>
-                  <input type="radio" name="genders" id="female" />
-                  <label for="female">여자</label>
-                  <input type="radio" name="genders" id="genderHdn" />
-                  <label for="genderHdn">선택안함</label>
+                  <span>
+                    <input type="radio" name="genders" id="male" />
+                    <label for="male">남자</label>
+                  </span>
+                  <span>
+                    <input type="radio" name="genders" id="female" />
+                    <label for="female">여자</label>
+                  </span>
+                  <span>
+                    <input type="radio" name="genders" id="genderHdn" />
+                    <label for="genderHdn">선택안함</label>
+                  </span>
                 </div>
                 <div></div>
               </li>
@@ -188,10 +197,14 @@
               <li>
                 <div>추가입력 사항</div>
                 <div class="Additional">
-                  <input type="radio" name="Additional" id="invite" />
-                  <label for="invite">친구초대 추천인 아이디</label>
-                  <input type="radio" name="Additional" id="participationE" />
-                  <label for="participationE">참여 이벤트명</label>
+                  <span>
+                    <input type="radio" name="Additional" id="invite" />
+                    <label for="invite">추천인 아이디</label>
+                  </span>
+                  <span>
+                    <input type="radio" name="Additional" id="participationE" />
+                    <label for="participationE">참여 이벤트명</label>
+                  </span>
                 </div>
                 <div></div>
               </li>
