@@ -52,6 +52,14 @@ $font-color: (
     .login_wrap {
       width: 340px;
       margin: auto;
+      position: relative;
+      .mobileX {
+        position: absolute;
+        font-size: 1.2rem;
+        top: -30px;
+        right: 0;
+        display: none;
+      }
       h1 {
         text-align: center;
         margin-top: 70px;
@@ -181,6 +189,11 @@ $font-color: (
   .login_container {
     .login_inner {
       width: 390px;
+      .login_wrap {
+        .mobileX {
+          display: block;
+        }
+      }
     }
   }
 }

@@ -28,6 +28,12 @@ li {
 }
 
 /*custom*/
+.top-content {
+  &.modalAction {
+    height: 100vh;
+    overflow: hidden;
+  }
+}
 
 #join_container {
   font: normal 16px/1 "Noto Sans KR", sans-serif;
@@ -39,6 +45,19 @@ li {
     display: flex;
     flex-direction: column;
     align-items: center;
+    position: relative;
+
+    .mobilX {
+      display: none;
+      position: absolute;
+      right: 0;
+      top: 10px;
+      font-size: 1.2rem;
+    }
+
+    .star {
+      color: map-get($font-color, font-red);
+    }
 
     /*title*/
     #title {
@@ -70,9 +89,6 @@ li {
           display: flex;
           flex-direction: column;
           width: 100%;
-          .star {
-            color: map-get($font-color, font-red);
-          }
           li {
             height: 60px;
             padding: 10px 16px;
@@ -98,6 +114,7 @@ li {
                 line-height: 10px;
                 background: map-get($color, light);
                 color: map-get($font-color, font-line);
+                font-size: 0.9rem;
                 border: 1px solid map-get($font-color, font-line);
                 border-radius: 4px;
                 .action {
@@ -215,7 +232,7 @@ li {
                 }
                 input[type="radio"] {
                   cursor: pointer;
-                  margin-top: 8px;
+                  margin-top: 10px;
                   appearance: none;
                   border: 1px solid map-get($color, main);
                   border-radius: 50%;
@@ -260,12 +277,197 @@ li {
   }
 }
 
-/*media*/
+/*bootom_chekinner*/
+#checkinner {
+  border-top: 1px solid map-get($font-color, font-dark);
+  padding-top: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  & > div:nth-child(1) {
+    width: 150px;
+    text-align: center;
+    margin: 10px 0 30px;
+    font-size: 1.2rem;
+  }
+  & > div:nth-child(2) {
+    width: 100%;
+
+    /*checkbox none*/
+    input[type="checkbox"] {
+      display: none;
+    }
+    /*common*/
+    ul {
+      padding-left: 16px;
+      display: flex;
+      flex-direction: column;
+      li {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 10px;
+        &:nth-last-child(1) {
+          margin-bottom: 0;
+        }
+        label {
+          display: flex;
+          align-items: center;
+          margin-bottom: 8px;
+          cursor: pointer;
+          .chackIcon {
+            cursor: pointer;
+            font-size: 24px;
+          }
+          span {
+            display: inline-block;
+            text-align: center;
+            color: map-get($font-color, font-light);
+            b {
+              font-weight: normal;
+              color: map-get($font-color, font-line);
+            }
+          }
+        }
+        .tapmodal {
+          cursor: pointer;
+          color: map-get($color, main);
+          margin: 5px 5px 0 0;
+        }
+      }
+    }
+    /*1 line all*/
+    #allCheck + label {
+      span {
+        font-size: 1.2rem;
+        font-weight: bold;
+      }
+    }
+    .allSub {
+      font-size: 0.9.5rem;
+      margin-left: 36px;
+    }
+    /*receive*/
+    .top-receive {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 4px;
+    }
+    .botton-receive {
+      display: flex;
+      margin-left: 30px;
+      gap: 90px;
+    }
+  }
+}
+
+/*bottom button*/
+.mainBtn {
+  margin-left: 100px;
+  width: calc(100% - 200px);
+  height: 60px;
+  background: map-get($color, main);
+  color: map-get($color, light);
+  font-size: 1.4rem;
+  border: 1px solid map-get($color, main);
+  border-radius: 4px;
+  margin-bottom: 40px;
+}
+
+/*modal*/
+.modalBase {
+  position: absolute;
+  height: 100vh;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.4);
+  z-index: 5;
+  .modalInner {
+    width: 1080px;
+    margin: 0 auto;
+    .HModal {
+      position: absolute;
+      width: 450px;
+      height: 650px;
+      z-index: 10;
+      background: map-get($color, light);
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      border-radius: 40px;
+      .modal_title {
+        h1 {
+          position: absolute;
+          font-size: 1.6rem;
+          margin: 50px 0 0 25px;
+          font-weight: 800;
+        }
+      }
+      .frame {
+        width: 400px;
+        height: 500px;
+        margin: 100px 25px 50px 25px;
+        overflow: scroll;
+        padding-top: 20px;
+        overflow-x: hidden;
+        .Yhidden {
+          overflow-y: hidden;
+        }
+        h2 {
+          font-size: 1.4rem;
+          font-weight: 600;
+        }
+        h3 {
+          font-size: 1.4rem;
+          font-weight: 600;
+        }
+        th {
+          background-color: map-get($font-color, font-line);
+          text-align: center;
+        }
+        tr,
+        th,
+        td {
+          border: 1px solid map-get($font-color, font-light);
+          padding: 4px;
+        }
+      }
+      &.tap1Modal1 {
+        // display: none;
+      }
+      &.tap1Modal2 {
+        display: none;
+      }
+      &.tap1Modal3 {
+        display: none;
+      }
+      .modal_close {
+        h1 {
+          cursor: pointer;
+          position: absolute;
+          font-size: 1.2rem;
+          color: map-get($color, main);
+          bottom: 4px;
+          right: 50%;
+          transform: translateX(50%);
+        }
+      }
+    }
+  }
+  &.noneActive {
+    display: none;
+  }
+}
+
+//////*media*//////
 @media screen and (max-width: 1050px) {
   #join_container {
     font: normal 14px/1 "Noto Sans KR";
     width: 390px;
     .join_inner {
+      .mobilX {
+        display: block;
+      }
       #title {
         width: 390px;
         h4 {
@@ -274,7 +476,6 @@ li {
       }
       #main {
         width: 390px;
-
         /*form*/
         form {
           width: 390px;
@@ -283,14 +484,15 @@ li {
               flex-direction: column;
               height: 100%;
               width: 390px;
-              padding: 3px 0;
+              padding: 0;
               & > div:nth-child(1) {
                 width: 100%;
-                margin-bottom: 6px;
+                height: 32px;
+                margin-bottom: 4px;
               }
               & > div:nth-child(2) {
                 width: 100%;
-                margin-bottom: 6px;
+                margin-bottom: 2px;
               }
               & > div:nth-child(3) {
                 width: 100%;
@@ -312,10 +514,111 @@ li {
                   border: none;
                 }
               }
+              /*gender*/
+              .genders {
+                span {
+                  gap: 8px;
+                  input[type="radio"],
+                  label {
+                    cursor: pointer;
+                  }
+                  input[type="radio"] {
+                    cursor: pointer;
+                    margin-top: 10px;
+                    width: 1.2rem;
+                    height: 1.2rem;
+                    &:checked {
+                      border: 7px solid map-get($color, main);
+                    }
+                  }
+                }
+              }
+              /*hidden add*/
+              &.hidden-add {
+                & > div:nth-child(1) {
+                  display: none;
+                }
+              }
             }
           }
         }
       }
     }
+  }
+
+  /*bottom_chekinner*/
+  #checkinner {
+    border-top: 1px solid map-get($font-color, font-dark);
+    padding-top: 14px;
+    flex-direction: column;
+    & > div:nth-child(1) {
+      width: 100%;
+      text-align: start;
+      margin-bottom: 14px;
+    }
+    & > div:nth-child(2) {
+      width: 100%;
+      /*common*/
+      ul {
+        padding-left: 0;
+        display: flex;
+        flex-direction: column;
+        li {
+          display: flex;
+          justify-content: space-between;
+          label {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 8px;
+            .chackIcon {
+              font-size: 24px;
+            }
+            span {
+              display: inline-block;
+              text-align: center;
+              color: map-get($font-color, font-light);
+              b {
+                font-weight: normal;
+                color: map-get($font-color, font-line);
+              }
+            }
+          }
+          .tapmodal {
+            color: map-get($color, main);
+            margin-top: 5px;
+          }
+        }
+      }
+      /*1 line all*/
+      #allCheck + label {
+        span {
+          font-size: 1.1rem;
+          font-weight: bold;
+        }
+      }
+      .allSub {
+        font-size: 0.7rem;
+        margin-left: 36px;
+      }
+      /*receive*/
+      .top-receive {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        margin-bottom: 10px;
+      }
+      .botton-receive {
+        display: flex;
+        margin-left: 30px;
+        gap: 90px;
+      }
+    }
+  }
+
+  /*bottom button*/
+  .mainBtn {
+    margin: 0 50px 30px;
+    width: calc(100% - 100px);
   }
 }

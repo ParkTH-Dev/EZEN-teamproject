@@ -15,6 +15,11 @@ li {
 }
 
 /*custom*/
+.top-content.modalAction {
+  height: 100vh;
+  overflow: hidden;
+}
+
 #join_container {
   font: normal 16px/1 "Noto Sans KR", sans-serif;
   width: 1080px;
@@ -25,8 +30,19 @@ li {
   display: flex;
   flex-direction: column;
   align-items: center;
+  position: relative;
   /*title*/
   /*form*/
+}
+#join_container .join_inner .mobilX {
+  display: none;
+  position: absolute;
+  right: 0;
+  top: 10px;
+  font-size: 1.2rem;
+}
+#join_container .join_inner .star {
+  color: #ef7793;
 }
 #join_container .join_inner #title {
   width: 640px;
@@ -58,9 +74,6 @@ li {
   display: flex;
   flex-direction: column;
   width: 100%;
-}
-#join_container .join_inner #main form #private .star {
-  color: #ef7793;
 }
 #join_container .join_inner #main form #private li {
   height: 60px;
@@ -94,6 +107,7 @@ li {
   line-height: 10px;
   background: #fff;
   color: #c5c5c5;
+  font-size: 0.9rem;
   border: 1px solid #c5c5c5;
   border-radius: 4px;
 }
@@ -205,7 +219,7 @@ li {
 }
 #join_container .join_inner #main form #private li .genders span input[type=radio] {
   cursor: pointer;
-  margin-top: 8px;
+  margin-top: 10px;
   -webkit-appearance: none;
      -moz-appearance: none;
           appearance: none;
@@ -245,11 +259,184 @@ li {
   border: 7px solid #5f0080;
 }
 
-/*media*/
+/*bootom_chekinner*/
+#checkinner {
+  border-top: 1px solid #333333;
+  padding-top: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+#checkinner > div:nth-child(1) {
+  width: 150px;
+  text-align: center;
+  margin: 10px 0 30px;
+  font-size: 1.2rem;
+}
+#checkinner > div:nth-child(2) {
+  width: 100%;
+  /*checkbox none*/
+  /*common*/
+  /*1 line all*/
+  /*receive*/
+}
+#checkinner > div:nth-child(2) input[type=checkbox] {
+  display: none;
+}
+#checkinner > div:nth-child(2) ul {
+  padding-left: 16px;
+  display: flex;
+  flex-direction: column;
+}
+#checkinner > div:nth-child(2) ul li {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+#checkinner > div:nth-child(2) ul li:nth-last-child(1) {
+  margin-bottom: 0;
+}
+#checkinner > div:nth-child(2) ul li label {
+  display: flex;
+  align-items: center;
+  margin-bottom: 8px;
+  cursor: pointer;
+}
+#checkinner > div:nth-child(2) ul li label .chackIcon {
+  cursor: pointer;
+  font-size: 24px;
+}
+#checkinner > div:nth-child(2) ul li label span {
+  display: inline-block;
+  text-align: center;
+  color: #727272;
+}
+#checkinner > div:nth-child(2) ul li label span b {
+  font-weight: normal;
+  color: #c5c5c5;
+}
+#checkinner > div:nth-child(2) ul li .tapmodal {
+  cursor: pointer;
+  color: #5f0080;
+  margin: 5px 5px 0 0;
+}
+#checkinner > div:nth-child(2) #allCheck + label span {
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+#checkinner > div:nth-child(2) .allSub {
+  font-size: 0.9 0.5rem;
+  margin-left: 36px;
+}
+#checkinner > div:nth-child(2) .top-receive {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 4px;
+}
+#checkinner > div:nth-child(2) .botton-receive {
+  display: flex;
+  margin-left: 30px;
+  gap: 90px;
+}
+
+/*bottom button*/
+.mainBtn {
+  margin-left: 100px;
+  width: calc(100% - 200px);
+  height: 60px;
+  background: #5f0080;
+  color: #fff;
+  font-size: 1.4rem;
+  border: 1px solid #5f0080;
+  border-radius: 4px;
+  margin-bottom: 40px;
+}
+
+/*modal*/
+.modalBase {
+  position: absolute;
+  height: 100vh;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.4);
+  z-index: 5;
+}
+.modalBase .modalInner {
+  width: 1080px;
+  margin: 0 auto;
+}
+.modalBase .modalInner .HModal {
+  position: absolute;
+  width: 450px;
+  height: 650px;
+  z-index: 10;
+  background: #fff;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 40px;
+}
+.modalBase .modalInner .HModal .modal_title h1 {
+  position: absolute;
+  font-size: 1.6rem;
+  margin: 50px 0 0 25px;
+  font-weight: 800;
+}
+.modalBase .modalInner .HModal .frame {
+  width: 400px;
+  height: 500px;
+  margin: 100px 25px 50px 25px;
+  overflow: scroll;
+  padding-top: 20px;
+  overflow-x: hidden;
+}
+.modalBase .modalInner .HModal .frame .Yhidden {
+  overflow-y: hidden;
+}
+.modalBase .modalInner .HModal .frame h2 {
+  font-size: 1.4rem;
+  font-weight: 600;
+}
+.modalBase .modalInner .HModal .frame h3 {
+  font-size: 1.4rem;
+  font-weight: 600;
+}
+.modalBase .modalInner .HModal .frame th {
+  background-color: #c5c5c5;
+  text-align: center;
+}
+.modalBase .modalInner .HModal .frame tr,
+.modalBase .modalInner .HModal .frame th,
+.modalBase .modalInner .HModal .frame td {
+  border: 1px solid #727272;
+  padding: 4px;
+}
+.modalBase .modalInner .HModal.tap1Modal2 {
+  display: none;
+}
+.modalBase .modalInner .HModal.tap1Modal3 {
+  display: none;
+}
+.modalBase .modalInner .HModal .modal_close h1 {
+  cursor: pointer;
+  position: absolute;
+  font-size: 1.2rem;
+  color: #5f0080;
+  bottom: 4px;
+  right: 50%;
+  transform: translateX(50%);
+}
+.modalBase.noneActive {
+  display: none;
+}
+
 @media screen and (max-width: 1050px) {
   #join_container {
     font: normal 14px/1 "Noto Sans KR";
     width: 390px;
+  }
+  #join_container .join_inner .mobilX {
+    display: block;
   }
   #join_container .join_inner #title {
     width: 390px;
@@ -268,15 +455,18 @@ li {
     flex-direction: column;
     height: 100%;
     width: 390px;
-    padding: 3px 0;
+    padding: 0;
+    /*gender*/
+    /*hidden add*/
   }
   #join_container .join_inner #main form #private li > div:nth-child(1) {
     width: 100%;
-    margin-bottom: 6px;
+    height: 32px;
+    margin-bottom: 4px;
   }
   #join_container .join_inner #main form #private li > div:nth-child(2) {
     width: 100%;
-    margin-bottom: 6px;
+    margin-bottom: 2px;
   }
   #join_container .join_inner #main form #private li > div:nth-child(3) {
     width: 100%;
@@ -295,4 +485,95 @@ li {
   #join_container .join_inner #main form #private li .birth > input {
     border: none;
   }
-}
+  #join_container .join_inner #main form #private li .genders span {
+    gap: 8px;
+  }
+  #join_container .join_inner #main form #private li .genders span input[type=radio],
+  #join_container .join_inner #main form #private li .genders span label {
+    cursor: pointer;
+  }
+  #join_container .join_inner #main form #private li .genders span input[type=radio] {
+    cursor: pointer;
+    margin-top: 10px;
+    width: 1.2rem;
+    height: 1.2rem;
+  }
+  #join_container .join_inner #main form #private li .genders span input[type=radio]:checked {
+    border: 7px solid #5f0080;
+  }
+  #join_container .join_inner #main form #private li.hidden-add > div:nth-child(1) {
+    display: none;
+  }
+  /*bottom_chekinner*/
+  #checkinner {
+    border-top: 1px solid #333333;
+    padding-top: 14px;
+    flex-direction: column;
+  }
+  #checkinner > div:nth-child(1) {
+    width: 100%;
+    text-align: start;
+    margin-bottom: 14px;
+  }
+  #checkinner > div:nth-child(2) {
+    width: 100%;
+    /*common*/
+    /*1 line all*/
+    /*receive*/
+  }
+  #checkinner > div:nth-child(2) ul {
+    padding-left: 0;
+    display: flex;
+    flex-direction: column;
+  }
+  #checkinner > div:nth-child(2) ul li {
+    display: flex;
+    justify-content: space-between;
+  }
+  #checkinner > div:nth-child(2) ul li label {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 8px;
+  }
+  #checkinner > div:nth-child(2) ul li label .chackIcon {
+    font-size: 24px;
+  }
+  #checkinner > div:nth-child(2) ul li label span {
+    display: inline-block;
+    text-align: center;
+    color: #727272;
+  }
+  #checkinner > div:nth-child(2) ul li label span b {
+    font-weight: normal;
+    color: #c5c5c5;
+  }
+  #checkinner > div:nth-child(2) ul li .tapmodal {
+    color: #5f0080;
+    margin-top: 5px;
+  }
+  #checkinner > div:nth-child(2) #allCheck + label span {
+    font-size: 1.1rem;
+    font-weight: bold;
+  }
+  #checkinner > div:nth-child(2) .allSub {
+    font-size: 0.7rem;
+    margin-left: 36px;
+  }
+  #checkinner > div:nth-child(2) .top-receive {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 10px;
+  }
+  #checkinner > div:nth-child(2) .botton-receive {
+    display: flex;
+    margin-left: 30px;
+    gap: 90px;
+  }
+  /*bottom button*/
+  .mainBtn {
+    margin: 0 50px 30px;
+    width: calc(100% - 100px);
+  }
+}/*# sourceMappingURL=join.css.map */
