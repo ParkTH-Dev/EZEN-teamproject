@@ -472,32 +472,58 @@ li {
 
 //////*media*//////
 @media screen and (max-width: 1050px) {
-  .top-content {
-  }
   #join_container {
     font: normal 14px/1 "Noto Sans KR";
     width: 100%;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     background: #f9f9f9;
-    .join_inner {
+    position: relative;
+    .mobileHeader {
+      position: sticky;
+      top: 0;
       width: 390px;
-      padding: 10px;
+      height: 59px;
+      display: flex;
       background: #fff;
-      box-shadow: 0 0 10px rgba($color: #000000, $alpha: 0.1);
-      padding: 15px;
-      .mobilX {
-        padding: 15px;
-        display: block;
-      }
-      #title {
-        width: 100%;
-        h4 {
-          font-size: 0.8rem;
+      justify-content: center;
+      align-items: center;
+      padding: 0 10px;
+      z-index: 5;
+      .inner {
+        width: 390px;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+        .mobileClose {
+          font-size: 16px;
+          position: absolute;
+          top: 50%;
+          left: 10px;
+          transform: translateY(-50%);
+          color: map-get($color, main);
+        }
+        h1 {
+          margin: 0;
+          font-size: 1rem;
+          font-weight: normal;
         }
       }
+    }
+    .join_inner {
+      width: 390px;
+      background: #fff;
+      // box-shadow: 0 4px 10px rgba($color: #000000, $alpha: 0.1);
+      #title {
+        display: none;
+      }
+
       #main {
+        padding: 15px;
         width: 100%;
         /*form*/
         form {
