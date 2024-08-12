@@ -1,0 +1,111 @@
+{
+  "products": [
+    {
+      "id": "1",
+      "name": "머스크멜론 1.2kg",
+      "description": "부드러운 식감에 달콤한 과육",
+      "price": 6900,
+      "originalPrice": 9900,
+      "currency": "KRW",
+      "category": "Fruits",
+      "imageUrl": "https://example.com/images/melon.jpg",
+      "stock": 50,
+      "rating": 4.8,
+      "reviews": [
+        {
+          "reviewId": "1001",
+          "username": "user1",
+          "rating": 5,
+          "comment": "정말 신선하고 맛있어요!",
+          "date": "2024-07-12"
+        },
+        {
+          "reviewId": "1002",
+          "username": "user2",
+          "rating": 4,
+          "comment": "맛있지만 가격이 좀 비싸네요.",
+          "date": "2024-07-13"
+        }
+      ],
+      "discount": 30,
+      "brand": "Kurly",
+      "origin": "South Korea",
+      "weight": "1.2kg",
+      "isFeatured": true,
+      "deliveryInfo": "샛별배송 - 23시 전 주문 시 수도권/충청 내일 아침 7시 전 도착",
+      "storageInfo": "냉장 (종이포장)",
+      "nutritionInfo": {
+        "sugarContent": "11 Brix 이상",
+        "consumptionDate": "농산물로 별도 소비기한은 없으나 가급적 빨리 드시기 바랍니다."
+      },
+      "servingSuggestion": "하몽, 프로슈토와 함께 즐기세요."
+    },
+    {
+      "id": "2",
+      "name": "최대혜택 무항생제 삼계탕용 닭",
+      "description": "550gX2입",
+      "price": 7620,
+      "originalPrice": 12700,
+      "currency": "KRW",
+      "category": "Poultry",
+      "imageUrl": "https://example.com/images/chicken.jpg",
+      "stock": 500,
+      "rating": 4.5,
+      "reviews": [
+        {
+          "reviewId": "2001",
+          "username": "user3",
+          "rating": 5,
+          "comment": "정말 맛있고 신선합니다!",
+          "date": "2024-07-10"
+        }
+      ],
+      "discount": 40,
+      "brand": "Farm Fresh",
+      "origin": "South Korea",
+      "weight": "1.1kg",
+      "isFeatured": true,
+      "deliveryInfo": "샛별배송 - 23시 전 주문 시 수도권/충청 내일 아침 7시 전 도착",
+      "storageInfo": "냉장 (비닐포장)",
+      "nutritionInfo": {
+        "calories": "120kcal/100g",
+        "protein": "22g/100g"
+      },
+      "servingSuggestion": "야채와 함께 구워서 드세요."
+    }
+  ],
+  "cart": [
+    {
+      "productId": "1",
+      "quantity": 2,
+      "price": 13800,
+      "currency": "KRW"
+    },
+    {
+      "productId": "2",
+      "quantity": 1,
+      "price": 7620,
+      "currency": "KRW"
+    }
+  ],
+  "recommendations": [
+    {
+      "id": "3",
+      "name": "고르곤졸라 피자",
+      "description": "맛있고 바삭한 피자",
+      "price": 11000,
+      "currency": "KRW",
+      "category": "Pizza",
+      "imageUrl": "https://example.com/images/pizza.jpg"
+    },
+    {
+      "id": "4",
+      "name": "해산물 파스타",
+      "description": "신선한 해산물로 만든 파스타",
+      "price": 15000,
+      "currency": "KRW",
+      "category": "Pasta",
+      "imageUrl": "https://example.com/images/pasta.jpg"
+    }
+  ]
+}
