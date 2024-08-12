@@ -170,10 +170,22 @@ a {
 
 /*mobail*/
 @media screen and (max-width: 1050px) {
+  .login_container {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #f9f9f9;
+  }
   .login_container .login_inner {
     width: 390px;
+    padding: 10px;
+    background: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 15px;
   }
   .login_container .login_inner .login_wrap .mobileX {
     display: block;
   }
-}/*# sourceMappingURL=login.css.map */
+}

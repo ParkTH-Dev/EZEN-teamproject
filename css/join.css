@@ -124,6 +124,19 @@ li {
   border-radius: 4px;
   padding-left: 10px;
 }
+#join_container .join_inner #main form #private li input[type=text]::-moz-placeholder, #join_container .join_inner #main form #private li input[type=password]::-moz-placeholder {
+  -moz-transition: all 0.3s;
+  transition: all 0.3s;
+}
+#join_container .join_inner #main form #private li input[type=text]::placeholder, #join_container .join_inner #main form #private li input[type=password]::placeholder {
+  transition: all 0.3s;
+}
+#join_container .join_inner #main form #private li input[type=text]:focus::-moz-placeholder, #join_container .join_inner #main form #private li input[type=password]:focus::-moz-placeholder {
+  opacity: 0;
+}
+#join_container .join_inner #main form #private li input[type=text]:focus::placeholder, #join_container .join_inner #main form #private li input[type=password]:focus::placeholder {
+  opacity: 0;
+}
 #join_container .join_inner #main form #private li .emailTwo {
   width: 100%;
   height: 100%;
@@ -301,6 +314,7 @@ li {
   align-items: center;
   margin-bottom: 8px;
   cursor: pointer;
+  gap: 10px;
 }
 #checkinner > div:nth-child(2) ul li label .chackIcon {
   cursor: pointer;
@@ -355,8 +369,8 @@ li {
 
 /*modal*/
 .modalBase {
-  position: absolute;
-  height: 100vh;
+  position: fixed;
+  height: 100%;
   width: 100%;
   background: rgba(0, 0, 0, 0.4);
   z-index: 5;
@@ -389,9 +403,10 @@ li {
   overflow: scroll;
   padding-top: 20px;
   overflow-x: hidden;
-}
-.modalBase .modalInner .HModal .frame .Yhidden {
   overflow-y: hidden;
+}
+.modalBase .modalInner .HModal .frame .yblock {
+  overflow-y: scroll;
 }
 .modalBase .modalInner .HModal .frame h2 {
   font-size: 1.4rem;
@@ -433,28 +448,40 @@ li {
 @media screen and (max-width: 1050px) {
   #join_container {
     font: normal 14px/1 "Noto Sans KR";
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #f9f9f9;
+  }
+  #join_container .join_inner {
     width: 390px;
+    padding: 10px;
+    background: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 15px;
   }
   #join_container .join_inner .mobilX {
+    padding: 15px;
     display: block;
   }
   #join_container .join_inner #title {
-    width: 390px;
+    width: 100%;
   }
   #join_container .join_inner #title h4 {
     font-size: 0.8rem;
   }
   #join_container .join_inner #main {
-    width: 390px;
+    width: 100%;
     /*form*/
   }
   #join_container .join_inner #main form {
-    width: 390px;
+    width: 100%;
   }
   #join_container .join_inner #main form #private li {
     flex-direction: column;
     height: 100%;
-    width: 390px;
+    width: 100%;
     padding: 0;
     /*gender*/
     /*hidden add*/
@@ -576,4 +603,4 @@ li {
     margin: 0 50px 30px;
     width: calc(100% - 100px);
   }
-}/*# sourceMappingURL=join.css.map */
+}

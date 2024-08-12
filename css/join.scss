@@ -132,6 +132,14 @@ li {
               border: 1px solid map-get($font-color, font-line);
               border-radius: 4px;
               padding-left: 10px;
+              &::placeholder {
+                transition: all 0.3s;
+              }
+              &:focus {
+                &::placeholder {
+                  opacity: 0;
+                }
+              }
             }
 
             /*email Two Td*/
@@ -315,6 +323,7 @@ li {
           align-items: center;
           margin-bottom: 8px;
           cursor: pointer;
+          gap: 10px;
           .chackIcon {
             cursor: pointer;
             font-size: 24px;
@@ -377,11 +386,12 @@ li {
 
 /*modal*/
 .modalBase {
-  position: absolute;
-  height: 100vh;
+  position: fixed;
+  height: 100%;
   width: 100%;
   background: rgba(0, 0, 0, 0.4);
   z-index: 5;
+
   .modalInner {
     width: 1080px;
     margin: 0 auto;
@@ -410,8 +420,9 @@ li {
         overflow: scroll;
         padding-top: 20px;
         overflow-x: hidden;
-        .Yhidden {
-          overflow-y: hidden;
+        overflow-y: hidden;
+        .yblock {
+          overflow-y: scroll;
         }
         h2 {
           font-size: 1.4rem;
@@ -461,29 +472,41 @@ li {
 
 //////*media*//////
 @media screen and (max-width: 1050px) {
+  .top-content {
+  }
   #join_container {
     font: normal 14px/1 "Noto Sans KR";
-    width: 390px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #f9f9f9;
     .join_inner {
+      width: 390px;
+      padding: 10px;
+      background: #fff;
+      box-shadow: 0 0 10px rgba($color: #000000, $alpha: 0.1);
+      padding: 15px;
       .mobilX {
+        padding: 15px;
         display: block;
       }
       #title {
-        width: 390px;
+        width: 100%;
         h4 {
           font-size: 0.8rem;
         }
       }
       #main {
-        width: 390px;
+        width: 100%;
         /*form*/
         form {
-          width: 390px;
+          width: 100%;
           #private {
             li {
               flex-direction: column;
               height: 100%;
-              width: 390px;
+              width: 100%;
               padding: 0;
               & > div:nth-child(1) {
                 width: 100%;
