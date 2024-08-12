@@ -805,7 +805,8 @@ body {
           width: 30px;
           height: 30px;
           padding-bottom: 2px;
-          &:nth-child(1), &:nth-child(3) {
+          &:nth-child(1),
+          &:nth-child(3) {
             cursor: pointer;
           }
         }
@@ -828,36 +829,35 @@ body {
         span {
           font-size: 24px;
           font-weight: 700;
-          }
-        }
-      }
-    }
-    .modal_buttons {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      gap: 7px;
-      div {
-        width: 180px;
-        height: 45px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        border-radius: 5px;
-        cursor: pointer;
-        &.button_cancle {
-          border: 1px solid #ccc;
-          background: map-get($color, bg-light-color);
-          color: #ccc;
-        }
-        &.button_cartin {
-          background: map-get($color, main-color);
-          color: map-get($color, bg-light-color);
         }
       }
     }
   }
-
+  .modal_buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 7px;
+    div {
+      width: 180px;
+      height: 45px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-radius: 5px;
+      cursor: pointer;
+      &.button_cancle {
+        border: 1px solid #ccc;
+        background: map-get($color, bg-light-color);
+        color: #ccc;
+      }
+      &.button_cartin {
+        background: map-get($color, main-color);
+        color: map-get($color, bg-light-color);
+      }
+    }
+  }
+}
 
 @media screen and (max-width: 1050px) {
   body {
@@ -996,11 +996,11 @@ body {
           padding: 0 20px;
           flex-direction: column;
           gap: 30px;
-         .today_first_area {
-          display: flex;
-          flex-direction: column;
-          justify-content: center;
-          align-items: center;
+          .today_first_area {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
           }
           .today_item_area {
             width: 100%;
@@ -1067,6 +1067,28 @@ body {
         }
         .product_slide_arrow {
           display: none;
+        }
+      }
+    }
+    #modal_area {
+      width: 390px;
+      top: static;
+      bottom: 0;
+      left: 50%;
+      transform: translate(-50%, 0);
+      #modal {
+        width: 100%;
+        height: fit-content;
+        top: static;
+        bottom: 0;
+        left: 50%;
+        justify-content: flex-end;
+        transform: translateX(-50%);
+        border-radius: 15px 15px 0 0;
+        .modal_bottom {
+          .modal_totalprice {
+            display: none;
+          }
         }
       }
     }
