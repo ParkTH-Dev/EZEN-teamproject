@@ -2,7 +2,8 @@
 const mainBanner = document.querySelector("#main_banner");
 const mainSlideArrowLeft = document.querySelector("#leftArrow");
 const mainSlideArrowRight = document.querySelector("#rightArrow");
-const mainSlideImg = document.querySelector(".bg_img");
+const mainSlideImgPC = document.querySelector(".bg_imgPC");
+const mainSlideImgMO = document.querySelector(".bg_imgMO");
 const mainCounterNow = document.querySelector(".now_counter");
 const mainCounterAll = document.querySelector(".all_counter");
 
@@ -19,8 +20,21 @@ const mainPicsPC = [
   "main_10.jpg",
 ];
 
+const mainPicsMO = [
+  "main_01.png",
+  "main_02.jpg",
+  "main_03.png",
+  "main_04.jpg",
+  "main_05.jpg",
+  "main_06.jpg",
+  "main_07.jpg",
+  "main_08.png",
+  "main_09.jpg",
+  "main_10.jpg",
+];
+
+let slide = 0;
 let currentIdx = 0;
-const mainSlideLength = mainPicsPC.length;
 
 // mainSlideImg.style.backgroundImage = `url(../img/main/${mainPicsPC[i]})`;
 
@@ -34,25 +48,100 @@ for (let i = 0; i < mainPicsPC.length; i++) {
 
   src.value = `../img/main/${mainPicsPC[i]}`;
   img.setAttributeNode(src);
-  mainSlideImg.appendChild(img);
+  mainSlideImgPC.appendChild(img);
 }
 
-// 슬라이드 업데이트 함수
-const updateSlide = () => {
-  mainCounterNow.innerText = currentIdx + 1;
-};
+for (let i = 0; i < mainPicsMO.length; i++) {
+  const img = document.createElement("img");
+  const src = document.createAttribute("src");
+
+  src.value = `../img/main/m/${mainPicsMO[i]}`;
+  img.setAttributeNode(src);
+  mainSlideImgMO.appendChild(img);
+}
 
 // 슬라이드 이동 함수
 const moveSlide = (num) => {
-  currentIdx = num;
-  mainSlideImg.style.left = `${num}00%`;
+  slide = num;
+  mainSlideImgPC.style.left = `${num}00%`;
+  mainSlideImgMO.style.left = `${num}00%`;
 };
 
-// 버튼 클릭으로 슬라이드 이동
+// 버튼 클릭으로 슬라이드 이동 (PC)
 mainSlideArrowLeft.addEventListener("click", () => {
-  moveSlide(currentIdx + 1);
+  moveSlide(slide + 1);
+  // 슬라이드 카운트 업데이트
+  if (currentIdx < 1) {
+    currentIdx = mainPicsPC.length - 1;
+  } else {
+    currentIdx--;
+  }
+  mainCounterNow.innerText = currentIdx + 1;
 });
 
 mainSlideArrowRight.addEventListener("click", () => {
-  moveSlide(currentIdx - 1);
+  moveSlide(slide - 1);
+  // 슬라이드 카운트 업데이트
+  if (currentIdx < mainPicsPC.length - 1) {
+    currentIdx++;
+  } else {
+    currentIdx = 0;
+  }
+  mainCounterNow.innerText = currentIdx + 1;
+});
+
+// 버튼 클릭으로 슬라이드 이동 (MO)
+let startPoint = 0;
+let endPoint = 0;
+
+mainBanner.addEventListener("mousedown", (e) => {
+  startPoint = e.pageX; // 터치가 시작되는 위치 저장
+});
+mainBanner.addEventListener("mouseup", (e) => {
+  endPoint = e.pageX; // 터치가 끝나는 위치 저장
+  if (startPoint < endPoint) {
+    moveSlide(slide + 1);
+    // 슬라이드 카운트 업데이트
+    if (currentIdx < 1) {
+      currentIdx = mainPicsMO.length - 1;
+    } else {
+      currentIdx--;
+    }
+    mainCounterNow.innerText = currentIdx + 1;
+  } else if (startPoint > endPoint) {
+    moveSlide(slide - 1);
+    // 슬라이드 카운트 업데이트
+    if (currentIdx < mainPicsMO.length - 1) {
+      currentIdx++;
+    } else {
+      currentIdx = 0;
+    }
+    mainCounterNow.innerText = currentIdx + 1;
+  }
+});
+
+mainBanner.addEventListener("touchstart", (e) => {
+  startPoint = e.touches[0].pageX; // 터치가 시작되는 위치 저장
+});
+mainBanner.addEventListener("touchend", (e) => {
+  endPoint = e.changedTouches[0].pageX; // 터치가 끝나는 위치 저장
+  if (startPoint < endPoint) {
+    moveSlide(slide + 1);
+    // 슬라이드 카운트 업데이트
+    if (currentIdx < 1) {
+      currentIdx = mainPicsMO.length - 1;
+    } else {
+      currentIdx--;
+    }
+    mainCounterNow.innerText = currentIdx + 1;
+  } else if (startPoint > endPoint) {
+    moveSlide(slide - 1);
+    // 슬라이드 카운트 업데이트
+    if (currentIdx < mainPicsMO.length - 1) {
+      currentIdx++;
+    } else {
+      currentIdx = 0;
+    }
+    mainCounterNow.innerText = currentIdx + 1;
+  }
 });
