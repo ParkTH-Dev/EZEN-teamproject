@@ -40,6 +40,54 @@ $font-color: (
   font4: #b5b5b5,
 );
 
+/*modal*/
+#blackB {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.4);
+  z-index: 2;
+  top: 0;
+  left: 0;
+  display: none;
+  .active {
+    display: block;
+  }
+}
+
+#longModal {
+  position: absolute;
+  width: 320px;
+  height: 200px;
+  border-radius: 10px;
+  background: #fff;
+  z-index: 4;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  display: none;
+  h1 {
+    font-size: 1rem;
+    font-weight: normal;
+    text-align: center;
+    margin-top: 84px;
+  }
+  h2 {
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    margin-top: 60px;
+    font-size: 1rem;
+    color: map-get($color, main);
+  }
+  .active {
+    display: block;
+  }
+}
+
 /*login*/
 .login_container {
   font: normal 16px/1rem "Noto Sans KR", sans-serif;
@@ -108,75 +156,102 @@ $font-color: (
               }
             }
           }
-          .loginBtn_inner {
+
+          //*automatic*//
+          .automatic {
+            width: 100%;
+            height: 120px;
+            margin: 10px 0;
             display: flex;
             flex-direction: column;
-            margin: 16px 0 36px 0;
-            gap: 12px;
-            input {
-              height: 54px;
-              font-size: 1rem;
-              font-weight: 500;
-              border-radius: 4px;
-              cursor: pointer;
-              &:nth-child(1) {
-                background: map-get($color, main);
-                color: map-get($color, color-light);
-                border: 1px solid map-get($color, main);
-                transition: all 0.3s;
+            align-items: center;
+            border: 1px solid #f00;
+            .autonumBox {
+              height: 60px;
+              width: 80%;
+              background: map-get($font-color, font3);
+              margin: 8px 0;
+              text-align: center;
+
+              .autonum {
+                color: map-get($point-color, main-light2);
               }
-              &:nth-child(2) {
-                background: map-get($color, color-light);
-                border: 1px solid map-get($color, main);
-                color: map-get($color, main);
-                transition: all 0.3s;
-              }
+            }
+            #autoN {
+              height: 40px;
+              padding: 4px;
+            }
+          }
+        }
+        /*btn*/
+        .loginBtn_inner {
+          display: flex;
+          flex-direction: column;
+          margin: 16px 0 36px 0;
+          gap: 12px;
+          input {
+            height: 54px;
+            font-size: 1rem;
+            font-weight: 500;
+            border-radius: 4px;
+            cursor: pointer;
+            &:nth-child(1) {
+              background: map-get($color, main);
+              color: map-get($color, color-light);
+              border: 1px solid map-get($color, main);
+              transition: all 0.3s;
+            }
+            &:nth-child(2) {
+              background: map-get($color, color-light);
+              border: 1px solid map-get($color, main);
+              color: map-get($color, main);
+              transition: all 0.3s;
             }
           }
         }
       }
-      /*easylogin bottom*/
-      .login_easy {
-        padding-top: 28px;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        & > div {
-          font-size: 0.8rem;
-          color: map-get($font-color, font4);
-          & > a {
-            transition: all 0.3s;
-            &:hover {
-              color: map-get($color, main);
-            }
+    }
+    /*easylogin bottom*/
+    .login_easy {
+      padding-top: 28px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      & > div {
+        font-size: 0.8rem;
+        color: map-get($font-color, font4);
+        & > a {
+          transition: all 0.3s;
+          &:hover {
+            color: map-get($color, main);
           }
         }
-        & > ul {
-          margin-top: 20px;
-          display: flex;
-          justify-content: center;
-          width: 100%;
-          gap: 26px;
-          a > img {
-            width: 40px;
-            height: 40px;
+      }
+      & > ul {
+        margin-top: 20px;
+        display: flex;
+        justify-content: center;
+        width: 100%;
+        gap: 26px;
+        a > img {
+          width: 40px;
+          height: 40px;
+        }
+        li {
+          position: relative;
+          &::before {
+            content: "";
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0);
+            transition: all 0.3s;
+            cursor: pointer;
           }
-          li {
-            position: relative;
-            &::before {
-              content: "";
-              position: absolute;
-              width: 100%;
-              height: 100%;
-              background: rgba(255, 255, 255, 0);
-              transition: all 0.3s;
-              cursor: pointer;
-            }
-            &:hover::before {
-              content: "";
-              background: rgba(255, 255, 255, 0.5);
-            }
+          &:hover::before {
+            content: "";
+            background: rgba(255, 255, 255, 0.5);
           }
         }
       }

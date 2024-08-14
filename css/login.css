@@ -18,6 +18,54 @@ a {
 }
 
 /*variable*/
+/*modal*/
+#blackB {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.4);
+  z-index: 2;
+  top: 0;
+  left: 0;
+  display: none;
+}
+#blackB .active {
+  display: block;
+}
+
+#longModal {
+  position: absolute;
+  width: 320px;
+  height: 200px;
+  border-radius: 10px;
+  background: #fff;
+  z-index: 4;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  display: none;
+}
+#longModal h1 {
+  font-size: 1rem;
+  font-weight: normal;
+  text-align: center;
+  margin-top: 84px;
+}
+#longModal h2 {
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  margin-top: 60px;
+  font-size: 1rem;
+  color: #5f0080;
+}
+#longModal .active {
+  display: block;
+}
+
 /*login*/
 .login_container {
   font: normal 16px/1rem "Noto Sans KR", sans-serif;
@@ -28,13 +76,13 @@ a {
   height: 100%;
   width: 1050px;
   margin: 0 auto;
+  /*easylogin bottom*/
 }
 .login_container .login_inner .login_wrap {
   width: 340px;
   margin: auto;
   position: relative;
   /*top*/
-  /*easylogin bottom*/
 }
 .login_container .login_inner .login_wrap .mobileX {
   position: absolute;
@@ -47,6 +95,9 @@ a {
   text-align: center;
   margin-top: 70px;
   font: 600 1.5rem/1 "Noto Sans KR", sans-serif;
+}
+.login_container .login_inner .login_wrap .login_main {
+  /*btn*/
 }
 .login_container .login_inner .login_wrap .login_main form .id_password {
   margin: 29px 0 13px 0;
@@ -98,63 +149,87 @@ a {
   color: #5f0080;
   border-bottom: 1px solid #5f0080;
 }
-.login_container .login_inner .login_wrap .login_main form .loginBtn_inner {
+.login_container .login_inner .login_wrap .login_main form .automatic {
+  width: 100%;
+  height: 120px;
+  margin: 10px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 1px solid #f00;
+}
+.login_container .login_inner .login_wrap .login_main form .automatic .autonumBox {
+  height: 60px;
+  width: 80%;
+  background: #999999;
+  margin: 8px 0;
+  text-align: center;
+}
+.login_container .login_inner .login_wrap .login_main form .automatic .autonumBox .autonum {
+  color: #faf4ff;
+  transform: translate(40px);
+}
+.login_container .login_inner .login_wrap .login_main form .automatic #autoN {
+  height: 40px;
+  padding: 4px;
+}
+.login_container .login_inner .login_wrap .login_main .loginBtn_inner {
   display: flex;
   flex-direction: column;
   margin: 16px 0 36px 0;
   gap: 12px;
 }
-.login_container .login_inner .login_wrap .login_main form .loginBtn_inner input {
+.login_container .login_inner .login_wrap .login_main .loginBtn_inner input {
   height: 54px;
   font-size: 1rem;
   font-weight: 500;
   border-radius: 4px;
   cursor: pointer;
 }
-.login_container .login_inner .login_wrap .login_main form .loginBtn_inner input:nth-child(1) {
+.login_container .login_inner .login_wrap .login_main .loginBtn_inner input:nth-child(1) {
   background: #5f0080;
   color: #fff;
   border: 1px solid #5f0080;
   transition: all 0.3s;
 }
-.login_container .login_inner .login_wrap .login_main form .loginBtn_inner input:nth-child(2) {
+.login_container .login_inner .login_wrap .login_main .loginBtn_inner input:nth-child(2) {
   background: #fff;
   border: 1px solid #5f0080;
   color: #5f0080;
   transition: all 0.3s;
 }
-.login_container .login_inner .login_wrap .login_easy {
+.login_container .login_inner .login_easy {
   padding-top: 28px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 }
-.login_container .login_inner .login_wrap .login_easy > div {
+.login_container .login_inner .login_easy > div {
   font-size: 0.8rem;
   color: #b5b5b5;
 }
-.login_container .login_inner .login_wrap .login_easy > div > a {
+.login_container .login_inner .login_easy > div > a {
   transition: all 0.3s;
 }
-.login_container .login_inner .login_wrap .login_easy > div > a:hover {
+.login_container .login_inner .login_easy > div > a:hover {
   color: #5f0080;
 }
-.login_container .login_inner .login_wrap .login_easy > ul {
+.login_container .login_inner .login_easy > ul {
   margin-top: 20px;
   display: flex;
   justify-content: center;
   width: 100%;
   gap: 26px;
 }
-.login_container .login_inner .login_wrap .login_easy > ul a > img {
+.login_container .login_inner .login_easy > ul a > img {
   width: 40px;
   height: 40px;
 }
-.login_container .login_inner .login_wrap .login_easy > ul li {
+.login_container .login_inner .login_easy > ul li {
   position: relative;
 }
-.login_container .login_inner .login_wrap .login_easy > ul li::before {
+.login_container .login_inner .login_easy > ul li::before {
   content: "";
   position: absolute;
   width: 100%;
@@ -163,7 +238,7 @@ a {
   transition: all 0.3s;
   cursor: pointer;
 }
-.login_container .login_inner .login_wrap .login_easy > ul li:hover::before {
+.login_container .login_inner .login_easy > ul li:hover::before {
   content: "";
   background: rgba(255, 255, 255, 0.5);
 }

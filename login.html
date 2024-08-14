@@ -10,11 +10,19 @@
     ></script>
     <!--coustom css js-->
     <link rel="stylesheet" href="./css/login.css" />
+    <script defer src="./js/login.js"></script>
     <title>Document</title>
   </head>
   <body>
     <div class="login_container">
+      <div id="blackB" class="active"></div>
       <div class="login_inner">
+        <!--modal-->
+        <div id="longModal" class="active">
+          <h1>아이디, 비밀번호를 확인해주세요</h1>
+          <h2>닫기</h2>
+        </div>
+        <!--main-->
         <div class="login_wrap">
           <div class="mobileX">
             <i class="fa-solid fa-xmark"></i>
@@ -40,6 +48,17 @@
                 <a href="#none">아이디 찾기</a>
                 <span>|</span>
                 <a href="#none">비밀번호 찾기</a>
+              </div>
+              <div class="automatic">
+                <div class="autonumBox">
+                  <ul class="autonum">
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                  </ul>
+                </div>
+                <input type="text" name="autoN" id="autoN" />
               </div>
               <div class="loginBtn_inner">
                 <input type="button" value="로그인" />
