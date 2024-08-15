@@ -1,24 +1,84 @@
 // modal
 const long = document.querySelector("#longModal");
-// 3 try long num
-
-//1 각 인풋에 틀린 조건을 만들어 준다.
-//2 각 인풋의 틀린 조건이 3번이상 반복되면 long의 active를 부여한다.
-//3. long안에 있는 autonum에 각 span태그에 랜덤 숫자를 한글자씩 부여한다.
-//4. 해당 글자의 transfrom의 transrate와 scal값을 랜덤한 숫자로 부여한다.
-
-//.long 안에 autonum의 span태그는 .all 로 가져와서 forEech를 사용하여 하나씩 값을 부여하자
-// 램덤 숫자를 부여하는 함수를 선언하고 return으로 값을 반환하자.
-// 랜덤 숫자는 한자리 숫자와 두자리 숫자가 필요하다.
-//한자리 숫자는 span 태그에 부여하고 두자리 숫자는 transform에 부여하자.
-
-//1 에서 필요한 건 각 인풋요소에 long 조건을 부여하는 것이다.
 
 const form = document.querySelector("form");
+
+//user input
 const userId = form.querySelector("#login_id");
 const userPass = form.querySelector("#login_password");
+//random
+const autoN = form.querySelector("#autoN");
+//for submit
+const loginBtn = form.querySelector(".login");
+//modal
+const modalBack = document.querySelector("#blackB");
+const modal = document.querySelector("#longModal");
 
-//id
-id = (e) => {
-  e.value = e.value.re;
-};
+//id value only EN & num
+userId.addEventListener("input", function (text) {
+  const idText = userId.value;
+  const onlyEnNum = /[^a-zA-Z0-9]/g;
+  if (onlyEnNum.test(idText)) {
+    document.querySelector(".errorId").innerText =
+      "영문(대소문자)과 숫자만 입력해주세요.";
+  } else {
+    document.querySelector(".errorId").innerText = "";
+  }
+});
+
+// id & password submit
+const id = "ezen123";
+const password = "1234";
+
+//modal add & close
+function modalClose() {
+  document.querySelectorAll(".close, #blackB").forEach((item) => {
+    item.addEventListener("click", () => {
+      modalBack.classList.remove("active");
+      modal.classList.remove("active");
+    });
+  });
+}
+
+//auto Num & auto modal Check
+function autoModal() {
+  const autoNum = Math.floor(Math.random() * 3000 + 1);
+  document.querySelector(".autonum").innerText = autoNum;
+  document.querySelector(".automatic").classList.add("active");
+  //숫자를 넣고 값을 띄우며 모달 실행
+  if (
+    autoNum === autoN.value &&
+    userId.value === id &&
+    userPass.value === password
+  ) {
+    modal.querySelector("h1").innerText = `${id}님 환영합니다`;
+    modalBack.classList.add("active");
+    modal.classList.add("active");
+    modalClose();
+  } else {
+    modal.querySelector(
+      "h1"
+    ).innerHTML = `아이디,비밀번호와 <br/> 자동방지 숫자를 확인해주세요`;
+  }
+}
+
+let falseCount = 0;
+
+form.addEventListener("submit", (e) => {
+  e.preventDefault();
+  if (userId.value === id && userPass.value === password) {
+    modal.querySelector("h1").innerText = `${id}님 환영합니다`;
+    modalBack.classList.add("active");
+    modal.classList.add("active");
+    modalClose();
+  } else {
+    falseCount++;
+    modalBack.classList.add("active");
+    modal.classList.add("active");
+    modal.querySelector("h1").innerText = `아이디와 비밀번호를 확인해주세요`;
+    modalClose();
+    if (falseCount >= 3) {
+      autoModal();
+    }
+  }
+});
