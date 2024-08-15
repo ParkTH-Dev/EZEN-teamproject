@@ -162,17 +162,15 @@ $font-color: (
             width: 100%;
             height: 120px;
             margin: 10px 0;
-            display: flex;
+            display: none;
             flex-direction: column;
             align-items: center;
-            border: 1px solid #f00;
             .autonumBox {
               height: 60px;
               width: 80%;
               background: map-get($font-color, font3);
               margin: 8px 0;
               text-align: center;
-
               .autonum {
                 color: map-get($point-color, main-light2);
               }
@@ -180,6 +178,9 @@ $font-color: (
             #autoN {
               height: 40px;
               padding: 4px;
+            }
+            &.active {
+              display: flex;
             }
           }
         }
