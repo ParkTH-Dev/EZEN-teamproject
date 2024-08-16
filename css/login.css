@@ -1,0 +1,287 @@
+/*font*/
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Noto+Sans+KR:wght@100..900&family=Overpass:ital,wght@0,100..900;1,100..900&display=swap");
+/*reset*/
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+ul,
+li {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/*variable*/
+/*modal*/
+#blackB {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.4);
+  z-index: 2;
+  top: 0;
+  left: 0;
+  display: none;
+}
+#blackB.active {
+  display: block;
+}
+
+#longModal {
+  position: absolute;
+  width: 320px;
+  height: 160px;
+  border-radius: 10px;
+  background: #fff;
+  z-index: 4;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  display: none;
+}
+#longModal div {
+  position: relative;
+  top: 0;
+  width: 320px;
+  height: 160px;
+  border: 1px solid #fff;
+  border-radius: 10px;
+}
+#longModal div h1 {
+  font-size: 1rem;
+  font-weight: normal;
+  text-align: center;
+  margin-top: 44px;
+  line-height: 1.2;
+}
+#longModal div .close {
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 1rem;
+  color: #5f0080;
+  cursor: pointer;
+}
+#longModal.active {
+  display: block;
+}
+
+/*login*/
+.login_container {
+  font: normal 16px/1rem "Noto Sans KR", sans-serif;
+  width: 100%;
+  height: 565px;
+}
+.login_container .login_inner {
+  height: 100%;
+  width: 1050px;
+  margin: 0 auto;
+  /*easylogin bottom*/
+}
+.login_container .login_inner .login_wrap {
+  width: 340px;
+  margin: auto;
+  position: relative;
+  /*top*/
+}
+.login_container .login_inner .login_wrap .mobileX {
+  position: absolute;
+  font-size: 1.2rem;
+  top: -30px;
+  right: 0;
+  display: none;
+}
+.login_container .login_inner .login_wrap h1 {
+  text-align: center;
+  margin-top: 70px;
+  font: 600 1.5rem/1 "Noto Sans KR", sans-serif;
+}
+.login_container .login_inner .login_wrap .login_main {
+  /*btn*/
+}
+.login_container .login_inner .login_wrap .login_main form .id_password {
+  margin: 29px 0 13px 0;
+}
+.login_container .login_inner .login_wrap .login_main form .id_password input {
+  width: 100%;
+  height: 54px;
+  border: 1px solid #b5b5b5;
+  border-radius: 4px;
+  padding-left: 10px;
+}
+.login_container .login_inner .login_wrap .login_main form .id_password input[type=text] {
+  margin-bottom: 4px;
+}
+.login_container .login_inner .login_wrap .login_main form .id_password input::-moz-placeholder {
+  font-size: 0.8rem;
+  color: #999999;
+  opacity: 1;
+  -moz-transition: all 0.3s;
+  transition: all 0.3s;
+}
+.login_container .login_inner .login_wrap .login_main form .id_password input::placeholder {
+  font-size: 0.8rem;
+  color: #999999;
+  opacity: 1;
+  transition: all 0.3s;
+}
+.login_container .login_inner .login_wrap .login_main form .id_password input:focus {
+  outline: 1px solid #5f0080;
+}
+.login_container .login_inner .login_wrap .login_main form .id_password input:focus::-moz-placeholder {
+  opacity: 0;
+}
+.login_container .login_inner .login_wrap .login_main form .id_password input:focus::placeholder {
+  opacity: 0;
+}
+.login_container .login_inner .login_wrap .login_main form .id_password .errorId {
+  margin-bottom: 12px;
+  font-size: 0.8rem;
+  color: #fa612f;
+}
+.login_container .login_inner .login_wrap .login_main form .find_container {
+  width: 100%;
+  display: flex;
+  justify-content: end;
+  font-size: 0.8rem;
+  gap: 3px;
+}
+.login_container .login_inner .login_wrap .login_main form .find_container > a {
+  border-bottom: 1px solid #fff;
+  transition: all 0.3s;
+}
+.login_container .login_inner .login_wrap .login_main form .find_container > a:hover {
+  color: #5f0080;
+  border-bottom: 1px solid #5f0080;
+}
+.login_container .login_inner .login_wrap .login_main form .automatic {
+  width: 100%;
+  height: 50px;
+  margin: 10px 0;
+  display: none;
+  gap: 10px;
+  align-items: center;
+  justify-content: center;
+}
+.login_container .login_inner .login_wrap .login_main form .automatic .autonumBox {
+  height: 40px;
+  width: 46%;
+  background: #999999;
+  text-align: center;
+  padding-top: 10px;
+  border-radius: 4px 0 0 4px;
+}
+.login_container .login_inner .login_wrap .login_main form .automatic .autonumBox .autonum {
+  color: #faf4ff;
+  font-size: 1.2rem;
+}
+.login_container .login_inner .login_wrap .login_main form .automatic #autoN {
+  height: 40px;
+  width: 46%;
+  padding: 4px;
+  outline: none;
+  border: 1px solid #999999;
+  border-radius: 0 4px 4px 0;
+  padding-left: 10px;
+}
+.login_container .login_inner .login_wrap .login_main form .automatic.active {
+  display: flex;
+}
+.login_container .login_inner .login_wrap .login_main .loginBtn_inner {
+  display: flex;
+  flex-direction: column;
+  margin: 16px 0 36px 0;
+  gap: 12px;
+}
+.login_container .login_inner .login_wrap .login_main .loginBtn_inner input {
+  height: 54px;
+  font-size: 1rem;
+  font-weight: 500;
+  border-radius: 4px;
+  cursor: pointer;
+}
+.login_container .login_inner .login_wrap .login_main .loginBtn_inner input:nth-child(1) {
+  background: #5f0080;
+  color: #fff;
+  border: 1px solid #5f0080;
+  transition: all 0.3s;
+}
+.login_container .login_inner .login_wrap .login_main .loginBtn_inner input:nth-child(2) {
+  background: #fff;
+  border: 1px solid #5f0080;
+  color: #5f0080;
+  transition: all 0.3s;
+}
+.login_container .login_inner .login_easy {
+  padding-top: 28px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.login_container .login_inner .login_easy > div {
+  font-size: 0.8rem;
+  color: #b5b5b5;
+}
+.login_container .login_inner .login_easy > div > a {
+  transition: all 0.3s;
+}
+.login_container .login_inner .login_easy > div > a:hover {
+  color: #5f0080;
+}
+.login_container .login_inner .login_easy > ul {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  gap: 26px;
+}
+.login_container .login_inner .login_easy > ul a > img {
+  width: 40px;
+  height: 40px;
+}
+.login_container .login_inner .login_easy > ul li {
+  position: relative;
+}
+.login_container .login_inner .login_easy > ul li::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0);
+  transition: all 0.3s;
+  cursor: pointer;
+}
+.login_container .login_inner .login_easy > ul li:hover::before {
+  content: "";
+  background: rgba(255, 255, 255, 0.5);
+}
+
+/*mobail*/
+@media screen and (max-width: 1050px) {
+  .login_container {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #f9f9f9;
+  }
+  .login_container .login_inner {
+    width: 390px;
+    padding: 10px;
+    background: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 15px;
+  }
+  .login_container .login_inner .login_wrap .mobileX {
+    display: block;
+  }
+}/*# sourceMappingURL=login.css.map */
