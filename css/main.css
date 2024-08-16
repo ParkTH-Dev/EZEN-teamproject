@@ -51,12 +51,12 @@ body {
   cursor: pointer;
   position: absolute;
   top: 0;
-  left: 0;
+  left: -100%;
   display: flex;
   transition: all 0.5s;
 }
 #main_banner .bg_imgPC img {
-  width: 100%;
+  width: 10%;
   -o-object-fit: cover;
      object-fit: cover;
 }
@@ -864,7 +864,7 @@ body {
     transition: all 0.5s;
   }
   body #app_container #main_banner .bg_imgMO img {
-    width: 100%;
+    width: 10%;
     -o-object-fit: cover;
        object-fit: cover;
   }

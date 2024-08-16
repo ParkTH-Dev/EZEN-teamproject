@@ -71,11 +71,11 @@ body {
     cursor: pointer;
     position: absolute;
     top: 0;
-    left: 0;
+    left: -100%;
     display: flex;
     transition: all 0.5s;
     img {
-      width: 100%;
+      width: 10%;
       object-fit: cover;
     }
   }
@@ -899,7 +899,7 @@ body {
           display: flex;
           transition: all 0.5s;
           img {
-            width: 100%;
+            width: 10%;
             object-fit: cover;
           }
         }
