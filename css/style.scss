@@ -3,8 +3,8 @@
 // font-family: "Noto Sans KR", sans-serif;
 
 body {
-  position: relative;
-  height: 2000px;
+  display: flex;
+  flex-direction: column;
 }
 $color: (
   bg-light-color: #fff,
@@ -20,7 +20,6 @@ $color: (
 // header
 header {
   position: relative;
-
   width: 100%;
   .header_wrapper {
     width: 100%;
@@ -130,6 +129,7 @@ header {
 .header_sticky {
   z-index: 100;
   width: 100%;
+  background: #fff;
   display: flex;
   justify-content: center;
   align-items: center;
