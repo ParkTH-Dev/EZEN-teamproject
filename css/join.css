@@ -293,9 +293,6 @@ li {
   /*1 line all*/
   /*receive*/
 }
-#checkinner > div:nth-child(2) input[type=checkbox] {
-  display: none;
-}
 #checkinner > div:nth-child(2) ul {
   padding-left: 16px;
   display: flex;
@@ -333,6 +330,13 @@ li {
   cursor: pointer;
   color: #5f0080;
   margin: 5px 5px 0 0;
+}
+#checkinner > div:nth-child(2) ul li .pathIcon.active .chackIcon {
+  cursor: pointer;
+  font-size: 24px;
+}
+#checkinner > div:nth-child(2) ul li .pathIcon.active .chackIcon svg path {
+  stroke: #5f0080;
 }
 #checkinner > div:nth-child(2) #allCheck + label span {
   font-size: 1.2rem;
@@ -374,6 +378,7 @@ li {
   width: 100%;
   background: rgba(0, 0, 0, 0.4);
   z-index: 5;
+  display: none;
 }
 .modalBase .modalInner {
   width: 1080px;
@@ -441,8 +446,8 @@ li {
   right: 50%;
   transform: translateX(50%);
 }
-.modalBase.noneActive {
-  display: none;
+.modalBase.active {
+  display: block;
 }
 
 @media screen and (max-width: 1050px) {

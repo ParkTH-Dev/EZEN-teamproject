@@ -304,7 +304,7 @@ li {
 
     /*checkbox none*/
     input[type="checkbox"] {
-      display: none;
+      // display: none;
     }
     /*common*/
     ul {
@@ -342,6 +342,17 @@ li {
           cursor: pointer;
           color: map-get($color, main);
           margin: 5px 5px 0 0;
+        }
+        .pathIcon {
+          &.active {
+            .chackIcon {
+              cursor: pointer;
+              font-size: 24px;
+              svg path {
+                stroke: map-get($color, main);
+              }
+            }
+          }
         }
       }
     }
@@ -391,6 +402,7 @@ li {
   width: 100%;
   background: rgba(0, 0, 0, 0.4);
   z-index: 5;
+  display: none;
 
   .modalInner {
     width: 1080px;
@@ -465,8 +477,8 @@ li {
       }
     }
   }
-  &.noneActive {
-    display: none;
+  &.active {
+    display: block;
   }
 }
 
