@@ -1,8 +1,8 @@
 @import "./reset.css";
 @import url("https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&display=swap");
 body {
-  position: relative;
-  height: 2000px;
+  display: flex;
+  flex-direction: column;
 }
 
 header {
@@ -121,6 +121,7 @@ header .header_wrapper .inner .header_main .header_main_right span {
 .header_sticky {
   z-index: 100;
   width: 100%;
+  background: #fff;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -310,7 +311,6 @@ footer .footer_wrapper .inner .footer_right .footer_right_third {
   cursor: pointer;
   display: flex;
   gap: 15px;
-<<<<<<< HEAD
 }
 
 @media screen and (max-width: 1050px) {
@@ -413,6 +413,3 @@ footer .footer_wrapper .inner .footer_right .footer_right_third {
     display: none;
   }
 }
-=======
-}/*# sourceMappingURL=style.css.map */
->>>>>>> develop
