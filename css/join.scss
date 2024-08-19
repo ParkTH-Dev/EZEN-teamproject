@@ -41,6 +41,9 @@ li {
   margin: 0 auto;
 
   color: map-get($font-color, font-dark);
+  .mobileHeader {
+    display: none;
+  }
   .join_inner {
     display: flex;
     flex-direction: column;
@@ -343,14 +346,26 @@ li {
           color: map-get($color, main);
           margin: 5px 5px 0 0;
         }
-        .pathIcon {
+        // .pathIcon {
+        //   &.active {
+        //     .chackIcon {
+        //       cursor: pointer;
+        //       font-size: 24px;
+        //       svg path {
+        //         stroke: map-get($color, main);
+        //       }
+        //     }
+        //   }
+        // }
+        .checkIcon {
+          font-size: 24px;
+          padding-bottom: 3px;
+          padding: 1px;
           &.active {
-            .chackIcon {
-              cursor: pointer;
-              font-size: 24px;
-              svg path {
-                stroke: map-get($color, main);
-              }
+            cursor: pointer;
+            font-size: 24px;
+            svg path {
+              stroke: map-get($color, main);
             }
           }
         }

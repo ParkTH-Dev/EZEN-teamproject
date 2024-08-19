@@ -26,6 +26,9 @@ li {
   margin: 0 auto;
   color: #333333;
 }
+#join_container .mobileHeader {
+  display: none;
+}
 #join_container .join_inner {
   display: flex;
   flex-direction: column;
@@ -331,11 +334,16 @@ li {
   color: #5f0080;
   margin: 5px 5px 0 0;
 }
-#checkinner > div:nth-child(2) ul li .pathIcon.active .chackIcon {
+#checkinner > div:nth-child(2) ul li .checkIcon {
+  font-size: 24px;
+  padding-bottom: 3px;
+  padding: 1px;
+}
+#checkinner > div:nth-child(2) ul li .checkIcon.active {
   cursor: pointer;
   font-size: 24px;
 }
-#checkinner > div:nth-child(2) ul li .pathIcon.active .chackIcon svg path {
+#checkinner > div:nth-child(2) ul li .checkIcon.active svg path {
   stroke: #5f0080;
 }
 #checkinner > div:nth-child(2) #allCheck + label span {
@@ -634,4 +642,4 @@ li {
     margin: 0 50px 30px;
     width: calc(100% - 100px);
   }
-}/*# sourceMappingURL=join.css.map */
+}

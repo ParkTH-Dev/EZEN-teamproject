@@ -4,7 +4,8 @@
 const checkBoxs = document.querySelectorAll("input[type='checkbox']");
 
 checkBoxs.forEach((checkBox) => {
-  checkBox.addEventListener("click", () => {
-    checkBox.nextElementSibling.classList.toggle("active");
+  checkBox.addEventListener("change", () => {
+    let checkIcon = document.getElementsByClassName(`${checkBox.id}`)[0];
+    checkIcon.classList.toggle("active");
   });
 });
