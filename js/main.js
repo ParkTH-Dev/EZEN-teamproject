@@ -61,22 +61,6 @@ for (let i = 0; i < mainPicsMO.length; i++) {
 }
 
 //이미지 클론
-const imgsPC = mainSlideImgPC.querySelectorAll("img");
-const imgsMO = mainSlideImgMO.querySelectorAll("img");
-
-const makeClone = (i) => {
-  if (i < 1) {
-    const cloneSlide = imgsPC[mainPicsPC.length - 1].cloneNode(true);
-    cloneSlide.classList.add("clone");
-    mainSlideImgPC.prepend(cloneSlide);
-  } else if (i < mainPicsPC.length - 1) {
-    const cloneSlide = imgsPC[i].cloneNode(true);
-    cloneSlide.classList.add("clone");
-    mainSlideImgPC.appendChild(cloneSlide);
-  }
-};
-
-makeClone(slide);
 
 // 슬라이드 이동 함수
 const moveSlide = (num) => {
