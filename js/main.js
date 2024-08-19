@@ -39,6 +39,7 @@ let currentIdx = 0;
 // mainSlideImg.style.backgroundImage = `url(../img/main/${mainPicsPC[i]})`;
 
 mainCounterAll.innerText = mainPicsPC.length;
+// console.log(mainPicsPC.length);
 mainCounterNow.innerText = currentIdx + 1;
 
 // 이미지 세팅
@@ -60,13 +61,58 @@ for (let i = 0; i < mainPicsMO.length; i++) {
   mainSlideImgMO.appendChild(img);
 }
 
+const updateWidth = () => {
+  const imgs = document.querySelectorAll(".bg_imgPC > img");
+  const newSlideCount = imgs.length;
+  const imgWidth = 100;
+  const newWidth = `${newSlideCount * imgWidth}%`;
+  console.log(newWidth);
+  mainSlideImgPC.style.width = newWidth;
+};
+
+const setInitialPos = () => {
+  const imgWidth = 100;
+  const initialTranslateValue = `-${imgWidth * mainPicsPC.length}%`;
+  mainSlideImgPC.style.transform = `translateX(-33.33%)`;
+};
+
 //이미지 클론
+const imgs = document.querySelectorAll(".bg_imgPC > img");
+const makeClone = () => {
+  for (let i = 0; i < imgs.length; i++) {
+    const cloneSlide = imgs[i].cloneNode(true);
+    cloneSlide.classList.add("clone");
+    mainSlideImgPC.appendChild(cloneSlide);
+  }
+  for (let i = imgs.length - 1; i >= 0; i--) {
+    const cloneSlide = imgs[i].cloneNode(true);
+    cloneSlide.classList.add("clone");
+    mainSlideImgPC.prepend(cloneSlide);
+  }
+  updateWidth();
+  setInitialPos();
+  setTimeout(() => {
+    mainSlideImgPC.classList.add("animated");
+  }, 100);
+};
+
+makeClone();
 
 // 슬라이드 이동 함수
 const moveSlide = (num) => {
   slide = num;
   mainSlideImgPC.style.left = `${num}00%`;
   mainSlideImgMO.style.left = `${num}00%`;
+  if (slide === mainPicsPC.length || slide === -mainPicsPC.length) {
+    setTimeout(() => {
+      mainSlideImgPC.classList.remove("animated");
+      mainSlideImgPC.style.left = "0px";
+      slide = 0;
+    }, 500);
+    setTimeout(() => {
+      mainSlideImgPC.classList.add("animated");
+    }, 600);
+  }
 };
 
 // 슬라이드 카운트 업데이트 (감소)
@@ -130,4 +176,46 @@ mainBanner.addEventListener("touchend", (e) => {
     moveSlide(slide - 1);
     counterUpdatePlus();
   }
+});
+
+// 자동슬라이드 및 정지
+let timer = undefined;
+const autoSlide = () => {
+  if (timer === undefined) {
+    timer = setInterval(() => {
+      moveSlide(slide - 1);
+      counterUpdatePlus();
+    }, 3000);
+  }
+};
+
+autoSlide();
+
+const stopSlide = () => {
+  clearInterval(timer);
+  timer = undefined;
+};
+
+mainBanner.addEventListener("mouseenter", () => {
+  stopSlide();
+});
+
+mainBanner.addEventListener("mouseleave", () => {
+  autoSlide();
+});
+
+mainSlideArrowLeft.addEventListener("mouseenter", () => {
+  stopSlide();
+});
+
+mainSlideArrowLeft.addEventListener("mouseleave", () => {
+  autoSlide();
+});
+
+mainSlideArrowRight.addEventListener("mouseenter", () => {
+  stopSlide();
+});
+
+mainSlideArrowRight.addEventListener("mouseleave", () => {
+  autoSlide();
 });

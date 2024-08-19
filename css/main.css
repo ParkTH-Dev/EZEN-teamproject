@@ -46,13 +46,14 @@ body {
   opacity: 1;
 }
 #main_banner .bg_imgPC {
-  width: 1000%;
   height: 100%;
   cursor: pointer;
   position: absolute;
   top: 0;
   left: 0;
   display: flex;
+}
+#main_banner .bg_imgPC.animated {
   transition: all 0.5s;
 }
 #main_banner .bg_imgPC img {

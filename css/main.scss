@@ -66,14 +66,16 @@ body {
     opacity: 1;
   }
   .bg_imgPC {
-    width: 1000%;
+    // width: 1000%;
     height: 100%;
     cursor: pointer;
     position: absolute;
     top: 0;
     left: 0;
     display: flex;
-    transition: all 0.5s;
+    &.animated {
+      transition: all 0.5s;
+    }
     img {
       width: 10%;
       object-fit: cover;
