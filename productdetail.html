@@ -84,7 +84,7 @@
           <div class="mobile_header_wrap">
             <div class="top">
               <a><i class="fa-solid fa-chevron-left"></i></a>
-              <span>[금주의라면]농심 컵라면 7종 (택3)</span>
+              <span class="mobileHeaderTitle"></span>
               <div>
                 <span><i class="fa-solid fa-magnifying-glass"></i></span>
                 <span><i class="fa-solid fa-cart-shopping"></i></span>
@@ -93,10 +93,10 @@
           </div>
         </div>
         <div class="productInfo">
-          <div class="info_img">
-            <img
+          <div class="info_img thumbnail">
+            <!-- <img
               src="./img/productdetail/c7e07ca0-ef4f-428b-8ffb-6ed11e389257.jpg"
-            />
+            /> -->
             <div class="slide_num">
               <span>1 / 3</span>
             </div>
@@ -109,7 +109,10 @@
                   <span>냉동</span>
                 </div>
                 <div class="title">
-                  <h1>[금주의라면]농심 컵라면 7종 (택3)</h1>
+                  <h1 class="productName">
+                    <!-- [금주의라면]농심 컵라면 7종 (택3) -->
+                  </h1>
+                  <h4 class="description"></h4>
                 </div>
               </div>
               <div class="share">
@@ -137,10 +140,15 @@
             </div>
             <div class="desc_price">
               <h4>
-                <del> 5,520원 </del>
+                <del class="originalPrice"> 5,520원 </del>
                 <img src="./img/productdetail/Button → SVG.png" alt="" />
               </h4>
-              <h2><b>18%</b> 4,490원</h2>
+              <h2 class="price">
+                <b class="discount">
+                  <!-- 18% -->
+                </b>
+                <!-- 4,490원 -->
+              </h2>
               <span>원산지: 상품설명/상세정보 참조</span>
             </div>
             <div class="desc_shipping">
@@ -154,7 +162,7 @@
             <div class="desc_choice">
               <span>상품선택</span>
               <div class="choice_box">
-                <h4>[상품명]제품명</h4>
+                <h4 class="productNameChoice"></h4>
                 <div>
                   <div class="quantity">
                     <span>-</span>
@@ -162,8 +170,8 @@
                     <span>+</span>
                   </div>
                   <div class="price">
-                    <span><del>5,520원</del></span>
-                    <span>4,490원</span>
+                    <span><del class="originalPriceChoice">5,520원</del></span>
+                    <span class="PriceChoice">4,490원</span>
                   </div>
                 </div>
               </div>
@@ -198,7 +206,7 @@
             </div>
             <div class="desc_totalPrice">
               <span>총 상품금액:</span>
-              <h1><b>4,490</b>원</h1>
+              <h1><b class="totalPrice">4,490</b>원</h1>
             </div>
           </div>
           <div class="info_modal">
@@ -217,31 +225,26 @@
                 <li>
                   <h4>포장타입</h4>
                   <div>
-                    <span>냉동 (종이포장)</span>
+                    <span class="modalFrozen"></span>
                     <h5>택배배송은 에코 포장이 스티로폼으로 대체됩니다.</h5>
                   </div>
                 </li>
                 <li>
                   <h4>판매단위</h4>
                   <div>
-                    <span>1팩</span>
+                    <span class="packaging"></span>
                   </div>
                 </li>
                 <li>
                   <h4>중량/용량</h4>
                   <div>
-                    <span>948g(2인분)</span>
+                    <span class="productWeight"></span>
                   </div>
                 </li>
                 <li>
                   <h4>알레르기 정보</h4>
                   <div>
-                    <span>- 밀, 메밀, 대두, 고등어 함유</span>
-                    <span
-                      >- 알류, 땅콩, 우유, 메밀, 대두, 밀, 고등어, 토마토, 게,
-                      새우, 복숭아, 돼지고기, 아황산류, 호두, 오징어, 쇠고기,
-                      닭고기, 조개류와 같은 시설에서 제조</span
-                    >
+                    <span class="allergyInfo"></span>
                   </div>
                 </li>
               </ul>
@@ -250,9 +253,8 @@
         </div>
         <div class="top_review">
           <div class="review_wrap">
-            <div class="item">
-              <img src="./img/productdetail/Rectangle 3.png" />
-
+            <div class="top_review_item item">
+              <!-- <img src="./img/productdetail/Rectangle 3.png" />
               <div class="desc">
                 <div class="userId">
                   <span>qwer****</span>
@@ -266,42 +268,12 @@
                     <span>120</span>
                   </div>
                 </div>
-              </div>
+              </div> -->
             </div>
-            <div class="item">
-              <img src="./img/productdetail/Rectangle 3.png" />
-              <div class="desc">
-                <div class="userId">
-                  <span>qwer****</span>
-                  <span>24.08.03</span>
-                </div>
-                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit.</p>
-                <div class="like">
-                  <div>
-                    <i class="fa-regular fa-thumbs-up"></i>
-                    <span>도움돼요</span>
-                    <span>120</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="item">
-              <img src="./img/productdetail/Rectangle 3.png" />
-              <div class="desc">
-                <div class="userId">
-                  <span>qwer****</span>
-                  <span>24.08.03</span>
-                </div>
-                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit.</p>
-                <div class="like">
-                  <div>
-                    <i class="fa-regular fa-thumbs-up"></i>
-                    <span>도움돼요</span>
-                    <span>120</span>
-                  </div>
-                </div>
-              </div>
-            </div>
+            <div class="top_review_item item"></div>
+            <div class="top_review_item item"></div>
+            <div class="top_review_item item"></div>
+            <div class="top_review_item item"></div>
           </div>
         </div>
         <div class="productGnb">
@@ -319,8 +291,11 @@
           </div>
         </div>
         <div id="productImg">
-          <img src="./img/productdetail/productImg.png" alt="" />
-          <img src="./img/productdetail/productMobile.JPG" />
+          <!-- <img src="./json/productImg/pc01.png" alt="productImage" />
+          <img
+            src="./img/productdetail/productMobile.JPG"
+            alt="productMobileImage"
+          /> -->
         </div>
         <div id="refund">
           <div class="itemWrap">
@@ -492,45 +467,15 @@
         <div id="bottom_review">
           <div class="review_imgs">
             <div>
-              <img
-                src="./img/productdetail/06a2d35d-476a-497e-b5a5-f2f623a15636.jpg.png"
-              />
+              <!-- json -->
             </div>
-            <div>
-              <img
-                src="./img/productdetail/06a2d35d-476a-497e-b5a5-f2f623a15636.jpg.png"
-              />
-            </div>
-            <div>
-              <img
-                src="./img/productdetail/06a2d35d-476a-497e-b5a5-f2f623a15636.jpg.png"
-              />
-            </div>
-            <div>
-              <img
-                src="./img/productdetail/06a2d35d-476a-497e-b5a5-f2f623a15636.jpg.png"
-              />
-            </div>
-            <div>
-              <img
-                src="./img/productdetail/06a2d35d-476a-497e-b5a5-f2f623a15636.jpg.png"
-              />
-            </div>
-            <div>
-              <img
-                src="./img/productdetail/06a2d35d-476a-497e-b5a5-f2f623a15636.jpg.png"
-              />
-            </div>
-            <div>
-              <img
-                src="./img/productdetail/06a2d35d-476a-497e-b5a5-f2f623a15636.jpg.png"
-              />
-            </div>
-            <div>
-              <img
-                src="./img/productdetail/06a2d35d-476a-497e-b5a5-f2f623a15636.jpg.png"
-              />
-            </div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
           </div>
           <div class="review_num">
             <div class="num">
@@ -543,32 +488,8 @@
           </div>
           <div class="user_review">
             <div class="review">
-              <div class="user">
-                <span>베스트</span>
-                <span>이**</span>
-              </div>
-              <div class="desc">
-                <span>[농심] 육개장 사발면 6입</span>
-                <span
-                  >Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                  Reprehenderit, dicta! Iusto laborum dolores amet commodi
-                  rerum? Iure tempore quisquam recusandae quas dolore
-                  blanditiis, provident aspernatur, ut molestiae commodi velit.
-                  Nulla.</span
-                >
-                <div>
-                  <img src="./img/productdetail/reveiw.jpeg" alt="reveiw" />
-                  <img src="./img/productdetail/reveiw.jpeg" alt="reveiw" />
-                  <img src="./img/productdetail/reveiw.jpeg" alt="reveiw" />
-                </div>
-                <span>2024.08.04</span>
-              </div>
-              <div class="like">
-                <span><i class="fa-regular fa-thumbs-up"></i> 도움돼요</span>
-              </div>
-            </div>
-            <div class="review">
-              <div class="user">
+              <!-- json -->
+              <!-- <div class="user">
                 <span>베스트</span>
                 <span>박**</span>
               </div>
@@ -582,26 +503,17 @@
               </div>
               <div class="like">
                 <span><i class="fa-regular fa-thumbs-up"></i> 도움돼요</span>
-              </div>
+              </div> -->
             </div>
-            <div class="review">
-              <div class="user">
-                <span>베스트</span>
-                <span>이**</span>
-              </div>
-              <div class="desc">
-                <span>[농심] 육개장 사발면 6입</span>
-                <span>컵라면은 육개장</span>
-                <div>
-                  <img src="./img/productdetail/reveiw.jpeg" alt="reveiw" />
-                  <img src="./img/productdetail/reveiw.jpeg" alt="reveiw" />
-                </div>
-                <span>2024.08.01</span>
-              </div>
-              <div class="like">
-                <span><i class="fa-regular fa-thumbs-up"></i> 도움돼요</span>
-              </div>
-            </div>
+            <div class="review"></div>
+            <div class="review"></div>
+            <div class="review"></div>
+            <div class="review"></div>
+            <div class="review"></div>
+            <div class="review"></div>
+            <div class="review"></div>
+            <div class="review"></div>
+            <div class="review"></div>
           </div>
         </div>
         <div id="inquiry">
