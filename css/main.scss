@@ -66,7 +66,7 @@ body {
     opacity: 1;
   }
   .bg_imgPC {
-    // width: 1000%;
+    // width: 3000%;
     height: 100%;
     cursor: pointer;
     position: absolute;
@@ -77,7 +77,8 @@ body {
       transition: all 0.5s;
     }
     img {
-      width: 10%;
+      width: 3.3333%;
+      height: 100%;
       object-fit: cover;
     }
   }
@@ -892,16 +893,18 @@ body {
           display: none;
         }
         .bg_imgMO {
-          width: 1000%;
+          // width: 1000%;
           height: 100%;
           cursor: pointer;
           position: absolute;
           top: 0;
           left: 0;
           display: flex;
-          transition: all 0.5s;
+          &.animated {
+            transition: all 0.5s;
+          }
           img {
-            width: 10%;
+            width: 3.3333%;
             object-fit: cover;
           }
         }

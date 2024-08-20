@@ -61,23 +61,27 @@ for (let i = 0; i < mainPicsMO.length; i++) {
   mainSlideImgMO.appendChild(img);
 }
 
+//width 계산
 const updateWidth = () => {
   const imgs = document.querySelectorAll(".bg_imgPC > img");
+  const imgsM = document.querySelectorAll(".bg_imgMO > img");
   const newSlideCount = imgs.length;
+  const newSlideCountM = imgsM.length;
   const imgWidth = 100;
   const newWidth = `${newSlideCount * imgWidth}%`;
-  console.log(newWidth);
+  const newWidthM = `${newSlideCountM * imgWidth}%`;
   mainSlideImgPC.style.width = newWidth;
+  mainSlideImgMO.style.width = newWidth;
 };
 
 const setInitialPos = () => {
-  const imgWidth = 100;
-  const initialTranslateValue = `-${imgWidth * mainPicsPC.length}%`;
   mainSlideImgPC.style.transform = `translateX(-33.33%)`;
+  mainSlideImgMO.style.transform = `translateX(-33.33%)`;
 };
 
 //이미지 클론
 const imgs = document.querySelectorAll(".bg_imgPC > img");
+const imgsM = document.querySelectorAll(".bg_imgMO > img");
 const makeClone = () => {
   for (let i = 0; i < imgs.length; i++) {
     const cloneSlide = imgs[i].cloneNode(true);
@@ -89,10 +93,23 @@ const makeClone = () => {
     cloneSlide.classList.add("clone");
     mainSlideImgPC.prepend(cloneSlide);
   }
+  for (let i = 0; i < imgsM.length; i++) {
+    const cloneSlideM = imgsM[i].cloneNode(true);
+    cloneSlideM.classList.add("clone");
+    mainSlideImgMO.appendChild(cloneSlideM);
+  }
+  for (let i = imgsM.length - 1; i >= 0; i--) {
+    const cloneSlideM = imgsM[i].cloneNode(true);
+    cloneSlideM.classList.add("clone");
+    mainSlideImgMO.prepend(cloneSlideM);
+  }
   updateWidth();
   setInitialPos();
   setTimeout(() => {
     mainSlideImgPC.classList.add("animated");
+  }, 100);
+  setTimeout(() => {
+    mainSlideImgMO.classList.add("animated");
   }, 100);
 };
 
@@ -111,6 +128,16 @@ const moveSlide = (num) => {
     }, 500);
     setTimeout(() => {
       mainSlideImgPC.classList.add("animated");
+    }, 600);
+  }
+  if (slide === mainPicsMO.length || slide === -mainPicsMO.length) {
+    setTimeout(() => {
+      mainSlideImgMO.classList.remove("animated");
+      mainSlideImgMO.style.left = "0px";
+      slide = 0;
+    }, 500);
+    setTimeout(() => {
+      mainSlideImgMO.classList.add("animated");
     }, 600);
   }
 };
@@ -219,3 +246,6 @@ mainSlideArrowRight.addEventListener("mouseenter", () => {
 mainSlideArrowRight.addEventListener("mouseleave", () => {
   autoSlide();
 });
+
+// 카테고리 위치 이동
+const categoryArea = document.querySelector("#category_area");

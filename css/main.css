@@ -57,7 +57,8 @@ body {
   transition: all 0.5s;
 }
 #main_banner .bg_imgPC img {
-  width: 10%;
+  width: 3.3333%;
+  height: 100%;
   -o-object-fit: cover;
      object-fit: cover;
 }
@@ -855,17 +856,18 @@ body {
     display: none;
   }
   body #app_container #main_banner .bg_imgMO {
-    width: 1000%;
     height: 100%;
     cursor: pointer;
     position: absolute;
     top: 0;
     left: 0;
     display: flex;
+  }
+  body #app_container #main_banner .bg_imgMO.animated {
     transition: all 0.5s;
   }
   body #app_container #main_banner .bg_imgMO img {
-    width: 10%;
+    width: 3.3333%;
     -o-object-fit: cover;
        object-fit: cover;
   }
