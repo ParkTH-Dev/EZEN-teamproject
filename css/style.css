@@ -1,8 +1,13 @@
 @import "./reset.css";
 @import url("https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&display=swap");
 body {
+<<<<<<< HEAD
+  height: 100%;
+  position: relative;
+=======
   display: flex;
   flex-direction: column;
+>>>>>>> develop
 }
 
 header {
@@ -222,12 +227,14 @@ header .header_wrapper .inner .header_main .header_main_right span {
 }
 
 footer {
+  border: 1px solid #f00;
   width: 100%;
   height: 360px;
-  position: absolute;
-  bottom: 0;
+  position: relative;
 }
 footer .footer_wrapper {
+  position: absolute;
+  bottom: 0;
   border-top: 1px solid #ddd;
   width: 100%;
   height: 100%;
@@ -270,7 +277,6 @@ footer .footer_wrapper .inner .footer_left .footer_left_info .left_info h2 {
   transition: all 0.3s;
 }
 footer .footer_wrapper .inner .footer_left .footer_left_info .left_info h2:hover {
-  background: #5f0080;
   color: white;
   border: 1px solid #5f0080;
 }
@@ -311,6 +317,9 @@ footer .footer_wrapper .inner .footer_right .footer_right_third {
   cursor: pointer;
   display: flex;
   gap: 15px;
+<<<<<<< HEAD
+}/*# sourceMappingURL=style.css.map */
+=======
 }
 
 @media screen and (max-width: 1050px) {
@@ -413,3 +422,4 @@ footer .footer_wrapper .inner .footer_right .footer_right_third {
     display: none;
   }
 }
+>>>>>>> develop
