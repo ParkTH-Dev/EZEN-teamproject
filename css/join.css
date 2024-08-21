@@ -1,0 +1,632 @@
+/*font*/
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Noto+Sans+KR:wght@100..900&family=Overpass:ital,wght@0,100..900;1,100..900&display=swap");
+/*variable*/
+/*reset*/
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+ul,
+li {
+  list-style: none;
+  padding-left: 0;
+}
+
+/*custom*/
+.top-content.modalAction {
+  height: 100vh;
+  overflow: hidden;
+}
+
+#join_container {
+  font: normal 16px/1 "Noto Sans KR", sans-serif;
+  width: 1080px;
+  margin: 0 auto;
+  color: #333333;
+}
+#join_container .join_inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  /*title*/
+  /*form*/
+}
+#join_container .join_inner .mobilX {
+  display: none;
+  position: absolute;
+  right: 0;
+  top: 10px;
+  font-size: 1.2rem;
+}
+#join_container .join_inner .star {
+  color: #ef7793;
+}
+#join_container .join_inner #title {
+  width: 640px;
+  border-bottom: 2px solid;
+}
+#join_container .join_inner #title h1 {
+  text-align: center;
+  font: bold 1.5rem/1;
+  margin: 30px 0 50px;
+}
+#join_container .join_inner #title h4 {
+  display: flex;
+  justify-content: end;
+  margin-bottom: 10px;
+  font-size: 0.9rem;
+  color: #727272;
+}
+#join_container .join_inner #title h4 span {
+  color: #ef7793;
+}
+#join_container .join_inner #main {
+  width: 640px;
+}
+#join_container .join_inner #main form {
+  width: 640px;
+  /*---join top private---*/
+}
+#join_container .join_inner #main form #private {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+#join_container .join_inner #main form #private li {
+  height: 60px;
+  padding: 10px 16px;
+  display: flex;
+  line-height: 40px;
+  /*top 1 td*/
+  /*top 2 td*/
+  /*top 3 td*/
+  /*email Two Td*/
+  /*adrass*/
+  /*Birth*/
+  /*gender*/
+  /*invit*/
+}
+#join_container .join_inner #main form #private li > div:nth-child(1) {
+  width: 150px;
+}
+#join_container .join_inner #main form #private li > div:nth-child(2) {
+  width: calc(100% - 270px);
+  text-align: center;
+}
+#join_container .join_inner #main form #private li > div:nth-child(3) {
+  width: 120px;
+  text-align: center;
+}
+#join_container .join_inner #main form #private li > div:nth-child(3) > input {
+  width: 80%;
+  height: 40px;
+  margin-right: 10px;
+  line-height: 10px;
+  background: #fff;
+  color: #c5c5c5;
+  font-size: 0.9rem;
+  border: 1px solid #c5c5c5;
+  border-radius: 4px;
+}
+#join_container .join_inner #main form #private li > div:nth-child(3) > input .action {
+  color: #5f0080;
+  border: 1px solid #5f0080;
+  border-radius: 4px;
+}
+#join_container .join_inner #main form #private li input[type=text], #join_container .join_inner #main form #private li input[type=password] {
+  width: 100%;
+  height: 40px;
+  outline: none;
+  border: 1px solid #c5c5c5;
+  border-radius: 4px;
+  padding-left: 10px;
+}
+#join_container .join_inner #main form #private li input[type=text]::-moz-placeholder, #join_container .join_inner #main form #private li input[type=password]::-moz-placeholder {
+  -moz-transition: all 0.3s;
+  transition: all 0.3s;
+}
+#join_container .join_inner #main form #private li input[type=text]::placeholder, #join_container .join_inner #main form #private li input[type=password]::placeholder {
+  transition: all 0.3s;
+}
+#join_container .join_inner #main form #private li input[type=text]:focus::-moz-placeholder, #join_container .join_inner #main form #private li input[type=password]:focus::-moz-placeholder {
+  opacity: 0;
+}
+#join_container .join_inner #main form #private li input[type=text]:focus::placeholder, #join_container .join_inner #main form #private li input[type=password]:focus::placeholder {
+  opacity: 0;
+}
+#join_container .join_inner #main form #private li .emailTwo {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  line-height: 37px;
+  border: 1px solid #c5c5c5;
+  border-radius: 4px;
+  color: #333333;
+}
+#join_container .join_inner #main form #private li .emailTwo > div {
+  flex-grow: 1;
+}
+#join_container .join_inner #main form #private li .emailTwo > div:nth-child(1) {
+  height: 100%;
+  width: 100%;
+}
+#join_container .join_inner #main form #private li .emailTwo > div:nth-child(1) input {
+  height: 36px;
+  border: none;
+}
+#join_container .join_inner #main form #private li .emailTwo > div:nth-child(2) {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+#join_container .join_inner #main form #private li .emailTwo > div:nth-child(2) select {
+  width: 90%;
+  right: 0;
+  height: 100%;
+  border: none;
+  z-index: 1;
+  position: absolute;
+  color: #727272;
+}
+#join_container .join_inner #main form #private li .emailTwo > div:nth-child(2) select:focus {
+  outline: none;
+}
+#join_container .join_inner #main form #private li .emailTwo > div:nth-child(2) select option {
+  font-size: 1rem;
+}
+#join_container .join_inner #main form #private li .emailTwo > div:nth-child(2) .hiddenS {
+  display: none;
+  height: 99%;
+  width: 76%;
+  position: absolute;
+  right: 20px;
+  top: 0;
+}
+#join_container .join_inner #main form #private li .emailTwo > div:nth-child(2) .hiddenS > input {
+  border: none;
+  height: 100%;
+  border-radius: 0;
+}
+#join_container .join_inner #main form #private li .emailTwo > div:nth-child(2) .hiddenS.active {
+  display: block;
+  z-index: 2;
+}
+#join_container .join_inner #main form #private li .address {
+  width: 100%;
+  background: #fff;
+  color: #5f0080;
+  border: 1px solid #5f0080;
+  border-radius: 4px;
+}
+#join_container .join_inner #main form #private li .birth {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid #c5c5c5;
+  border-radius: 4px;
+}
+#join_container .join_inner #main form #private li .birth > input {
+  flex-grow: 1;
+  border: none;
+  height: 80%;
+  text-align: center;
+}
+#join_container .join_inner #main form #private li .genders {
+  display: flex;
+  justify-content: space-between;
+}
+#join_container .join_inner #main form #private li .genders span {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+}
+#join_container .join_inner #main form #private li .genders span input[type=radio],
+#join_container .join_inner #main form #private li .genders span label {
+  cursor: pointer;
+}
+#join_container .join_inner #main form #private li .genders span input[type=radio] {
+  cursor: pointer;
+  margin-top: 10px;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  border: 1px solid #5f0080;
+  border-radius: 50%;
+  width: 1.2rem;
+  height: 1.2rem;
+}
+#join_container .join_inner #main form #private li .genders span input[type=radio]:checked {
+  border: 7px solid #5f0080;
+}
+#join_container .join_inner #main form #private li .Additional {
+  display: flex;
+  justify-content: space-between;
+}
+#join_container .join_inner #main form #private li .Additional span {
+  display: flex;
+  justify-content: center;
+  gap: 4px;
+}
+#join_container .join_inner #main form #private li .Additional span input[type=radio],
+#join_container .join_inner #main form #private li .Additional span label {
+  cursor: pointer;
+}
+#join_container .join_inner #main form #private li .Additional span input[type=radio] {
+  cursor: pointer;
+  margin-top: 8px;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  border: 1px solid #5f0080;
+  border-radius: 50%;
+  width: 1.2rem;
+  height: 1.2rem;
+}
+#join_container .join_inner #main form #private li .Additional span input[type=radio]:checked {
+  border: 7px solid #5f0080;
+}
+
+/*bootom_chekinner*/
+#checkinner {
+  border-top: 1px solid #333333;
+  padding-top: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+#checkinner > div:nth-child(1) {
+  width: 150px;
+  text-align: center;
+  margin: 10px 0 30px;
+  font-size: 1.2rem;
+}
+#checkinner > div:nth-child(2) {
+  width: 100%;
+  /*checkbox none*/
+  /*common*/
+  /*1 line all*/
+  /*receive*/
+}
+#checkinner > div:nth-child(2) input[type=checkbox] {
+  display: none;
+}
+#checkinner > div:nth-child(2) ul {
+  padding-left: 16px;
+  display: flex;
+  flex-direction: column;
+}
+#checkinner > div:nth-child(2) ul li {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+#checkinner > div:nth-child(2) ul li:nth-last-child(1) {
+  margin-bottom: 0;
+}
+#checkinner > div:nth-child(2) ul li label {
+  display: flex;
+  align-items: center;
+  margin-bottom: 8px;
+  cursor: pointer;
+  gap: 10px;
+}
+#checkinner > div:nth-child(2) ul li label .chackIcon {
+  cursor: pointer;
+  font-size: 24px;
+}
+#checkinner > div:nth-child(2) ul li label span {
+  display: inline-block;
+  text-align: center;
+  color: #727272;
+}
+#checkinner > div:nth-child(2) ul li label span b {
+  font-weight: normal;
+  color: #c5c5c5;
+}
+#checkinner > div:nth-child(2) ul li .tapmodal {
+  cursor: pointer;
+  color: #5f0080;
+  margin: 5px 5px 0 0;
+}
+#checkinner > div:nth-child(2) #allCheck + label span {
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+#checkinner > div:nth-child(2) .allSub {
+  font-size: 0.9 0.5rem;
+  margin-left: 36px;
+}
+#checkinner > div:nth-child(2) .top-receive {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 4px;
+}
+#checkinner > div:nth-child(2) .botton-receive {
+  display: flex;
+  margin-left: 30px;
+  gap: 90px;
+}
+
+/*bottom button*/
+.mainBtn {
+  margin-left: 100px;
+  width: calc(100% - 200px);
+  height: 60px;
+  background: #5f0080;
+  color: #fff;
+  font-size: 1.4rem;
+  border: 1px solid #5f0080;
+  border-radius: 4px;
+  margin-bottom: 40px;
+}
+
+/*modal*/
+.modalBase {
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.4);
+  z-index: 5;
+}
+.modalBase .modalInner {
+  width: 1080px;
+  margin: 0 auto;
+}
+.modalBase .modalInner .HModal {
+  position: absolute;
+  width: 450px;
+  height: 650px;
+  z-index: 10;
+  background: #fff;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 40px;
+}
+.modalBase .modalInner .HModal .modal_title h1 {
+  position: absolute;
+  font-size: 1.6rem;
+  margin: 50px 0 0 25px;
+  font-weight: 800;
+}
+.modalBase .modalInner .HModal .frame {
+  width: 400px;
+  height: 500px;
+  margin: 100px 25px 50px 25px;
+  overflow: scroll;
+  padding-top: 20px;
+  overflow-x: hidden;
+  overflow-y: hidden;
+}
+.modalBase .modalInner .HModal .frame .yblock {
+  overflow-y: scroll;
+}
+.modalBase .modalInner .HModal .frame h2 {
+  font-size: 1.4rem;
+  font-weight: 600;
+}
+.modalBase .modalInner .HModal .frame h3 {
+  font-size: 1.4rem;
+  font-weight: 600;
+}
+.modalBase .modalInner .HModal .frame th {
+  background-color: #c5c5c5;
+  text-align: center;
+}
+.modalBase .modalInner .HModal .frame tr,
+.modalBase .modalInner .HModal .frame th,
+.modalBase .modalInner .HModal .frame td {
+  border: 1px solid #727272;
+  padding: 4px;
+}
+.modalBase .modalInner .HModal.tap1Modal2 {
+  display: none;
+}
+.modalBase .modalInner .HModal.tap1Modal3 {
+  display: none;
+}
+.modalBase .modalInner .HModal .modal_close h1 {
+  cursor: pointer;
+  position: absolute;
+  font-size: 1.2rem;
+  color: #5f0080;
+  bottom: 4px;
+  right: 50%;
+  transform: translateX(50%);
+}
+.modalBase.noneActive {
+  display: none;
+}
+
+@media screen and (max-width: 1050px) {
+  #join_container {
+    font: normal 14px/1 "Noto Sans KR";
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: #f9f9f9;
+    position: relative;
+  }
+  #join_container .mobileHeader {
+    position: sticky;
+    top: 0;
+    width: 390px;
+    height: 59px;
+    display: flex;
+    background: #fff;
+    justify-content: center;
+    align-items: center;
+    padding: 0 10px;
+    z-index: 5;
+  }
+  #join_container .mobileHeader .inner {
+    width: 390px;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+  }
+  #join_container .mobileHeader .inner .mobileClose {
+    font-size: 16px;
+    position: absolute;
+    top: 50%;
+    left: 10px;
+    transform: translateY(-50%);
+    color: #5f0080;
+  }
+  #join_container .mobileHeader .inner h1 {
+    margin: 0;
+    font-size: 1rem;
+    font-weight: normal;
+  }
+  #join_container .join_inner {
+    width: 390px;
+    background: #fff;
+  }
+  #join_container .join_inner #title {
+    display: none;
+  }
+  #join_container .join_inner #main {
+    padding: 15px;
+    width: 100%;
+    /*form*/
+  }
+  #join_container .join_inner #main form {
+    width: 100%;
+  }
+  #join_container .join_inner #main form #private li {
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
+    padding: 0;
+    /*gender*/
+    /*hidden add*/
+  }
+  #join_container .join_inner #main form #private li > div:nth-child(1) {
+    width: 100%;
+    height: 32px;
+    margin-bottom: 4px;
+  }
+  #join_container .join_inner #main form #private li > div:nth-child(2) {
+    width: 100%;
+    margin-bottom: 2px;
+  }
+  #join_container .join_inner #main form #private li > div:nth-child(3) {
+    width: 100%;
+  }
+  #join_container .join_inner #main form #private li > div:nth-child(3) > input {
+    width: 100%;
+  }
+  #join_container .join_inner #main form #private li input[type=text], #join_container .join_inner #main form #private li input[type=password] {
+    width: 100%;
+    height: 40px;
+    outline: none;
+    border: 1px solid #c5c5c5;
+    border-radius: 4px;
+    padding-left: 10px;
+  }
+  #join_container .join_inner #main form #private li .birth > input {
+    border: none;
+  }
+  #join_container .join_inner #main form #private li .genders span {
+    gap: 8px;
+  }
+  #join_container .join_inner #main form #private li .genders span input[type=radio],
+  #join_container .join_inner #main form #private li .genders span label {
+    cursor: pointer;
+  }
+  #join_container .join_inner #main form #private li .genders span input[type=radio] {
+    cursor: pointer;
+    margin-top: 10px;
+    width: 1.2rem;
+    height: 1.2rem;
+  }
+  #join_container .join_inner #main form #private li .genders span input[type=radio]:checked {
+    border: 7px solid #5f0080;
+  }
+  #join_container .join_inner #main form #private li.hidden-add > div:nth-child(1) {
+    display: none;
+  }
+  /*bottom_chekinner*/
+  #checkinner {
+    border-top: 1px solid #333333;
+    padding-top: 14px;
+    flex-direction: column;
+  }
+  #checkinner > div:nth-child(1) {
+    width: 100%;
+    text-align: start;
+    margin-bottom: 14px;
+  }
+  #checkinner > div:nth-child(2) {
+    width: 100%;
+    /*common*/
+    /*1 line all*/
+    /*receive*/
+  }
+  #checkinner > div:nth-child(2) ul {
+    padding-left: 0;
+    display: flex;
+    flex-direction: column;
+  }
+  #checkinner > div:nth-child(2) ul li {
+    display: flex;
+    justify-content: space-between;
+  }
+  #checkinner > div:nth-child(2) ul li label {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 8px;
+  }
+  #checkinner > div:nth-child(2) ul li label .chackIcon {
+    font-size: 24px;
+  }
+  #checkinner > div:nth-child(2) ul li label span {
+    display: inline-block;
+    text-align: center;
+    color: #727272;
+  }
+  #checkinner > div:nth-child(2) ul li label span b {
+    font-weight: normal;
+    color: #c5c5c5;
+  }
+  #checkinner > div:nth-child(2) ul li .tapmodal {
+    color: #5f0080;
+    margin-top: 5px;
+  }
+  #checkinner > div:nth-child(2) #allCheck + label span {
+    font-size: 1.1rem;
+    font-weight: bold;
+  }
+  #checkinner > div:nth-child(2) .allSub {
+    font-size: 0.7rem;
+    margin-left: 36px;
+  }
+  #checkinner > div:nth-child(2) .top-receive {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 10px;
+  }
+  #checkinner > div:nth-child(2) .botton-receive {
+    display: flex;
+    margin-left: 30px;
+    gap: 90px;
+  }
+  /*bottom button*/
+  .mainBtn {
+    margin: 0 50px 30px;
+    width: calc(100% - 100px);
+  }
+}/*# sourceMappingURL=join.css.map */

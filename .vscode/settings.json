@@ -1,3 +1,7 @@
 {
-  "liveServer.settings.port": 5501
+<<<<<<< HEAD
+  "liveServer.settings.port": 5502
+=======
+  "liveServer.settings.port": 5503
+>>>>>>> develop
 }
