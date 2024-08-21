@@ -66,6 +66,14 @@ fetch(productInfo)
       <img src="${product.productImg}"/>
       <img src="${product.productMobileImg}"/>
       `;
+      const frozen = document.querySelector(".frozen");
+      console.log(frozen);
+      frozen.innerText = product.frozen;
+      if (product.frozen === "냉장") {
+        frozen.style.backgroundColor = "#2CAA18";
+      } else {
+        frozen.style.backgroundColor = "#7897bc";
+      }
       const productName = document.querySelector(".productName");
       productName.innerText = product.productName;
       const description = document.querySelector(".description");

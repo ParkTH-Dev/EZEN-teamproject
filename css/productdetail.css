@@ -64,9 +64,6 @@ header .header_wrapper .inner .header_main .header_main_left span {
   color: #5f0080;
   font-weight: 500;
 }
-header .header_wrapper .inner .header_main .header_main_left a {
-  display: none;
-}
 header .header_wrapper .inner .header_main .header_main_left > img:nth-child(2) {
   display: none;
 }
@@ -248,14 +245,6 @@ header .header_wrapper .inner .header_main .header_main_right span {
   border-radius: 6px;
   -o-object-fit: cover;
      object-fit: cover;
-}
-.container .inner .productInfo .info_img .slide_num {
-  position: absolute;
-  bottom: 20px;
-  right: 20px;
-  background-color: #fff;
-  padding: 5px 14px;
-  border-radius: 34px;
 }
 .container .inner .productInfo .info_desc {
   width: 556px;

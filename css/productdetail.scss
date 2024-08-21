@@ -70,9 +70,6 @@ header {
             color: map-get($color, main-color);
             font-weight: 500;
           }
-          a {
-            display: none;
-          }
           & > img:nth-child(2) {
             display: none;
           }
@@ -253,14 +250,6 @@ header {
           height: 100%;
           border-radius: 6px;
           object-fit: cover;
-        }
-        .slide_num {
-          position: absolute;
-          bottom: 20px;
-          right: 20px;
-          background-color: #fff;
-          padding: 5px 14px;
-          border-radius: 34px;
         }
       }
       .info_desc {
