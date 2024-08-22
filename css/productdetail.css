@@ -421,6 +421,13 @@ header .header_wrapper .inner .header_main .header_main_right span {
   display: flex;
   justify-content: space-around;
 }
+.container .inner .productInfo .info_desc .desc_choice .choice_box > div .quantity span {
+  padding: 0 10px;
+}
+.container .inner .productInfo .info_desc .desc_choice .choice_box > div .quantity .counterMinus,
+.container .inner .productInfo .info_desc .desc_choice .choice_box > div .quantity .counterPlus {
+  cursor: pointer;
+}
 .container .inner .productInfo .info_desc .desc_choice .choice_box > div > .price {
   display: flex;
   gap: 5px;
@@ -860,9 +867,8 @@ header .header_wrapper .inner .header_main .header_main_right span {
   font-size: 12px;
 }
 .container .inner #bottom_review .review_num > .num > div > span {
+  cursor: pointer;
   font-size: 16px;
-}
-.container .inner #bottom_review .review_num > .num > div > span:last-child {
   color: #b5b5b5;
 }
 .container .inner #bottom_review .user_review > .review {

@@ -116,74 +116,32 @@ a {
   border-radius: 4px;
   padding-left: 10px;
 }
-.login_container
-  .login_inner
-  .login_wrap
-  .login_main
-  form
-  .id_password
-  input[type="text"] {
+.login_container .login_inner .login_wrap .login_main form .id_password input[type=text] {
   margin-bottom: 4px;
 }
-.login_container
-  .login_inner
-  .login_wrap
-  .login_main
-  form
-  .id_password
-  input::-moz-placeholder {
+.login_container .login_inner .login_wrap .login_main form .id_password input::-moz-placeholder {
   font-size: 0.8rem;
   color: #999999;
   opacity: 1;
   -moz-transition: all 0.3s;
   transition: all 0.3s;
 }
-.login_container
-  .login_inner
-  .login_wrap
-  .login_main
-  form
-  .id_password
-  input::placeholder {
+.login_container .login_inner .login_wrap .login_main form .id_password input::placeholder {
   font-size: 0.8rem;
   color: #999999;
   opacity: 1;
   transition: all 0.3s;
 }
-.login_container
-  .login_inner
-  .login_wrap
-  .login_main
-  form
-  .id_password
-  input:focus {
+.login_container .login_inner .login_wrap .login_main form .id_password input:focus {
   outline: 1px solid #5f0080;
 }
-.login_container
-  .login_inner
-  .login_wrap
-  .login_main
-  form
-  .id_password
-  input:focus::-moz-placeholder {
+.login_container .login_inner .login_wrap .login_main form .id_password input:focus::-moz-placeholder {
   opacity: 0;
 }
-.login_container
-  .login_inner
-  .login_wrap
-  .login_main
-  form
-  .id_password
-  input:focus::placeholder {
+.login_container .login_inner .login_wrap .login_main form .id_password input:focus::placeholder {
   opacity: 0;
 }
-.login_container
-  .login_inner
-  .login_wrap
-  .login_main
-  form
-  .id_password
-  .errorId {
+.login_container .login_inner .login_wrap .login_main form .id_password .errorId {
   margin-bottom: 12px;
   font-size: 0.8rem;
   color: #fa612f;
@@ -199,13 +157,7 @@ a {
   border-bottom: 1px solid #fff;
   transition: all 0.3s;
 }
-.login_container
-  .login_inner
-  .login_wrap
-  .login_main
-  form
-  .find_container
-  > a:hover {
+.login_container .login_inner .login_wrap .login_main form .find_container > a:hover {
   color: #5f0080;
   border-bottom: 1px solid #5f0080;
 }
@@ -218,13 +170,7 @@ a {
   align-items: center;
   justify-content: center;
 }
-.login_container
-  .login_inner
-  .login_wrap
-  .login_main
-  form
-  .automatic
-  .autonumBox {
+.login_container .login_inner .login_wrap .login_main form .automatic .autonumBox {
   height: 40px;
   width: 46%;
   background: #999999;
@@ -232,14 +178,7 @@ a {
   padding-top: 10px;
   border-radius: 4px 0 0 4px;
 }
-.login_container
-  .login_inner
-  .login_wrap
-  .login_main
-  form
-  .automatic
-  .autonumBox
-  .autonum {
+.login_container .login_inner .login_wrap .login_main form .automatic .autonumBox .autonum {
   color: #faf4ff;
   font-size: 1.2rem;
 }
@@ -268,23 +207,13 @@ a {
   border-radius: 4px;
   cursor: pointer;
 }
-.login_container
-  .login_inner
-  .login_wrap
-  .login_main
-  .loginBtn_inner
-  input:nth-child(1) {
+.login_container .login_inner .login_wrap .login_main .loginBtn_inner input:nth-child(1) {
   background: #5f0080;
   color: #fff;
   border: 1px solid #5f0080;
   transition: all 0.3s;
 }
-.login_container
-  .login_inner
-  .login_wrap
-  .login_main
-  .loginBtn_inner
-  input:nth-child(2) {
+.login_container .login_inner .login_wrap .login_main .loginBtn_inner input:nth-child(2) {
   background: #fff;
   border: 1px solid #5f0080;
   color: #5f0080;
@@ -355,4 +284,4 @@ a {
   .login_container .login_inner .login_wrap .mobileX {
     display: block;
   }
-} /*# sourceMappingURL=login.css.map */
+}

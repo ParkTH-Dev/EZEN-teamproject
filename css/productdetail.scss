@@ -419,7 +419,6 @@ header {
               display: flex;
               justify-content: space-between;
               align-items: center;
-
               .quantity {
                 border: 1px solid #ddd;
                 border-radius: 3px;
@@ -427,6 +426,13 @@ header {
                 padding: 3px 0;
                 display: flex;
                 justify-content: space-around;
+                span {
+                  padding: 0 10px;
+                }
+                .counterMinus,
+                .counterPlus {
+                  cursor: pointer;
+                }
               }
               & > .price {
                 display: flex;
@@ -885,10 +891,9 @@ header {
             align-items: center;
             font-size: 12px;
             & > span {
+              cursor: pointer;
               font-size: 16px;
-              &:last-child {
-                color: #b5b5b5;
-              }
+              color: #b5b5b5;
             }
           }
         }
