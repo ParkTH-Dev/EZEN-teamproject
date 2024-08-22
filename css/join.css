@@ -83,6 +83,7 @@ li {
   padding: 10px 16px;
   display: flex;
   line-height: 40px;
+  /*error*/
   /*top 1 td*/
   /*top 2 td*/
   /*top 3 td*/
@@ -91,6 +92,21 @@ li {
   /*Birth*/
   /*gender*/
   /*invit*/
+}
+#join_container .join_inner #main form #private li.errContainer {
+  display: none;
+}
+#join_container .join_inner #main form #private li.errContainer .active {
+  height: 20px;
+  padding: 2px;
+  font-size: 0.8rem;
+  line-height: 12px;
+}
+#join_container .join_inner #main form #private li.errContainer .active > div:nth-child(2) {
+  padding-left: 20px;
+  text-align: start;
+  color: #ef7793;
+  font-weight: 600;
 }
 #join_container .join_inner #main form #private li > div:nth-child(1) {
   width: 150px;
@@ -296,6 +312,9 @@ li {
   /*1 line all*/
   /*receive*/
 }
+#checkinner > div:nth-child(2) input[type=checkbox] {
+  display: none;
+}
 #checkinner > div:nth-child(2) ul {
   padding-left: 16px;
   display: flex;
@@ -338,9 +357,9 @@ li {
   font-size: 24px;
   padding-bottom: 3px;
   padding: 1px;
+  cursor: pointer;
 }
 #checkinner > div:nth-child(2) ul li .checkIcon.active {
-  cursor: pointer;
   font-size: 24px;
 }
 #checkinner > div:nth-child(2) ul li .checkIcon.active svg path {
@@ -349,6 +368,12 @@ li {
 #checkinner > div:nth-child(2) #allCheck + label span {
   font-size: 1.2rem;
   font-weight: bold;
+}
+#checkinner > div:nth-child(2) #allCheck + label.active {
+  font-size: 24px;
+}
+#checkinner > div:nth-child(2) #allCheck + label.active svg path {
+  stroke: #5f0080;
 }
 #checkinner > div:nth-child(2) .allSub {
   font-size: 0.9 0.5rem;
@@ -524,6 +549,13 @@ li {
     padding: 0;
     /*gender*/
     /*hidden add*/
+  }
+  #join_container .join_inner #main form #private li.errContainer {
+    line-height: 14px;
+  }
+  #join_container .join_inner #main form #private li.errContainer > div:nth-child(2) {
+    padding-left: 6px;
+    text-align: start;
   }
   #join_container .join_inner #main form #private li > div:nth-child(1) {
     width: 100%;
