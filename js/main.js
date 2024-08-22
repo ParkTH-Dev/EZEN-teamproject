@@ -248,75 +248,107 @@ mainSlideArrowRight.addEventListener("mouseleave", () => {
 });
 
 // 카테고리 위치 이동(MO)
-if (window.innerWidth <= 1050) {
-  const categoryArea = document.querySelector("#category_area");
-  const categoryItems = document.querySelector(".category_items");
+const categoryArea = document.querySelector("#category_area");
+const categoryItems = document.querySelector(".category_items");
 
-  // Touch Event
-  const listClientWidth = categoryItems.clientWidth;
-  const listScollWidth = categoryItems.clientWidth + 340;
+let isDragging = false;
+let startPos = 0;
+let currentTranslate = 0;
+let prevTranslate = 0;
+let animationID = 0;
+let slideWidth = categoryArea.clientWidth - 40; // 슬라이더 컨테이너의 너비
+let maxTranslate = -(categoryItems.scrollWidth - slideWidth); // 슬라이더가 이동할 수 있는 최대 값 (왼쪽 끝)
 
-  // 최초 터치 및 마우스다운 지점
-  let startX = 0;
+const setPositionByIndex = () => {
+  currentTranslate = Math.max(Math.min(currentTranslate, 0), maxTranslate);
+  categoryItems.style.transform = `translateX(${currentTranslate}px)`;
+  prevTranslate = currentTranslate; // 스냅 이후에도 currentTranslate 값을 기억
+};
 
-  // 현재 이동중인 지점
-  let nowX = 0;
+const touchStart = (index) => (event) => {
+  isDragging = true;
+  startPos = getPositionX(event);
+  animationID = requestAnimationFrame(animation);
+  categoryItems.classList.add("grabbing");
+};
 
-  // 터치 종료 지점
-  let endX = 0;
+const touchMove = (event) => {
+  if (isDragging) {
+    const currentPosition = getPositionX(event);
+    currentTranslate = prevTranslate + currentPosition - startPos;
+  }
+};
 
-  // 두번째 터치 지점
-  let listX = 0;
+const touchEnd = () => {
+  isDragging = false;
+  cancelAnimationFrame(animationID);
 
-  const getClientX = (e) => {
-    return e.touches ? e.touches[0].clientX : e.clientX;
-  };
+  // 스냅 동작
+  snapToClosestSlide();
 
-  const getTranslateX = () => {
-    return parseInt(
-      getComputedStyle(categoryItems).transform.split(/[^\-0-9]+/g)[5]
-    );
-  };
+  categoryItems.classList.remove("grabbing");
+};
 
-  const setTranslateX = (x) => {
-    categoryItems.style.transform = `translateX(${x}px)`;
-  };
+const getPositionX = (event) => {
+  return event.type.includes("mouse") ? event.pageX : event.touches[0].clientX;
+};
 
-  const onScrollMove = (e) => {
-    nowX = getClientX(e);
-    setTranslateX(listX + nowX - startX);
-  };
+const animation = () => {
+  categoryItems.style.transform = `translateX(${currentTranslate}px)`;
+  if (isDragging) requestAnimationFrame(animation);
+};
 
-  const onScrollEnd = (e) => {
-    endX = getClientX(e);
-    listX = getTranslateX();
-    if (listX > 0) {
-      setTranslateX(0);
-      categoryItems.style.transition = `all 0.1s ease`;
-      listX = 0;
-    } else if (listX < listClientWidth - listScollWidth) {
-      setTranslateX(listClientWidth - listScollWidth);
-      categoryItems.style.transition = `all 0.1s ease`;
-      listX = listClientWidth - listScollWidth;
-    }
+const snapToClosestSlide = () => {
+  const threshold = slideWidth / 4; // 4분의 1이 넘어가면 스냅하도록 설정
+  if (currentTranslate - prevTranslate < -threshold) {
+    currentTranslate = Math.floor(currentTranslate / slideWidth) * slideWidth;
+  } else if (currentTranslate - prevTranslate > threshold) {
+    currentTranslate = Math.ceil(currentTranslate / slideWidth) * slideWidth;
+  } else {
+    currentTranslate = Math.round(prevTranslate / slideWidth) * slideWidth;
+  }
+  setPositionByIndex();
+};
 
-    window.removeEventListener("touchstart", onScrollStart);
-    window.removeEventListener("mousedown", onScrollStart);
-    window.removeEventListener("touchmove", onScrollMove);
-    window.removeEventListener("mousemove", onScrollMove);
-    window.removeEventListener("touchend", onScrollEnd);
-    window.removeEventListener("mouseup", onScrollEnd);
-  };
+// 리스너 등록
+const addEventListeners = () => {
+  categoryArea.addEventListener("touchstart", touchStart());
+  categoryArea.addEventListener("touchmove", touchMove);
+  categoryArea.addEventListener("touchend", touchEnd);
 
-  const onScrollStart = (e) => {
-    startX = getClientX(e);
+  categoryArea.addEventListener("mousedown", touchStart());
+  categoryArea.addEventListener("mousemove", touchMove);
+  categoryArea.addEventListener("mouseup", touchEnd);
+  categoryArea.addEventListener("mouseleave", () => {
+    if (isDragging) touchEnd();
+  });
+};
 
-    window.addEventListener("touchmove", onScrollMove);
-    window.addEventListener("mousemove", onScrollMove);
-    window.addEventListener("touchend", onScrollEnd);
-    window.addEventListener("mouseup", onScrollEnd);
-  };
+const removeEventListeners = () => {
+  categoryArea.removeEventListener("touchstart", touchStart());
+  categoryArea.removeEventListener("touchmove", touchMove);
+  categoryArea.removeEventListener("touchend", touchEnd);
 
-  categoryArea.addEventListener("touchstart", onScrollStart);
-  categoryArea.addEventListener("mousedown", onScrollStart);
-}
+  categoryArea.removeEventListener("mousedown", touchStart());
+  categoryArea.removeEventListener("mousemove", touchMove);
+  categoryArea.removeEventListener("mouseup", touchEnd);
+  categoryArea.removeEventListener("mouseleave", () => {
+    if (isDragging) touchEnd();
+  });
+};
+
+addEventListeners();
+
+const checkWindowSize = () => {
+  if (window.innerWidth <= 1050) {
+    addEventListeners();
+  } else {
+    removeEventListeners();
+    categoryItems.style.transform = "translateX(0)";
+  }
+};
+
+// 윈도우 크기 변경 시 리스너 추가/제거
+window.addEventListener("resize", () => {
+  checkWindowSize();
+});
