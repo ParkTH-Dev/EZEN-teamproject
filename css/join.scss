@@ -100,20 +100,17 @@ li {
             line-height: 40px;
             /*error*/
             &.errContainer {
-              display: none;
-              .active {
-                height: 20px;
-                padding: 2px;
-                font-size: 0.8rem;
-                line-height: 12px;
+              // display: none;
+              height: inherit;
+              padding: inherit;
+              font-size: 0.8rem;
+              line-height: 8px;
                 & > div:nth-child(2) {
                   padding-left: 20px;
                   text-align: start;
                   color: map-get($font-color, font-red);
                   font-weight: 600;
                 }
-              }
-              
             }
             /*top 1 td*/
             & > div:nth-child(1) {
@@ -364,17 +361,6 @@ li {
           color: map-get($color, main);
           margin: 5px 5px 0 0;
         }
-        // .pathIcon {
-        //   &.active {
-        //     .chackIcon {
-        //       cursor: pointer;
-        //       font-size: 24px;
-        //       svg path {
-        //         stroke: map-get($color, main);
-        //       }
-        //     }
-        //   }
-        // }
         .checkIcon {
           font-size: 24px;
           padding-bottom: 3px;
@@ -586,10 +572,22 @@ li {
               width: 100%;
               padding: 0;
               &.errContainer {
-                line-height: 14px;
+                height: inherit;
+              padding: inherit;
+              font-size: 0.8rem;
+              line-height: 8px;
+                & > div:nth-child(1) {
+                  display: none;
+                }
                 & > div:nth-child(2) {
-                  padding-left: 6px;
+                  margin-top: 10px;
+                  padding-left: 0px;
                   text-align: start;
+                  color: map-get($font-color, font-red);
+                  font-weight: 600;
+                }
+                & > div:nth-child(3) {
+                  display: none;
                 }
               }
               & > div:nth-child(1) {
@@ -674,6 +672,7 @@ li {
         li {
           display: flex;
           justify-content: space-between;
+          /*error*/
           label {
             display: flex;
             align-items: center;

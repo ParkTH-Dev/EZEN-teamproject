@@ -94,15 +94,12 @@ li {
   /*invit*/
 }
 #join_container .join_inner #main form #private li.errContainer {
-  display: none;
-}
-#join_container .join_inner #main form #private li.errContainer .active {
-  height: 20px;
-  padding: 2px;
+  height: inherit;
+  padding: inherit;
   font-size: 0.8rem;
-  line-height: 12px;
+  line-height: 8px;
 }
-#join_container .join_inner #main form #private li.errContainer .active > div:nth-child(2) {
+#join_container .join_inner #main form #private li.errContainer > div:nth-child(2) {
   padding-left: 20px;
   text-align: start;
   color: #ef7793;
@@ -551,11 +548,23 @@ li {
     /*hidden add*/
   }
   #join_container .join_inner #main form #private li.errContainer {
-    line-height: 14px;
+    height: inherit;
+    padding: inherit;
+    font-size: 0.8rem;
+    line-height: 8px;
+  }
+  #join_container .join_inner #main form #private li.errContainer > div:nth-child(1) {
+    display: none;
   }
   #join_container .join_inner #main form #private li.errContainer > div:nth-child(2) {
-    padding-left: 6px;
+    margin-top: 10px;
+    padding-left: 0px;
     text-align: start;
+    color: #ef7793;
+    font-weight: 600;
+  }
+  #join_container .join_inner #main form #private li.errContainer > div:nth-child(3) {
+    display: none;
   }
   #join_container .join_inner #main form #private li > div:nth-child(1) {
     width: 100%;
@@ -627,6 +636,7 @@ li {
   #checkinner > div:nth-child(2) ul li {
     display: flex;
     justify-content: space-between;
+    /*error*/
   }
   #checkinner > div:nth-child(2) ul li label {
     display: flex;
