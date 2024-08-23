@@ -6,6 +6,7 @@ const mainSlideImgPC = document.querySelector(".bg_imgPC");
 const mainSlideImgMO = document.querySelector(".bg_imgMO");
 const mainCounterNow = document.querySelector(".now_counter");
 const mainCounterAll = document.querySelector(".all_counter");
+const mainWidth = 1050;
 
 const mainPicsPC = [
   "main_01.png",
@@ -250,22 +251,16 @@ mainSlideArrowRight.addEventListener("mouseleave", () => {
 // 카테고리 위치 이동(MO)
 const categoryArea = document.querySelector("#category_area");
 const categoryItems = document.querySelector(".category_items");
-
 let isDragging = false;
 let startPos = 0;
 let currentTranslate = 0;
 let prevTranslate = 0;
 let animationID = 0;
-let slideWidth = categoryArea.clientWidth - 40; // 슬라이더 컨테이너의 너비
+let slideWidth = categoryItems.clientWidth - 25; // 슬라이더 컨테이너의 너비
 let maxTranslate = -(categoryItems.scrollWidth - slideWidth); // 슬라이더가 이동할 수 있는 최대 값 (왼쪽 끝)
 
-const setPositionByIndex = () => {
-  currentTranslate = Math.max(Math.min(currentTranslate, 0), maxTranslate);
-  categoryItems.style.transform = `translateX(${currentTranslate}px)`;
-  prevTranslate = currentTranslate; // 스냅 이후에도 currentTranslate 값을 기억
-};
-
-const touchStart = (index) => (event) => {
+// 이벤트 핸들러 함수 정의
+const touchStart = (event) => {
   isDragging = true;
   startPos = getPositionX(event);
   animationID = requestAnimationFrame(animation);
@@ -310,13 +305,17 @@ const snapToClosestSlide = () => {
   setPositionByIndex();
 };
 
-// 리스너 등록
-const addEventListeners = () => {
-  categoryArea.addEventListener("touchstart", touchStart());
+const setPositionByIndex = () => {
+  currentTranslate = Math.max(Math.min(currentTranslate, 0), maxTranslate);
+  categoryItems.style.transform = `translateX(${currentTranslate}px)`;
+  prevTranslate = currentTranslate; // 스냅 이후에도 currentTranslate 값을 기억
+};
+
+const addCategoryMoveEvents = () => {
+  categoryArea.addEventListener("touchstart", touchStart);
   categoryArea.addEventListener("touchmove", touchMove);
   categoryArea.addEventListener("touchend", touchEnd);
-
-  categoryArea.addEventListener("mousedown", touchStart());
+  categoryArea.addEventListener("mousedown", touchStart);
   categoryArea.addEventListener("mousemove", touchMove);
   categoryArea.addEventListener("mouseup", touchEnd);
   categoryArea.addEventListener("mouseleave", () => {
@@ -324,31 +323,72 @@ const addEventListeners = () => {
   });
 };
 
-const removeEventListeners = () => {
-  categoryArea.removeEventListener("touchstart", touchStart());
+const removeCategoryMoveEvents = () => {
+  categoryArea.removeEventListener("touchstart", touchStart);
   categoryArea.removeEventListener("touchmove", touchMove);
   categoryArea.removeEventListener("touchend", touchEnd);
-
-  categoryArea.removeEventListener("mousedown", touchStart());
+  categoryArea.removeEventListener("mousedown", touchStart);
   categoryArea.removeEventListener("mousemove", touchMove);
   categoryArea.removeEventListener("mouseup", touchEnd);
-  categoryArea.removeEventListener("mouseleave", () => {
-    if (isDragging) touchEnd();
-  });
+  categoryItems.style.transform = "translateX(0px)"; // 초기화
 };
 
-addEventListeners();
-
-const checkWindowSize = () => {
-  if (window.innerWidth <= 1050) {
-    addEventListeners();
-  } else {
-    removeEventListeners();
-    categoryItems.style.transform = "translateX(0)";
-  }
-};
-
-// 윈도우 크기 변경 시 리스너 추가/제거
+// 초기 실행 시 설정
 window.addEventListener("resize", () => {
-  checkWindowSize();
+  if (window.innerWidth < 1050) {
+    addCategoryMoveEvents();
+  } else {
+    removeCategoryMoveEvents();
+  }
+});
+
+// 초기 페이지 로드 시 화면 크기에 맞게 설정
+if (window.innerWidth < 1050) {
+  addCategoryMoveEvents();
+}
+
+//라이브 영역
+// 라이브 하트 버튼
+const heartBtn = document.querySelectorAll(".heart_icon");
+
+heartBtn.forEach((e) => {
+  e.addEventListener("click", () => {
+    e.querySelector("i:nth-child(1)").classList.toggle("active");
+    e.querySelector("i:nth-child(2)").classList.toggle("active");
+  });
+});
+
+// 라이브 마우스오버 비디오 재생 이벤트
+const liveItem = document.querySelectorAll(".live_item");
+
+liveItem.forEach((e) => {
+  e.addEventListener("mouseover", () => {
+    e.querySelector(".live_video > video").play();
+  });
+  e.addEventListener("mouseout", () => {
+    e.querySelector(".live_video > video").pause();
+  });
+});
+
+// 라이브/제품 슬라이드
+const liveSliceArea = document.querySelector(".live_items");
+const liveSlideArrowLeft = document.querySelector("#LIVE_leftArrow");
+const liveSlideArrowRight = document.querySelector("#LIVE_rightArrow");
+let slideStart = true;
+let slideEnd = false;
+
+liveSlideArrowLeft.addEventListener("click", () => {
+  if (slideStart) {
+    liveSliceArea.style.transform = `translateX = -${mainWidth}px`;
+    slideEnd = true;
+    slideStart = false;
+  }
+});
+
+liveSlideArrowRight.addEventListener("click", () => {
+  if (slideEnd) {
+    liveSliceArea.style.transform = `translateX = ${mainWidth}px`;
+    slideStart = true;
+    slideEnd = false;
+  }
 });

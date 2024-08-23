@@ -203,133 +203,144 @@ body {
   .live_slide_area {
     width: $main-width;
     margin: 0 auto;
-    display: flex;
-    justify-content: space-between;
-    .live_item {
-      width: 345px;
-      height: 600px;
-      overflow: hidden;
-      border-radius: 15px;
-      position: relative;
-      cursor: pointer;
-      .live_video {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
+    overflow: hidden;
+    .live_items {
+      width: calc((345px * 6) + (5px * 5));
+      display: flex;
+      gap: 5px;
+      .live_item {
+        width: 345px;
+        height: 600px;
+        overflow: hidden;
+        border-radius: 15px;
         position: relative;
-        &::before {
-          content: "";
+        cursor: pointer;
+        .live_video {
           width: 100%;
-          height: 300px;
+          height: 100%;
+          object-fit: cover;
+          position: relative;
+          &::before {
+            content: "";
+            width: 100%;
+            height: 300px;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            background: linear-gradient(
+              180deg,
+              rgba(0, 0, 0, 0) 0%,
+              rgba(0, 0, 0, 0.8) 100%
+            );
+          }
+        }
+        .live_video_ui {
+          width: 100%;
+          height: 100%;
           position: absolute;
-          bottom: 0;
+          top: 0;
           left: 0;
-          background: linear-gradient(
-            180deg,
-            rgba(0, 0, 0, 0) 0%,
-            rgba(0, 0, 0, 0.8) 100%
-          );
-        }
-      }
-      .live_video_ui {
-        width: 100%;
-        height: 100%;
-        position: absolute;
-        top: 0;
-        left: 0;
-        padding: 30px;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        .video_ui_top {
-          display: flex;
-          justify-content: space-between;
-          .video_ui_onair {
-            color: #fff;
-            padding: 2px 10px;
-            background: map-get($color, point-orange-color);
-            border-radius: 20px;
-          }
-          .video_ui_icon {
-            display: flex;
-            gap: 8px;
-            .heart_icon {
-              position: relative;
-              i {
-                font-size: 24px;
-                position: absolute;
-                top: 2px;
-                left: -20px;
-                color: map-get($color, bg-light-color);
-                cursor: pointer;
-                &.fa-solid {
-                  color: #ff3156;
-                  opacity: 0;
-                }
-              }
-            }
-            img {
-              cursor: pointer;
-            }
-          }
-        }
-        .video_ui_bottom {
-          height: 180px;
+          padding: 30px;
           display: flex;
           flex-direction: column;
           justify-content: space-between;
-          .video_ui_name {
-            display: flex;
-            flex-direction: column;
-            justify-content: flex-start;
-            color: map-get($color, bg-light-color);
-            .ui_brand {
-              font-size: 18px;
-              font-weight: 700;
-            }
-            .ui_name {
-              font-size: 22px;
-            }
-          }
-          .video_ui_price {
+          .video_ui_top {
             display: flex;
             justify-content: space-between;
-            align-items: flex-end;
-            .ui_view {
-              display: flex;
-              color: #9d9d9d;
-              align-items: center;
-              gap: 4px;
-              font-size: 14px;
+            .video_ui_onair {
+              color: #fff;
+              padding: 2px 10px;
+              background: map-get($color, point-orange-color);
+              border-radius: 20px;
             }
-            .ui_price {
+            .video_ui_icon {
+              display: flex;
+              gap: 8px;
+              .heart_icon {
+                position: relative;
+                i {
+                  font-size: 24px;
+                  position: absolute;
+                  top: 2px;
+                  left: -20px;
+                  color: map-get($color, bg-light-color);
+                  cursor: pointer;
+                  transition: opacity 0.3s;
+                  &.fa-solid {
+                    color: #ff3156;
+                    opacity: 0;
+                    &.active {
+                      opacity: 1;
+                    }
+                  }
+                  &.fa-regular.active {
+                    opacity: 0;
+                  }
+                }
+              }
+              img {
+                cursor: pointer;
+              }
+            }
+          }
+          .video_ui_bottom {
+            height: 180px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            .video_ui_name {
               display: flex;
               flex-direction: column;
-              justify-content: flex-end;
-              text-align: end;
-              gap: 4px;
-              .price {
-                color: #9d9d9d;
-                font-size: 22px;
-                text-decoration: line-through;
+              justify-content: flex-start;
+              color: map-get($color, bg-light-color);
+              .ui_brand {
+                font-size: 18px;
+                font-weight: 700;
               }
-              .sale_price {
+              .ui_name {
+                font-size: 22px;
+              }
+            }
+            .video_ui_price {
+              display: flex;
+              justify-content: space-between;
+              align-items: flex-end;
+              .ui_view {
                 display: flex;
-                gap: 8px;
-                align-items: flex-end;
-                .sale_rate {
-                  line-height: 150%;
-                  padding: 0 10px;
-                  font-size: 18px;
-                  color: map-get($color, bg-light-color);
-                  background: map-get($color, point-orange-color);
-                  border-radius: 20px;
+                color: #9d9d9d;
+                align-items: center;
+                gap: 4px;
+                font-size: 14px;
+              }
+              .ui_price {
+                display: flex;
+                flex-direction: column;
+                justify-content: flex-end;
+                text-align: end;
+                gap: 4px;
+                .price {
+                  color: #9d9d9d;
+                  font-size: 22px;
+                  text-decoration: line-through;
                 }
                 .sale_price {
-                  line-height: 100%;
-                  font-size: 32px;
-                  font-weight: 700;
-                  color: map-get($color, bg-light-color);
+                  display: flex;
+                  gap: 8px;
+                  align-items: flex-end;
+                  .sale_rate {
+                    line-height: 150%;
+                    padding: 0 10px;
+                    font-size: 18px;
+                    color: map-get($color, bg-light-color);
+                    background: map-get($color, point-orange-color);
+                    border-radius: 20px;
+                  }
+                  .sale_price {
+                    line-height: 100%;
+                    font-size: 32px;
+                    font-weight: 700;
+                    color: map-get($color, bg-light-color);
+                  }
                 }
               }
             }

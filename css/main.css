@@ -174,10 +174,14 @@ body {
 #live_area .live_slide_area {
   width: 1050px;
   margin: 0 auto;
-  display: flex;
-  justify-content: space-between;
+  overflow: hidden;
 }
-#live_area .live_slide_area .live_item {
+#live_area .live_slide_area .live_items {
+  width: 2095px;
+  display: flex;
+  gap: 5px;
+}
+#live_area .live_slide_area .live_items .live_item {
   width: 345px;
   height: 600px;
   overflow: hidden;
@@ -185,14 +189,14 @@ body {
   position: relative;
   cursor: pointer;
 }
-#live_area .live_slide_area .live_item .live_video {
+#live_area .live_slide_area .live_items .live_item .live_video {
   width: 100%;
   height: 100%;
   -o-object-fit: cover;
      object-fit: cover;
   position: relative;
 }
-#live_area .live_slide_area .live_item .live_video::before {
+#live_area .live_slide_area .live_items .live_item .live_video::before {
   content: "";
   width: 100%;
   height: 300px;
@@ -201,7 +205,7 @@ body {
   left: 0;
   background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.8) 100%);
 }
-#live_area .live_slide_area .live_item .live_video_ui {
+#live_area .live_slide_area .live_items .live_item .live_video_ui {
   width: 100%;
   height: 100%;
   position: absolute;
@@ -212,87 +216,94 @@ body {
   flex-direction: column;
   justify-content: space-between;
 }
-#live_area .live_slide_area .live_item .live_video_ui .video_ui_top {
+#live_area .live_slide_area .live_items .live_item .live_video_ui .video_ui_top {
   display: flex;
   justify-content: space-between;
 }
-#live_area .live_slide_area .live_item .live_video_ui .video_ui_top .video_ui_onair {
+#live_area .live_slide_area .live_items .live_item .live_video_ui .video_ui_top .video_ui_onair {
   color: #fff;
   padding: 2px 10px;
   background: #fa622f;
   border-radius: 20px;
 }
-#live_area .live_slide_area .live_item .live_video_ui .video_ui_top .video_ui_icon {
+#live_area .live_slide_area .live_items .live_item .live_video_ui .video_ui_top .video_ui_icon {
   display: flex;
   gap: 8px;
 }
-#live_area .live_slide_area .live_item .live_video_ui .video_ui_top .video_ui_icon .heart_icon {
+#live_area .live_slide_area .live_items .live_item .live_video_ui .video_ui_top .video_ui_icon .heart_icon {
   position: relative;
 }
-#live_area .live_slide_area .live_item .live_video_ui .video_ui_top .video_ui_icon .heart_icon i {
+#live_area .live_slide_area .live_items .live_item .live_video_ui .video_ui_top .video_ui_icon .heart_icon i {
   font-size: 24px;
   position: absolute;
   top: 2px;
   left: -20px;
   color: #fff;
   cursor: pointer;
+  transition: opacity 0.3s;
 }
-#live_area .live_slide_area .live_item .live_video_ui .video_ui_top .video_ui_icon .heart_icon i.fa-solid {
+#live_area .live_slide_area .live_items .live_item .live_video_ui .video_ui_top .video_ui_icon .heart_icon i.fa-solid {
   color: #ff3156;
   opacity: 0;
 }
-#live_area .live_slide_area .live_item .live_video_ui .video_ui_top .video_ui_icon img {
+#live_area .live_slide_area .live_items .live_item .live_video_ui .video_ui_top .video_ui_icon .heart_icon i.fa-solid.active {
+  opacity: 1;
+}
+#live_area .live_slide_area .live_items .live_item .live_video_ui .video_ui_top .video_ui_icon .heart_icon i.fa-regular.active {
+  opacity: 0;
+}
+#live_area .live_slide_area .live_items .live_item .live_video_ui .video_ui_top .video_ui_icon img {
   cursor: pointer;
 }
-#live_area .live_slide_area .live_item .live_video_ui .video_ui_bottom {
+#live_area .live_slide_area .live_items .live_item .live_video_ui .video_ui_bottom {
   height: 180px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
 }
-#live_area .live_slide_area .live_item .live_video_ui .video_ui_bottom .video_ui_name {
+#live_area .live_slide_area .live_items .live_item .live_video_ui .video_ui_bottom .video_ui_name {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   color: #fff;
 }
-#live_area .live_slide_area .live_item .live_video_ui .video_ui_bottom .video_ui_name .ui_brand {
+#live_area .live_slide_area .live_items .live_item .live_video_ui .video_ui_bottom .video_ui_name .ui_brand {
   font-size: 18px;
   font-weight: 700;
 }
-#live_area .live_slide_area .live_item .live_video_ui .video_ui_bottom .video_ui_name .ui_name {
+#live_area .live_slide_area .live_items .live_item .live_video_ui .video_ui_bottom .video_ui_name .ui_name {
   font-size: 22px;
 }
-#live_area .live_slide_area .live_item .live_video_ui .video_ui_bottom .video_ui_price {
+#live_area .live_slide_area .live_items .live_item .live_video_ui .video_ui_bottom .video_ui_price {
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
 }
-#live_area .live_slide_area .live_item .live_video_ui .video_ui_bottom .video_ui_price .ui_view {
+#live_area .live_slide_area .live_items .live_item .live_video_ui .video_ui_bottom .video_ui_price .ui_view {
   display: flex;
   color: #9d9d9d;
   align-items: center;
   gap: 4px;
   font-size: 14px;
 }
-#live_area .live_slide_area .live_item .live_video_ui .video_ui_bottom .video_ui_price .ui_price {
+#live_area .live_slide_area .live_items .live_item .live_video_ui .video_ui_bottom .video_ui_price .ui_price {
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
   text-align: end;
   gap: 4px;
 }
-#live_area .live_slide_area .live_item .live_video_ui .video_ui_bottom .video_ui_price .ui_price .price {
+#live_area .live_slide_area .live_items .live_item .live_video_ui .video_ui_bottom .video_ui_price .ui_price .price {
   color: #9d9d9d;
   font-size: 22px;
   text-decoration: line-through;
 }
-#live_area .live_slide_area .live_item .live_video_ui .video_ui_bottom .video_ui_price .ui_price .sale_price {
+#live_area .live_slide_area .live_items .live_item .live_video_ui .video_ui_bottom .video_ui_price .ui_price .sale_price {
   display: flex;
   gap: 8px;
   align-items: flex-end;
 }
-#live_area .live_slide_area .live_item .live_video_ui .video_ui_bottom .video_ui_price .ui_price .sale_price .sale_rate {
+#live_area .live_slide_area .live_items .live_item .live_video_ui .video_ui_bottom .video_ui_price .ui_price .sale_price .sale_rate {
   line-height: 150%;
   padding: 0 10px;
   font-size: 18px;
@@ -300,7 +311,7 @@ body {
   background: #fa622f;
   border-radius: 20px;
 }
-#live_area .live_slide_area .live_item .live_video_ui .video_ui_bottom .video_ui_price .ui_price .sale_price .sale_price {
+#live_area .live_slide_area .live_items .live_item .live_video_ui .video_ui_bottom .video_ui_price .ui_price .sale_price .sale_price {
   line-height: 100%;
   font-size: 32px;
   font-weight: 700;
