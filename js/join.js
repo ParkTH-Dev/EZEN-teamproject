@@ -89,13 +89,32 @@ inputTexts[4].addEventListener("change", function () {
 
 //----birth
 
-const birth1 = inputTexts[5].value;
-console.log(birth1);
-const birth2 = inputTexts[6].value;
-const birth3 = inputTexts[7];
-const nunOnly = /^[0-9]$/g;
+const changebirth1 = () => {
+  const birth1 = document.querySelector("#year").value;
+  if (birth1.length === 4) {
+    document.querySelector("#moth").focus();
+  }
+};
+const changebirth2 = () => {
+  const birth2 = document.querySelector("#moth").value;
+  if (birth2.length === 2) {
+    document.querySelector("#day").focus();
+  }
+};
+const changebirth3 = () => {
+  const birth1 = document.querySelector("#year").value;
+  const birth2 = document.querySelector("#moth").value;
+  const birth3 = document.querySelector("#day").value;
+  const birthIn = document.querySelector(".birtherr");
 
-birs;
+  if (birth1 === "" && birth2 === "" && birth3 === "") {
+    birthIn.innerText = "";
+  } else if (!/^[0-9]$/g.test(trimPhon)) {
+    birthIn.innerText = "숫자만 입력해주세요";
+  } else {
+    birthIn.innerText = "";
+  }
+};
 
 // const birth1Fnt = () => {
 //   if (birth1.length === 4) {
