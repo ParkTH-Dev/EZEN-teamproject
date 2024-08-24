@@ -407,7 +407,7 @@ li {
   height: 100%;
   width: 100%;
   background: rgba(0, 0, 0, 0.4);
-  z-index: 5;
+  z-index: 6;
   display: none;
 }
 .modalBase .modalInner {
@@ -684,4 +684,4 @@ li {
     margin: 0 50px 30px;
     width: calc(100% - 100px);
   }
-}
+}/*# sourceMappingURL=join.css.map */

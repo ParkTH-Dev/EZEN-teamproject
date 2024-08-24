@@ -15,6 +15,9 @@
       src="https://kit.fontawesome.com/f75707ac34.js"
       crossorigin="anonymous"
     ></script>
+    <!--adress-->
+    <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+    <script src="//dapi.kakao.com/v2/maps/sdk.js?appkey=발급받은 API KEY를 사용하세요&libraries=services"></script>
     <!--custcom-->
     <link rel="stylesheet" href="./css/join.css" />
     <script defer src="./js/join.js"></script>
@@ -325,10 +328,31 @@
                     <span class="star">*</span>
                   </div>
                   <div>
-                    <button class="address">
+                    <button
+                      class="address"
+                      type="button"
+                      onclick="sample6_execDaumPostcode()"
+                    >
                       <i class="fa-solid fa-magnifying-glass"></i>
                       주소검색
                     </button>
+                    <div class="addChange">
+                      <input
+                        type="text"
+                        id="sample2_address"
+                        placeholder="주소"
+                      /><br />
+                      <input
+                        type="text"
+                        id="sample2_detailAddress"
+                        placeholder="상세주소"
+                      />
+                      <input
+                        type="text"
+                        id="sample2_extraAddress"
+                        placeholder="참고항목"
+                      />
+                    </div>
                   </div>
                   <div></div>
                 </li>
@@ -420,10 +444,12 @@
                       type="text"
                       name="invite-text"
                       id="invite-text"
-                      placeholder="추천인 아이디를 입력해 주세요"
+                      placeholder="추천인 아이디 혹은 이벤트를 입력해 주세요"
                     />
                   </div>
-                  <div><input type="button" value="아이디 확인" /></div>
+                  <div>
+                    <input type="button" value="확인" class="IdEvftn" />
+                  </div>
                 </li>
               </ul>
               <!-------buttom join agree------->

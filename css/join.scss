@@ -35,8 +35,6 @@ li {
   }
 }
 
-
-
 #join_container {
   font: normal 16px/1 "Noto Sans KR", sans-serif;
   width: 1080px;
@@ -105,12 +103,12 @@ li {
               padding: inherit;
               font-size: 0.8rem;
               line-height: 8px;
-                & > div:nth-child(2) {
-                  padding-left: 20px;
-                  text-align: start;
-                  color: map-get($font-color, font-red);
-                  font-weight: 600;
-                }
+              & > div:nth-child(2) {
+                padding-left: 20px;
+                text-align: start;
+                color: map-get($font-color, font-red);
+                font-weight: 600;
+              }
             }
             /*top 1 td*/
             & > div:nth-child(1) {
@@ -426,7 +424,7 @@ li {
   height: 100%;
   width: 100%;
   background: rgba(0, 0, 0, 0.4);
-  z-index: 5;
+  z-index: 6;
   display: none;
 
   .modalInner {
@@ -573,9 +571,9 @@ li {
               padding: 0;
               &.errContainer {
                 height: inherit;
-              padding: inherit;
-              font-size: 0.8rem;
-              line-height: 8px;
+                padding: inherit;
+                font-size: 0.8rem;
+                line-height: 8px;
                 & > div:nth-child(1) {
                   display: none;
                 }
@@ -644,7 +642,6 @@ li {
                   display: none;
                 }
               }
-              
             }
           }
         }
