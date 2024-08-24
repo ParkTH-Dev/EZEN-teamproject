@@ -1,19 +1,33 @@
+//남은 작업
+//1 submit 버튼 누를 때 필수조건 확인 & 아이디 겹침 확인 << 화요일 작업예정
+//2. 휴대폰 인증번호 받기 << 월요일 작업 예정
+//3.약관보기 모달 << 월요일작업예정
+//4. 이메일 뒤에 주소 자동변경 & 직접입력 << 일요일 작업예정
+
 // form 요소들
 const form = document.querySelector("form");
-const inputTexts = document.querySelectorAll("input[type='text']");
-const inputpasss = document.querySelectorAll("input[type='password']");
-const inputradios = document.querySelectorAll("input[type='radio']");
+const userId = document.querySelector("#userId");
+const userpw = document.querySelector("#userpw");
+const pwCheck = document.querySelector("#pwCheck");
+const userName = document.querySelector("#userName");
+const userEmail = document.querySelector("#userEmail");
+const userPhon = document.querySelector("#userPhon");
+const invite = document.querySelector("#invite");
+const participationE = document.querySelector("#participationE");
+const eventNone = document.querySelector("#eventNone");
+const inviteText = document.querySelector("#invite-text");
 const checkBoxs = document.querySelectorAll("input[type='checkbox']");
+
 //-----------top -----------------//
 
 ////-------------각요소 조건
-
-inputTexts[0].addEventListener("change", function () {
+//아이디
+userId.addEventListener("change", function () {
   const idErr = /^[a-zA-Z0-9]{6,16}$/g;
   const idIn = document.querySelector(".iderr");
-  if (inputTexts[0].value === "") {
+  if (userId.value === "") {
     idIn.innerText = "";
-  } else if (!idErr.test(inputTexts[0].value)) {
+  } else if (!idErr.test(userId.value)) {
     idIn.innerText = "6자 이상 16자 이하의 영문과 숫자를 조합만 가능합니다.";
   } else {
     idIn.innerText = "";
@@ -21,12 +35,12 @@ inputTexts[0].addEventListener("change", function () {
 });
 
 //----pass
-inputpasss[0].addEventListener("change", function () {
+userpw.addEventListener("change", function () {
   const pwErr = /^[a-zA-Z0-9`~!@#$%^&*()-_=+]{10,}$/g;
   const passIn = document.querySelector(".passerr");
-  if (inputpasss[0].value === "") {
+  if (userpw.value === "") {
     passIn.innerText = "";
-  } else if (!pwErr.test(inputpasss[0].value)) {
+  } else if (!pwErr.test(userpw.value)) {
     passIn.innerText = "10자 이상에 영문 숫자 특수문자 조합만 가능합니다.";
   } else {
     passIn.innerText = "";
@@ -34,11 +48,11 @@ inputpasss[0].addEventListener("change", function () {
 });
 
 //----pass2
-inputpasss[1].addEventListener("change", function () {
+pwCheck.addEventListener("change", function () {
   const pass2In = document.querySelector(".pw2err");
-  if (inputpasss[1].value === "") {
+  if (pwCheck.value === "") {
     pass2In.innerText = "";
-  } else if (inputpasss[1].value === userpw.value) {
+  } else if (pwCheck.value === userpw.value) {
     pass2In.innerText = "";
   } else {
     pass2In.innerText = "동일한 비밀번호 입력해주세요.";
@@ -46,12 +60,12 @@ inputpasss[1].addEventListener("change", function () {
 });
 
 //----name
-inputTexts[1].addEventListener("change", function () {
+userName.addEventListener("change", function () {
   const nameIn = document.querySelector(".nameErr");
   const nameErr = /^[가-힣a-zA-Z]+$/g;
-  if (inputTexts[1].value === "") {
+  if (userName.value === "") {
     nameIn.innerText = "";
-  } else if (!nameErr.test(inputTexts[1].value)) {
+  } else if (!nameErr.test(userName.value)) {
     nameIn.innerText = "이름을 확인해주세요.";
   } else {
     nameIn.innerText = "";
@@ -59,12 +73,12 @@ inputTexts[1].addEventListener("change", function () {
 });
 
 //----email
-inputTexts[2].addEventListener("change", function () {
+userEmail.addEventListener("change", function () {
   const emailIn = document.querySelector(".emailerr");
-  const emailErr = /^[a-zA-Z0-9]$/g;
-  if (inputTexts[2].value === "") {
+  const emailErr = /^[a-zA-Z0-9]+$/g;
+  if (userEmail.value === "") {
     emailIn.innerText = "";
-  } else if (!emailErr.test(inputTexts[2].value)) {
+  } else if (!emailErr.test(userEmail.value)) {
     emailIn.innerText = "숫자 또는 영문만 입력 가능합니다.";
   } else {
     emailIn.innerText = "";
@@ -72,26 +86,21 @@ inputTexts[2].addEventListener("change", function () {
 });
 
 //----Phon
-inputTexts[4].addEventListener("change", function () {
+userPhon.addEventListener("change", function () {
   const phonIn = document.querySelector(".phonerr");
-  const PhonV = inputTexts[4].value;
+  const PhonV = userPhon.value;
   const trimPhon = PhonV.replace(/-/g, "");
-  if (inputTexts[4].value === "") {
+  if (userPhon.value === "") {
     phonIn.innerText = "";
   } else if (!/^[0][0-9]{9,10}$/.test(trimPhon)) {
     phonIn.innerText = "숫자 10~11자리";
   } else {
     phonIn.innerText = "";
+    document.querySelector(".checkBtn").classList.add("active");
   }
 });
 
 //----adress
-
-// theme: {
-//   searchBgColor: "#5F0080",
-//   queryTextColor: "#FFFFFF",
-//   emphTextColor: "#5F0080",
-// },
 
 function sample6_execDaumPostcode() {
   new daum.Postcode({
@@ -101,6 +110,7 @@ function sample6_execDaumPostcode() {
       emphTextColor: "#5F0080",
     },
     oncomplete: function (data) {
+      document.querySelector(".addressInner").classList.add("active");
       // 팝업에서 검색결과 항목을 클릭했을때 실행할 코드를 작성하는 부분.
 
       // 각 주소의 노출 규칙에 따라 주소를 조합한다.
@@ -140,7 +150,6 @@ function sample6_execDaumPostcode() {
       }
 
       // 우편번호와 주소 정보를 해당 필드에 넣는다.
-      document.getElementById("sample6_postcode").value = data.zonecode;
       document.getElementById("sample6_address").value = addr;
       // 커서를 상세주소 필드로 이동한다.
       document.getElementById("sample6_detailAddress").focus();
@@ -183,6 +192,24 @@ const changebirth3 = () => {
 };
 
 //----invit
+
+invite.addEventListener("change", () => {
+  document.querySelector(".hidden-add").classList.add("active");
+});
+participationE.addEventListener("change", () => {
+  document.querySelector(".hidden-add").classList.add("active");
+});
+eventNone.addEventListener("change", () => {
+  document.querySelector(".hidden-add").classList.remove("active");
+});
+
+inviteText.addEventListener("change", () => {
+  if (inviteText.value === "") {
+    document.querySelector(".IdEvftn").classList.remove("active");
+  } else {
+    document.querySelector(".IdEvftn").classList.add("active");
+  }
+});
 
 //--------bottom checkbox --------//
 

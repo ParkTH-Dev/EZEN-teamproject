@@ -84,10 +84,12 @@ li {
   display: flex;
   line-height: 40px;
   /*error*/
+  /*address*/
   /*top 1 td*/
   /*top 2 td*/
   /*top 3 td*/
   /*email Two Td*/
+  /*phone*/
   /*adrass*/
   /*Birth*/
   /*gender*/
@@ -105,6 +107,35 @@ li {
   color: #ef7793;
   font-weight: 600;
 }
+#join_container .join_inner #main form #private li.addressInner.active {
+  height: 84px;
+}
+#join_container .join_inner #main form #private li.addressInner.active .address {
+  display: none;
+}
+#join_container .join_inner #main form #private li.addressInner.active .addressChange {
+  display: block;
+}
+#join_container .join_inner #main form #private li.addressInner.active .addressChange > div {
+  margin-top: 4px;
+  display: flex;
+  gap: 2px;
+}
+#join_container .join_inner #main form #private li.addressInner.active .addressChange > div #sample6_detailAddress {
+  flex: 3;
+}
+#join_container .join_inner #main form #private li.addressInner.active .addressChange > div #sample6_detailAddress:focus::-moz-placeholder {
+  opacity: 1;
+}
+#join_container .join_inner #main form #private li.addressInner.active .addressChange > div #sample6_detailAddress:focus::placeholder {
+  opacity: 1;
+}
+#join_container .join_inner #main form #private li.addressInner.active .addressChange > div #sample6_extraAddress {
+  flex: 2;
+}
+#join_container .join_inner #main form #private li.addressInner.active .address2 {
+  display: block;
+}
 #join_container .join_inner #main form #private li > div:nth-child(1) {
   width: 150px;
 }
@@ -118,18 +149,13 @@ li {
 }
 #join_container .join_inner #main form #private li > div:nth-child(3) > input {
   width: 80%;
-  height: 40px;
+  height: 38px;
   margin-right: 10px;
   line-height: 10px;
   background: #fff;
   color: #c5c5c5;
   font-size: 0.9rem;
   border: 1px solid #c5c5c5;
-  border-radius: 4px;
-}
-#join_container .join_inner #main form #private li > div:nth-child(3) > input .action {
-  color: #5f0080;
-  border: 1px solid #5f0080;
   border-radius: 4px;
 }
 #join_container .join_inner #main form #private li input[type=text], #join_container .join_inner #main form #private li input[type=password] {
@@ -212,9 +238,41 @@ li {
   display: block;
   z-index: 2;
 }
+#join_container .join_inner #main form #private li .checkBtn.active {
+  color: #fff;
+  border: 1px solid #5f0080;
+  background: #5f0080;
+  transition: background 0.3s, color 0.3s;
+}
+#join_container .join_inner #main form #private li .checkBtn.active:hover {
+  color: #5f0080;
+  border: 1px solid #5f0080;
+  background: #fff;
+}
 #join_container .join_inner #main form #private li .address {
   width: 100%;
   background: #fff;
+  color: #5f0080;
+  border: 1px solid #5f0080;
+  border-radius: 4px;
+  transition: background 0.3s, color 0.3s;
+}
+#join_container .join_inner #main form #private li .address:hover {
+  color: #fff;
+  border: 1px solid #5f0080;
+  background: #5f0080;
+}
+#join_container .join_inner #main form #private li .addressChange {
+  display: none;
+}
+#join_container .join_inner #main form #private li .address2 {
+  display: none;
+  width: 80%;
+  height: 40px;
+  margin: 0 8px;
+  line-height: 10px;
+  background: #fff;
+  font-size: 0.9rem;
   color: #5f0080;
   border: 1px solid #5f0080;
   border-radius: 4px;
@@ -286,6 +344,23 @@ li {
 }
 #join_container .join_inner #main form #private li .Additional span input[type=radio]:checked {
   border: 7px solid #5f0080;
+}
+#join_container .join_inner #main form #private li.hidden-add {
+  display: none;
+}
+#join_container .join_inner #main form #private li.hidden-add.active {
+  display: flex;
+}
+#join_container .join_inner #main form #private li.hidden-add.active .IdEvftn.active {
+  color: #fff;
+  border: 1px solid #5f0080;
+  background: #5f0080;
+  transition: background 0.3s, color 0.3s;
+}
+#join_container .join_inner #main form #private li.hidden-add.active .IdEvftn.active:hover {
+  color: #5f0080;
+  border: 1px solid #5f0080;
+  background: #fff;
 }
 
 /*bootom_chekinner*/
@@ -566,6 +641,37 @@ li {
   #join_container .join_inner #main form #private li.errContainer > div:nth-child(3) {
     display: none;
   }
+  #join_container .join_inner #main form #private li.addressInner.active {
+    height: 100%;
+  }
+  #join_container .join_inner #main form #private li.addressInner.active .address {
+    display: none;
+  }
+  #join_container .join_inner #main form #private li.addressInner.active .addressChange {
+    display: block;
+  }
+  #join_container .join_inner #main form #private li.addressInner.active .addressChange > div {
+    margin: 2px 0;
+    display: flex;
+    gap: 2px;
+  }
+  #join_container .join_inner #main form #private li.addressInner.active .addressChange > div #sample6_detailAddress {
+    flex: 3;
+  }
+  #join_container .join_inner #main form #private li.addressInner.active .addressChange > div #sample6_detailAddress:focus::-moz-placeholder {
+    opacity: 1;
+  }
+  #join_container .join_inner #main form #private li.addressInner.active .addressChange > div #sample6_detailAddress:focus::placeholder {
+    opacity: 1;
+  }
+  #join_container .join_inner #main form #private li.addressInner.active .addressChange > div #sample6_extraAddress {
+    flex: 2;
+  }
+  #join_container .join_inner #main form #private li.addressInner.active .address2 {
+    display: block;
+    width: 100%;
+    margin: 0;
+  }
   #join_container .join_inner #main form #private li > div:nth-child(1) {
     width: 100%;
     height: 32px;
@@ -684,4 +790,4 @@ li {
     margin: 0 50px 30px;
     width: calc(100% - 100px);
   }
-}/*# sourceMappingURL=join.css.map */
+}

@@ -110,6 +110,37 @@ li {
                 font-weight: 600;
               }
             }
+            /*address*/
+            &.addressInner {
+              &.active {
+                height: 84px;
+                .address {
+                  display: none;
+                }
+                .addressChange {
+                  display: block;
+                  & > div {
+                    margin-top: 4px;
+                    display: flex;
+                    gap: 2px;
+                    #sample6_detailAddress {
+                      flex: 3;
+                      &:focus {
+                        &::placeholder {
+                          opacity: 1;
+                        }
+                      }
+                    }
+                    #sample6_extraAddress {
+                      flex: 2;
+                    }
+                  }
+                }
+                .address2 {
+                  display: block;
+                }
+              }
+            }
             /*top 1 td*/
             & > div:nth-child(1) {
               width: 150px;
@@ -125,7 +156,7 @@ li {
               text-align: center;
               & > input {
                 width: 80%;
-                height: 40px;
+                height: 38px;
                 margin-right: 10px;
                 line-height: 10px;
                 background: map-get($color, light);
@@ -133,11 +164,6 @@ li {
                 font-size: 0.9rem;
                 border: 1px solid map-get($font-color, font-line);
                 border-radius: 4px;
-                .action {
-                  color: map-get($color, main);
-                  border: 1px solid map-get($color, main);
-                  border-radius: 4px;
-                }
               }
             }
             & input[type="text"],
@@ -218,11 +244,45 @@ li {
                 }
               }
             }
-
+            /*phone*/
+            .checkBtn {
+              &.active {
+                color: map-get($color, light);
+                border: 1px solid map-get($color, main);
+                background: map-get($color, main);
+                transition: background 0.3s, color 0.3s;
+                &:hover {
+                  color: map-get($color, main);
+                  border: 1px solid map-get($color, main);
+                  background: map-get($color, light);
+                }
+              }
+            }
             /*adrass*/
             .address {
               width: 100%;
               background: map-get($color, light);
+              color: map-get($color, main);
+              border: 1px solid map-get($color, main);
+              border-radius: 4px;
+              transition: background 0.3s, color 0.3s;
+              &:hover {
+                color: map-get($color, light);
+                border: 1px solid map-get($color, main);
+                background: map-get($color, main);
+              }
+            }
+            .addressChange {
+              display: none;
+            }
+            .address2 {
+              display: none;
+              width: 80%;
+              height: 40px;
+              margin: 0 8px;
+              line-height: 10px;
+              background: map-get($color, light);
+              font-size: 0.9rem;
               color: map-get($color, main);
               border: 1px solid map-get($color, main);
               border-radius: 4px;
@@ -290,6 +350,26 @@ li {
                   height: 1.2rem;
                   &:checked {
                     border: 7px solid map-get($color, main);
+                  }
+                }
+              }
+            }
+
+            &.hidden-add {
+              display: none;
+              &.active {
+                display: flex;
+                .IdEvftn {
+                  &.active {
+                    color: map-get($color, light);
+                    border: 1px solid map-get($color, main);
+                    background: map-get($color, main);
+                    transition: background 0.3s, color 0.3s;
+                    &:hover {
+                      color: map-get($color, main);
+                      border: 1px solid map-get($color, main);
+                      background: map-get($color, light);
+                    }
                   }
                 }
               }
@@ -586,6 +666,38 @@ li {
                 }
                 & > div:nth-child(3) {
                   display: none;
+                }
+              }
+              &.addressInner {
+                &.active {
+                  height: 100%;
+                  .address {
+                    display: none;
+                  }
+                  .addressChange {
+                    display: block;
+                    & > div {
+                      margin: 2px 0;
+                      display: flex;
+                      gap: 2px;
+                      #sample6_detailAddress {
+                        flex: 3;
+                        &:focus {
+                          &::placeholder {
+                            opacity: 1;
+                          }
+                        }
+                      }
+                      #sample6_extraAddress {
+                        flex: 2;
+                      }
+                    }
+                  }
+                  .address2 {
+                    display: block;
+                    width: 100%;
+                    margin: 0;
+                  }
                 }
               }
               & > div:nth-child(1) {
