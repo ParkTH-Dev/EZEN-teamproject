@@ -10,7 +10,10 @@ const userId = document.querySelector("#userId");
 const userpw = document.querySelector("#userpw");
 const pwCheck = document.querySelector("#pwCheck");
 const userName = document.querySelector("#userName");
-const userEmail = document.querySelector("#userEmail");
+const userEmail = document.getElementById("userEmail");
+const emailselect = document.getElementById("email");
+const emailDirectInput = document.getElementById("emailDr");
+const directOptionValue = "direct";
 const userPhon = document.querySelector("#userPhon");
 const invite = document.querySelector("#invite");
 const participationE = document.querySelector("#participationE");
@@ -73,16 +76,50 @@ userName.addEventListener("change", function () {
 });
 
 //----email
-userEmail.addEventListener("change", function () {
-  const emailIn = document.querySelector(".emailerr");
-  const emailErr = /^[a-zA-Z0-9]+$/g;
-  if (userEmail.value === "") {
-    emailIn.innerText = "";
-  } else if (!emailErr.test(userEmail.value)) {
-    emailIn.innerText = "숫자 또는 영문만 입력 가능합니다.";
-  } else {
-    emailIn.innerText = "";
+emailselect.addEventListener("click", () => {
+  for (let option of emailselect.options) {
+    if (option.value === directOptionValue) {
+      document.querySelector(".hiddenS").classList.add("active");
+      break;
+    } else {
+      document.querySelector(".hiddenS").classList.remove("active");
+      break;
+    }
   }
+});
+
+userEmail.addEventListener("input", function () {
+  const emailValue = userEmail.value.trim();
+  const userOtherId = [...emailValue.split("@")];
+  const onlyId = [...userOtherId].shift();
+  const atIndex = emailValue.indexOf("@");
+  document.querySelector(".hiddenS").classList.remove("active");
+  if (atIndex !== -1) {
+    const domain = emailValue.substring(atIndex + 1);
+    let optionFound = false;
+
+    for (let option of emailselect.options) {
+      if (option.value === directOptionValue) {
+        continue;
+      }
+      const optionText = option.textContent || option.innerText;
+      if (optionText === domain) {
+        emailselect.value = option.value;
+        optionFound = true;
+
+        break;
+      }
+    }
+    // 도메인이 일치하는 옵션이 없으면 '직접입력' 옵션 선택
+    if (!optionFound) {
+      emailselect.value = directOptionValue;
+      document.querySelector(".hiddenS").classList.add("active");
+      emailDirectInput.focus();
+      emailDirectInput.value = domain;
+    }
+  }
+  userEmail.value = null;
+  userEmail.value = `${onlyId}`;
 });
 
 //----Phon
@@ -203,7 +240,7 @@ eventNone.addEventListener("change", () => {
   document.querySelector(".hidden-add").classList.remove("active");
 });
 
-inviteText.addEventListener("change", () => {
+inviteText.addEventListener("keyup", () => {
   if (inviteText.value === "") {
     document.querySelector(".IdEvftn").classList.remove("active");
   } else {
