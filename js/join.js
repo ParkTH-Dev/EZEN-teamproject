@@ -1,8 +1,7 @@
 //남은 작업
-//1 submit 버튼 누를 때 필수조건 확인 & 아이디 겹침 확인 << 화요일 작업예정
-//2. 휴대폰 인증번호 받기 << 월요일 작업 예정
-//3.약관보기 모달 << 월요일작업예정
-//4. 이메일 뒤에 주소 자동변경 & 직접입력 << 일요일 작업예정
+//1 submit 버튼 누를 때 필수조건 확인 & 아이디 겹침 확인 << 화-수요일 작업 완료 예정
+//2. 휴대폰 인증번호 받기 << 월요일-화 작업 완료 예정
+//3.약관보기 모달 << 월요일 작업 완료 예정
 
 // form 요소들
 const form = document.querySelector("form");
@@ -20,6 +19,17 @@ const participationE = document.querySelector("#participationE");
 const eventNone = document.querySelector("#eventNone");
 const inviteText = document.querySelector("#invite-text");
 const checkBoxs = document.querySelectorAll("input[type='checkbox']");
+//----------modal-----------------//
+const modalBase = document.querySelector(".modalBase");
+const tap1 = document.querySelector(".tap1");
+const tap2 = document.querySelector(".tap2");
+const tap3 = document.querySelector(".tap3");
+const taps = document.querySelectorAll(".tap");
+const tapModal1 = document.querySelector(".tapModal1");
+const tapModal2 = document.querySelector(".tapModal2");
+const tapModal3 = document.querySelector(".tapModal3");
+const HModals = document.querySelectorAll(".HModal");
+console.log(taps, HModals);
 
 //-----------top -----------------//
 
@@ -76,15 +86,13 @@ userName.addEventListener("change", function () {
 });
 
 //----email
-emailselect.addEventListener("click", () => {
-  for (let option of emailselect.options) {
-    if (option.value === directOptionValue) {
-      document.querySelector(".hiddenS").classList.add("active");
-      break;
-    } else {
-      document.querySelector(".hiddenS").classList.remove("active");
-      break;
-    }
+
+emailselect.addEventListener("change", function () {
+  // console.log(this.value);
+  if (this.value === "direct") {
+    document.querySelector(".hiddenS").classList.add("active");
+  } else {
+    document.querySelector(".hiddenS").classList.remove("active");
   }
 });
 
@@ -93,11 +101,19 @@ userEmail.addEventListener("input", function () {
   const userOtherId = [...emailValue.split("@")];
   const onlyId = [...userOtherId].shift();
   const atIndex = emailValue.indexOf("@");
+  const emailErr = /^[a-zA-Z0-9/@/.]+$/g;
+  const emailIn = document.querySelector(".emailerr");
   document.querySelector(".hiddenS").classList.remove("active");
-  if (atIndex !== -1) {
+  if (emailValue === "") {
+    emailIn.innerText = "";
+  } else if (!emailErr.test(emailValue)) {
+    emailIn.innerText = "숫자 또는 영문만 입력 가능합니다.";
+  } else {
+    emailIn.innerText = "";
+  }
+  if (emailValue.includes("@") === true) {
     const domain = emailValue.substring(atIndex + 1);
     let optionFound = false;
-
     for (let option of emailselect.options) {
       if (option.value === directOptionValue) {
         continue;
@@ -106,7 +122,6 @@ userEmail.addEventListener("input", function () {
       if (optionText === domain) {
         emailselect.value = option.value;
         optionFound = true;
-
         break;
       }
     }
@@ -148,47 +163,32 @@ function sample6_execDaumPostcode() {
     },
     oncomplete: function (data) {
       document.querySelector(".addressInner").classList.add("active");
-      // 팝업에서 검색결과 항목을 클릭했을때 실행할 코드를 작성하는 부분.
+      var addr = "";
+      var extraAddr = "";
 
-      // 각 주소의 노출 규칙에 따라 주소를 조합한다.
-      // 내려오는 변수가 값이 없는 경우엔 공백('')값을 가지므로, 이를 참고하여 분기 한다.
-      var addr = ""; // 주소 변수
-      var extraAddr = ""; // 참고항목 변수
-
-      //사용자가 선택한 주소 타입에 따라 해당 주소 값을 가져온다.
       if (data.userSelectedType === "R") {
-        // 사용자가 도로명 주소를 선택했을 경우
         addr = data.roadAddress;
       } else {
-        // 사용자가 지번 주소를 선택했을 경우(J)
         addr = data.jibunAddress;
       }
 
-      // 사용자가 선택한 주소가 도로명 타입일때 참고항목을 조합한다.
       if (data.userSelectedType === "R") {
-        // 법정동명이 있을 경우 추가한다. (법정리는 제외)
-        // 법정동의 경우 마지막 문자가 "동/로/가"로 끝난다.
         if (data.bname !== "" && /[동|로|가]$/g.test(data.bname)) {
           extraAddr += data.bname;
         }
-        // 건물명이 있고, 공동주택일 경우 추가한다.
         if (data.buildingName !== "" && data.apartment === "Y") {
           extraAddr +=
             extraAddr !== "" ? ", " + data.buildingName : data.buildingName;
         }
-        // 표시할 참고항목이 있을 경우, 괄호까지 추가한 최종 문자열을 만든다.
         if (extraAddr !== "") {
           extraAddr = " (" + extraAddr + ")";
         }
-        // 조합된 참고항목을 해당 필드에 넣는다.
         document.getElementById("sample6_extraAddress").value = extraAddr;
       } else {
         document.getElementById("sample6_extraAddress").value = "";
       }
 
-      // 우편번호와 주소 정보를 해당 필드에 넣는다.
       document.getElementById("sample6_address").value = addr;
-      // 커서를 상세주소 필드로 이동한다.
       document.getElementById("sample6_detailAddress").focus();
     },
   }).open();
@@ -257,6 +257,15 @@ submit.addEventListener("click", (e) => {
 });
 
 //--------bottom checkbox --------//
+
+//**-------모달--------**/
+
+// console.log(taps[3]);
+// taps.forEach((tap) => {
+//   tap.addEventListener("chlick", () => {
+//     console.log(tap.index);
+//   });
+// });
 
 // **  --체크박스와 아이콘 연동 함수-- **//
 

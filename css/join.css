@@ -515,9 +515,6 @@ li {
   overflow-x: hidden;
   overflow-y: hidden;
 }
-.modalBase .modalInner .HModal .frame .yblock {
-  overflow-y: scroll;
-}
 .modalBase .modalInner .HModal .frame h2 {
   font-size: 1.4rem;
   font-weight: 600;
@@ -536,10 +533,13 @@ li {
   border: 1px solid #727272;
   padding: 4px;
 }
-.modalBase .modalInner .HModal.tap1Modal2 {
+.modalBase .modalInner .HModal.tapModal1 {
   display: none;
 }
-.modalBase .modalInner .HModal.tap1Modal3 {
+.modalBase .modalInner .HModal.tapModal2 {
+  display: none;
+}
+.modalBase .modalInner .HModal.tapModal3 {
   display: none;
 }
 .modalBase .modalInner .HModal .modal_close h1 {
@@ -550,9 +550,6 @@ li {
   bottom: 4px;
   right: 50%;
   transform: translateX(50%);
-}
-.modalBase.active {
-  display: block;
 }
 
 @media screen and (max-width: 1050px) {
@@ -772,7 +769,10 @@ li {
   }
   #checkinner > div:nth-child(2) .allSub {
     font-size: 0.7rem;
+    width: 310px;
+    line-height: 1.1rem;
     margin-left: 36px;
+    margin-bottom: 5px;
   }
   #checkinner > div:nth-child(2) .top-receive {
     display: flex;
