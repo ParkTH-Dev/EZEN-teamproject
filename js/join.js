@@ -1,7 +1,6 @@
 //남은 작업
 //1 submit 버튼 누를 때 필수조건 확인 & 아이디 겹침 확인 << 화-수요일 작업 완료 예정
 //2. 휴대폰 인증번호 받기 << 월요일-화 작업 완료 예정
-//3.약관보기 모달 << 월요일 작업 완료 예정
 
 // form 요소들
 const form = document.querySelector("form");
@@ -21,15 +20,16 @@ const inviteText = document.querySelector("#invite-text");
 const checkBoxs = document.querySelectorAll("input[type='checkbox']");
 //----------modal-----------------//
 const modalBase = document.querySelector(".modalBase");
+const modalClose = document.querySelector(".modal_close");
 const tap1 = document.querySelector(".tap1");
 const tap2 = document.querySelector(".tap2");
 const tap3 = document.querySelector(".tap3");
-const taps = document.querySelectorAll(".tap");
 const tapModal1 = document.querySelector(".tapModal1");
 const tapModal2 = document.querySelector(".tapModal2");
 const tapModal3 = document.querySelector(".tapModal3");
-const HModals = document.querySelectorAll(".HModal");
-console.log(taps, HModals);
+
+//------------------오토 넘버
+const randomNum = Math.floor(Math.random() * 5000 + 1);
 
 //-----------top -----------------//
 
@@ -260,13 +260,49 @@ submit.addEventListener("click", (e) => {
 
 //**-------모달--------**/
 
-// console.log(taps[3]);
-// taps.forEach((tap) => {
-//   tap.addEventListener("chlick", () => {
-//     console.log(tap.index);
+// taps.forEach((tap, index) => {
+//   tap.addEventListener("click", () => {
+//     HModals.forEach((modal, modalIndex) => {
+//       console.log(index, modalIndex);
+//       if (index === modalIndex) {
+//         modal.style.display = "block";
+//       } else {
+//         modal.style.display = "none";
+//       }
+//     });
 //   });
 // });
 
+tap1.addEventListener("click", () => {
+  const frame = document.querySelector(".frame");
+  modalBase.style.display = "block";
+  tapModal1.style.display = "block";
+  frame.style.overflowY = "scroll";
+});
+
+tap2.addEventListener("click", () => {
+  modalBase.style.display = "block";
+  tapModal2.style.display = "block";
+});
+
+tap3.addEventListener("click", () => {
+  modalBase.style.display = "block";
+  tapModal3.style.display = "block";
+});
+
+modalBase.addEventListener("click", () => {
+  modalBase.style.display = "none";
+  tapModal1.style.display = "none";
+  tapModal2.style.display = "none";
+  tapModal3.style.display = "none";
+});
+
+modalClose.addEventListener("click", () => {
+  modalBase.style.display = "none";
+  tapModal1.style.display = "none";
+  tapModal2.style.display = "none";
+  tapModal3.style.display = "none";
+});
 // **  --체크박스와 아이콘 연동 함수-- **//
 
 function checkAndIcon(checkBox) {
