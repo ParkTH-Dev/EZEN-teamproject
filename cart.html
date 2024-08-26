@@ -3,6 +3,8 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!--kakao Map-->
+    <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
     <!--fontawesome-->
     <script
       src="https://kit.fontawesome.com/7a72e4068c.js"
@@ -17,7 +19,7 @@
     <div class="cart-container">
       <div class="cart-header">
         <div class="cart-title-text">장바구니</div>
-        <div class="checkbox">
+        <!-- <div class="checkbox">
           <label class="custom-checkbox">
             <input type="checkbox" id="selectAll" />
             <span class="checkmark"></span>
@@ -28,7 +30,7 @@
             <span class="checkmark"></span>
             선택삭제
           </label>
-        </div>
+        </div> -->
       </div>
 
       <main>
@@ -44,7 +46,7 @@
                   <div id="cold-item-example">
                     <div id="cold-logo">
                       <img src="./img/cart_img/cold-item.png" alt="cold-item" />
-                      <span>냉장 상품</span>
+                      <span>냉장</span>
                     </div>
                     <!-- 체크박스,이미지, 내용-->
                     <div id="cold-item">
@@ -60,11 +62,23 @@
                             src="./img/cart_img/rec_item01.jpg"
                             alt="rec_item01"
                           />
-                          <span
+                          <div class="delivery_mark">
+                            <!-- <div class="delivery_text">
+                              <img src="./img/cart_img/art_16156864409173_48698a-removebg-preview.png" alt="delivery_img">
+                              <span>샛별배송</span> 
+                            </div> -->
+                           <div class="delivery_info">
+                              <!-- <span class="delivery_text">
+                                <i class="fa-solid fa-gift"> 판매자배송</i>
+                              </span> -->
+                              <span>모레(월) 도착 보장</span>
+                           </div>
+                            <span
                             >[자연실록] 무항생제 두마리 통닭
                             550gX2입(삼계탕용)</span
-                          >
-                        </div>
+                            >
+                          </div>
+                          </div>
                       </div>
                       <!-- 체크박스,이미지, 내용-->
                       <!--바꿈-->
@@ -74,16 +88,70 @@
                           <strike>12,900원</strike>
                         </div>
                         <div class="check-num">
-                          <span class="minus"
-                            ><i class="fa-solid fa-minus"></i
-                          ></span>
-                          <span class="check-item-num">1</span>
-                          <span class="plus"
-                            ><i class="fa-solid fa-plus"></i
-                          ></span>
+                          <span class="counterMinus"
+                            >-</span>
+                          <span>1</span>
+                          <span class="counterPlus"
+                            >+</span>
+                        </div>
+                        <div class="x-mark list_item">
+                          <span class="trash">
+                              <i class="fa-solid fa-trash-can"></i>
+                          </span>
+                      </div>
+                      </div>
+                      <!--바꿈-->
+                    </div>
+                  </div>
+                  <div id="cold-item-example">
+                    <!-- 체크박스,이미지, 내용-->
+                    <div id="cold-item">
+                      <div class="check-img">
+                        <div class="checkbox">
+                          <label class="custom-checkbox">
+                            <input type="checkbox" id="selectAll" />
+                            <span class="checkmark"></span>
+                          </label>
+                        </div>
+                        <div class="cart-item-text">
+                          <img
+                            src="./img/cart_img/rec_item01.jpg"
+                            alt="rec_item01"
+                          />
+                          <div class="delivery_mark">
+                            <!-- <div class="delivery_text">
+                              <img src="./img/cart_img/art_16156864409173_48698a-removebg-preview.png" alt="delivery_img">
+                              <span>샛별배송</span> 
+                            </div> -->
+                           <div class="delivery_info">
+                              <!-- <span class="delivery_text">
+                                <i class="fa-solid fa-gift"> 판매자배송</i>
+                              </span> -->
+                              <span>모레(월) 도착 보장</span>
+                           </div>
+                            <span
+                            >[자연실록] 무항생제 두마리 통닭
+                            550gX2입(삼계탕용)</span
+                            >
+                          </div>
+                          </div>
+                      </div>
+                      <!-- 체크박스,이미지, 내용-->
+                      <!--바꿈-->
+                      <div class="cart_price_num_box">
+                        <div class="cart-item-price">
+                          <span>7,920원</span>
+                          <strike>12,900원</strike>
+                        </div>
+                        <div class="check-num">
+                          <span class="counterMinus"
+                            >-</span>
+                          <span>1</span>
+                          <span class="counterPlus"
+                            >+</span>
                         </div>
                         <div class="x-mark">
-                          <i class="fa-solid fa-xmark"></i>
+                          <i class="fa-solid fa-trash-can"></i>
                         </div>
                       </div>
                       <!--바꿈-->
@@ -95,7 +163,7 @@
                         src="./img/cart_img/prozen-item.png"
                         alt="prozen-item"
                       />
-                      <span>냉동 상품</span>
+                      <span>냉동</span>
                     </div>
                       <!-- 체크박스,이미지, 내용-->
                     <div id="prozen-item">
@@ -111,10 +179,22 @@
                             src="./img/cart_img/rec_item01.jpg"
                             alt="rec_item01"
                           />
-                          <span
+                          <div class="delivery_mark">
+                            <!-- <div class="delivery_text">
+                              <img src="./img/cart_img/art_16156864409173_48698a-removebg-preview.png" alt="delivery_img">
+                              <span>샛별배송</span> 
+                            </div> -->
+                           <div class="delivery_info">
+                              <span class="delivery_text">
+                                <i class="fa-solid fa-truck-fast"> 샛별배송</i>
+                              </span>
+                              <span>내일(일) 새벽 도착</span>
+                           </div>
+                            <span
                             >[자연실록] 무항생제 두마리 통닭
                             550gX2입(삼계탕용)</span
-                          >
+                            >
+                          </div>
                         </div>
                       </div>
                       <!-- 체크박스,이미지, 내용-->
@@ -125,16 +205,77 @@
                           <strike>12,900원</strike>
                         </div>
                         <div class="check-num">
-                          <span class="minus"
-                            ><i class="fa-solid fa-minus"></i
-                          ></span>
-                          <span class="check-item-num">1</span>
-                          <span class="plus"
-                            ><i class="fa-solid fa-plus"></i
-                          ></span>
+                          <span class="counterMinus"
+                            >-</span>
+                          <span>1</span>
+                          <span class="counterPlus"
+                            >+</span>
                         </div>
                         <div class="x-mark">
-                          <i class="fa-solid fa-xmark"></i>
+                          <!-- <i class="fa-solid fa-xmark"></i> -->
+                          <i class="fa-solid fa-trash-can"></i>
+                        </div>
+                      </div>
+                      <!--바꿈-->
+                  </div>
+                </div>
+                  <div id="prozen-item-example">
+                    <!-- <div id="prozen-logo"> -->
+                      <!-- <img
+                        src="./img/cart_img/prozen-item.png"
+                        alt="prozen-item"
+                      />
+                      <span>냉동</span> -->
+                    <!-- </div> -->
+                      <!-- 체크박스,이미지, 내용-->
+                    <div id="prozen-item">
+                      <div class="check-img">
+                        <div class="checkbox">
+                          <label class="custom-checkbox">
+                            <input type="checkbox" id="selectAll" />
+                            <span class="checkmark"></span>
+                          </label>
+                        </div>
+                        <div class="cart-item-text">
+                          <img
+                            src="./img/cart_img/rec_item01.jpg"
+                            alt="rec_item01"
+                          />
+                          <div class="delivery_mark">
+                            <!-- <div class="delivery_text">
+                              <img src="./img/cart_img/art_16156864409173_48698a-removebg-preview.png" alt="delivery_img">
+                              <span>샛별배송</span> 
+                            </div> -->
+                           <div class="delivery_info">
+                              <span class="delivery_text">
+                                <i class="fa-solid fa-truck-fast"> 샛별배송</i>
+                              </span>
+                              <span>내일(일) 새벽 도착</span>
+                           </div>
+                            <span
+                            >[자연실록] 무항생제 두마리 통닭
+                            550gX2입(삼계탕용)</span
+                            >
+                          </div>
+                        </div>
+                      </div>
+                      <!-- 체크박스,이미지, 내용-->
+                      <!--바꿈-->
+                      <div class="cart_price_num_box">
+                        <div class="cart-item-price">
+                          <span>7,920원</span>
+                          <strike>12,900원</strike>
+                        </div>
+                        <div class="check-num">
+                          <span class="counterMinus"
+                            >-</span>
+                          <span>1</span>
+                          <span class="counterPlus"
+                            >+</span>
+                        </div>
+                        <div class="x-mark">
+                          <!-- <i class="fa-solid fa-xmark"></i> -->
+                          <i class="fa-solid fa-trash-can"></i>
                         </div>
                       </div>
                       <!--바꿈-->
@@ -166,7 +307,7 @@
                   ><b>배송지를 등록</b>하고<br />구매가능한 상품을
                   확인하세요</span
                 >
-                <input class="button" type="button" value="주소 검색" />
+                <input type="button" onclick="sample5_execDaumPostcode()" value="주소 검색">
               </div>
             </div>
             <div class="cart-price-box">
@@ -230,8 +371,8 @@
                     <strike>12,700원</strike>
                   </ul>
                   <ul class="rec_text02">
-                    <li>40%</li>
-                    <li>7,620원</li>
+                    <li class="percent">40%</li>
+                    <li class="price">7,620원</li>
                   </ul>
                 </div>
                 <div class="comment_text">
@@ -263,8 +404,8 @@
                     <strike>12,700원</strike>
                   </ul>
                   <ul class="rec_text02">
-                    <li>40%</li>
-                    <li>7,620원</li>
+                    <li class="percent">40%</li>
+                    <li class="price">7,620원</li>
                   </ul>
                 </div>
                 <div class="comment_text">
@@ -296,8 +437,8 @@
                     <strike>12,700원</strike>
                   </ul>
                   <ul class="rec_text02">
-                    <li>40%</li>
-                    <li>7,620원</li>
+                    <li class="percent">40%</li>
+                    <li class="price">7,620원</li>
                   </ul>
                 </div>
                 <div class="comment_text">
@@ -329,8 +470,8 @@
                     <strike>12,700원</strike>
                   </ul>
                   <ul class="rec_text02">
-                    <li>40%</li>
-                    <li>7,620원</li>
+                    <li class="percent">40%</li>
+                    <li class="price">7,620원</li>
                   </ul>
                 </div>
                 <div class="comment_text">
@@ -368,43 +509,86 @@
                 type="password"
                 placeholder="비밀번호를 입력해주세요"
               />
-              <ul class="idpw_such">
-                <li>아이디 찾기 /</li>
-                <li>비밀번호 찾기</li>
-              </ul>
+              <div class="idpw_such">
+                <span class="such">아이디 찾기</span>
+                <span>/</span>
+                <span class="such">비밀번호 찾기</span>
+              </div>
               <span id="easy_login">간편로그인</span>
               <ul id="icon_img">
                 <li>
-                  <img src="./cart_img/kakao_icon.png" alt="kakao_icon" />
+                  <img src="./img/cart_img/kakao_icon.png" alt="kakao_icon" />
                 </li>
                 <li>
-                  <img src="./cart_img/naver_icon.png" alt="naver_icon" />
+                  <img src="./img/cart_img/naver_icon.png" alt="naver_icon" />
                 </li>
                 <li>
-                  <img src="./cart_img/facebook_icon.png" alt="facebook_icon" />
+                  <img src="./img/cart_img/facebook_icon.png" alt="facebook_icon" />
                 </li>
                 <li>
                   <img
-                    src="./cart_img/instagram_icon.png"
+                    src="./img/cart_img/instagram_icon.png"
                     alt="instagram_icon"
                   />
                 </li>
                 <li>
-                  <img src="./cart_img/google_icon.png" alt="google_icon" />
+                  <img src="./img/cart_img/google_icon.png" alt="google_icon" />
                 </li>
               </ul>
               <br />
-              <p>
+              <div class="join_info">
                 <span>컬리가 처음인 고객님께</span>
                 <span><b>웰컴 쿠폰팩을 드려요</b></span>
-                <span id="Join_btn">
-                  <a href="#"> 가입하고 혜택받기</a>
-                </span>
-              </p>
+                <button id="Join_btn">
+                  가입하고 혜택받기
+                </button>
+              </div>
             </form>
           </div>
         </div>
       </div>
     </div>
+<!-- New 주소 검색 Modal -->
+<!-- <div id="addressModal" class="modal">
+  <div class="modal_content_inner">
+    <div class="modal_heading">
+      <span class="order">주소 검색</span>
+      <span class="close">&times;</span>
+    </div>
+    <div class="address_modal_content">
+      <div class="address_search">
+         <input
+          type="text"
+          placeholder="주소를 입력하세요 예) 판교역로 166 "
+          style="width: 100%; padding: 10px; margin-bottom: 10px;"
+        /> -->
+<!-- <div id="map" style="width:300px;height:300px;margin-top:10px;display:none"></div>
+        <i class="fa-solid fa-magnifying-glass"></i>
+      </div>
+      <div class="address_tip">
+        <h2>tip</h2>
+        <p id="tip-header">아래와 같이 검색하시면 정확한 결과가 검색됩니다.</p>
+        <p>도로명 + 건물번호</p>
+        <span>예) 판교역로 166,  제주 첨단로 242</span>
+        <p>지역명(동/리) + 번지</p>
+        <span>예) 백현동 532,  제주 영평동 2181</span>
+        <p>지역명(동/리) + 건물명(아파트명)</p>
+        <span>예) 분당 주공,  연수동 주공3차</span>
+        <p>사서함명 + 번호</p>
+        <span>예) 분당우체국사서함 1~100</span>
+      </div>
+    </div>
+  </div>  -->
+<!-- 삭제 확인 모달 -->
+<div id="deleteModal" class="modal">
+  <div class="modal-content">
+      <span class="close">&times;</span>
+      <p>정말로 삭제하시겠습니까?</p>
+      <div class="modal-buttons">
+          <button id="confirmDelete">확인</button>
+          <button id="cancelDelete">취소</button>
+      </div>
+  </div>
+</div>
   </body>
 </html>
