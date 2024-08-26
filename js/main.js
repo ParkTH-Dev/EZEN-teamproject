@@ -378,17 +378,17 @@ let slideStart = true;
 let slideEnd = false;
 
 liveSlideArrowLeft.addEventListener("click", () => {
-  if (slideStart) {
-    liveSliceArea.style.transform = `translateX = -${mainWidth}px`;
-    slideEnd = true;
-    slideStart = false;
+  if (slideEnd === true) {
+    liveSliceArea.style.transform = `translateX(0)`;
+    slideStart = true;
+    slideEnd = false;
   }
 });
 
 liveSlideArrowRight.addEventListener("click", () => {
-  if (slideEnd) {
-    liveSliceArea.style.transform = `translateX = ${mainWidth}px`;
-    slideStart = true;
-    slideEnd = false;
+  if (slideStart === true) {
+    liveSliceArea.style.transform = `translateX(-${mainWidth}px)`;
+    slideEnd = true;
+    slideStart = false;
   }
 });

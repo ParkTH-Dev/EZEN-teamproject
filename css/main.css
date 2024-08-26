@@ -180,6 +180,7 @@ body {
   width: 2095px;
   display: flex;
   gap: 5px;
+  transition: transform 0.5s;
 }
 #live_area .live_slide_area .live_items .live_item {
   width: 345px;
@@ -317,21 +318,65 @@ body {
   font-weight: 700;
   color: #fff;
 }
-#live_area .live_slide_area:hover ~ .live_slide_arrow {
+#live_area .live_slide_area .live_items .live_item_more {
+  width: 345px;
+  height: 600px;
+  overflow: hidden;
+  border-radius: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#live_area .live_slide_area .live_items .live_item_more .live_all_area {
+  width: 80px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+#live_area .live_slide_area .live_items .live_item_more .live_all_area .live_all_arrow_area {
+  width: 100%;
+  height: 80px;
+  border: 1px solid #ccc;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  transition: background 0.3s;
+}
+#live_area .live_slide_area .live_items .live_item_more .live_all_area .live_all_arrow_area:hover {
+  background: #ccc;
+}
+#live_area .live_slide_area .live_items .live_item_more .live_all_area .live_all_arrow_area .live_all_arrow {
+  margin-left: -20px;
+}
+#live_area .live_slide_area .live_items .live_item_more .live_all_area .live_all_arrow_area .live_all_arrow span {
+  display: inline-block;
+  position: absolute;
+  width: 20px;
+  height: 2px;
+  border-radius: 2px;
+  background: #5f0080;
+}
+#live_area .live_slide_area .live_items .live_item_more .live_all_area .live_all_arrow_area .live_all_arrow span:nth-child(1) {
+  transform-origin: right center;
+  transform: rotate(45deg);
+}
+#live_area .live_slide_area .live_items .live_item_more .live_all_area .live_all_arrow_area .live_all_arrow span:nth-child(2) {
+  transform-origin: right center;
+  transform: rotate(-45deg);
+}
+#live_area .live_slide_area:hover ~ .live_slide_btn {
   opacity: 1;
 }
-#live_area .live_slide_arrow {
-  width: 1110px;
-  display: flex;
-  justify-content: space-between;
-  position: absolute;
-  top: 60%;
-  left: 50%;
+#live_area .live_slide_btn {
   opacity: 0;
-  transform: translate(-50%, -50%);
-  transition: all 0.3s;
+  transition: opacity 0.3s;
 }
-#live_area .live_slide_arrow .live_slide_btn i {
+#live_area .live_slide_btn i {
   font-size: 20px;
   padding: 15px 20px;
   background: #fff;
@@ -339,7 +384,16 @@ body {
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
   cursor: pointer;
 }
-#live_area .live_slide_arrow:hover {
+#live_area .live_slide_btn.left:hover {
+  opacity: 1;
+}
+#live_area .live_slide_btn.left:hover ~ .right {
+  opacity: 1;
+}
+#live_area .live_slide_btn.right:hover {
+  opacity: 1;
+}
+#live_area .live_slide_btn.right:hover ~ .live_slide_btn.left:has(i) {
   opacity: 1;
 }
 
