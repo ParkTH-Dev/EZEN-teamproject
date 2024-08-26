@@ -37,81 +37,7 @@ function fnCalCount(type, ths) {
   }
 }
 
-document.addEventListener("DOMContentLoaded", () => {
-  const deleteIcon = document.querySelector(".x-mark");
-  const deleteModal = document.querySelector(".deleteModal");
-  const closeBtn = deleteModal.querySelector(".close");
-  const confirmDeleteBtn = document.getElementById("confirmDelete");
-  const cancelDeleteBtn = document.getElementById("cancelDelete");
-
-  // 삭제 아이콘 클릭 시 모달 표시
-  deleteIcon.addEventListener("click", () => {
-    deleteModal.style.display = "block";
-  });
-
-  // 모달 닫기 버튼 클릭 시 모달 숨김
-  closeBtn.addEventListener("click", () => {
-    deleteModal.style.display = "none";
-  });
-
-  // 취소 버튼 클릭 시 모달 숨김
-  cancelDeleteBtn.addEventListener("click", () => {
-    deleteModal.style.display = "none";
-  });
-
-  // 확인 버튼 클릭 시 실제 삭제 동작 추가 (여기서는 모달만 닫음)
-  confirmDeleteBtn.addEventListener("click", () => {
-    // 실제 삭제 로직이 여기에 추가될 수 있음
-    deleteModal.style.display = "none";
-  });
-
-  // 모달 외부 클릭 시 모달 숨김
-  window.addEventListener("click", (event) => {
-    if (event.target === deleteModal) {
-      deleteModal.style.display = "none";
-    }
-  });
-});
-
-// 카카오 맵 모달창 내용
-
-// function sample6_execDaumPostcode() {
-//   new daum.Postcode({
-//     theme: {
-//       searchBgColor: "#5F0080",
-//       queryTextColor: "#FFFFFF",
-//       emphTextColor: "#5F0080",
-//     },
-//     oncomplete: function (data) {
-//       document.querySelector(".addressInner").classList.add("active");
-//       var addr = "";
-//       var extraAddr = "";
-//       if (data.userSelectedType === "R") {
-//         addr = data.roadAddress;
-//       } else {
-//         addr = data.jibunAddress;
-//       }
-//       if (data.userSelectedType === "R") {
-//         if (data.bname !== "" && /[동|로|가]$/g.test(data.bname)) {
-//           extraAddr += data.bname;
-//         }
-//         if (data.buildingName !== "" && data.apartment === "Y") {
-//           extraAddr +=
-//             extraAddr !== "" ? ", " + data.buildingName : data.buildingName;
-//         }
-//         if (extraAddr !== "") {
-//           extraAddr = " (" + extraAddr + ")";
-//         }
-//         document.getElementById("sample6_extraAddress").value = extraAddr;
-//       } else {
-//         document.getElementById("sample6_extraAddress").value = "";
-//       }
-//       document.getElementById("sample6_address").value = addr;
-//       document.getElementById("sample6_detailAddress").focus();
-//     },
-//   }).open();
-// }
-
+// 카카오 주소 모달창
 var mapContainer = document.getElementById("map"), // 지도를 표시할 div
   mapOption = {
     center: new daum.maps.LatLng(37.537187, 127.005476), // 지도의 중심좌표
@@ -160,3 +86,17 @@ function sample5_execDaumPostcode() {
     },
   }).open();
 }
+
+const coldItemExample = document.querySelector("#cold-item-example");
+console.log(coldItemExample);
+const productInfo = ".././json/db.json";
+fetch(productInfo)
+  .then((resoponse) => resoponse.json())
+  .then((data) => {
+    coldItemExample.innerHTML = `
+    
+    `;
+  })
+  .catch((error) => {
+    console.log(error);
+  });
