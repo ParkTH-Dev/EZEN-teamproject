@@ -7,6 +7,19 @@
       src="https://kit.fontawesome.com/0283eb41ff.js"
       crossorigin="anonymous"
     ></script>
+    <!-- slickslider -->
+    <script src="//code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+
+    <link
+      rel="stylesheet"
+      href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"
+    />
+    <link
+      rel="stylesheet"
+      href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"
+    />
+    <!-- custom css & JS -->
     <script defer src="./js/headerCategory.js"></script>
     <script defer src="./js/productdetail.js"></script>
     <link rel="stylesheet" href="./css/productdetail.css" />
@@ -79,6 +92,9 @@
     </div>
     <section class="container">
       <div class="inner">
+        <a href="#" class="topButton">
+          <i class="fa-solid fa-circle-arrow-up"></i>
+        </a>
         <div class="mobile_header">
           <div class="mobile_header_wrap">
             <div class="top">
@@ -102,7 +118,7 @@
               <div class="desc_title">
                 <div class="subtitle">
                   <span>샛별배송</span>
-                  <span class="frozen">냉동</span>
+                  <span class="frozen"></span>
                 </div>
                 <div class="title">
                   <h1 class="productName">
@@ -136,7 +152,7 @@
             </div>
             <div class="desc_price">
               <h4>
-                <del class="originalPrice"> 5,520원 </del>
+                <del class="originalPrice"> </del>
                 <img src="./img/productdetail/Button → SVG.png" alt="" />
               </h4>
               <h2 class="price">
@@ -166,8 +182,8 @@
                     <span class="counterPlus">+</span>
                   </div>
                   <div class="price">
-                    <span><del class="originalPriceChoice">5,520원</del></span>
-                    <span class="PriceChoice">4,490원</span>
+                    <span><del class="originalPriceChoice"></del></span>
+                    <span class="PriceChoice"></span>
                   </div>
                 </div>
               </div>
@@ -249,23 +265,7 @@
         </div>
         <div class="top_review">
           <div class="review_wrap">
-            <div class="top_review_item item">
-              <!-- <img src="./img/productdetail/Rectangle 3.png" />
-              <div class="desc">
-                <div class="userId">
-                  <span>qwer****</span>
-                  <span>24.08.03</span>
-                </div>
-                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit.</p>
-                <div class="like">
-                  <div>
-                    <i class="fa-regular fa-thumbs-up"></i>
-                    <span>도움돼요</span>
-                    <span>120</span>
-                  </div>
-                </div>
-              </div> -->
-            </div>
+            <div class="top_review_item item"></div>
             <div class="top_review_item item"></div>
             <div class="top_review_item item"></div>
             <div class="top_review_item item"></div>
@@ -274,16 +274,16 @@
         </div>
         <div class="productGnb">
           <div class="gnbItem">
-            <span>상품설명</span>
+            <a href="#productImg"> <span>상품설명</span></a>
           </div>
           <div class="gnbItem">
-            <span>상세</span>
+            <a href="#refund"> <span>상세</span></a>
           </div>
           <div class="gnbItem">
-            <span>후기</span>
+            <a href="#bottom_review"> <span>후기</span></a>
           </div>
           <div class="gnbItem">
-            <span>문의</span>
+            <a href="#inquiry"> <span>문의</span></a>
           </div>
         </div>
         <div id="productImg">

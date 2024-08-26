@@ -1,5 +1,40 @@
+// slide
+$(document).ready(function () {
+  $(".review_wrap").slick({
+    slide: "div",
+    infinite: true,
+    autoplay: true, // 자동 재생 설정 (true or false)
+    dots: false, // 페이지 네비게이션 점 보이기 설정 (true or false)
+    arrows: false, // 이전/다음 버튼 보이기 설정 (true or false)
+    speed: 1000, // 슬라이드 전환 속도 (밀리초 단위)
+    autoplaySpeed: 5000, // 자동 스크롤 시 다음으로 넘어가는데 걸리는 시간 (ms)
+    slidesToShow: 3, // 한 화면에 보여줄 슬라이드 개수
+    slidesToScroll: 1, // 한 번에 넘길 슬라이드 개수
+    adaptiveHeight: true,
+    responsive: [
+      // 반응형 웹 구현 옵션
+      {
+        breakpoint: 1050,
+        settings: {
+          //위에 옵션이 디폴트 , 여기에 추가하면 그걸로 변경
+          slidesToShow: 1,
+        },
+      },
+    ],
+  });
+});
+
 const choicePrice = document.querySelector(".PriceChoice");
 const totalPrice = document.querySelector(".totalPrice");
+
+// descIconBtnsAcrive
+const descIconBtns = document.querySelectorAll(".desc_cart .item");
+console.log(descIconBtns);
+descIconBtns.forEach((btn) => {
+  btn.addEventListener("click", function () {
+    this.classList.toggle("active");
+  });
+});
 
 // sharemodal
 const shareBtn = document.querySelector(".share");
@@ -109,10 +144,11 @@ fetch(productInfo)
       allergyInfo.innerText = product.allergyInfo;
       //topreview
       const topReviewItem = document.querySelectorAll(".top_review_item");
-      console.log(topReviewItem);
       topReviewItem.forEach((item, i) => {
         item.innerHTML = `
-      <img src="${product.reviews[i].img}" />
+        <div class="slide-img">
+        <img src="${product.reviews[i].img}" />
+      </div>
       <div class="desc">
         <div class="userId">
           <span>${product.reviews[i].username}</span>
@@ -224,6 +260,8 @@ fetch(productInfo)
           return new Date(b.date) - new Date(a.date);
         });
         removeItems();
+        const like = document.querySelector(".like");
+        like.addEventListener("click", () => {});
         const reviewContainer = document.querySelector(".user_review");
         sortedReviews.forEach((review) => {
           const reviewElement = document.createElement("div");
@@ -258,23 +296,27 @@ fetch(productInfo)
       const productCounterMinus = document.querySelector(".counterMinus");
       let productCounter = 1;
       productCounterPlus.addEventListener("click", () => {
-        priceChanger += product.price;
-        originalPriceChanger += product.originalPrice;
-        const priceKo = new Intl.NumberFormat("ko-kr").format(priceChanger);
-        const originalPriceKo = new Intl.NumberFormat("ko-kr").format(
-          originalPriceChanger
-        );
-        PriceChoice.innerText = `${priceKo}원`;
-        totalPrice.innerText = `${priceKo}원`;
-        originalPriceChoice.innerText = `${originalPriceKo}원`;
-        productCount.innerText = `${
-          productCounter >= 0 ? (productCounter += 1) : (productCounter = 0)
-        }`;
+        if (productCounter < 99) {
+          priceChanger += product.price;
+          originalPriceChanger += product.originalPrice;
+          const priceKo = new Intl.NumberFormat("ko-kr").format(priceChanger);
+          const originalPriceKo = new Intl.NumberFormat("ko-kr").format(
+            originalPriceChanger
+          );
+          PriceChoice.innerText = `${priceKo}원`;
+          totalPrice.innerText = `${priceKo}원`;
+          originalPriceChoice.innerText = `${originalPriceKo}원`;
+          productCount.innerText = `${
+            productCounter >= 1 ? (productCounter += 1) : (productCounter = 1)
+          }`;
+        }
       });
       productCounterMinus.addEventListener("click", () => {
         if (priceChanger && originalPriceChanger) {
-          priceChanger -= product.price;
-          originalPriceChanger -= product.originalPrice;
+          if (priceChanger > product.price) {
+            priceChanger -= product.price;
+            originalPriceChanger -= product.originalPrice;
+          }
         }
         const priceKo = new Intl.NumberFormat("ko-kr").format(priceChanger);
         const originalPriceKo = new Intl.NumberFormat("ko-kr").format(
@@ -284,7 +326,7 @@ fetch(productInfo)
         totalPrice.innerText = `${priceKo}원`;
         originalPriceChoice.innerText = `${originalPriceKo}원`;
         productCount.innerText = `${
-          productCounter > 0 ? (productCounter -= 1) : (productCounter = 0)
+          productCounter > 1 ? (productCounter -= 1) : (productCounter = 1)
         }`;
       });
     } else {
@@ -295,3 +337,46 @@ fetch(productInfo)
   .catch((error) => {
     console.log(error);
   });
+
+// scroll
+window.addEventListener("scroll", () => {
+  const productImg = document.querySelector("#productImg");
+  const refund = document.querySelector("#refund");
+  const bottomReview = document.querySelector("#bottom_review");
+  const inquiry = document.querySelector("#inquiry");
+  const topButton = document.querySelector(".topButton");
+
+  const productImgPosition = productImg.offsetTop;
+  const refundPosition = refund.offsetTop;
+  const bottomReviewPosition = bottomReview.offsetTop;
+  const inquiryPosition = inquiry.offsetTop;
+  if (window.scrollY >= productImgPosition - window.innerHeight / 2) {
+    document.querySelector(".gnbItem:nth-child(1)").classList.add("active");
+  } else {
+    document.querySelector(".gnbItem:nth-child(1)").classList.remove("active");
+  }
+  if (window.scrollY >= refundPosition - window.innerHeight / 2) {
+    document.querySelector(".gnbItem:nth-child(2)").classList.add("active");
+    document.querySelector(".gnbItem:nth-child(1)").classList.remove("active");
+  } else {
+    document.querySelector(".gnbItem:nth-child(2)").classList.remove("active");
+  }
+  if (window.scrollY >= bottomReviewPosition - window.innerHeight / 2.7) {
+    document.querySelector(".gnbItem:nth-child(3)").classList.add("active");
+    document.querySelector(".gnbItem:nth-child(2)").classList.remove("active");
+  } else {
+    document.querySelector(".gnbItem:nth-child(3)").classList.remove("active");
+  }
+  if (window.scrollY >= inquiryPosition - window.innerHeight / 2) {
+    document.querySelector(".gnbItem:nth-child(4)").classList.add("active");
+    document.querySelector(".gnbItem:nth-child(3)").classList.remove("active");
+  } else {
+    document.querySelector(".gnbItem:nth-child(4)").classList.remove("active");
+  }
+
+  if (window.scrollY >= 500) {
+    topButton.classList.add("active");
+  } else if (window.scrollY < 500) {
+    topButton.classList.remove("active");
+  }
+});
