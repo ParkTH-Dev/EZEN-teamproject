@@ -260,38 +260,29 @@ submit.addEventListener("click", (e) => {
 
 //**-------모달--------**/
 
-// taps.forEach((tap, index) => {
-//   tap.addEventListener("click", () => {
-//     HModals.forEach((modal, modalIndex) => {
-//       console.log(index, modalIndex);
-//       if (index === modalIndex) {
-//         modal.style.display = "block";
-//       } else {
-//         modal.style.display = "none";
-//       }
-//     });
-//   });
-// });
-
 tap1.addEventListener("click", () => {
   const frame = document.querySelector(".frame");
   modalBase.style.display = "block";
+  document.body.style.overflow = "hidden";
   tapModal1.style.display = "block";
   frame.style.overflowY = "scroll";
 });
 
 tap2.addEventListener("click", () => {
   modalBase.style.display = "block";
+  document.body.style.overflow = "hidden";
   tapModal2.style.display = "block";
 });
 
 tap3.addEventListener("click", () => {
   modalBase.style.display = "block";
+  document.body.style.overflow = "hidden";
   tapModal3.style.display = "block";
 });
 
 modalBase.addEventListener("click", () => {
   modalBase.style.display = "none";
+  document.body.style.overflow = "auto";
   tapModal1.style.display = "none";
   tapModal2.style.display = "none";
   tapModal3.style.display = "none";
@@ -299,6 +290,7 @@ modalBase.addEventListener("click", () => {
 
 modalClose.addEventListener("click", () => {
   modalBase.style.display = "none";
+  document.body.style.overflow = "auto";
   tapModal1.style.display = "none";
   tapModal2.style.display = "none";
   tapModal3.style.display = "none";

@@ -30,7 +30,7 @@
         <div class="modalInner">
           <div class="HModal tapModal1">
             <div class="modal_title">
-              <h1>이용약관 <b>필수</b></h1>
+              <h1>이용약관 <b>(필수)</b></h1>
             </div>
             <div class="frame">
               <div class="madal_desc">
@@ -76,11 +76,11 @@
           </div>
           <div class="HModal tapModal2">
             <div class="modal_title">
-              <h1>개인 정보 수집 및 이용 동의 <b>필수</b></h1>
+              <h1>개인 정보 수집 및 이용 동의 <b>(필수)</b></h1>
             </div>
             <div class="frame">
               <div class="madal_desc">
-                <table>
+                <table class="desktopTable">
                   <thead>
                     <tr>
                       <th>수집 목적</th>
@@ -92,8 +92,7 @@
                     <tr>
                       <td>
                         Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                        Natus culpa sed cupiditate dolorum id magnam fugit et
-                        iure earum illum ex amet repellat quibusdam,
+                        Natus culpa sed cupiditate
                       </td>
                       <td>
                         orem ipsum dolor sit amet consectetur adipisicing elit.
@@ -113,6 +112,43 @@
                     </tr>
                   </tbody>
                 </table>
+                <table class="mobileTable">
+                  <thead>
+                    <tr>
+                      <th>수집 목적</th>
+                      <th>수집항목</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                        Natus culpa sed cupiditate
+                      </td>
+                      <td>
+                        orem ipsum dolor sit amet consectetur adipisicing elit.
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                        Natus culpa sed cupiditate dolorum .
+                      </td>
+                      <td>
+                        orem ipsum dolor sit amet consectetur adipisicing elit.
+                      </td>
+                    </tr>
+                    <tr>
+                      <th colspan="2">보유 및 이용</th>
+                    </tr>
+                    <tr>
+                      <td colspan="2">
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                        Natus culpa sed cupiditate dolorum .
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
               </div>
             </div>
             <div class="modal_close">
@@ -121,7 +157,7 @@
           </div>
           <div class="HModal tapModal3">
             <div class="modal_title">
-              <h1>개인 정보 수집 및 이용 동의 <b>필수</b></h1>
+              <h1>개인 정보 수집 및 이용 동의 <b>(필수)</b></h1>
             </div>
             <div class="frame">
               <div class="madal_desc">
@@ -141,7 +177,7 @@
                     </tr>
                   </tbody>
                 </table>
-                <p>*Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                <p>*Lorem ipsum dolor sit amet conse adipisicing elit.</p>
               </div>
             </div>
             <div class="modal_close">
@@ -321,7 +357,31 @@
                       class="checkBtn"
                       type="button"
                       value="인증번호 받기"
+                      disabled
                     />
+                  </div>
+                </li>
+                <li class="errContainer">
+                  <div></div>
+                  <div class="phonerr err"></div>
+                  <div></div>
+                </li>
+                <!--phon Num2-->
+                <li class="phoneCheck">
+                  <div></div>
+                  <div>
+                    <input
+                      type="text"
+                      name="userPhon"
+                      id="userPhon"
+                      placeholder="인증번호를 입력해주세요"
+                    />
+                    <span class="time">
+                      <span class="timeset">00:00</span>
+                    </span>
+                  </div>
+                  <div>
+                    <input class="checkBtn" type="button" value="확인" />
                   </div>
                 </li>
                 <li class="errContainer">

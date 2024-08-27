@@ -258,6 +258,18 @@ li {
                 }
               }
             }
+            /*phoneCheck*/
+            &.phoneCheck {
+              display: none;
+              & > div:nth-child(2) {
+                position: relative;
+                .time {
+                  position: absolute;
+                  top: 2px;
+                  right: 10px;
+                }
+              }
+            }
             /*adrass*/
             .address {
               width: 100%;
@@ -506,6 +518,7 @@ li {
   background: rgba(0, 0, 0, 0.4);
   z-index: 6;
   display: none;
+
   .modalInner {
     width: 1080px;
     margin: 0 auto;
@@ -518,40 +531,52 @@ li {
       left: 50%;
       top: 50%;
       transform: translate(-50%, -50%);
-      border-radius: 40px;
+      border-radius: 20px;
+
       .modal_title {
         h1 {
           position: absolute;
-          font-size: 1.6rem;
-          margin: 50px 0 0 25px;
-          font-weight: 800;
+          font-size: 1.2rem;
+          margin: 50px 0 0 30px;
+          font-weight: 600;
+          color: map-get($font-color, font-dark);
         }
       }
       .frame {
-        width: 400px;
-        height: 500px;
-        margin: 100px 25px 50px 25px;
+        width: 450px;
+        height: 480px;
+        margin: 100px 0 50px 0;
+        padding: 0 30px;
         overflow: scroll;
         padding-top: 20px;
         overflow-x: hidden;
         overflow-y: hidden;
         h2 {
-          font-size: 1.4rem;
+          font-size: 1.1rem;
           font-weight: 600;
+          color: map-get($font-color, font-dark);
         }
         h3 {
-          font-size: 1.4rem;
+          font-size: 1rem;
           font-weight: 600;
+          color: map-get($font-color, font-dark);
         }
-        th {
-          background-color: map-get($font-color, font-line);
-          text-align: center;
-        }
-        tr,
-        th,
-        td {
-          border: 1px solid map-get($font-color, font-light);
-          padding: 4px;
+        table {
+          width: 100%;
+          p {
+            font-size: 0.8rem;
+          }
+          th {
+            background-color: map-get($font-color, font-line);
+            text-align: center;
+          }
+          tr,
+          th,
+          td {
+            border: 1px solid map-get($font-color, font-light);
+            font-size: 0.9rem;
+            padding: 6px;
+          }
         }
       }
       &.tapModal1 {
@@ -560,17 +585,21 @@ li {
       }
       &.tapModal2 {
         display: none;
+        .mobileTable {
+          display: none;
+        }
       }
       &.tapModal3 {
+        height: 360px;
         display: none;
       }
       .modal_close {
         h1 {
           cursor: pointer;
           position: absolute;
-          font-size: 1.2rem;
+          font-size: 1.1rem;
           color: map-get($color, main);
-          bottom: 4px;
+          bottom: 12px;
           right: 50%;
           transform: translateX(50%);
         }
@@ -718,6 +747,11 @@ li {
                 border-radius: 4px;
                 padding-left: 10px;
               }
+              &.phoneCheck {
+                & > div:nth-child(1) {
+                  display: none;
+                }
+              }
               .birth {
                 & > input {
                   border: none;
@@ -833,5 +867,88 @@ li {
   .mainBtn {
     margin: 0 50px 30px;
     width: calc(100% - 100px);
+  }
+
+  /*modal*/
+  .modalBase {
+    .modalInner {
+      .HModal {
+        width: 340px;
+        height: 540px;
+
+        .modal_title {
+          h1 {
+            position: absolute;
+            font-size: 1.2rem;
+            margin: 50px 0 0 15px;
+            font-weight: 600;
+            color: map-get($font-color, font-dark);
+          }
+        }
+        .frame {
+          width: 340px;
+          height: 380px;
+          margin: 100px 0 50px 0;
+          padding: 0 20px;
+          h2 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: map-get($font-color, font-dark);
+          }
+          h3 {
+            font-size: 1rem;
+            font-weight: 600;
+            color: map-get($font-color, font-dark);
+          }
+          table {
+            width: 100%;
+            p {
+              font-size: 0.8rem;
+            }
+            th {
+              background-color: map-get($font-color, font-line);
+              text-align: center;
+            }
+            tr,
+            th,
+            td {
+              border: 1px solid map-get($font-color, font-light);
+              font-size: 0.9rem;
+            }
+          }
+        }
+        &.tapModal1 {
+          display: none;
+          // display: block;
+        }
+        &.tapModal2 {
+          display: none;
+          .desktopTable {
+            display: none;
+          }
+          .mobileTable {
+            display: block;
+          }
+          .frame {
+            padding: 0 10px;
+          }
+        }
+        &.tapModal3 {
+          height: 360px;
+          display: none;
+        }
+        .modal_close {
+          h1 {
+            cursor: pointer;
+            position: absolute;
+            font-size: 1.1rem;
+            color: map-get($color, main);
+            bottom: 12px;
+            right: 50%;
+            transform: translateX(50%);
+          }
+        }
+      }
+    }
   }
 }
