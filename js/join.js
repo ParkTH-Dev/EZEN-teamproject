@@ -31,26 +31,17 @@ const tapModal3 = document.querySelector(".tapModal3");
 
 //------------------오토 넘버
 
-function random() {
-  const randomNum = Math.floor(Math.random() * 5000 + 1);
-  const sixNum = randomNum.toString().padStart(6, "0");
-  return sixNum;
-}
-console.log(random);
-
-function generateSixDigitNumber() {
+function autoNum() {
   // 100000에서 999999까지의 범위에서 랜덤 숫자를 생성합니다.
   const randomNum = Math.floor(Math.random() * 900000) + 100000;
 
   // 숫자를 문자열로 변환하고, 6자리로 맞추기 위해 padStart를 사용합니다.
-  const sixDigitStr = randomNum.toString().padStart(6, "0");
+  const randomauto = randomNum.toString().padStart(6, "0");
 
-  return sixDigitStr;
+  return randomauto;
 }
-
-// 테스트 출력
-console.log(generateSixDigitNumber());
-
+const userNumCheck = document.querySelector("#userNumCheck");
+const numCheckBtn = document.querySelector(".numCheckBtn");
 //-----------top -----------------//
 
 ////-------------각요소 조건
@@ -174,7 +165,17 @@ userPhon.addEventListener("input", function () {
 });
 
 checkBtn.addEventListener("click", () => {
-  alert(`인증번호는 ${random}입니다.`);
+  alert(`인증번호는 ${autoNum()}입니다.`);
+  const phoneCheck = document.querySelector(".phoneCheck");
+  console.log(numCheckBtn);
+  phoneCheck.style.display = "flex";
+  checkBtn.disabled = false;
+});
+
+numCheckBtn.addEventListener("click", () => {
+  if (userNumCheck.value == autoNum()) {
+    alert("인증완료");
+  }
 });
 
 //----adress

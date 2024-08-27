@@ -260,6 +260,7 @@ li {
   position: absolute;
   top: 2px;
   right: 10px;
+  color: #ef7793;
 }
 #join_container .join_inner #main form #private li .address {
   width: 100%;
