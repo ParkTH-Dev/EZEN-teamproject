@@ -336,7 +336,7 @@ body {
                     background: map-get($color, point-orange-color);
                     border-radius: 20px;
                   }
-                  .sale_price {
+                  .sale_price_won {
                     line-height: 100%;
                     font-size: 32px;
                     font-weight: 700;
@@ -400,32 +400,38 @@ body {
         }
       }
     }
-    &:hover ~ .live_slide_btn {
+    &:hover ~ .live_slide_arrow {
       opacity: 1;
     }
   }
-  .live_slide_btn {
+  .live_slide_arrow {
+    width: calc($main-width + 60px);
+    margin: 0 auto;
     opacity: 0;
     transition: opacity 0.3s;
-    i {
-      font-size: 20px;
-      padding: 15px 20px;
-      background: map-get($color, bg-light-color);
-      border-radius: 50%;
-      box-shadow: 0 0 5px rgba($color: #000000, $alpha: 0.2);
-      cursor: pointer;
-    }
-    &.left:hover {
-      opacity: 1;
-      & ~ .right {
-        opacity: 1;
+    position: relative;
+    .live_slide_btn {
+      i {
+        font-size: 20px;
+        padding: 15px 20px;
+        background: map-get($color, bg-light-color);
+        border-radius: 50%;
+        box-shadow: 0 0 5px rgba($color: #000000, $alpha: 0.2);
+        cursor: pointer;
+      }
+      &.left {
+        position: absolute;
+        top: -320px;
+        left: 0;
+      }
+      &.right {
+        position: absolute;
+        top: -320px;
+        right: 0;
       }
     }
-    &.right:hover {
+    &:hover {
       opacity: 1;
-      & ~ .live_slide_btn.left:has(i) {
-        opacity: 1;
-      }
     }
   }
 }
@@ -1016,32 +1022,34 @@ body {
         }
       }
       #live_area {
-        padding: 20px;
-        margin-bottom: 70px;
+        margin-bottom: -130px;
         & > h2 {
           margin-top: 50px;
         }
         .live_slide_area {
           width: 770px;
-          .live_item {
-            width: 250px;
-            height: 420px;
-            .live_video_ui {
-              padding: 20px;
-              .video_ui_top {
-                .video_ui_onair {
-                  font-size: 12px;
-                }
-                .video_ui_icon {
-                  .heart_icon {
-                    i {
-                      font-size: 20px;
-                    }
+          .live_items {
+            transform: translateX(20px);
+            .live_item {
+              width: 250px;
+              height: 420px;
+              .live_video_ui {
+                padding: 20px;
+                .video_ui_top {
+                  .video_ui_onair {
+                    font-size: 12px;
                   }
-                  img {
-                    width: 22px;
-                    height: 22px;
-                    object-fit: cover;
+                  .video_ui_icon {
+                    .heart_icon {
+                      i {
+                        font-size: 20px;
+                      }
+                    }
+                    img {
+                      width: 22px;
+                      height: 22px;
+                      object-fit: cover;
+                    }
                   }
                 }
               }
@@ -1069,7 +1077,7 @@ body {
                         line-height: 170%;
                         font-size: 14px;
                       }
-                      .sale_price {
+                      .sale_price_won {
                         font-size: 24px;
                         padding-bottom: 2px;
                       }
@@ -1079,9 +1087,9 @@ body {
               }
             }
           }
-          .live_slide_arrow {
-            display: none;
-          }
+        }
+        .live_slide_arrow {
+          display: none;
         }
       }
       #sub_banner {

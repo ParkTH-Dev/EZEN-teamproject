@@ -392,3 +392,156 @@ liveSlideArrowRight.addEventListener("click", () => {
     slideStart = false;
   }
 });
+
+const productInfo = ".././json/db.json";
+fetch(productInfo)
+  .then((resoponse) => resoponse.json())
+  .then((data) => {
+    const params = new URLSearchParams(window.location.search);
+    const productId = params.get("id");
+    const product = data.products[productId - 1];
+    const brandArea = document.querySelectorAll(".ui_brand");
+    const liveProductNameArea = document.querySelectorAll(".ui_name");
+    const livePriceArea = document.querySelectorAll(".price");
+    const liveRateArea = document.querySelectorAll(".sale_rate");
+    const liveSalePriceArea = document.querySelectorAll(".sale_price_won");
+
+    brandArea[0].innerText = data.products[1].productName.split("] ")[0] + "]";
+    brandArea[1].innerText = data.products[5].productName.split("] ")[0] + "]";
+    brandArea[2].innerText = data.products[8].productName.split("] ")[0] + "]";
+    brandArea[3].innerText = "";
+    brandArea[4].innerText = "";
+
+    liveProductNameArea[0].innerText =
+      data.products[1].productName.split("] ")[1];
+    liveProductNameArea[1].innerText =
+      data.products[5].productName.split("] ")[1];
+    liveProductNameArea[2].innerText =
+      data.products[8].productName.split("] ")[1];
+    liveProductNameArea[3].innerText = data.products[9].productName;
+    liveProductNameArea[4].innerText = data.products[16].productName;
+
+    livePriceArea[0].innerText = data.products[1].originalPrice;
+    livePriceArea[1].innerText = data.products[5].originalPrice;
+    livePriceArea[2].innerText = data.products[8].originalPrice;
+    livePriceArea[3].innerText = data.products[9].originalPrice;
+    livePriceArea[4].innerText = data.products[16].originalPrice;
+
+    liveRateArea[0].innerText = data.products[1].discount;
+    liveRateArea[1].innerText = data.products[5].discount;
+    liveRateArea[2].innerText = data.products[8].discount;
+    liveRateArea[3].innerText = data.products[9].discount;
+    liveRateArea[4].innerText = data.products[16].discount;
+
+    liveSalePriceArea[0].innerText = data.products[1].price;
+    liveSalePriceArea[1].innerText = data.products[5].price;
+    liveSalePriceArea[2].innerText = data.products[8].price;
+    liveSalePriceArea[3].innerText = data.products[9].price;
+    liveSalePriceArea[4].innerText = data.products[16].price;
+  });
+
+// 라이브 위치 이동(MO)
+const LiveArea = document.querySelector(".live_slide_area");
+const LiveItems = document.querySelector(".live_items");
+let isDraggingLive = false;
+let startPosLive = 0;
+let currentTranslateLive = 0;
+let prevTranslateLive = 0;
+let animationIDLive = 0;
+let slideWidthLive = LiveItems.clientWidth - 25; // 슬라이더 컨테이너의 너비
+let maxTranslateLive = -(LiveItems.scrollWidth - slideWidthLive); // 슬라이더가 이동할 수 있는 최대 값 (왼쪽 끝)
+
+// 이벤트 핸들러 함수 정의
+const touchStartLive = (event) => {
+  isDraggingLive = true;
+  startPosLive = getPositionXLive(event);
+  animationIDLive = requestAnimationFrame(animationLive);
+  LiveItems.classList.add("grabbingLive");
+};
+
+const touchMoveLive = (event) => {
+  if (isDraggingLive) {
+    const currentPositionLive = getPositionXLive(event);
+    currentTranslateLive =
+      prevTranslateLive + currentPositionLive - startPosLive;
+  }
+};
+
+const touchEndLive = () => {
+  isDraggingLive = false;
+  cancelAnimationFrame(animationIDLive);
+
+  // 스냅 동작
+  snapToClosestSlideLive();
+
+  LiveItems.classList.remove("grabbingLive");
+};
+
+const getPositionXLive = (event) => {
+  return event.type.includes("mouse") ? event.pageX : event.touches[0].clientX;
+};
+
+const animationLive = () => {
+  LiveItems.style.transform = `translateX(${currentTranslateLive}px)`;
+  if (isDraggingLive) requestAnimationFrame(animationLive);
+};
+
+const snapToClosestSlideLive = () => {
+  const thresholdLive = slideWidthLive / 4; // 4분의 1이 넘어가면 스냅하도록 설정
+  if (currentTranslateLive - prevTranslateLive < -thresholdLive) {
+    currentTranslateLive =
+      Math.floor(currentTranslateLive / slideWidthLive) * slideWidthLive;
+  } else if (currentTranslateLive - prevTranslateLive > thresholdLive) {
+    currentTranslateLive =
+      Math.ceil(currentTranslateLive / slideWidthLive) * slideWidthLive;
+  } else {
+    currentTranslateLive =
+      Math.round(prevTranslateLive / slideWidthLive) * slideWidthLive;
+  }
+  setPositionByIndexLive();
+};
+
+const setPositionByIndexLive = () => {
+  currentTranslateLive = Math.max(
+    Math.min(currentTranslateLive, 0),
+    maxTranslateLive
+  );
+  LiveItems.style.transform = `translateX(${currentTranslateLive}px)`;
+  prevTranslateLive = currentTranslateLive; // 스냅 이후에도 currentTranslate 값을 기억
+};
+
+const addLiveMoveEvents = () => {
+  LiveArea.addEventListener("touchstart", touchStartLive);
+  LiveArea.addEventListener("touchmove", touchMoveLive);
+  LiveArea.addEventListener("touchend", touchEndLive);
+  LiveArea.addEventListener("mousedown", touchStartLive);
+  LiveArea.addEventListener("mousemove", touchMoveLive);
+  LiveArea.addEventListener("mouseup", touchEndLive);
+  LiveArea.addEventListener("mouseleave", () => {
+    if (isDraggingLive) touchEndLive();
+  });
+};
+
+const removeLiveMoveEvents = () => {
+  LiveArea.removeEventListener("touchstart", touchStartLive);
+  LiveArea.removeEventListener("touchmove", touchMoveLive);
+  LiveArea.removeEventListener("touchend", touchEndLive);
+  LiveArea.removeEventListener("mousedown", touchStartLive);
+  LiveArea.removeEventListener("mousemove", touchMoveLive);
+  LiveArea.removeEventListener("mouseup", touchEndLive);
+  LiveItems.style.transform = "translateX(0px)"; // 초기화
+};
+
+// 초기 실행 시 설정
+window.addEventListener("resize", () => {
+  if (window.innerWidth < 1050) {
+    addLiveMoveEvents();
+  } else {
+    removeLiveMoveEvents();
+  }
+});
+
+// 초기 페이지 로드 시 화면 크기에 맞게 설정
+if (window.innerWidth < 1050) {
+  addLiveMoveEvents();
+}

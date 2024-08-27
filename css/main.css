@@ -312,7 +312,7 @@ body {
   background: #fa622f;
   border-radius: 20px;
 }
-#live_area .live_slide_area .live_items .live_item .live_video_ui .video_ui_bottom .video_ui_price .ui_price .sale_price .sale_price {
+#live_area .live_slide_area .live_items .live_item .live_video_ui .video_ui_bottom .video_ui_price .ui_price .sale_price .sale_price_won {
   line-height: 100%;
   font-size: 32px;
   font-weight: 700;
@@ -369,14 +369,17 @@ body {
   transform-origin: right center;
   transform: rotate(-45deg);
 }
-#live_area .live_slide_area:hover ~ .live_slide_btn {
+#live_area .live_slide_area:hover ~ .live_slide_arrow {
   opacity: 1;
 }
-#live_area .live_slide_btn {
+#live_area .live_slide_arrow {
+  width: 1110px;
+  margin: 0 auto;
   opacity: 0;
   transition: opacity 0.3s;
+  position: relative;
 }
-#live_area .live_slide_btn i {
+#live_area .live_slide_arrow .live_slide_btn i {
   font-size: 20px;
   padding: 15px 20px;
   background: #fff;
@@ -384,16 +387,17 @@ body {
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
   cursor: pointer;
 }
-#live_area .live_slide_btn.left:hover {
-  opacity: 1;
+#live_area .live_slide_arrow .live_slide_btn.left {
+  position: absolute;
+  top: -320px;
+  left: 0;
 }
-#live_area .live_slide_btn.left:hover ~ .right {
-  opacity: 1;
+#live_area .live_slide_arrow .live_slide_btn.right {
+  position: absolute;
+  top: -320px;
+  right: 0;
 }
-#live_area .live_slide_btn.right:hover {
-  opacity: 1;
-}
-#live_area .live_slide_btn.right:hover ~ .live_slide_btn.left:has(i) {
+#live_area .live_slide_arrow:hover {
   opacity: 1;
 }
 
@@ -976,8 +980,7 @@ body {
     font-size: 14px;
   }
   body #app_container #live_area {
-    padding: 20px;
-    margin-bottom: 70px;
+    margin-bottom: -130px;
   }
   body #app_container #live_area > h2 {
     margin-top: 50px;
@@ -985,52 +988,55 @@ body {
   body #app_container #live_area .live_slide_area {
     width: 770px;
   }
-  body #app_container #live_area .live_slide_area .live_item {
+  body #app_container #live_area .live_slide_area .live_items {
+    transform: translateX(20px);
+  }
+  body #app_container #live_area .live_slide_area .live_items .live_item {
     width: 250px;
     height: 420px;
   }
-  body #app_container #live_area .live_slide_area .live_item .live_video_ui {
+  body #app_container #live_area .live_slide_area .live_items .live_item .live_video_ui {
     padding: 20px;
   }
-  body #app_container #live_area .live_slide_area .live_item .live_video_ui .video_ui_top .video_ui_onair {
+  body #app_container #live_area .live_slide_area .live_items .live_item .live_video_ui .video_ui_top .video_ui_onair {
     font-size: 12px;
   }
-  body #app_container #live_area .live_slide_area .live_item .live_video_ui .video_ui_top .video_ui_icon .heart_icon i {
+  body #app_container #live_area .live_slide_area .live_items .live_item .live_video_ui .video_ui_top .video_ui_icon .heart_icon i {
     font-size: 20px;
   }
-  body #app_container #live_area .live_slide_area .live_item .live_video_ui .video_ui_top .video_ui_icon img {
+  body #app_container #live_area .live_slide_area .live_items .live_item .live_video_ui .video_ui_top .video_ui_icon img {
     width: 22px;
     height: 22px;
     -o-object-fit: cover;
        object-fit: cover;
   }
-  body #app_container #live_area .live_slide_area .live_item .live_video_ui .video_ui_bottom .video_ui_name .ui_brand {
+  body #app_container #live_area .live_slide_area .live_items .live_item .video_ui_bottom .video_ui_name .ui_brand {
     font-size: 14px;
   }
-  body #app_container #live_area .live_slide_area .live_item .live_video_ui .video_ui_bottom .video_ui_name .ui_name {
+  body #app_container #live_area .live_slide_area .live_items .live_item .video_ui_bottom .video_ui_name .ui_name {
     font-size: 20px;
   }
-  body #app_container #live_area .live_slide_area .live_item .live_video_ui .video_ui_bottom .video_ui_price .ui_view {
+  body #app_container #live_area .live_slide_area .live_items .live_item .video_ui_bottom .video_ui_price .ui_view {
     font-size: 10px;
   }
-  body #app_container #live_area .live_slide_area .live_item .live_video_ui .video_ui_bottom .video_ui_price .ui_price {
+  body #app_container #live_area .live_slide_area .live_items .live_item .video_ui_bottom .video_ui_price .ui_price {
     gap: 2px;
   }
-  body #app_container #live_area .live_slide_area .live_item .live_video_ui .video_ui_bottom .video_ui_price .ui_price .price {
+  body #app_container #live_area .live_slide_area .live_items .live_item .video_ui_bottom .video_ui_price .ui_price .price {
     font-size: 16px;
   }
-  body #app_container #live_area .live_slide_area .live_item .live_video_ui .video_ui_bottom .video_ui_price .ui_price .sale_price {
+  body #app_container #live_area .live_slide_area .live_items .live_item .video_ui_bottom .video_ui_price .ui_price .sale_price {
     gap: 4px;
   }
-  body #app_container #live_area .live_slide_area .live_item .live_video_ui .video_ui_bottom .video_ui_price .ui_price .sale_price .sale_rate {
+  body #app_container #live_area .live_slide_area .live_items .live_item .video_ui_bottom .video_ui_price .ui_price .sale_price .sale_rate {
     line-height: 170%;
     font-size: 14px;
   }
-  body #app_container #live_area .live_slide_area .live_item .live_video_ui .video_ui_bottom .video_ui_price .ui_price .sale_price .sale_price {
+  body #app_container #live_area .live_slide_area .live_items .live_item .video_ui_bottom .video_ui_price .ui_price .sale_price .sale_price_won {
     font-size: 24px;
     padding-bottom: 2px;
   }
-  body #app_container #live_area .live_slide_area .live_slide_arrow {
+  body #app_container #live_area .live_slide_arrow {
     display: none;
   }
   body #app_container #sub_banner {
