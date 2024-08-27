@@ -13,6 +13,7 @@ const emailselect = document.getElementById("email");
 const emailDirectInput = document.getElementById("emailDr");
 const directOptionValue = "direct";
 const userPhon = document.querySelector("#userPhon");
+const checkBtn = document.querySelector(".checkBtn");
 const invite = document.querySelector("#invite");
 const participationE = document.querySelector("#participationE");
 const eventNone = document.querySelector("#eventNone");
@@ -29,7 +30,26 @@ const tapModal2 = document.querySelector(".tapModal2");
 const tapModal3 = document.querySelector(".tapModal3");
 
 //------------------오토 넘버
-const randomNum = Math.floor(Math.random() * 5000 + 1);
+
+function random() {
+  const randomNum = Math.floor(Math.random() * 5000 + 1);
+  const sixNum = randomNum.toString().padStart(6, "0");
+  return sixNum;
+}
+console.log(random);
+
+function generateSixDigitNumber() {
+  // 100000에서 999999까지의 범위에서 랜덤 숫자를 생성합니다.
+  const randomNum = Math.floor(Math.random() * 900000) + 100000;
+
+  // 숫자를 문자열로 변환하고, 6자리로 맞추기 위해 padStart를 사용합니다.
+  const sixDigitStr = randomNum.toString().padStart(6, "0");
+
+  return sixDigitStr;
+}
+
+// 테스트 출력
+console.log(generateSixDigitNumber());
 
 //-----------top -----------------//
 
@@ -138,7 +158,7 @@ userEmail.addEventListener("input", function () {
 });
 
 //----Phon
-userPhon.addEventListener("change", function () {
+userPhon.addEventListener("input", function () {
   const phonIn = document.querySelector(".phonerr");
   const PhonV = userPhon.value;
   const trimPhon = PhonV.replace(/-/g, "");
@@ -148,8 +168,13 @@ userPhon.addEventListener("change", function () {
     phonIn.innerText = "숫자 10~11자리";
   } else {
     phonIn.innerText = "";
-    document.querySelector(".checkBtn").classList.add("active");
+    checkBtn.classList.add("active");
+    checkBtn.disabled = false;
   }
+});
+
+checkBtn.addEventListener("click", () => {
+  alert(`인증번호는 ${random}입니다.`);
 });
 
 //----adress
