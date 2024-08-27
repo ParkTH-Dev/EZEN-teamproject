@@ -21,13 +21,16 @@ $color: (
 body {
   width: 100%;
   display: flex;
-  justify-content: center;
   align-items: center;
   .cart-container {
-    width: 1050px;
+    width: 100%;
     display: flex;
+    align-items: center;
     flex-direction: column;
     margin-bottom: 60px;
+    .cart-header {
+      width: 1050px;
+    }
     .cart-title-text {
       text-align: center;
       margin-bottom: 8px;
@@ -96,15 +99,14 @@ body {
 /* section */
 main {
   width: 1050px;
-  display: flex;
-  justify-content: space-between;
-  // border: 1px solid #f00;
+
   #main {
-    width: 1050px;
+    width: 100%;
     display: flex;
     justify-content: space-around;
     #cart_item-box {
       display: flex;
+      width: 100%;
       .cart-item-box {
         width: 722px;
         margin-top: 8px;
@@ -319,7 +321,9 @@ main {
             #prozen-item-example {
               width: 100%;
               display: flex;
+              align-content: space-between;
               flex-direction: column;
+
               #prozen-logo {
                 margin-top: 10px;
                 border-top: 2px solid #b5b5b5;
@@ -591,15 +595,10 @@ main {
 
 /* rec section*/
 #cart-rec-box {
-  display: flex;
-  justify-content: center;
-  align-items: center;
   width: 1050px;
   .cart-rec-box {
-    width: 100%;
+    width: 1050px;
     display: flex;
-    align-items: center;
-    justify-content: center;
     flex-direction: column;
     .cart-rec-text {
       display: flex;
@@ -608,25 +607,25 @@ main {
       font-size: 20px;
       margin-top: 36px;
       margin-bottom: 44px;
-      border: 1px solid #f00;
     }
     .rec-item-box {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      gap: 30px;
+      width: 100%;
+      margin-left: 5px;
+
       .cart-rec-item {
-        width: 230px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
         position: relative;
         .cart-rec-img {
-          width: 100%;
-          overflow: hidden;
+          width: 95%;
           border-radius: 8px;
+          overflow: hidden;
           img {
             width: 100%;
             object-fit: cover;
             transition: all 0.5s;
-            transform: scale(110%);
+            transform: scale(100%);
             &:hover {
               transform: scale(113%);
             }
@@ -649,23 +648,9 @@ main {
           color: #fff;
           z-index: 1;
         }
-        .opacity_text {
-          position: absolute;
-          border-radius: 0 0 8px 8px;
-          bottom: 161px;
-          left: 0;
-          width: 100%;
-          height: 37px;
-          font-size: 16px;
-          font-weight: normal;
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          background: rgba(0, 0, 0, 0.4);
-          color: #fff;
-          z-index: 1; //바꿈 240823
-        }
+
         .cart-rec-btn {
+          width: 95%;
           margin-top: 6px;
           margin-bottom: 4px;
           button {
@@ -683,19 +668,22 @@ main {
             font-size: 16px;
             font-weight: bold;
             color: #333333;
-          }
-          :hover {
-            // width: 249px;
-            // height: 36px;
-            background: #5f0080;
-            color: #f4f4f4;
+            transition: all 0.3s;
+            &:hover {
+              background: #5f0080;
+              color: #f4f4f4;
+            }
           }
         }
         .cart_rec_text {
+          width: 95%;
           .cart_rec_price {
             .rec_text01 {
               display: flex;
               flex-direction: column;
+              overflow: hidden;
+              text-overflow: ellipsis;
+              white-space: nowrap;
               strike {
                 font-size: 14px;
                 color: #b5b5b5;
@@ -712,6 +700,7 @@ main {
           }
         }
         .comment_text {
+          width: 95%;
           display: flex;
           margin-top: 4px;
           text-align: center;
@@ -1209,20 +1198,16 @@ main {
       .cart-rec-text {
         font-size: 18px;
         margin-top: 15px;
+        margin-bottom: 30px;
       }
       .rec-item-box {
-        margin-top: -10px;
-        gap: 10px;
-        :nth-child(3) {
-          display: none;
-        }
+        width: 360px;
+        margin-left: 18px;
         .cart-rec-item {
-          width: 114px;
           .cart-rec-img {
-            margin-bottom: 6px;
+            margin-bottom: 10px;
             img {
-              border-radius: 4px;
-              width: 114px;
+              width: 100%;
             }
           }
           .rec-price-coupon {
@@ -1230,13 +1215,7 @@ main {
             height: 25px;
             font-size: 10px;
           }
-          .opacity_text {
-            top: 110px;
-            width: 114px;
-            height: 37px;
-            font-size: 10px;
-            border-radius: 0 0 4px 4px;
-          }
+
           .cart-rec-btn {
             margin-top: -1px;
             button {
@@ -1248,8 +1227,6 @@ main {
             .cart_rec_price {
               font-size: 12px;
               .rec_text01 {
-                li {
-                }
                 strike {
                   font-size: 12px;
                   text-align: right;
@@ -1266,12 +1243,6 @@ main {
                   font-weight: bold;
                   color: #333;
                 }
-              }
-            }
-            .comment_text {
-              i {
-              }
-              p {
               }
             }
           }

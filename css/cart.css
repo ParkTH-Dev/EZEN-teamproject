@@ -10,14 +10,17 @@
 body {
   width: 100%;
   display: flex;
-  justify-content: center;
   align-items: center;
 }
 body .cart-container {
-  width: 1050px;
+  width: 100%;
   display: flex;
+  align-items: center;
   flex-direction: column;
   margin-bottom: 60px;
+}
+body .cart-container .cart-header {
+  width: 1050px;
 }
 body .cart-container .cart-title-text {
   text-align: center;
@@ -85,16 +88,15 @@ body .cart-container .checkbox .custom-checkbox input:not(:checked) + .checkmark
 /* section */
 main {
   width: 1050px;
-  display: flex;
-  justify-content: space-between;
 }
 main #main {
-  width: 1050px;
+  width: 100%;
   display: flex;
   justify-content: space-around;
 }
 main #main #cart_item-box {
   display: flex;
+  width: 100%;
 }
 main #main #cart_item-box .cart-item-box {
   width: 722px;
@@ -313,6 +315,7 @@ main #main #cart_item-box .cart-item-box .cart-item-inner .item-inner-box #cold-
 main #main #cart_item-box .cart-item-box .cart-item-inner .item-inner-box #prozen-item-example {
   width: 100%;
   display: flex;
+  align-content: space-between;
   flex-direction: column;
 }
 main #main #cart_item-box .cart-item-box .cart-item-inner .item-inner-box #prozen-item-example #prozen-logo {
@@ -579,16 +582,11 @@ main #main #cart-order-box .order-btn span {
 
 /* rec section*/
 #cart-rec-box {
-  display: flex;
-  justify-content: center;
-  align-items: center;
   width: 1050px;
 }
 #cart-rec-box .cart-rec-box {
-  width: 100%;
+  width: 1050px;
   display: flex;
-  align-items: center;
-  justify-content: center;
   flex-direction: column;
 }
 #cart-rec-box .cart-rec-box .cart-rec-text {
@@ -598,29 +596,28 @@ main #main #cart-order-box .order-btn span {
   font-size: 20px;
   margin-top: 36px;
   margin-bottom: 44px;
-  border: 1px solid #f00;
 }
 #cart-rec-box .cart-rec-box .rec-item-box {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 30px;
+  width: 100%;
+  margin-left: 5px;
 }
 #cart-rec-box .cart-rec-box .rec-item-box .cart-rec-item {
-  width: 230px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   position: relative;
 }
 #cart-rec-box .cart-rec-box .rec-item-box .cart-rec-item .cart-rec-img {
-  width: 100%;
-  overflow: hidden;
+  width: 95%;
   border-radius: 8px;
+  overflow: hidden;
 }
 #cart-rec-box .cart-rec-box .rec-item-box .cart-rec-item .cart-rec-img img {
   width: 100%;
   -o-object-fit: cover;
      object-fit: cover;
   transition: all 0.5s;
-  transform: scale(110%);
+  transform: scale(100%);
 }
 #cart-rec-box .cart-rec-box .rec-item-box .cart-rec-item .cart-rec-img img:hover {
   transform: scale(113%);
@@ -642,23 +639,8 @@ main #main #cart-order-box .order-btn span {
   color: #fff;
   z-index: 1;
 }
-#cart-rec-box .cart-rec-box .rec-item-box .cart-rec-item .opacity_text {
-  position: absolute;
-  border-radius: 0 0 8px 8px;
-  bottom: 161px;
-  left: 0;
-  width: 100%;
-  height: 37px;
-  font-size: 16px;
-  font-weight: normal;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background: rgba(0, 0, 0, 0.4);
-  color: #fff;
-  z-index: 1;
-}
 #cart-rec-box .cart-rec-box .rec-item-box .cart-rec-item .cart-rec-btn {
+  width: 95%;
   margin-top: 6px;
   margin-bottom: 4px;
 }
@@ -677,14 +659,21 @@ main #main #cart-order-box .order-btn span {
   font-size: 16px;
   font-weight: bold;
   color: #333333;
+  transition: all 0.3s;
 }
-#cart-rec-box .cart-rec-box .rec-item-box .cart-rec-item .cart-rec-btn :hover {
+#cart-rec-box .cart-rec-box .rec-item-box .cart-rec-item .cart-rec-btn button:hover {
   background: #5f0080;
   color: #f4f4f4;
+}
+#cart-rec-box .cart-rec-box .rec-item-box .cart-rec-item .cart_rec_text {
+  width: 95%;
 }
 #cart-rec-box .cart-rec-box .rec-item-box .cart-rec-item .cart_rec_text .cart_rec_price .rec_text01 {
   display: flex;
   flex-direction: column;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 #cart-rec-box .cart-rec-box .rec-item-box .cart-rec-item .cart_rec_text .cart_rec_price .rec_text01 strike {
   font-size: 14px;
@@ -699,6 +688,7 @@ main #main #cart-order-box .order-btn span {
   margin-right: 7px;
 }
 #cart-rec-box .cart-rec-box .rec-item-box .cart-rec-item .comment_text {
+  width: 95%;
   display: flex;
   margin-top: 4px;
   text-align: center;
@@ -1127,35 +1117,22 @@ main #main #cart-order-box .order-btn span {
   #cart-rec-box .cart-rec-box .cart-rec-text {
     font-size: 18px;
     margin-top: 15px;
+    margin-bottom: 30px;
   }
   #cart-rec-box .cart-rec-box .rec-item-box {
-    margin-top: -10px;
-    gap: 10px;
-  }
-  #cart-rec-box .cart-rec-box .rec-item-box :nth-child(3) {
-    display: none;
-  }
-  #cart-rec-box .cart-rec-box .rec-item-box .cart-rec-item {
-    width: 114px;
+    width: 360px;
+    margin-left: 18px;
   }
   #cart-rec-box .cart-rec-box .rec-item-box .cart-rec-item .cart-rec-img {
-    margin-bottom: 6px;
+    margin-bottom: 10px;
   }
   #cart-rec-box .cart-rec-box .rec-item-box .cart-rec-item .cart-rec-img img {
-    border-radius: 4px;
-    width: 114px;
+    width: 100%;
   }
   #cart-rec-box .cart-rec-box .rec-item-box .cart-rec-item .rec-price-coupon {
     width: 53px;
     height: 25px;
     font-size: 10px;
-  }
-  #cart-rec-box .cart-rec-box .rec-item-box .cart-rec-item .opacity_text {
-    top: 110px;
-    width: 114px;
-    height: 37px;
-    font-size: 10px;
-    border-radius: 0 0 4px 4px;
   }
   #cart-rec-box .cart-rec-box .rec-item-box .cart-rec-item .cart-rec-btn {
     margin-top: -1px;
@@ -1226,4 +1203,4 @@ main #main #cart-order-box .order-btn span {
 }
 #addressModal .modal_content .address_tip span {
   font-size: 10px;
-}/*# sourceMappingURL=cart.css.map */
+}
