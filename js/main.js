@@ -382,6 +382,8 @@ liveSlideArrowLeft.addEventListener("click", () => {
     liveSliceArea.style.transform = `translateX(0)`;
     slideStart = true;
     slideEnd = false;
+    liveSlideArrowLeft.style.opacity = "0";
+    liveSlideArrowRight.style.opacity = "1";
   }
 });
 
@@ -390,6 +392,8 @@ liveSlideArrowRight.addEventListener("click", () => {
     liveSliceArea.style.transform = `translateX(-${mainWidth}px)`;
     slideEnd = true;
     slideStart = false;
+    liveSlideArrowRight.style.opacity = "0";
+    liveSlideArrowLeft.style.opacity = "1";
   }
 });
 
@@ -441,107 +445,96 @@ fetch(productInfo)
   });
 
 // 라이브 위치 이동(MO)
-const LiveArea = document.querySelector(".live_slide_area");
-const LiveItems = document.querySelector(".live_items");
-let isDraggingLive = false;
-let startPosLive = 0;
-let currentTranslateLive = 0;
-let prevTranslateLive = 0;
-let animationIDLive = 0;
-let slideWidthLive = LiveItems.clientWidth - 25; // 슬라이더 컨테이너의 너비
-let maxTranslateLive = -(LiveItems.scrollWidth - slideWidthLive); // 슬라이더가 이동할 수 있는 최대 값 (왼쪽 끝)
+const listClientWidth = liveSliceArea.clientWidth;
+const listScrollWidth = liveSliceArea.clientWidth + 900;
 
-// 이벤트 핸들러 함수 정의
-const touchStartLive = (event) => {
-  isDraggingLive = true;
-  startPosLive = getPositionXLive(event);
-  animationIDLive = requestAnimationFrame(animationLive);
-  LiveItems.classList.add("grabbingLive");
+// 최초 터치 및 마우스다운 지점
+let startX = 0;
+
+// 현재 이동중인 지점
+let nowX = 0;
+
+// 터치 종료 지점
+let endX = 0;
+
+// 두번째 터치 지점
+let listX = 0;
+
+const getClientX = (e) => {
+  return e.touches ? e.touches[0].clientX : e.clientX;
 };
 
-const touchMoveLive = (event) => {
-  if (isDraggingLive) {
-    const currentPositionLive = getPositionXLive(event);
-    currentTranslateLive =
-      prevTranslateLive + currentPositionLive - startPosLive;
+const getTranslateX = () => {
+  const transform = getComputedStyle(liveSliceArea).transform;
+  if (transform === "none") return 0;
+  return parseInt(transform.split(/[^\-0-9]+/g)[5]);
+};
+
+const setTranslateX = (x) => {
+  liveSliceArea.style.transform = `translateX(${x}px)`;
+  if (x === 0) {
+    liveSliceArea.style.transform = `translateX(20px)`;
   }
 };
 
-const touchEndLive = () => {
-  isDraggingLive = false;
-  cancelAnimationFrame(animationIDLive);
-
-  // 스냅 동작
-  snapToClosestSlideLive();
-
-  LiveItems.classList.remove("grabbingLive");
+const onScrollMove = (e) => {
+  e.preventDefault(); // 기본 스크롤 동작 방지
+  nowX = getClientX(e);
+  setTranslateX(listX + nowX - startX);
 };
 
-const getPositionXLive = (event) => {
-  return event.type.includes("mouse") ? event.pageX : event.touches[0].clientX;
-};
+const onScrollEnd = () => {
+  endX = getTranslateX();
+  listX = getTranslateX();
 
-const animationLive = () => {
-  LiveItems.style.transform = `translateX(${currentTranslateLive}px)`;
-  if (isDraggingLive) requestAnimationFrame(animationLive);
-};
-
-const snapToClosestSlideLive = () => {
-  const thresholdLive = slideWidthLive / 4; // 4분의 1이 넘어가면 스냅하도록 설정
-  if (currentTranslateLive - prevTranslateLive < -thresholdLive) {
-    currentTranslateLive =
-      Math.floor(currentTranslateLive / slideWidthLive) * slideWidthLive;
-  } else if (currentTranslateLive - prevTranslateLive > thresholdLive) {
-    currentTranslateLive =
-      Math.ceil(currentTranslateLive / slideWidthLive) * slideWidthLive;
+  // 이동 범위 조정
+  if (listX > 0) {
+    setTranslateX(0);
+    liveSliceArea.style.transition = `all 0.3s ease`;
+    listX = 0;
+  } else if (listX < listClientWidth - listScrollWidth) {
+    setTranslateX(listClientWidth - listScrollWidth);
+    liveSliceArea.style.transition = `all 0.3s ease`;
+    listX = listClientWidth - listScrollWidth;
   } else {
-    currentTranslateLive =
-      Math.round(prevTranslateLive / slideWidthLive) * slideWidthLive;
+    liveSliceArea.style.transition = `transform 0.3s ease`;
   }
-  setPositionByIndexLive();
+
+  // 이벤트 핸들러 제거
+  liveSliceArea.removeEventListener("touchmove", onScrollMove);
+  liveSliceArea.removeEventListener("mousemove", onScrollMove);
+  liveSliceArea.removeEventListener("touchend", onScrollEnd);
+  liveSliceArea.removeEventListener("mouseup", onScrollEnd);
 };
 
-const setPositionByIndexLive = () => {
-  currentTranslateLive = Math.max(
-    Math.min(currentTranslateLive, 0),
-    maxTranslateLive
-  );
-  LiveItems.style.transform = `translateX(${currentTranslateLive}px)`;
-  prevTranslateLive = currentTranslateLive; // 스냅 이후에도 currentTranslate 값을 기억
+const onScrollStart = (e) => {
+  startX = getClientX(e);
+  listX = getTranslateX();
+
+  liveSliceArea.addEventListener("touchmove", onScrollMove);
+  liveSliceArea.addEventListener("mousemove", onScrollMove);
+  liveSliceArea.addEventListener("touchend", onScrollEnd);
+  liveSliceArea.addEventListener("mouseup", onScrollEnd);
 };
 
-const addLiveMoveEvents = () => {
-  LiveArea.addEventListener("touchstart", touchStartLive);
-  LiveArea.addEventListener("touchmove", touchMoveLive);
-  LiveArea.addEventListener("touchend", touchEndLive);
-  LiveArea.addEventListener("mousedown", touchStartLive);
-  LiveArea.addEventListener("mousemove", touchMoveLive);
-  LiveArea.addEventListener("mouseup", touchEndLive);
-  LiveArea.addEventListener("mouseleave", () => {
-    if (isDraggingLive) touchEndLive();
-  });
-};
-
-const removeLiveMoveEvents = () => {
-  LiveArea.removeEventListener("touchstart", touchStartLive);
-  LiveArea.removeEventListener("touchmove", touchMoveLive);
-  LiveArea.removeEventListener("touchend", touchEndLive);
-  LiveArea.removeEventListener("mousedown", touchStartLive);
-  LiveArea.removeEventListener("mousemove", touchMoveLive);
-  LiveArea.removeEventListener("mouseup", touchEndLive);
-  LiveItems.style.transform = "translateX(0px)"; // 초기화
-};
-
-// 초기 실행 시 설정
 window.addEventListener("resize", () => {
   if (window.innerWidth < 1050) {
-    addLiveMoveEvents();
+    liveSliceArea.addEventListener("touchstart", onScrollStart);
+    liveSliceArea.addEventListener("mousedown", onScrollStart);
+    liveSliceArea.style.transform = "translateX(20px)";
   } else {
-    removeLiveMoveEvents();
+    liveSliceArea.removeEventListener("touchstart", onScrollStart);
+    liveSliceArea.removeEventListener("mousedown", onScrollStart);
+    liveSliceArea.removeEventListener("touchmove", onScrollMove);
+    liveSliceArea.removeEventListener("mousemove", onScrollMove);
+    liveSliceArea.removeEventListener("touchend", onScrollEnd);
+    liveSliceArea.removeEventListener("mouseup", onScrollEnd);
+    liveSliceArea.style.transform = "translateX(0px)";
   }
 });
 
 // 초기 페이지 로드 시 화면 크기에 맞게 설정
 if (window.innerWidth < 1050) {
-  addLiveMoveEvents();
+  liveSliceArea.addEventListener("touchstart", onScrollStart);
+  liveSliceArea.addEventListener("mousedown", onScrollStart);
 }

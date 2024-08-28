@@ -979,9 +979,6 @@ body {
   body #app_container #category_area .category_items .category_item .category_item_text {
     font-size: 14px;
   }
-  body #app_container #live_area {
-    margin-bottom: -130px;
-  }
   body #app_container #live_area > h2 {
     margin-top: 50px;
   }
@@ -1035,6 +1032,9 @@ body {
   body #app_container #live_area .live_slide_area .live_items .live_item .video_ui_bottom .video_ui_price .ui_price .sale_price .sale_price_won {
     font-size: 24px;
     padding-bottom: 2px;
+  }
+  body #app_container #live_area .live_slide_area .live_item_more {
+    display: none;
   }
   body #app_container #live_area .live_slide_arrow {
     display: none;

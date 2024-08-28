@@ -1022,7 +1022,6 @@ body {
         }
       }
       #live_area {
-        margin-bottom: -130px;
         & > h2 {
           margin-top: 50px;
         }
@@ -1086,6 +1085,9 @@ body {
                 }
               }
             }
+          }
+          .live_item_more {
+            display: none;
           }
         }
         .live_slide_arrow {
