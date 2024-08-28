@@ -397,51 +397,137 @@ liveSlideArrowRight.addEventListener("click", () => {
   }
 });
 
+const productSliceArea = document.querySelectorAll(".product_items");
+const product1SlideArrowLeft = document.querySelector("#product1_leftArrow");
+const product1SlideArrowRight = document.querySelector("#product1_rightArrow");
+const product2SlideArrowLeft = document.querySelector("#product2_leftArrow");
+const product2SlideArrowRight = document.querySelector("#product2_rightArrow");
+
+let slideStartProduct = [true, true];
+let slideEndProduct = [false, false];
+
+for (let i = 0; i <= 1; i++) {
+  if(i === 0) {
+  product1SlideArrowLeft.addEventListener("click", () => {
+    if (slideEndProduct[i] === true) {
+      productSliceArea[i].style.transform = `translateX(0)`;
+      slideStartProduct[i] = true;
+      slideEndProduct[i] = false;
+      product1SlideArrowLeft.style.opacity = "0";
+      product1SlideArrowRight.style.opacity = "1";
+    }
+  });
+  
+  product1SlideArrowRight.addEventListener("click", () => {
+    if (slideStartProduct[i] === true) {
+      productSliceArea[i].style.transform = `translateX(-${mainWidth + 10}px)`;
+      slideEndProduct[i] = true;
+      slideStartProduct[i] = false;
+      product1SlideArrowRight.style.opacity = "0";
+      product1SlideArrowLeft.style.opacity = "1";
+    }
+  });
+} else {
+  product2SlideArrowLeft.addEventListener("click", () => {
+    if (slideEndProduct[i] === true) {
+      productSliceArea[i].style.transform = `translateX(0)`;
+      slideStartProduct[i] = true;
+      slideEndProduct[i] = false;
+      product2SlideArrowLeft.style.opacity = "0";
+      product2SlideArrowRight.style.opacity = "1";
+    }
+  });
+  
+  product2SlideArrowRight.addEventListener("click", () => {
+    if (slideStartProduct[i] === true) {
+      productSliceArea[i].style.transform = `translateX(-${mainWidth + 10}px)`;
+      slideEndProduct[i] = true;
+      slideStartProduct[i] = false;
+      product2SlideArrowRight.style.opacity = "0";
+      product2SlideArrowLeft.style.opacity = "1";
+    }
+  });
+}
+}
+
+
+//JSON fetch
+const liveInfo = (data) => {
+  const brandArea = document.querySelectorAll(".ui_brand");
+  const liveProductNameArea = document.querySelectorAll(".ui_name");
+  const livePriceArea = document.querySelectorAll(".price");
+  const liveRateArea = document.querySelectorAll(".sale_rate");
+  const liveSalePriceArea = document.querySelectorAll(".sale_price_won");
+
+  brandArea[0].innerText = data.products[1].productName.split("] ")[0] + "]";
+  brandArea[1].innerText = data.products[5].productName.split("] ")[0] + "]";
+  brandArea[2].innerText = data.products[8].productName.split("] ")[0] + "]";
+  brandArea[3].innerText = "";
+  brandArea[4].innerText = "";
+
+  liveProductNameArea[0].innerText =
+    data.products[1].productName.split("] ")[1];
+  liveProductNameArea[1].innerText =
+    data.products[5].productName.split("] ")[1];
+  liveProductNameArea[2].innerText =
+    data.products[8].productName.split("] ")[1];
+  liveProductNameArea[3].innerText = data.products[9].productName;
+  liveProductNameArea[4].innerText = data.products[16].productName;
+
+  livePriceArea[0].innerText = data.products[1].originalPrice;
+  livePriceArea[1].innerText = data.products[5].originalPrice;
+  livePriceArea[2].innerText = data.products[8].originalPrice;
+  livePriceArea[3].innerText = data.products[9].originalPrice;
+  livePriceArea[4].innerText = data.products[16].originalPrice;
+
+  liveRateArea[0].innerText = data.products[1].discount;
+  liveRateArea[1].innerText = data.products[5].discount;
+  liveRateArea[2].innerText = data.products[8].discount;
+  liveRateArea[3].innerText = data.products[9].discount;
+  liveRateArea[4].innerText = data.products[16].discount;
+
+  liveSalePriceArea[0].innerText = data.products[1].price;
+  liveSalePriceArea[1].innerText = data.products[5].price;
+  liveSalePriceArea[2].innerText = data.products[8].price;
+  liveSalePriceArea[3].innerText = data.products[9].price;
+  liveSalePriceArea[4].innerText = data.products[16].price;
+};
+
+const todayImg = document.querySelectorAll(".product_img > img");
+const todayName = document.querySelectorAll(".today_product_name");
+const todayOriPrice = document.querySelectorAll(".today_price");
+const todayRating = document.querySelectorAll(".today_rating");
+const todayPrice = document.querySelectorAll(".today_Sprice");
+
+const todayInfo = (data) => {
+  let n = 0;
+  for (let i = 0; i <= 1; i++) {
+    todayImg[i].src = data.products[n].thumbnail;
+    todayName[i].innerText = data.products[n].productName;
+    todayOriPrice[i].innerText = data.products[n].originalPrice;
+    todayRating[i].innerText = data.products[n].discount;
+    todayPrice[i].innerText = data.products[n].price;
+    n = n + 2;
+  }
+}
+
+const limitedInfo = (data) => {
+  todayImg[2].src = data.products[3].thumbnail;
+  todayImg[2].style.position = "relative";
+  todayImg[2].style.top = "-130px";
+  todayName[2].innerText = data.products[3].productName;
+  todayOriPrice[2].innerText = data.products[3].originalPrice;
+  todayRating[2].innerText = data.products[3].discount;
+  todayPrice[2].innerText = data.products[3].price;
+}
+
 const productInfo = ".././json/db.json";
 fetch(productInfo)
   .then((resoponse) => resoponse.json())
   .then((data) => {
-    const params = new URLSearchParams(window.location.search);
-    const productId = params.get("id");
-    const product = data.products[productId - 1];
-    const brandArea = document.querySelectorAll(".ui_brand");
-    const liveProductNameArea = document.querySelectorAll(".ui_name");
-    const livePriceArea = document.querySelectorAll(".price");
-    const liveRateArea = document.querySelectorAll(".sale_rate");
-    const liveSalePriceArea = document.querySelectorAll(".sale_price_won");
-
-    brandArea[0].innerText = data.products[1].productName.split("] ")[0] + "]";
-    brandArea[1].innerText = data.products[5].productName.split("] ")[0] + "]";
-    brandArea[2].innerText = data.products[8].productName.split("] ")[0] + "]";
-    brandArea[3].innerText = "";
-    brandArea[4].innerText = "";
-
-    liveProductNameArea[0].innerText =
-      data.products[1].productName.split("] ")[1];
-    liveProductNameArea[1].innerText =
-      data.products[5].productName.split("] ")[1];
-    liveProductNameArea[2].innerText =
-      data.products[8].productName.split("] ")[1];
-    liveProductNameArea[3].innerText = data.products[9].productName;
-    liveProductNameArea[4].innerText = data.products[16].productName;
-
-    livePriceArea[0].innerText = data.products[1].originalPrice;
-    livePriceArea[1].innerText = data.products[5].originalPrice;
-    livePriceArea[2].innerText = data.products[8].originalPrice;
-    livePriceArea[3].innerText = data.products[9].originalPrice;
-    livePriceArea[4].innerText = data.products[16].originalPrice;
-
-    liveRateArea[0].innerText = data.products[1].discount;
-    liveRateArea[1].innerText = data.products[5].discount;
-    liveRateArea[2].innerText = data.products[8].discount;
-    liveRateArea[3].innerText = data.products[9].discount;
-    liveRateArea[4].innerText = data.products[16].discount;
-
-    liveSalePriceArea[0].innerText = data.products[1].price;
-    liveSalePriceArea[1].innerText = data.products[5].price;
-    liveSalePriceArea[2].innerText = data.products[8].price;
-    liveSalePriceArea[3].innerText = data.products[9].price;
-    liveSalePriceArea[4].innerText = data.products[16].price;
+    liveInfo(data);
+    todayInfo(data);
+    limitedInfo(data);
   });
 
 // 라이브 위치 이동(MO)
@@ -538,3 +624,41 @@ if (window.innerWidth < 1050) {
   liveSliceArea.addEventListener("touchstart", onScrollStart);
   liveSliceArea.addEventListener("mousedown", onScrollStart);
 }
+
+// 타이머
+const timer24 = document.querySelector("#timer24");
+const timer500 = document.querySelector("#timer500");
+
+const formatting = (time) => {
+  let sec = Math.floor(time % 60);
+  let checkmin = Math.floor(time / 60);
+  let min = Math.floor(checkmin % 60);
+  let hour = Math.floor(time / 3600);
+
+  sec = sec < 10 ? `0${sec}` : sec;
+  min = min < 10 ? `0${min}` : min;
+  hour = hour < 10 ? `0${hour}` : hour;
+
+  return `${hour}:${min}:${sec}`;
+};
+
+let t = 86400;
+setInterval(() => {
+  timer24.innerText = `${formatting(t)}`;
+  t = t - 1;
+}, 1000);
+
+const counting = (count) => {
+  count = count < 100 ? `0${count}` : count;
+  count = count < 10 ? `00${count}` : count;
+
+  return count;
+}
+
+const randomTimer = Math.floor(Math.random() * 10000) + 1000
+
+let l = 500;
+setInterval(() => {
+  timer500.innerText = `${counting(l)}개`
+  l = l - 1;
+}, randomTimer)

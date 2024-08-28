@@ -537,9 +537,10 @@ body {
         img {
           width: 100%;
           object-fit: cover;
-          transition: all 0.5s;
+          transform: scale(115%);
+          transition: transform 0.5s;
           &:hover {
-            transform: scale(103%);
+            transform: scale(118%);
           }
         }
       }
@@ -668,10 +669,9 @@ body {
   }
 }
 
-#product_list {
+.product_list {
   width: 100%;
   height: auto;
-  position: relative;
   margin-bottom: 95px;
   & > h2 {
     text-align: center;
@@ -687,100 +687,105 @@ body {
   .product_slide_area {
     width: $main-width;
     margin: 0 auto;
-    display: flex;
-    gap: 10px;
-    &:hover ~ .product_slide_arrow {
-      opacity: 1;
-    }
-    .product_item {
-      width: 255px;
+    overflow: hidden;
+    .product_items {
+      width: calc((255px * 8) + (10px * 7));
       display: flex;
-      flex-direction: column;
       gap: 10px;
-      .product_item_img {
-        border-radius: 8px;
-        overflow: hidden;
-        height: 330px;
-        position: relative;
-        &:hover > img {
-          transform: scale(103%);
-        }
-        img {
-          width: 100%;
-          object-fit: cover;
-          transition: all 0.5s;
-        }
-        .rating_coupon {
-          position: absolute;
-          top: 0;
-          left: 0;
-          font-size: 14px;
-          color: map-get($color, bg-light-color);
-          background: map-get($color, point1-color);
-          padding: 5px 10px;
-          border-radius: 5px;
-          margin: 8px;
-        }
-        .benefits {
-          width: 100%;
-          height: 40px;
-          position: absolute;
-          bottom: 0;
-          color: map-get($color, bg-light-color);
-          text-align: center;
-          line-height: 40px;
-          background: rgba(map-get($color, bg-black-color), $alpha: 0.5);
-        }
-      }
-      .product_cartin {
-        width: 100%;
-        height: 35px;
+      transition: transform 0.5s;
+      .product_item {
+        width: 255px;
         display: flex;
-        justify-content: center;
-        align-items: center;
-        gap: 5px;
-        border: 1px solid #ddd;
-        border-radius: 5px;
-        font-size: 16px;
-        transition: all 0.3s;
-        cursor: pointer;
-        i {
-          font-size: 14px;
-          padding-top: 2px;
-        }
-        &:hover {
-          background: map-get($color, main-color);
-          color: map-get($color, bg-light-color);
-        }
-      }
-      .product_item_text {
-        .product_name {
-          font-size: 16px;
-        }
-        .product_price {
-          font-size: 14px;
-          text-decoration: line-through;
-          color: #b5b5b5;
-          margin-top: 10px;
-        }
-        .product_salePrice {
-          display: flex;
-          gap: 8px;
-          font-size: 20px;
-          font-weight: 700;
-          .product_rating {
-            color: map-get($color, point-orange-color);
+        flex-direction: column;
+        gap: 10px;
+        .product_item_img {
+          border-radius: 8px;
+          overflow: hidden;
+          height: 330px;
+          position: relative;
+          &:hover > img {
+            transform: scale(103%);
+          }
+          img {
+            width: 100%;
+            object-fit: cover;
+            transition: all 0.5s;
+          }
+          .rating_coupon {
+            position: absolute;
+            top: 0;
+            left: 0;
+            font-size: 14px;
+            color: map-get($color, bg-light-color);
+            background: map-get($color, point1-color);
+            padding: 5px 10px;
+            border-radius: 5px;
+            margin: 8px;
+          }
+          .benefits {
+            width: 100%;
+            height: 40px;
+            position: absolute;
+            bottom: 0;
+            color: map-get($color, bg-light-color);
+            text-align: center;
+            line-height: 40px;
+            background: rgba(map-get($color, bg-black-color), $alpha: 0.5);
           }
         }
-        .comment_text {
+        .product_cartin {
+          width: 100%;
+          height: 35px;
           display: flex;
-          font-size: 12px;
+          justify-content: center;
           align-items: center;
-          gap: 3px;
-          color: #999;
-          margin-top: 10px;
+          gap: 5px;
+          border: 1px solid #ddd;
+          border-radius: 5px;
+          font-size: 16px;
+          transition: all 0.3s;
+          cursor: pointer;
+          i {
+            font-size: 14px;
+            padding-top: 2px;
+          }
+          &:hover {
+            background: map-get($color, main-color);
+            color: map-get($color, bg-light-color);
+          }
+        }
+        .product_item_text {
+          .product_name {
+            font-size: 16px;
+          }
+          .product_price {
+            font-size: 14px;
+            text-decoration: line-through;
+            color: #b5b5b5;
+            margin-top: 10px;
+          }
+          .product_salePrice {
+            display: flex;
+            gap: 8px;
+            font-size: 20px;
+            font-weight: 700;
+            .product_rating {
+              color: map-get($color, point-orange-color);
+            }
+          }
+          .comment_text {
+            display: flex;
+            font-size: 12px;
+            align-items: center;
+            gap: 3px;
+            color: #999;
+            margin-top: 10px;
+          }
         }
       }
+    }
+    &:hover ~ .product_slide_arrow {
+      opacity: 1;
     }
   }
   .mo_all_view {
@@ -788,14 +793,10 @@ body {
   }
   .product_slide_arrow {
     width: calc($main-width + 60px);
-    display: flex;
-    justify-content: space-between;
-    position: absolute;
-    top: 50%;
-    left: 50%;
+    margin: 0 auto;
     opacity: 0;
-    transform: translate(-50%, -50%);
-    transition: all 0.3s;
+    transition: opacity 0.3s;
+    position: relative;
     .product_slide_btn {
       i {
         font-size: 20px;
@@ -804,6 +805,16 @@ body {
         border-radius: 50%;
         box-shadow: 0 0 5px rgba($color: #000000, $alpha: 0.2);
         cursor: pointer;
+      }
+      &.left {
+        position: absolute;
+        top: -320px;
+        left: 0;
+      }
+      &.right {
+        position: absolute;
+        top: -320px;
+        right: 0;
       }
     }
     &:hover {
@@ -1118,11 +1129,23 @@ body {
             flex-direction: column;
             justify-content: center;
             align-items: center;
+            p {
+              padding-left: 0;
+            }
           }
           .today_item_area {
             width: 100%;
             .product_img {
               height: 200px;
+              position: relative;
+              img {
+                position: absolute;
+                top: -100px;
+                transform: scale(100%);
+                &:hover {
+                  transform: scale(103%);
+                }
+              }
             }
             .product_cartin {
               height: 50px;
@@ -1150,18 +1173,27 @@ body {
       #product_list {
         margin-bottom: 70px;
         .product_slide_area {
+          width: 100%;
+          margin: 0 0;
           padding: 20px;
-          .product_item {
-            width: 210px;
-            .product_item_img {
-              height: 265px;
-            }
-            .product_cartin {
-              height: 45px;
-              font-size: 18px;
-              i {
-                font-size: 16px;
+          .product_items {
+            width: calc((210px * 7) + (5px * 6));
+            gap : 5px;
+            .product_item {
+              width: 210px;
+              .product_item_img {
+                height: 265px;
               }
+              .product_cartin {
+                height: 45px;
+                font-size: 18px;
+                i {
+                  font-size: 16px;
+                }
+              }
+            }
+            .product_item_more {
+              display: none;
             }
           }
         }
