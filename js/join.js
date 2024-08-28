@@ -28,20 +28,23 @@ const tap3 = document.querySelector(".tap3");
 const tapModal1 = document.querySelector(".tapModal1");
 const tapModal2 = document.querySelector(".tapModal2");
 const tapModal3 = document.querySelector(".tapModal3");
+const tapModal4 = document.querySelector(".tapModal4");
+const modalText = document.querySelector(".modalText");
 
 //------------------오토 넘버
-
-function autoNum() {
-  // 100000에서 999999까지의 범위에서 랜덤 숫자를 생성합니다.
-  const randomNum = Math.floor(Math.random() * 900000) + 100000;
-
-  // 숫자를 문자열로 변환하고, 6자리로 맞추기 위해 padStart를 사용합니다.
-  const randomauto = randomNum.toString().padStart(6, "0");
-
-  return randomauto;
-}
 const userNumCheck = document.querySelector("#userNumCheck");
 const numCheckBtn = document.querySelector(".numCheckBtn");
+const timeset = document.querySelector(".timeset");
+//------------submit------------
+
+const essenAgrees = document.querySelectorAll(".essenAgrees");
+const essenBoxs = document.querySelectorAll(".essenBoxs");
+let submitList = {};
+
+// function submitClass ( ,className) {
+// if (classList) {}
+// }
+
 //-----------top -----------------//
 
 ////-------------각요소 조건
@@ -51,10 +54,14 @@ userId.addEventListener("change", function () {
   const idIn = document.querySelector(".iderr");
   if (userId.value === "") {
     idIn.innerText = "";
+
+    userId.classList.add("essenAgrees");
   } else if (!idErr.test(userId.value)) {
     idIn.innerText = "6자 이상 16자 이하의 영문과 숫자를 조합만 가능합니다.";
+    userId.classList.add("essenAgrees");
   } else {
     idIn.innerText = "";
+    userId.classList.remove("essenAgrees");
   }
 });
 
@@ -149,6 +156,9 @@ userEmail.addEventListener("input", function () {
 });
 
 //----Phon
+
+let clear = false;
+
 userPhon.addEventListener("input", function () {
   const phonIn = document.querySelector(".phonerr");
   const PhonV = userPhon.value;
@@ -164,18 +174,91 @@ userPhon.addEventListener("input", function () {
   }
 });
 
-checkBtn.addEventListener("click", () => {
-  alert(`인증번호는 ${autoNum()}입니다.`);
-  const phoneCheck = document.querySelector(".phoneCheck");
-  console.log(numCheckBtn);
-  phoneCheck.style.display = "flex";
-  checkBtn.disabled = false;
-});
+//랜덤 리팩토링 함수영역
+const clickNumModal = () => {
+  modalBase.addEventListener("click", () => {
+    userPhon.disabled = true;
+    checkBtn.disabled = true;
+    checkBtn.classList.remove("active");
+    numCheckBtn.disabled = true;
+    numCheckBtn.classList.add("numDisable");
+    userNumCheck.disabled = true;
+  });
+  modalClose.addEventListener("click", () => {
+    userPhon.disabled = true;
+    checkBtn.disabled = true;
+    numCheckBtn.disabled = true;
+    userNumCheck.disabled = true;
+  });
+};
 
-numCheckBtn.addEventListener("click", () => {
-  if (userNumCheck.value == autoNum()) {
-    alert("인증완료");
-  }
+const timer = () => {
+  let time = 180;
+  interval = setInterval(() => {
+    if (clear === true) {
+      clearInterval(interval);
+      return;
+    } else if (clear === false && time >= 0) {
+      const minutes = Math.floor(time / 60);
+      const seconds = time % 60;
+      timeset.innerText = minutes + ":" + String(seconds).padStart(2, "0");
+      time -= 1;
+    } else {
+      modalText.innerText = "시간이 초과되었습니다.";
+      modalBase.style.display = "block";
+      document.body.style.overflow = "hidden";
+      tapModal4.style.display = "block";
+      userNumCheck.disabled = true;
+      numCheckBtn.disabled = true;
+      numCheckBtn.classList.add("numDisable");
+      clearInterval(interval);
+    }
+  }, 1000);
+};
+
+const regularphonCheck = () => {
+  userNumCheck.addEventListener("input", () => {
+    const numcheckErr = /^[0-9]{6}$/;
+    const uNCIn = document.querySelector(".uNCInerr");
+
+    if (userNumCheck.value === "") {
+      uNCIn.innerText = "";
+    } else if (!numcheckErr.test(userNumCheck.value)) {
+      uNCIn.innerText = "인증번호는 6자리 숫자입니다.";
+    } else {
+      uNCIn.innerText = "";
+    }
+  });
+};
+
+// 실제 실행되는 메인 함수
+checkBtn.addEventListener("click", () => {
+  const randomNum = String(Math.floor(Math.random() * 100000)).padStart(6, "0");
+  alert(`인증번호는 ${randomNum}입니다.`);
+  console.log(`${randomNum}`);
+  const phoneCheck = document.querySelector(".phoneCheck");
+  phoneCheck.style.display = "flex";
+  userNumCheck.disabled = false;
+  numCheckBtn.disabled = false;
+  numCheckBtn.classList.remove("numDisable");
+  timer();
+  regularphonCheck();
+  numCheckBtn.addEventListener("click", () => {
+    if (userNumCheck.value === randomNum) {
+      modalText.innerText = "인증완료";
+      modalBase.style.display = "block";
+      document.body.style.overflow = "hidden";
+      tapModal4.style.display = "block";
+      clear = true;
+      timer();
+      clickNumModal();
+    } else {
+      modalText.innerText = "인증실패";
+      modalBase.style.display = "block";
+      document.body.style.overflow = "hidden";
+      tapModal4.style.display = "block";
+    }
+  });
 });
 
 //----adress
@@ -386,6 +469,8 @@ function checkHandler(all, element) {
     });
   });
 }
+
+//--------submit-------------------//
 
 checkHandler(".subAll", ".subElement");
 checkHandler(".allCheckBox", ".checkElement");

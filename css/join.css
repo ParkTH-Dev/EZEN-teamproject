@@ -262,6 +262,28 @@ li {
   right: 10px;
   color: #ef7793;
 }
+#join_container .join_inner #main form #private li.phoneCheck .numCheckBtn {
+  color: #fff;
+  border: 1px solid #5f0080;
+  background: #5f0080;
+  transition: background 0.3s, color 0.3s;
+}
+#join_container .join_inner #main form #private li.phoneCheck .numCheckBtn:hover {
+  color: #5f0080;
+  border: 1px solid #5f0080;
+  background: #fff;
+}
+#join_container .join_inner #main form #private li.phoneCheck .numCheckBtn.numDisable {
+  width: 80%;
+  height: 38px;
+  margin-right: 10px;
+  line-height: 10px;
+  background: #fff;
+  color: #c5c5c5;
+  font-size: 0.9rem;
+  border: 1px solid #c5c5c5;
+  border-radius: 4px;
+}
 #join_container .join_inner #main form #private li .address {
   width: 100%;
   background: #fff;
@@ -570,6 +592,21 @@ li {
   height: 360px;
   display: none;
 }
+.modalBase .modalInner .HModal.tapModal4 {
+  height: 200px;
+  display: none;
+}
+.modalBase .modalInner .HModal.tapModal4 .frame {
+  width: 100%;
+  height: 180px;
+  margin: 0;
+  text-align: center;
+  padding-top: 70px;
+}
+.modalBase .modalInner .HModal.tapModal4 .frame .modalText {
+  font-size: 1.1rem;
+  font-weight: 400;
+}
 .modalBase .modalInner .HModal .modal_close h1 {
   cursor: pointer;
   position: absolute;
@@ -644,6 +681,7 @@ li {
     height: 100%;
     width: 100%;
     padding: 0;
+    /*phone*/
     /*gender*/
     /*hidden add*/
   }
@@ -722,6 +760,13 @@ li {
   }
   #join_container .join_inner #main form #private li.phoneCheck > div:nth-child(1) {
     display: none;
+  }
+  #join_container .join_inner #main form #private li.phoneCheck .numCheckBtn {
+    width: 100%;
+  }
+  #join_container .join_inner #main form #private li.phoneCheck .numCheckBtn.numDisable {
+    width: 100%;
+    margin: 0;
   }
   #join_container .join_inner #main form #private li .birth > input {
     border: none;
