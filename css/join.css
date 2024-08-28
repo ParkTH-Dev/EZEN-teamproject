@@ -20,6 +20,10 @@ li {
   overflow: hidden;
 }
 
+.essenBoxs {
+  background: rgba(239, 119, 147, 0.4);
+}
+
 #join_container {
   font: normal 16px/1 "Noto Sans KR", sans-serif;
   width: 1080px;
@@ -234,10 +238,16 @@ li {
   border: none;
   height: 100%;
   border-radius: 0;
+  background-color: transparent;
 }
 #join_container .join_inner #main form #private li .emailTwo > div:nth-child(2) .hiddenS.active {
   display: block;
   z-index: 2;
+}
+#join_container .join_inner #main form #private li .emailTwo #userEmail,
+#join_container .join_inner #main form #private li .emailTwo #email,
+#join_container .join_inner #main form #private li .emailTwo #emailDr {
+  background-color: transparent;
 }
 #join_container .join_inner #main form #private li .checkBtn.active {
   color: #fff;
@@ -938,4 +948,4 @@ li {
     right: 50%;
     transform: translateX(50%);
   }
-}
+}/*# sourceMappingURL=join.css.map */

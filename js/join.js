@@ -36,14 +36,11 @@ const userNumCheck = document.querySelector("#userNumCheck");
 const numCheckBtn = document.querySelector(".numCheckBtn");
 const timeset = document.querySelector(".timeset");
 //------------submit------------
-
-const essenAgrees = document.querySelectorAll(".essenAgrees");
+const emailTwo = document.querySelector(".emailTwo");
 const essenBoxs = document.querySelectorAll(".essenBoxs");
+const essenAgrees = document.querySelectorAll(".essenAgrees");
 let submitList = {};
-
-// function submitClass ( ,className) {
-// if (classList) {}
-// }
+console.log(submitList);
 
 //-----------top -----------------//
 
@@ -52,16 +49,17 @@ let submitList = {};
 userId.addEventListener("change", function () {
   const idErr = /^[a-zA-Z0-9]{6,16}$/g;
   const idIn = document.querySelector(".iderr");
+  userId.classList.remove("essenBoxs");
+  submitList.pop();
   if (userId.value === "") {
     idIn.innerText = "";
-
-    userId.classList.add("essenAgrees");
+    userId.classList.add("essenBoxs");
   } else if (!idErr.test(userId.value)) {
     idIn.innerText = "6자 이상 16자 이하의 영문과 숫자를 조합만 가능합니다.";
-    userId.classList.add("essenAgrees");
+    userId.classList.add("essenBoxs");
   } else {
     idIn.innerText = "";
-    userId.classList.remove("essenAgrees");
+    submitList.push("success");
   }
 });
 
@@ -69,24 +67,34 @@ userId.addEventListener("change", function () {
 userpw.addEventListener("change", function () {
   const pwErr = /^[a-zA-Z0-9`~!@#$%^&*()-_=+]{10,}$/g;
   const passIn = document.querySelector(".passerr");
+  userpw.classList.remove("essenBoxs");
+  submitList.pop();
   if (userpw.value === "") {
     passIn.innerText = "";
+    userpw.classList.add("essenBoxs");
   } else if (!pwErr.test(userpw.value)) {
     passIn.innerText = "10자 이상에 영문 숫자 특수문자 조합만 가능합니다.";
+    userpw.classList.add("essenBoxs");
   } else {
     passIn.innerText = "";
+    submitList.push("success");
   }
 });
 
 //----pass2
 pwCheck.addEventListener("change", function () {
   const pass2In = document.querySelector(".pw2err");
+  pwCheck.classList.remove("essenBoxs");
+  submitList.pop();
   if (pwCheck.value === "") {
     pass2In.innerText = "";
+    pwCheck.classList.add("essenBoxs");
   } else if (pwCheck.value === userpw.value) {
     pass2In.innerText = "";
+    submitList.push("success");
   } else {
     pass2In.innerText = "동일한 비밀번호 입력해주세요.";
+    pwCheck.classList.add("essenBoxs");
   }
 });
 
@@ -94,12 +102,17 @@ pwCheck.addEventListener("change", function () {
 userName.addEventListener("change", function () {
   const nameIn = document.querySelector(".nameErr");
   const nameErr = /^[가-힣a-zA-Z]+$/g;
+  userName.classList.remove("essenBoxs");
+  submitList.pop();
   if (userName.value === "") {
     nameIn.innerText = "";
+    userName.classList.add("essenBoxs");
   } else if (!nameErr.test(userName.value)) {
     nameIn.innerText = "이름을 확인해주세요.";
+    userName.classList.add("essenBoxs");
   } else {
     nameIn.innerText = "";
+    submitList.push("success");
   }
 });
 
@@ -122,13 +135,17 @@ userEmail.addEventListener("input", function () {
   const emailErr = /^[a-zA-Z0-9/@/.]+$/g;
   const emailIn = document.querySelector(".emailerr");
   document.querySelector(".hiddenS").classList.remove("active");
+  emailTwo.classList.remove("essenBoxs");
   if (emailValue === "") {
     emailIn.innerText = "";
+    emailTwo.classList.add("essenBoxs");
   } else if (!emailErr.test(emailValue)) {
     emailIn.innerText = "숫자 또는 영문만 입력 가능합니다.";
+    emailTwo.classList.add("essenBoxs");
   } else {
     emailIn.innerText = "";
   }
+
   if (emailValue.includes("@") === true) {
     const domain = emailValue.substring(atIndex + 1);
     let optionFound = false;
@@ -165,8 +182,12 @@ userPhon.addEventListener("input", function () {
   const trimPhon = PhonV.replace(/-/g, "");
   if (userPhon.value === "") {
     phonIn.innerText = "";
+    userPhon.classList.add("essenBoxs");
+    userNumCheck.classList.add("essenBoxs");
   } else if (!/^[0][0-9]{9,10}$/.test(trimPhon)) {
     phonIn.innerText = "숫자 10~11자리";
+    userPhon.classList.add("essenBoxs");
+    userNumCheck.classList.add("essenBoxs");
   } else {
     phonIn.innerText = "";
     checkBtn.classList.add("active");
@@ -249,7 +270,10 @@ checkBtn.addEventListener("click", () => {
       modalBase.style.display = "block";
       document.body.style.overflow = "hidden";
       tapModal4.style.display = "block";
+      userPhon.classList.remove("essenBoxs");
+      userNumCheck.classList.remove("essenBoxs");
       clear = true;
+      submitList.push("success");
       timer();
       clickNumModal();
     } else {
@@ -257,6 +281,8 @@ checkBtn.addEventListener("click", () => {
       modalBase.style.display = "block";
       document.body.style.overflow = "hidden";
       tapModal4.style.display = "block";
+      userPhon.classList.add("essenBoxs");
+      userNumCheck.classList.add("essenBoxs");
     }
   });
 });
@@ -472,5 +498,6 @@ function checkHandler(all, element) {
 
 //--------submit-------------------//
 
+//-----------
 checkHandler(".subAll", ".subElement");
 checkHandler(".allCheckBox", ".checkElement");

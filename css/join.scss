@@ -35,6 +35,10 @@ li {
   }
 }
 
+.essenBoxs {
+  background: rgba($color: #ef7793, $alpha: 0.4);
+}
+
 #join_container {
   font: normal 16px/1 "Noto Sans KR", sans-serif;
   width: 1080px;
@@ -192,6 +196,7 @@ li {
               line-height: 37px;
               border: 1px solid map-get($font-color, font-line);
               border-radius: 4px;
+
               color: map-get($font-color, font-dark);
               & > div {
                 flex-grow: 1;
@@ -235,6 +240,7 @@ li {
                       border: none;
                       height: 100%;
                       border-radius: 0;
+                      background-color: transparent;
                     }
                     &.active {
                       display: block;
@@ -242,6 +248,11 @@ li {
                     }
                   }
                 }
+              }
+              #userEmail,
+              #email,
+              #emailDr {
+                background-color: transparent;
               }
             }
             /*phone*/
