@@ -4,6 +4,7 @@
 
 // form 요소들
 const form = document.querySelector("form");
+const mainBtn = document.querySelector(".mainBtn");
 const userId = document.querySelector("#userId");
 const userpw = document.querySelector("#userpw");
 const pwCheck = document.querySelector("#pwCheck");
@@ -11,6 +12,7 @@ const userName = document.querySelector("#userName");
 const userEmail = document.getElementById("userEmail");
 const emailselect = document.getElementById("email");
 const emailDirectInput = document.getElementById("emailDr");
+const hiddenS = document.querySelector(".hiddenS");
 const directOptionValue = "direct";
 const userPhon = document.querySelector("#userPhon");
 const checkBtn = document.querySelector(".checkBtn");
@@ -39,49 +41,71 @@ const timeset = document.querySelector(".timeset");
 const emailTwo = document.querySelector(".emailTwo");
 const essenBoxs = document.querySelectorAll(".essenBoxs");
 const essenAgrees = document.querySelectorAll(".essenAgrees");
-let submitList = {};
+// emaile // adress ==>가상클래스이다.
+const essenBoxs2 = document.querySelectorAll(".essenBoxs2");
+//--submit check array
+let submitList = [];
 console.log(submitList);
 
+function checkarrMinus(mainArr, arrayE) {
+  if (mainArr.includes(arrayE))
+    for (let i = 0; i < mainArr.length; i++) {
+      if (mainArr[i] === arrayE) {
+        mainArr.splice(i, 1);
+        // i--;
+      }
+    }
+}
 //-----------top -----------------//
 
 ////-------------각요소 조건
-//아이디
+//아이디 //idSucc
 userId.addEventListener("change", function () {
   const idErr = /^[a-zA-Z0-9]{6,16}$/g;
   const idIn = document.querySelector(".iderr");
   userId.classList.remove("essenBoxs");
-  submitList.pop();
   if (userId.value === "") {
     idIn.innerText = "";
     userId.classList.add("essenBoxs");
+    checkarrMinus(submitList, "idSucc");
+    console.log(submitList);
   } else if (!idErr.test(userId.value)) {
     idIn.innerText = "6자 이상 16자 이하의 영문과 숫자를 조합만 가능합니다.";
     userId.classList.add("essenBoxs");
+    checkarrMinus(submitList, "idSucc");
+    console.log(submitList);
   } else {
     idIn.innerText = "";
-    submitList.push("success");
+    submitList.push("idSucc");
+    userId.classList.remove("essenBoxs");
+    console.log(submitList);
   }
 });
 
-//----pass
+//----pass // paSucc
 userpw.addEventListener("change", function () {
   const pwErr = /^[a-zA-Z0-9`~!@#$%^&*()-_=+]{10,}$/g;
   const passIn = document.querySelector(".passerr");
   userpw.classList.remove("essenBoxs");
-  submitList.pop();
+  checkarrMinus(submitList, "paSucc");
   if (userpw.value === "") {
     passIn.innerText = "";
     userpw.classList.add("essenBoxs");
+    checkarrMinus(submitList, "paSucc");
+    console.log(submitList);
   } else if (!pwErr.test(userpw.value)) {
     passIn.innerText = "10자 이상에 영문 숫자 특수문자 조합만 가능합니다.";
     userpw.classList.add("essenBoxs");
+    checkarrMinus(submitList, "paSucc");
+    console.log(submitList);
   } else {
     passIn.innerText = "";
-    submitList.push("success");
+    submitList.push("paSucc");
+    console.log(submitList);
   }
 });
 
-//----pass2
+//----pass2 //pd2Succ
 pwCheck.addEventListener("change", function () {
   const pass2In = document.querySelector(".pw2err");
   pwCheck.classList.remove("essenBoxs");
@@ -89,63 +113,108 @@ pwCheck.addEventListener("change", function () {
   if (pwCheck.value === "") {
     pass2In.innerText = "";
     pwCheck.classList.add("essenBoxs");
+    checkarrMinus(submitList, "pd2Succ");
+    console.log(submitList);
   } else if (pwCheck.value === userpw.value) {
     pass2In.innerText = "";
     submitList.push("success");
+    submitList.push("pd2Succ");
+    console.log(submitList);
   } else {
     pass2In.innerText = "동일한 비밀번호 입력해주세요.";
     pwCheck.classList.add("essenBoxs");
+    checkarrMinus(submitList, "pd2Succ");
+    console.log(submitList);
   }
 });
 
-//----name
+//----name // nameSucc
 userName.addEventListener("change", function () {
   const nameIn = document.querySelector(".nameErr");
   const nameErr = /^[가-힣a-zA-Z]+$/g;
   userName.classList.remove("essenBoxs");
-  submitList.pop();
   if (userName.value === "") {
     nameIn.innerText = "";
     userName.classList.add("essenBoxs");
+    checkarrMinus(submitList, "nameSucc");
+    console.log(submitList);
   } else if (!nameErr.test(userName.value)) {
     nameIn.innerText = "이름을 확인해주세요.";
     userName.classList.add("essenBoxs");
+    checkarrMinus(submitList, "nameSucc");
+    console.log(submitList);
   } else {
     nameIn.innerText = "";
-    submitList.push("success");
+    submitList.push("nameSucc");
+    console.log(submitList);
   }
 });
 
-//----email
+//----email//emailSucc = emailS + inputS + selectS ==>2개이상
+let emailSucc = [];
+//이메일과 인풋 둘 다 ㅎ값이 확인되면 최종적으로 emailSucc값을 submitList로 조내자.
+//조건이 더 필요하네.. 일단 1번. emailS는 필수. 2.inputS 와 selectS 둘 중 하나는 있어야함.
+//2번 조건을 추가한다.  if 를 걸어서.
+//인풋 이 있거나!! 셀렉트가 있을 때 ==> || 를 사용하여 하나만 요건이 맞으면 최종배열에 넣게 하자. 그럼 난 뭘 해야할 까. 어? 그냥 두개를 합치는것도 좋을 거 같은데.?
+//두개를 합쳐보자. inputS + selectS = domainS 로
 
-emailselect.addEventListener("change", function () {
-  // console.log(this.value);
-  if (this.value === "direct") {
-    document.querySelector(".hiddenS").classList.add("active");
+//직접입력 input Text
+hiddenS.addEventListener("input", () => {
+  checkarrMinus(emailSucc, "domainS");
+  if (hiddenS.value === "") {
+    checkarrMinus(emailSucc, "domainS");
+    console.log(emailSucc);
+    // if (hiddenS.classList.includes("active"))
+    //   hiddenS.style.background = "#f9c9d4";
+  } else if (hiddenS.value.includes(".")) {
   } else {
-    document.querySelector(".hiddenS").classList.remove("active");
+    emailSucc.push("domainS");
+    console.log(emailSucc);
   }
 });
 
+//select 부분
+emailselect.addEventListener("change", function () {
+  checkarrMinus(emailSucc, "domainS");
+  if (this.value === "direct") {
+    hiddenS.classList.add("active");
+    checkarrMinus(emailSucc, "domainS");
+    console.log(emailSucc);
+  } else {
+    hiddenS.classList.remove("active");
+    emailSucc.push("domainS");
+    console.log(emailSucc);
+  }
+});
+
+//id 입력 input
 userEmail.addEventListener("input", function () {
   const emailValue = userEmail.value.trim();
-  const userOtherId = [...emailValue.split("@")];
-  const onlyId = [...userOtherId].shift();
-  const atIndex = emailValue.indexOf("@");
+  const userOtherId = [...emailValue.split("@")]; // @기준으로 새 배열만듦
+  const onlyId = [...userOtherId].shift(); // 아이디만 가진 배열 = 편의를 위해 뺌
+  const atIndex = emailValue.indexOf("@"); // 문자열에서 @의 인덱스 위치
   const emailErr = /^[a-zA-Z0-9/@/.]+$/g;
   const emailIn = document.querySelector(".emailerr");
-  document.querySelector(".hiddenS").classList.remove("active");
+  hiddenS.classList.remove("active");
   emailTwo.classList.remove("essenBoxs");
+  checkarrMinus(emailSucc, "emailS");
+  console.log(emailSucc);
   if (emailValue === "") {
     emailIn.innerText = "";
     emailTwo.classList.add("essenBoxs");
+    checkarrMinus(emailSucc, "emailS");
+    console.log(emailSucc);
   } else if (!emailErr.test(emailValue)) {
     emailIn.innerText = "숫자 또는 영문만 입력 가능합니다.";
     emailTwo.classList.add("essenBoxs");
+    checkarrMinus(emailSucc, "emailS");
+    console.log(emailSucc);
   } else {
     emailIn.innerText = "";
+    emailSucc.push("emailS");
+    console.log(emailSucc);
   }
-
+  //select태그에 들어가는 주소
   if (emailValue.includes("@") === true) {
     const domain = emailValue.substring(atIndex + 1);
     let optionFound = false;
@@ -163,7 +232,7 @@ userEmail.addEventListener("input", function () {
     // 도메인이 일치하는 옵션이 없으면 '직접입력' 옵션 선택
     if (!optionFound) {
       emailselect.value = directOptionValue;
-      document.querySelector(".hiddenS").classList.add("active");
+      hiddenS.classList.add("active");
       emailDirectInput.focus();
       emailDirectInput.value = domain;
     }
@@ -497,6 +566,16 @@ function checkHandler(all, element) {
 }
 
 //--------submit-------------------//
+mainBtn.addEventListener("click", (e) => {
+  e.preventDefault();
+  essenBoxs.forEach((essenBox) => {
+    if (essenBox.classList.contains("essenBoxs"))
+      essenBox.style.backgroundColor = "#f9c9d4";
+    else {
+      essenBox.style.backgroundColor = "inherit";
+    }
+  });
+});
 
 //-----------
 checkHandler(".subAll", ".subElement");

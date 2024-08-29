@@ -5,6 +5,7 @@
 $color: (
   main: #5f0080,
   light: #fff,
+  submitTop: #f9c9d4,
 );
 
 $font-color: (
@@ -33,10 +34,6 @@ li {
     height: 100vh;
     overflow: hidden;
   }
-}
-
-.essenBoxs {
-  background: rgba($color: #ef7793, $alpha: 0.4);
 }
 
 #join_container {
@@ -240,7 +237,7 @@ li {
                       border: none;
                       height: 100%;
                       border-radius: 0;
-                      background-color: transparent;
+                      color: map-get($font-color, font-light);
                     }
                     &.active {
                       display: block;
@@ -249,11 +246,24 @@ li {
                   }
                 }
               }
-              #userEmail,
-              #email,
-              #emailDr {
-                background-color: transparent;
-              }
+              // &.essenBoxs2 {
+              //   #email {
+              //     background: map-get($color, submitTop);
+              //     color: map-get($font-color, font-light);
+              //     option {
+              //       background: map-get($color, light);
+              //     }
+              //   }
+              //   .hiddenS {
+              //     #emailDr {
+              //       background: map-get($color, submitTop);
+              //       color: map-get($font-color, font-light);
+              //     }
+              //   }
+              //   #userEmail {
+              //     background-color: transparent;
+              //   }
+              // }
             }
             /*phone*/
             .checkBtn {
@@ -311,12 +321,18 @@ li {
               color: map-get($color, main);
               border: 1px solid map-get($color, main);
               border-radius: 4px;
-              transition: background 0.3s, color 0.3s;
+              transition: background 0.3s, color 0.3s, border 0.3s;
               &:hover {
                 color: map-get($color, light);
                 border: 1px solid map-get($color, main);
                 background: map-get($color, main);
               }
+              // &.essenBoxs2 {
+              //   background: map-get($color, submitTop);
+              //   &:hover {
+              //     border: 1px solid map-get($font-color, font-red);
+              //   }
+              // }
             }
             .addressChange {
               display: none;
@@ -478,6 +494,14 @@ li {
               font-weight: normal;
               color: map-get($font-color, font-line);
             }
+            // &.essenAgrees,
+            // .active {
+            //   color: map-get($font-color, font-red);
+            //   b {
+            //     font-weight: normal;
+            //     color: map-get($font-color, font-red);
+            //   }
+            // }
           }
         }
         .tapmodal {
@@ -656,6 +680,10 @@ li {
     }
   }
 }
+
+// .essenBoxs {
+//   background: map-get($color, submitTop);
+// }
 
 //////*media*//////
 @media screen and (max-width: 1050px) {
