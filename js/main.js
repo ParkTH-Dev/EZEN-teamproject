@@ -407,49 +407,52 @@ let slideStartProduct = [true, true];
 let slideEndProduct = [false, false];
 
 for (let i = 0; i <= 1; i++) {
-  if(i === 0) {
-  product1SlideArrowLeft.addEventListener("click", () => {
-    if (slideEndProduct[i] === true) {
-      productSliceArea[i].style.transform = `translateX(0)`;
-      slideStartProduct[i] = true;
-      slideEndProduct[i] = false;
-      product1SlideArrowLeft.style.opacity = "0";
-      product1SlideArrowRight.style.opacity = "1";
-    }
-  });
-  
-  product1SlideArrowRight.addEventListener("click", () => {
-    if (slideStartProduct[i] === true) {
-      productSliceArea[i].style.transform = `translateX(-${mainWidth + 10}px)`;
-      slideEndProduct[i] = true;
-      slideStartProduct[i] = false;
-      product1SlideArrowRight.style.opacity = "0";
-      product1SlideArrowLeft.style.opacity = "1";
-    }
-  });
-} else {
-  product2SlideArrowLeft.addEventListener("click", () => {
-    if (slideEndProduct[i] === true) {
-      productSliceArea[i].style.transform = `translateX(0)`;
-      slideStartProduct[i] = true;
-      slideEndProduct[i] = false;
-      product2SlideArrowLeft.style.opacity = "0";
-      product2SlideArrowRight.style.opacity = "1";
-    }
-  });
-  
-  product2SlideArrowRight.addEventListener("click", () => {
-    if (slideStartProduct[i] === true) {
-      productSliceArea[i].style.transform = `translateX(-${mainWidth + 10}px)`;
-      slideEndProduct[i] = true;
-      slideStartProduct[i] = false;
-      product2SlideArrowRight.style.opacity = "0";
-      product2SlideArrowLeft.style.opacity = "1";
-    }
-  });
-}
-}
+  if (i === 0) {
+    product1SlideArrowLeft.addEventListener("click", () => {
+      if (slideEndProduct[i] === true) {
+        productSliceArea[i].style.transform = `translateX(0)`;
+        slideStartProduct[i] = true;
+        slideEndProduct[i] = false;
+        product1SlideArrowLeft.style.opacity = "0";
+        product1SlideArrowRight.style.opacity = "1";
+      }
+    });
 
+    product1SlideArrowRight.addEventListener("click", () => {
+      if (slideStartProduct[i] === true) {
+        productSliceArea[i].style.transform = `translateX(-${
+          mainWidth + 10
+        }px)`;
+        slideEndProduct[i] = true;
+        slideStartProduct[i] = false;
+        product1SlideArrowRight.style.opacity = "0";
+        product1SlideArrowLeft.style.opacity = "1";
+      }
+    });
+  } else {
+    product2SlideArrowLeft.addEventListener("click", () => {
+      if (slideEndProduct[i] === true) {
+        productSliceArea[i].style.transform = `translateX(0)`;
+        slideStartProduct[i] = true;
+        slideEndProduct[i] = false;
+        product2SlideArrowLeft.style.opacity = "0";
+        product2SlideArrowRight.style.opacity = "1";
+      }
+    });
+
+    product2SlideArrowRight.addEventListener("click", () => {
+      if (slideStartProduct[i] === true) {
+        productSliceArea[i].style.transform = `translateX(-${
+          mainWidth + 10
+        }px)`;
+        slideEndProduct[i] = true;
+        slideStartProduct[i] = false;
+        product2SlideArrowRight.style.opacity = "0";
+        product2SlideArrowLeft.style.opacity = "1";
+      }
+    });
+  }
+}
 
 //JSON fetch
 const liveInfo = (data) => {
@@ -509,7 +512,7 @@ const todayInfo = (data) => {
     todayPrice[i].innerText = data.products[n].price;
     n = n + 2;
   }
-}
+};
 
 const limitedInfo = (data) => {
   todayImg[2].src = data.products[3].thumbnail;
@@ -519,15 +522,99 @@ const limitedInfo = (data) => {
   todayOriPrice[2].innerText = data.products[3].originalPrice;
   todayRating[2].innerText = data.products[3].discount;
   todayPrice[2].innerText = data.products[3].price;
-}
+};
+
+const productInfoDetail = (data) => {
+  const productImg = document.querySelectorAll(".product_item_img > img");
+  const productName = document.querySelectorAll(".product_name");
+  const productOriPrice = document.querySelectorAll(".product_price");
+  const productRating = document.querySelectorAll(".product_rating");
+  const productPrice = document.querySelectorAll(".product_Sprice");
+  const ratingCoupon = document.querySelectorAll(".rating_coupon");
+
+  let n = 4;
+  for (let i = 0; i < productImg.length; i++) {
+    productImg[i].src = data.products[n].thumbnail;
+    productName[i].innerText = data.products[n].productName;
+    productOriPrice[i].innerText = data.products[n].originalPrice;
+    productRating[i].innerText = data.products[n].discount;
+    productPrice[i].innerText = data.products[n].price;
+    ratingCoupon[i].innerText = `${data.products[n].discount} 할인`;
+    n++;
+  }
+};
+
+const cartinModal = (data) => {
+  const productCartin = document.querySelectorAll(".product_cartin");
+  console.log(productCartin);
+
+  const modalArea = document.querySelector("#modal_area");
+  const productModalImg = document.querySelector(".modal_img");
+  const productModalName = document.querySelector(".modal_product_name");
+  const productModalSubName = document.querySelector(".modal_subname");
+  const productModalPrice = document.querySelector(".modal_discount_price");
+  const productModalOriPrice = document.querySelector(".modal_Wprice");
+
+  productCartin.forEach((item) => {
+    item.addEventListener("click", () => {
+      modalArea.classList.add("active");
+      modalArea.querySelector("#overlay").addEventListener("click", () => {
+        modalArea.classList.remove("active");
+      });
+      modalArea
+        .querySelector(".button_cancle")
+        .addEventListener("click", () => {
+          modalArea.classList.remove("active");
+        });
+    });
+  });
+
+  productCartin[0].addEventListener("click", () => {
+    productModalImg.style.background = `url(${data.products[0].thumbnail}) center/cover no-repeat`;
+    productModalName.innerText = data.products[0].productName;
+    productModalSubName.innerText = data.products[0].productName;
+    productModalPrice.innerText = data.products[0].price;
+    productModalOriPrice.innerText = data.products[0].originalPrice;
+  });
+
+  productCartin[1].addEventListener("click", () => {
+    productModalImg.style.background = `url(${data.products[2].thumbnail}) center/cover no-repeat`;
+    productModalName.innerText = data.products[2].productName;
+    productModalSubName.innerText = data.products[2].productName;
+    productModalPrice.innerText = data.products[2].price;
+    productModalOriPrice.innerText = data.products[2].originalPrice;
+  });
+
+  productCartin[2].addEventListener("click", () => {
+    productModalImg.style.background = `url(${data.products[3].thumbnail}) center/cover no-repeat`;
+    productModalName.innerText = data.products[3].productName;
+    productModalSubName.innerText = data.products[3].productName;
+    productModalPrice.innerText = data.products[3].price;
+    productModalOriPrice.innerText = data.products[3].originalPrice;
+  });
+
+  let n = 4;
+  for (let i = 3; i < 17; i++) {
+    productCartin[i].addEventListener("click", () => {
+      productModalImg.style.background = `url(${data.products[n].thumbnail}) center/cover no-repeat`;
+      productModalName.innerText = data.products[n].productName;
+      productModalSubName.innerText = data.products[n].productName;
+      productModalPrice.innerText = data.products[n].price;
+      productModalOriPrice.innerText = data.products[n].originalPrice;
+      n++;
+    });
+  }
+};
 
 const productInfo = ".././json/db.json";
 fetch(productInfo)
-  .then((resoponse) => resoponse.json())
+  .then((response) => response.json())
   .then((data) => {
     liveInfo(data);
     todayInfo(data);
     limitedInfo(data);
+    productInfoDetail(data);
+    cartinModal(data);
   });
 
 // 라이브 위치 이동(MO)
@@ -653,12 +740,118 @@ const counting = (count) => {
   count = count < 10 ? `00${count}` : count;
 
   return count;
+};
+
+let number = 501;
+function decreaseNumber() {
+  const randomMilliseconds =
+    Math.floor(Math.random() * (10 - 1 + 1) + 1) * 1000;
+
+  number--;
+
+  timer500.innerText = `${counting(number)}개`;
+
+  if (number > 0) {
+    setTimeout(decreaseNumber, randomMilliseconds);
+  } else {
+    return;
+  }
 }
 
-const randomTimer = Math.floor(Math.random() * 10000) + 1000
+decreaseNumber();
 
-let l = 500;
-setInterval(() => {
-  timer500.innerText = `${counting(l)}개`
-  l = l - 1;
-}, randomTimer)
+// 인기상품
+const productArea = document.querySelectorAll(".product_slide_area");
+const productItems = document.querySelectorAll(".product_items");
+
+const productSlide = (i) => {
+  let startXproduct = 0;
+  let nowXproduct = 0;
+  let listXproduct = 0;
+
+  const getClientXproduct = (e) => {
+    return e.touches ? e.touches[0].clientX : e.clientX;
+  };
+
+  const getTranslateXproduct = () => {
+    const transform = getComputedStyle(productItems[i]).transform;
+    if (transform === "none") return 0;
+    return parseInt(transform.split(/[^\-0-9]+/g)[5]);
+  };
+
+  const setTranslateXproduct = (x) => {
+    productItems[i].style.transform = `translateX(${x}px)`;
+  };
+
+  const onScrollMoveproduct = (e) => {
+    e.preventDefault();
+    nowXproduct = getClientXproduct(e);
+    setTranslateXproduct(listXproduct + nowXproduct - startXproduct);
+  };
+
+  const onScrollEndproduct = () => {
+    listXproduct = getTranslateXproduct();
+
+    // 슬라이드 가능한 전체 너비와 최대 이동 가능 거리 계산
+    const productAreaWidth = productArea[i].clientWidth;
+    const productScrollWidth = productItems[i].scrollWidth + 40;
+    const maxTranslateX = productAreaWidth - productScrollWidth;
+
+    // 스냅 위치 계산
+    if (listXproduct > 0) {
+      setTranslateXproduct(0);
+      listXproduct = 0;
+    } else if (listXproduct < maxTranslateX) {
+      setTranslateXproduct(maxTranslateX);
+      listXproduct = maxTranslateX;
+    } else {
+      // 가장 가까운 항목에 스냅
+      const itemWidth = productItems[i].children[0].clientWidth; // 슬라이드 아이템의 너비 + 간격
+      const nearestSnap = Math.round(listXproduct / itemWidth) * itemWidth;
+      setTranslateXproduct(nearestSnap);
+      listXproduct = nearestSnap;
+    }
+
+    productItems[i].style.transition = `transform 0.3s ease`;
+
+    // 이벤트 핸들러 제거
+    productArea[i].removeEventListener("touchmove", onScrollMoveproduct);
+    productArea[i].removeEventListener("mousemove", onScrollMoveproduct);
+    productArea[i].removeEventListener("touchend", onScrollEndproduct);
+    productArea[i].removeEventListener("mouseup", onScrollEndproduct);
+  };
+
+  const onScrollStartproduct = (e) => {
+    startXproduct = getClientXproduct(e);
+    listXproduct = getTranslateXproduct();
+
+    productArea[i].addEventListener("touchmove", onScrollMoveproduct);
+    productArea[i].addEventListener("mousemove", onScrollMoveproduct);
+    productArea[i].addEventListener("touchend", onScrollEndproduct);
+    productArea[i].addEventListener("mouseup", onScrollEndproduct);
+  };
+
+  window.addEventListener("resize", () => {
+    if (window.innerWidth < 1050) {
+      productArea[i].addEventListener("touchstart", onScrollStartproduct);
+      productArea[i].addEventListener("mousedown", onScrollStartproduct);
+    } else {
+      productArea[i].removeEventListener("touchstart", onScrollStartproduct);
+      productArea[i].removeEventListener("mousedown", onScrollStartproduct);
+      productArea[i].removeEventListener("touchmove", onScrollMoveproduct);
+      productArea[i].removeEventListener("mousemove", onScrollMoveproduct);
+      productArea[i].removeEventListener("touchend", onScrollEndproduct);
+      productArea[i].removeEventListener("mouseup", onScrollEndproduct);
+      setTranslateXproduct(0); // 초기화
+    }
+  });
+
+  if (window.innerWidth < 1050) {
+    productArea[i].addEventListener("touchstart", onScrollStartproduct);
+    productArea[i].addEventListener("mousedown", onScrollStartproduct);
+  }
+};
+
+for (let i = 0; i < productArea.length; i++) {
+  productSlide(i);
+}
