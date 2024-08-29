@@ -36,6 +36,13 @@ li {
   }
 }
 
+// input:-webkit-autofill {
+//   -webkit-box-shadow: 0 0 0 1000px white inset;
+//   &.active {
+//     -webkit-box-shadow: 0 0 0 1000px #f9c9d4 inset;
+//   }
+// }
+
 #join_container {
   font: normal 16px/1 "Noto Sans KR", sans-serif;
   width: 1080px;
@@ -246,24 +253,6 @@ li {
                   }
                 }
               }
-              // &.essenBoxs2 {
-              //   #email {
-              //     background: map-get($color, submitTop);
-              //     color: map-get($font-color, font-light);
-              //     option {
-              //       background: map-get($color, light);
-              //     }
-              //   }
-              //   .hiddenS {
-              //     #emailDr {
-              //       background: map-get($color, submitTop);
-              //       color: map-get($font-color, font-light);
-              //     }
-              //   }
-              //   #userEmail {
-              //     background-color: transparent;
-              //   }
-              // }
             }
             /*phone*/
             .checkBtn {
@@ -494,14 +483,6 @@ li {
               font-weight: normal;
               color: map-get($font-color, font-line);
             }
-            // &.essenAgrees,
-            // .active {
-            //   color: map-get($font-color, font-red);
-            //   b {
-            //     font-weight: normal;
-            //     color: map-get($font-color, font-red);
-            //   }
-            // }
           }
         }
         .tapmodal {

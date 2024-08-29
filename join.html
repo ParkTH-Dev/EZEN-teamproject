@@ -215,7 +215,7 @@
             <h4><span class="star">*</span>필수입력사항</h4>
           </div>
           <main id="main">
-            <form action="http://127.0.0.1:5500" method="get">
+            <form>
               <!-------top join private----->
               <ul id="private">
                 <!--id-->
@@ -228,7 +228,6 @@
                     <input
                       type="text"
                       name="userId"
-                      class="essenBoxs"
                       id="userId"
                       placeholder="아이디를 입력해주세요"
                     />
@@ -250,7 +249,6 @@
                     <input
                       type="password"
                       name="userpw"
-                      class="essenBoxs"
                       id="userpw"
                       placeholder="비밀번호를 입력해주세요"
                     />
@@ -272,7 +270,6 @@
                     <input
                       type="password"
                       name="pwCheck"
-                      class="essenBoxs"
                       id="pwCheck"
                       placeholder="비밀번호를 한번 더 입력해주세요"
                     />
@@ -294,7 +291,6 @@
                     <input
                       type="text"
                       name="userName"
-                      class="essenBoxs"
                       id="userName"
                       placeholder="이름을 입력해주세요"
                     />
@@ -312,20 +308,19 @@
                     이메일
                     <span class="star">*</span>
                   </div>
-                  <div class="emailTwo essenBoxs">
+                  <div class="emailTwo">
                     <div>
                       <input
                         type="text"
                         name="userEmail"
                         id="userEmail"
-                        class="essenBoxs"
                         placeholder="예:marketkurly"
                       />
                     </div>
                     <!--email two td-->
                     <div>
                       <div>@</div>
-                      <select name="email" class="essenBoxs" id="email">
+                      <select name="email" id="email">
                         <option class="domain" value="none" selected disabled>
                           선택하기
                         </option>
@@ -345,12 +340,7 @@
                         <option class="domain" value="direct">직접입력</option>
                       </select>
                       <div class="hiddenS">
-                        <input
-                          type="text"
-                          name="emailDr"
-                          class="essenBoxs"
-                          id="emailDr"
-                        />
+                        <input type="text" name="emailDr" id="emailDr" />
                       </div>
                     </div>
                   </div>
@@ -371,7 +361,6 @@
                     <input
                       type="text"
                       name="userPhon"
-                      class="essenBoxs"
                       id="userPhon"
                       placeholder="숫자만 입력해주세요"
                     />
@@ -397,7 +386,6 @@
                     <input
                       type="text"
                       name="userNumCheck"
-                      class="essenBoxs"
                       id="userNumCheck"
                       placeholder="인증번호를 입력해주세요"
                     />
@@ -422,7 +410,7 @@
                   </div>
                   <div>
                     <button
-                      class="address essenBoxs"
+                      class="address"
                       type="button"
                       onclick="sample6_execDaumPostcode()"
                     >
@@ -645,9 +633,9 @@
                             ></path>
                           </svg>
                         </div>
-                        <span class="essenAgrees"
+                        <span class="termsCheckText"
                           >이용약관 동의
-                          <b>(필수)</b>
+                          <b class="termsCheckText2">(필수)</b>
                         </span>
                       </label>
                       <div class="tapmodal">
@@ -690,9 +678,9 @@
                             ></path>
                           </svg>
                         </div>
-                        <span class="essenAgrees"
+                        <span class="privateCheckText"
                           >개인정보 수집·이용동의
-                          <b>(필수)</b>
+                          <b class="privateCheckText2">(필수)</b>
                         </span>
                       </label>
                       <div class="tapmodal">
@@ -858,12 +846,12 @@
                     <li>
                       <input
                         type="checkbox"
-                        name="14Age"
-                        id="14Age"
+                        name="A14Age"
+                        id="A14Age"
                         class="checkElement"
                       />
-                      <label for="14Age">
-                        <div class="checkIcon 14Age">
+                      <label for="A14Age">
+                        <div class="checkIcon A14Age">
                           <svg
                             width="24"
                             height="24"
@@ -885,9 +873,9 @@
                             ></path>
                           </svg>
                         </div>
-                        <span class="essenAgrees active"
+                        <span class="A14AgeText"
                           >본인은 만 14세 이상입니다.
-                          <b>(필수)</b>
+                          <b class="A14AgeText2">(필수)</b>
                         </span>
                       </label>
                     </li>

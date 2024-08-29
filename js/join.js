@@ -9,12 +9,16 @@ const userId = document.querySelector("#userId");
 const userpw = document.querySelector("#userpw");
 const pwCheck = document.querySelector("#pwCheck");
 const userName = document.querySelector("#userName");
+//
+const emailTwo = document.querySelector(".emailTwo");
 const userEmail = document.getElementById("userEmail");
 const emailselect = document.getElementById("email");
 const emailDirectInput = document.getElementById("emailDr");
+//
 const hiddenS = document.querySelector(".hiddenS");
 const directOptionValue = "direct";
 const userPhon = document.querySelector("#userPhon");
+const userNumCheck = document.querySelector("#userNumCheck");
 const checkBtn = document.querySelector(".checkBtn");
 const invite = document.querySelector("#invite");
 const participationE = document.querySelector("#participationE");
@@ -34,19 +38,24 @@ const tapModal4 = document.querySelector(".tapModal4");
 const modalText = document.querySelector(".modalText");
 
 //------------------오토 넘버
-const userNumCheck = document.querySelector("#userNumCheck");
 const numCheckBtn = document.querySelector(".numCheckBtn");
 const timeset = document.querySelector(".timeset");
+//------------------ 하단 필수 체크
+const inputChs = document.querySelectorAll('input[type="checkbox"]');
+const termsCheck = document.querySelector("#termsCheck");
+const privateCheck = document.querySelector("#privateCheck");
+const b14Age = document.querySelector("#A14Age");
+//
 //------------submit------------
-const emailTwo = document.querySelector(".emailTwo");
+const address = document.querySelector(".address");
+
 const essenBoxs = document.querySelectorAll(".essenBoxs");
 const essenAgrees = document.querySelectorAll(".essenAgrees");
-// emaile // adress ==>가상클래스이다.
 const essenBoxs2 = document.querySelectorAll(".essenBoxs2");
+const detail = document.getElementById("sample6_detailAddress");
+const saAdress = document.getElementById("sample6_address");
 //--submit check array
 let submitList = [];
-console.log(submitList);
-
 function checkarrMinus(mainArr, arrayE) {
   if (mainArr.includes(arrayE))
     for (let i = 0; i < mainArr.length; i++) {
@@ -59,131 +68,103 @@ function checkarrMinus(mainArr, arrayE) {
 //-----------top -----------------//
 
 ////-------------각요소 조건
-//아이디 //idSucc
+//id
 userId.addEventListener("change", function () {
   const idErr = /^[a-zA-Z0-9]{6,16}$/g;
   const idIn = document.querySelector(".iderr");
-  userId.classList.remove("essenBoxs");
+  checkarrMinus(submitList, "userId");
   if (userId.value === "") {
     idIn.innerText = "";
-    userId.classList.add("essenBoxs");
-    checkarrMinus(submitList, "idSucc");
-    console.log(submitList);
+    // userId.classList.add("essenBoxs");
+    checkarrMinus(submitList, "userId");
   } else if (!idErr.test(userId.value)) {
     idIn.innerText = "6자 이상 16자 이하의 영문과 숫자를 조합만 가능합니다.";
-    userId.classList.add("essenBoxs");
-    checkarrMinus(submitList, "idSucc");
-    console.log(submitList);
+    checkarrMinus(submitList, "userId");
   } else {
     idIn.innerText = "";
-    submitList.push("idSucc");
-    userId.classList.remove("essenBoxs");
-    console.log(submitList);
+    submitList.push("userId");
   }
 });
 
-//----pass // paSucc
+//----pass //
 userpw.addEventListener("change", function () {
   const pwErr = /^[a-zA-Z0-9`~!@#$%^&*()-_=+]{10,}$/g;
   const passIn = document.querySelector(".passerr");
-  userpw.classList.remove("essenBoxs");
-  checkarrMinus(submitList, "paSucc");
+  // checkarrMinus(submitList, "userpw");
   if (userpw.value === "") {
     passIn.innerText = "";
-    userpw.classList.add("essenBoxs");
-    checkarrMinus(submitList, "paSucc");
+    checkarrMinus(submitList, "userpw");
     console.log(submitList);
   } else if (!pwErr.test(userpw.value)) {
     passIn.innerText = "10자 이상에 영문 숫자 특수문자 조합만 가능합니다.";
-    userpw.classList.add("essenBoxs");
-    checkarrMinus(submitList, "paSucc");
+    checkarrMinus(submitList, "userpw");
     console.log(submitList);
   } else {
     passIn.innerText = "";
-    submitList.push("paSucc");
-    console.log(submitList);
+    submitList.push("userpw");
   }
 });
 
 //----pass2 //pd2Succ
 pwCheck.addEventListener("change", function () {
   const pass2In = document.querySelector(".pw2err");
-  pwCheck.classList.remove("essenBoxs");
   submitList.pop();
   if (pwCheck.value === "") {
-    pass2In.innerText = "";
-    pwCheck.classList.add("essenBoxs");
-    checkarrMinus(submitList, "pd2Succ");
+    checkarrMinus(submitList, "pwCheck");
     console.log(submitList);
   } else if (pwCheck.value === userpw.value) {
     pass2In.innerText = "";
-    submitList.push("success");
-    submitList.push("pd2Succ");
+    submitList.push("pwCheck");
     console.log(submitList);
   } else {
     pass2In.innerText = "동일한 비밀번호 입력해주세요.";
-    pwCheck.classList.add("essenBoxs");
-    checkarrMinus(submitList, "pd2Succ");
+    checkarrMinus(submitList, "pwCheck");
     console.log(submitList);
   }
 });
 
-//----name // nameSucc
+//----name // userName
 userName.addEventListener("change", function () {
   const nameIn = document.querySelector(".nameErr");
   const nameErr = /^[가-힣a-zA-Z]+$/g;
-  userName.classList.remove("essenBoxs");
   if (userName.value === "") {
     nameIn.innerText = "";
-    userName.classList.add("essenBoxs");
-    checkarrMinus(submitList, "nameSucc");
+    checkarrMinus(submitList, "userName");
     console.log(submitList);
   } else if (!nameErr.test(userName.value)) {
     nameIn.innerText = "이름을 확인해주세요.";
-    userName.classList.add("essenBoxs");
-    checkarrMinus(submitList, "nameSucc");
+    checkarrMinus(submitList, "userName");
     console.log(submitList);
   } else {
     nameIn.innerText = "";
-    submitList.push("nameSucc");
+    submitList.push("userName");
     console.log(submitList);
   }
 });
 
 //----email//emailSucc = emailS + inputS + selectS ==>2개이상
 let emailSucc = [];
-//이메일과 인풋 둘 다 ㅎ값이 확인되면 최종적으로 emailSucc값을 submitList로 조내자.
-//조건이 더 필요하네.. 일단 1번. emailS는 필수. 2.inputS 와 selectS 둘 중 하나는 있어야함.
-//2번 조건을 추가한다.  if 를 걸어서.
-//인풋 이 있거나!! 셀렉트가 있을 때 ==> || 를 사용하여 하나만 요건이 맞으면 최종배열에 넣게 하자. 그럼 난 뭘 해야할 까. 어? 그냥 두개를 합치는것도 좋을 거 같은데.?
-//두개를 합쳐보자. inputS + selectS = domainS 로
+//emailS domainS
 
 //직접입력 input Text
 hiddenS.addEventListener("input", () => {
-  checkarrMinus(emailSucc, "domainS");
+  checkarrMinus(submitList, "domainS");
   if (hiddenS.value === "") {
-    checkarrMinus(emailSucc, "domainS");
-    console.log(emailSucc);
-    // if (hiddenS.classList.includes("active"))
-    //   hiddenS.style.background = "#f9c9d4";
-  } else if (hiddenS.value.includes(".")) {
+    checkarrMinus(submitList, "domainS");
   } else {
-    emailSucc.push("domainS");
-    console.log(emailSucc);
+    submitList.push("domainS");
   }
 });
 
 //select 부분
 emailselect.addEventListener("change", function () {
-  checkarrMinus(emailSucc, "domainS");
+  checkarrMinus(submitList, "domainS");
   if (this.value === "direct") {
     hiddenS.classList.add("active");
-    checkarrMinus(emailSucc, "domainS");
-    console.log(emailSucc);
+    checkarrMinus(submitList, "domainS");
   } else {
     hiddenS.classList.remove("active");
-    emailSucc.push("domainS");
-    console.log(emailSucc);
+    submitList.push("domainS");
   }
 });
 
@@ -195,24 +176,27 @@ userEmail.addEventListener("input", function () {
   const atIndex = emailValue.indexOf("@"); // 문자열에서 @의 인덱스 위치
   const emailErr = /^[a-zA-Z0-9/@/.]+$/g;
   const emailIn = document.querySelector(".emailerr");
-  hiddenS.classList.remove("active");
-  emailTwo.classList.remove("essenBoxs");
-  checkarrMinus(emailSucc, "emailS");
-  console.log(emailSucc);
+  checkarrMinus(submitList, "emailS");
+
+  if (emailValue.includes("@") === true) {
+    hiddenS.classList.remove("active");
+  }
   if (emailValue === "") {
     emailIn.innerText = "";
-    emailTwo.classList.add("essenBoxs");
-    checkarrMinus(emailSucc, "emailS");
-    console.log(emailSucc);
+    // emailTwo.classList.add("essenBoxs");
+    checkarrMinus(submitList, "emailS");
   } else if (!emailErr.test(emailValue)) {
     emailIn.innerText = "숫자 또는 영문만 입력 가능합니다.";
-    emailTwo.classList.add("essenBoxs");
-    checkarrMinus(emailSucc, "emailS");
-    console.log(emailSucc);
+    // emailTwo.classList.add("essenBoxs");
+    checkarrMinus(submitList, "emailS");
   } else {
     emailIn.innerText = "";
-    emailSucc.push("emailS");
-    console.log(emailSucc);
+    submitList.push("emailS");
+    if (hiddenS.value === "" && emailselect.value === "none") {
+      checkarrMinus(submitList, "domainS");
+    } else {
+      submitList.push("domainS");
+    }
   }
   //select태그에 들어가는 주소
   if (emailValue.includes("@") === true) {
@@ -249,14 +233,11 @@ userPhon.addEventListener("input", function () {
   const phonIn = document.querySelector(".phonerr");
   const PhonV = userPhon.value;
   const trimPhon = PhonV.replace(/-/g, "");
+  checkarrMinus(submitList, "userPhon");
   if (userPhon.value === "") {
     phonIn.innerText = "";
-    userPhon.classList.add("essenBoxs");
-    userNumCheck.classList.add("essenBoxs");
   } else if (!/^[0][0-9]{9,10}$/.test(trimPhon)) {
     phonIn.innerText = "숫자 10~11자리";
-    userPhon.classList.add("essenBoxs");
-    userNumCheck.classList.add("essenBoxs");
   } else {
     phonIn.innerText = "";
     checkBtn.classList.add("active");
@@ -333,6 +314,8 @@ checkBtn.addEventListener("click", () => {
   numCheckBtn.classList.remove("numDisable");
   timer();
   regularphonCheck();
+  checkarrMinus(submitList, "userPhon");
+  checkarrMinus(submitList, "userNumCheck");
   numCheckBtn.addEventListener("click", () => {
     if (userNumCheck.value === randomNum) {
       modalText.innerText = "인증완료";
@@ -342,7 +325,7 @@ checkBtn.addEventListener("click", () => {
       userPhon.classList.remove("essenBoxs");
       userNumCheck.classList.remove("essenBoxs");
       clear = true;
-      submitList.push("success");
+      submitList.push("userPhon");
       timer();
       clickNumModal();
     } else {
@@ -357,8 +340,10 @@ checkBtn.addEventListener("click", () => {
 });
 
 //----adress
-
+//실행문
 function sample6_execDaumPostcode() {
+  checkarrMinus(submitList, "address");
+  console.log(submitList);
   new daum.Postcode({
     theme: {
       searchBgColor: "#5F0080",
@@ -396,6 +381,46 @@ function sample6_execDaumPostcode() {
       document.getElementById("sample6_detailAddress").focus();
     },
   }).open();
+  detail.addEventListener("change", () => {
+    checkarrMinus(submitList, "address");
+    submitList.push("address");
+    checkarrMinus(submitList, "address2");
+    checkarrMinus(submitList, "address3");
+    if (detail.value === "") {
+      checkarrMinus(submitList, "address2");
+      console.log(submitList);
+    } else {
+      submitList.push("address2");
+      console.log(submitList);
+    }
+    if (saAdress.value === "") {
+      checkarrMinus(submitList, "address3");
+      console.log(submitList);
+    } else {
+      submitList.push("address3");
+      console.log(submitList);
+    }
+  });
+  saAdress.addEventListener("change", () => {
+    checkarrMinus(submitList, "address");
+    submitList.push("address");
+    checkarrMinus(submitList, "address2");
+    checkarrMinus(submitList, "address3");
+    if (detail.value === "") {
+      checkarrMinus(submitList, "address2");
+      console.log(submitList);
+    } else {
+      submitList.push("address2");
+      console.log(submitList);
+    }
+    if (saAdress.value === "") {
+      checkarrMinus(submitList, "address3");
+      console.log(submitList);
+    } else {
+      submitList.push("address3");
+      console.log(submitList);
+    }
+  });
 }
 
 //----birth
@@ -450,14 +475,6 @@ inviteText.addEventListener("keyup", () => {
   } else {
     document.querySelector(".IdEvftn").classList.add("active");
   }
-});
-
-//--------bottom checkbox --------//
-
-const submit = document.querySelector(".mainBtn");
-
-submit.addEventListener("click", (e) => {
-  e.preventDefault();
 });
 
 //--------bottom checkbox --------//
@@ -565,16 +582,111 @@ function checkHandler(all, element) {
   });
 }
 
+//체크 확인용
+inputChs.forEach((inputCh) => {
+  inputCh.addEventListener("change", () => {
+    checkarrMinus(submitList, "termsCheck");
+    checkarrMinus(submitList, "privateCheck");
+    checkarrMinus(submitList, "b14Age");
+    if (termsCheck.checked === true) submitList.push("termsCheck");
+    if (privateCheck.checked === true) submitList.push("privateCheck");
+    if (b14Age.checked === true) submitList.push("b14Age");
+    console.log(submitList);
+  });
+});
 //--------submit-------------------//
+const style = (Elet) => {
+  Elet.style.backgroundColor = "#f9c9d4";
+};
+const styleNone = (Elet) => {
+  Elet.style.backgroundColor = "";
+};
+
+const subColor = (elementN, variN) => {
+  if (submitList.includes(elementN)) {
+    styleNone(variN);
+  } else {
+    style(variN);
+  }
+};
+
+const redalert = function () {
+  subColor("userId", userId);
+  subColor("userpw", userpw);
+  subColor("pwCheck", pwCheck);
+  subColor("userName", userName);
+  subColor("userName", userName);
+  if (submitList.includes("domainS") && submitList.includes("emailS")) {
+    styleNone(emailTwo);
+    styleNone(userEmail);
+    styleNone(emailselect);
+    styleNone(emailDirectInput);
+  } else {
+    style(emailTwo);
+    style(userEmail);
+    style(emailselect);
+    style(emailDirectInput);
+  }
+  if (submitList.includes("userPhon")) {
+    styleNone(userPhon);
+    styleNone(userNumCheck);
+  } else {
+    style(userPhon);
+    style(userNumCheck);
+  }
+  if (
+    submitList.includes("address") &&
+    submitList.includes("address2") &&
+    submitList.includes("address3")
+  ) {
+    styleNone(address);
+    styleNone(detail);
+    styleNone(saAdress);
+  } else {
+    style(address);
+    style(detail);
+    style(saAdress);
+  }
+  //bottom
+  if (submitList.includes("termsCheck")) {
+    document.querySelector(".termsCheckText").style.color = "#727272";
+    document.querySelector(".termsCheckText2").style.color = "#727272";
+  } else {
+    document.querySelector(".termsCheckText").style.color = "#ef7793";
+    document.querySelector(".termsCheckText2").style.color = "#ef7793";
+  }
+  if (submitList.includes("privateCheck")) {
+    document.querySelector(".privateCheckText").style.color = "#727272";
+    document.querySelector(".privateCheckText2").style.color = "#727272";
+  } else {
+    document.querySelector(".privateCheckText").style.color = "#ef7793";
+    document.querySelector(".privateCheckText2").style.color = "#ef7793";
+  }
+  if (submitList.includes("b14Age")) {
+    document.querySelector(".A14AgeText").style.color = "#727272";
+    document.querySelector(".A14AgeText2").style.color = "#727272";
+  } else {
+    document.querySelector(".A14AgeText").style.color = "#ef7793";
+    document.querySelector(".A14AgeText2").style.color = "#ef7793";
+  }
+};
+
 mainBtn.addEventListener("click", (e) => {
   e.preventDefault();
-  essenBoxs.forEach((essenBox) => {
-    if (essenBox.classList.contains("essenBoxs"))
-      essenBox.style.backgroundColor = "#f9c9d4";
-    else {
-      essenBox.style.backgroundColor = "inherit";
-    }
-  });
+  //top
+  redalert();
+  console.log(submitList);
+  if (submitList.length === 12) {
+    modalText.innerText = "환영합니다.";
+    modalBase.style.display = "block";
+    document.body.style.overflow = "hidden";
+    tapModal4.style.display = "block";
+  } else {
+    modalText.innerText = "필수요소를 확인해주세요.";
+    modalBase.style.display = "block";
+    document.body.style.overflow = "hidden";
+    tapModal4.style.display = "block";
+  }
 });
 
 //-----------
