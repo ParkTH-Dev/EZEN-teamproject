@@ -20,6 +20,10 @@ li {
   overflow: hidden;
 }
 
+input:-webkit-autofill {
+  -webkit-transition: background 10000s ease-in-out 0s;
+}
+
 #join_container {
   font: normal 16px/1 "Noto Sans KR", sans-serif;
   width: 1080px;
@@ -199,6 +203,7 @@ li {
 #join_container .join_inner #main form #private li .emailTwo > div:nth-child(1) input {
   height: 36px;
   border: none;
+  color: #727272;
 }
 #join_container .join_inner #main form #private li .emailTwo > div:nth-child(2) {
   display: flex;
@@ -595,6 +600,7 @@ li {
 }
 .modalBase .modalInner .HModal.tapModal4 {
   height: 200px;
+  width: 350px;
   display: none;
 }
 .modalBase .modalInner .HModal.tapModal4 .frame {

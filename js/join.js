@@ -65,6 +65,7 @@ function checkarrMinus(mainArr, arrayE) {
       }
     }
 }
+
 //-----------top -----------------//
 
 ////-------------각요소 조건
@@ -90,7 +91,7 @@ userId.addEventListener("change", function () {
 userpw.addEventListener("change", function () {
   const pwErr = /^[a-zA-Z0-9`~!@#$%^&*()-_=+]{10,}$/g;
   const passIn = document.querySelector(".passerr");
-  // checkarrMinus(submitList, "userpw");
+  checkarrMinus(submitList, "userpw");
   if (userpw.value === "") {
     passIn.innerText = "";
     checkarrMinus(submitList, "userpw");
@@ -111,15 +112,12 @@ pwCheck.addEventListener("change", function () {
   submitList.pop();
   if (pwCheck.value === "") {
     checkarrMinus(submitList, "pwCheck");
-    console.log(submitList);
   } else if (pwCheck.value === userpw.value) {
     pass2In.innerText = "";
     submitList.push("pwCheck");
-    console.log(submitList);
   } else {
     pass2In.innerText = "동일한 비밀번호 입력해주세요.";
     checkarrMinus(submitList, "pwCheck");
-    console.log(submitList);
   }
 });
 
@@ -130,37 +128,35 @@ userName.addEventListener("change", function () {
   if (userName.value === "") {
     nameIn.innerText = "";
     checkarrMinus(submitList, "userName");
-    console.log(submitList);
   } else if (!nameErr.test(userName.value)) {
     nameIn.innerText = "이름을 확인해주세요.";
     checkarrMinus(submitList, "userName");
-    console.log(submitList);
   } else {
     nameIn.innerText = "";
     submitList.push("userName");
-    console.log(submitList);
   }
 });
 
 //----email//emailSucc = emailS + inputS + selectS ==>2개이상
-let emailSucc = [];
 //emailS domainS
 
-//직접입력 input Text
+// 직접입력 input Text
 hiddenS.addEventListener("input", () => {
   checkarrMinus(submitList, "domainS");
-  if (hiddenS.value === "") {
+  if (emailDirectInput.value === "") {
     checkarrMinus(submitList, "domainS");
   } else {
     submitList.push("domainS");
   }
 });
 
-//select 부분
-emailselect.addEventListener("change", function () {
+// select 부분
+emailselect.addEventListener("click", function () {
   checkarrMinus(submitList, "domainS");
   if (this.value === "direct") {
     hiddenS.classList.add("active");
+    checkarrMinus(submitList, "domainS");
+  } else if (this.value === "none") {
     checkarrMinus(submitList, "domainS");
   } else {
     hiddenS.classList.remove("active");
@@ -183,16 +179,14 @@ userEmail.addEventListener("input", function () {
   }
   if (emailValue === "") {
     emailIn.innerText = "";
-    // emailTwo.classList.add("essenBoxs");
     checkarrMinus(submitList, "emailS");
   } else if (!emailErr.test(emailValue)) {
     emailIn.innerText = "숫자 또는 영문만 입력 가능합니다.";
-    // emailTwo.classList.add("essenBoxs");
     checkarrMinus(submitList, "emailS");
   } else {
     emailIn.innerText = "";
     submitList.push("emailS");
-    if (hiddenS.value === "" && emailselect.value === "none") {
+    if (emailDirectInput.value === "" && emailselect.value === "none") {
       checkarrMinus(submitList, "domainS");
     } else {
       submitList.push("domainS");

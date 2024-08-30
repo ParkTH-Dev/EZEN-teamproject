@@ -36,12 +36,10 @@ li {
   }
 }
 
-// input:-webkit-autofill {
-//   -webkit-box-shadow: 0 0 0 1000px white inset;
-//   &.active {
-//     -webkit-box-shadow: 0 0 0 1000px #f9c9d4 inset;
-//   }
-// }
+input:-webkit-autofill {
+  // -webkit-box-shadow: 0 0 0 1000px white inset;
+  -webkit-transition: background 10000s ease-in-out 0s;
+}
 
 #join_container {
   font: normal 16px/1 "Noto Sans KR", sans-serif;
@@ -210,6 +208,7 @@ li {
                   input {
                     height: 36px;
                     border: none;
+                    color: map-get($font-color, font-light);
                   }
                 }
                 &:nth-child(2) {
@@ -634,6 +633,7 @@ li {
       }
       &.tapModal4 {
         height: 200px;
+        width: 350px;
         display: none;
         .frame {
           width: 100%;
