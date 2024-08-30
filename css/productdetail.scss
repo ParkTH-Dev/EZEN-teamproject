@@ -10,6 +10,10 @@ $color: (
   point5-color: #a864d8,
   point6-color: #faf4ff,
 );
+html {
+  scroll-padding-top: 250px;
+  scroll-behavior: smooth;
+}
 // header
 header {
   position: relative;
@@ -69,9 +73,6 @@ header {
             font-size: 18px;
             color: map-get($color, main-color);
             font-weight: 500;
-          }
-          a {
-            display: none;
           }
           & > img:nth-child(2) {
             display: none;
@@ -236,6 +237,27 @@ header {
   .inner {
     width: 1050px;
     height: 100%;
+    position: relative;
+    .topButton {
+      position: fixed;
+      bottom: 100px;
+      right: 50px;
+      font-size: 35px;
+      color: map-get($color, main-color);
+      opacity: 0;
+      transition: all 0.3s;
+      .fa-circle-arrow-up {
+        background: #fff;
+        border-radius: 50%;
+      }
+      &:hover {
+        scale: 1.2;
+      }
+      &.active {
+        opacity: 1;
+        bottom: 50px;
+      }
+    }
     .mobile_header {
       display: none;
     }
@@ -254,19 +276,11 @@ header {
           border-radius: 6px;
           object-fit: cover;
         }
-        .slide_num {
-          position: absolute;
-          bottom: 20px;
-          right: 20px;
-          background-color: #fff;
-          padding: 5px 14px;
-          border-radius: 34px;
-        }
       }
       .info_desc {
         width: 556px;
         .desc_header {
-          margin-bottom: 44px;
+          margin-bottom: 34px;
           display: flex;
           align-items: center;
           justify-content: space-between;
@@ -290,6 +304,11 @@ header {
               h1 {
                 font-size: 24px;
                 font-weight: 500;
+                margin-bottom: 10px;
+              }
+              h4 {
+                font-weight: normal;
+                color: #999;
               }
             }
           }
@@ -425,7 +444,6 @@ header {
               display: flex;
               justify-content: space-between;
               align-items: center;
-
               .quantity {
                 border: 1px solid #ddd;
                 border-radius: 3px;
@@ -433,6 +451,13 @@ header {
                 padding: 3px 0;
                 display: flex;
                 justify-content: space-around;
+                span {
+                  padding: 0 10px;
+                }
+                .counterMinus,
+                .counterPlus {
+                  cursor: pointer;
+                }
               }
               & > .price {
                 display: flex;
@@ -499,6 +524,11 @@ header {
             color: map-get($color, main-color);
             transition: all 0.3s;
             &:hover {
+              background-color: map-get($color, main-color);
+              border: 1px solid map-get($color, main-color);
+              color: #fff;
+            }
+            &.active {
               background-color: map-get($color, main-color);
               border: 1px solid map-get($color, main-color);
               color: #fff;
@@ -605,38 +635,78 @@ header {
     }
     .top_review {
       margin-bottom: 20px;
-      width: 100%;
-      height: 100%;
+      width: 1050px;
+      height: 130px;
+      position: relative;
+      // overflow: hidden;
+
       .review_wrap {
+        width: 100%;
+        height: 100%;
+        // position: absolute;
+        // top: 0;
+        // left: 0;
         display: flex;
-        & > .item {
-          cursor: pointer;
-          padding: 10px;
-          width: 340px;
-          border: 2px solid map-get($color, point6-color);
-          display: flex;
-          gap: 21px;
-          font-size: 12px;
-          img {
-            object-fit: cover;
-          }
-          .desc {
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            .userId {
-              color: map-get($color, point3-color);
-            }
-            .like {
+        .slick-list {
+          width: 100%;
+          height: 100%;
+          .slick-track {
+            width: 100%;
+            height: 100%;
+            .item {
+              width: 33.33%;
+              height: 100%;
+              cursor: pointer;
+              padding: 0 10px;
+              border: 2px solid map-get($color, point6-color);
               display: flex;
+              gap: 21px;
+              font-size: 12px;
               align-items: center;
-              justify-content: flex-end;
-              color: #999;
-              font-size: 10px;
-              & > div {
-                border: 1px solid #ddd;
-                padding: 2px 5px;
-                border-radius: 23px;
+              .slide-img {
+                flex: 1;
+                display: flex;
+                width: 101px;
+                height: 95px;
+                img {
+                  border-radius: 5px;
+                  object-fit: cover;
+                  width: 100%;
+                  height: 100%;
+                }
+              }
+
+              .desc {
+                flex: 2.3;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+                gap: 5px;
+                .userId {
+                  color: map-get($color, point3-color);
+                }
+                & > p {
+                  width: 200px;
+                  text-overflow: ellipsis;
+                  overflow: hidden;
+                  line-height: 1.2;
+                  height: 1.9rem;
+                  word-wrap: break-word;
+                  display: -webkit-box;
+                  -webkit-box-orient: vertical;
+                }
+                .like {
+                  display: flex;
+                  align-items: center;
+                  justify-content: flex-end;
+                  color: #999;
+                  font-size: 10px;
+                  & > div {
+                    border: 1px solid #ddd;
+                    padding: 2px 5px;
+                    border-radius: 23px;
+                  }
+                }
               }
             }
           }
@@ -662,7 +732,17 @@ header {
         justify-content: center;
         align-items: center;
         font-size: 16px;
-        &:first-child {
+        a {
+          width: 100%;
+          height: 100%;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+        }
+        &:nth-child(1).active,
+        &:nth-child(2).active,
+        &:nth-child(3).active,
+        &:nth-child(4).active {
           border: 1px solid map-get($color, main-color);
           background-color: map-get($color, main-color);
           color: #fff;
@@ -676,6 +756,7 @@ header {
       text-align: center;
       margin-bottom: 9px;
       & > img {
+        width: 1050px;
         object-fit: cover;
         &:last-child {
           display: none;
@@ -831,6 +912,8 @@ header {
             border-radius: 0 6px 6px 0;
           }
           img {
+            width: 126px;
+            height: 126px;
             object-fit: cover;
           }
           &:last-child {
@@ -845,8 +928,8 @@ header {
               justify-content: center;
               align-items: center;
               color: #fff;
-              width: 100%;
-              height: 100%;
+              width: 126px;
+              height: 126px;
               position: absolute;
               top: 0;
               left: 0;
@@ -867,10 +950,9 @@ header {
             align-items: center;
             font-size: 12px;
             & > span {
+              cursor: pointer;
               font-size: 16px;
-              &:last-child {
-                color: #b5b5b5;
-              }
+              color: #b5b5b5;
             }
           }
         }
@@ -1155,6 +1237,13 @@ footer {
       flex-direction: column;
       justify-content: center;
       align-items: center;
+      .topButton {
+        right: 30px;
+        font-size: 40px;
+        &.active {
+          bottom: 30px;
+        }
+      }
       .mobile_header {
         background: #fff;
         display: flex;
@@ -1172,6 +1261,12 @@ footer {
             a {
               color: map-get($color, main-color);
               cursor: pointer;
+            }
+            .mobileHeaderTitle {
+              padding: 0 10px;
+              text-overflow: ellipsis;
+              overflow: hidden;
+              white-space: nowrap;
             }
 
             & > div {
@@ -1265,17 +1360,20 @@ footer {
         }
       }
       .top_review {
-        position: relative;
         height: 100px;
         width: 390px;
-        overflow: hidden;
-        padding-left: 10px;
+        padding: 0 10px;
         margin-bottom: 0;
         .review_wrap {
-          position: absolute;
-          & > .item {
-            height: 100px;
-            width: 300px;
+          .slick-list {
+            .slick-track {
+              .item {
+                width: 100%;
+                .slide-img {
+                  padding: 10px 0;
+                }
+              }
+            }
           }
         }
       }
@@ -1289,12 +1387,16 @@ footer {
           background: #fff;
           color: #b5b5b5;
           font-weight: 500;
-          &:first-child {
+          &:nth-child(1).active,
+          &:nth-child(2).active,
+          &:nth-child(3).active,
+          &:nth-child(4).active {
+            border: none;
+            border-bottom: 1.5px solid map-get($color, main-color);
             background: #fff;
             color: map-get($color, main-color);
-            border: none;
-            border-bottom: 1px solid map-get($color, main-color);
           }
+
           &:last-child {
             border-right: none;
           }
