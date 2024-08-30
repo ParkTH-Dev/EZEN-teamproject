@@ -22,15 +22,15 @@ $(document).ready(function () {
     ],
   });
 });
+const cartRecItem = document.querySelectorAll(
+  ".cart-rec-item:not(.slick-cloned)"
+);
+const cartRecImg = document.querySelector(".cart-rec-img");
 
 const productInfo = ".././json/db.json";
 fetch(productInfo)
   .then((response) => response.json())
   .then((data) => {
-    const cartRecItem = document.querySelectorAll(
-      ".cart-rec-item:not(.slick-cloned)"
-    );
-
     cartRecItem.forEach((item, index) => {
       // console.log(item, index);
       if (data.products[index]) {
@@ -45,7 +45,9 @@ fetch(productInfo)
         item.innerHTML = `
     <div class="cart-rec-item">
               <div class="cart-rec-img">
-                <img src="${product.thumbnail}" />
+                <a href="./productdetail.html?id=${index + 1}">  
+                  <img src="${product.thumbnail}" />
+                </a>
               </div>
               <div class="rec-price-coupon">
                 <span>${product.discount} 세일</span>
@@ -60,7 +62,9 @@ fetch(productInfo)
               <div class="cart_rec_text">
                 <div class="cart_rec_price">
                   <ul class="rec_text01">
+                  <a href="./productdetail.html?id=${index + 1}">  
                     <li>${product.productName}</li>
+                  </a>
                     <strike>${originalPriceKo}원</strike>
                   </ul>
                   <ul class="rec_text02">
@@ -166,12 +170,15 @@ const loadCart = () => {
                 <img src="${product.thumbnail}" />
                 <div class="delivery_mark">
                   <div class="delivery_info">
+                    <span class="frozen-status">${product.frozen}</span>
                     <span class="delivery_text">
                       <i class="fa-solid fa-truck-fast"></i> 샛별배송
                     </span>
                     <span>내일 새벽 도착</span>
                   </div>
+                  <a href="./productdetail.html?id=${product.id}"> 
                   <span>${product.productName}</span>
+                  </a>
                 </div>
               </div>
             </div>
@@ -192,6 +199,16 @@ const loadCart = () => {
           </div>
         </div>
       `;
+
+      // 냉장/냉동 상태에 따른 글자 색상 설정
+      const frozenStatusElement = itemInnerBox.querySelector(
+        `#prozen-item-example[data-index="${index}"] .frozen-status`
+      );
+      if (product.frozen === "냉장") {
+        frozenStatusElement.style.backgroundColor = "#2CAA18"; // 냉장일 경우 초록색
+      } else {
+        frozenStatusElement.style.backgroundColor = "#7897bc"; // 냉동일 경우 파란색
+      }
     });
 
     // 총 금액을 초기화
