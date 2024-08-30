@@ -502,6 +502,7 @@ body {
   border-radius: 15px;
   overflow: hidden;
   height: 475px;
+  cursor: pointer;
 }
 #today_area .today_contents_area .today_item_area .product_img img {
   width: 100%;
@@ -574,6 +575,7 @@ body {
   border-radius: 15px;
   overflow: hidden;
   height: 475px;
+  cursor: pointer;
 }
 #today_area .today_contents_area .today_item_area2 .product_img img {
   width: 100%;
@@ -675,6 +677,7 @@ body {
   overflow: hidden;
   height: 330px;
   position: relative;
+  cursor: pointer;
 }
 .product_list .product_slide_area .product_items .product_item .product_item_img:hover > img {
   transform: scale(103%);

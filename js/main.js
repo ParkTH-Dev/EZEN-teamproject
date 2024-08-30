@@ -345,6 +345,8 @@ window.addEventListener("resize", () => {
 // 초기 페이지 로드 시 화면 크기에 맞게 설정
 if (window.innerWidth < 1050) {
   addCategoryMoveEvents();
+} else {
+  removeCategoryMoveEvents();
 }
 
 //라이브 영역
@@ -546,7 +548,6 @@ const productInfoDetail = (data) => {
 
 const cartinModal = (data) => {
   const productCartin = document.querySelectorAll(".product_cartin");
-  console.log(productCartin);
 
   const modalArea = document.querySelector("#modal_area");
   const productModalImg = document.querySelector(".modal_img");
@@ -554,55 +555,90 @@ const cartinModal = (data) => {
   const productModalSubName = document.querySelector(".modal_subname");
   const productModalPrice = document.querySelector(".modal_discount_price");
   const productModalOriPrice = document.querySelector(".modal_Wprice");
+  const countBtn = document.querySelectorAll(".modal_counter > span");
+  const totalPrice = document.querySelector(".totalprice > span");
 
-  productCartin.forEach((item) => {
+  let p = 1;
+  let currentProductIndex = 0; // 현재 선택된 상품의 인덱스를 추적하는 변수
+
+  productCartin.forEach((item, index) => {
     item.addEventListener("click", () => {
       modalArea.classList.add("active");
+      currentProductIndex = index; // 클릭된 상품의 인덱스 설정
       modalArea.querySelector("#overlay").addEventListener("click", () => {
         modalArea.classList.remove("active");
+        p = 1;
+        countBtn[1].innerText = p;
+        updateTotalPrice(currentProductIndex); // 초기화 시 총 가격 업데이트
       });
       modalArea
         .querySelector(".button_cancle")
         .addEventListener("click", () => {
           modalArea.classList.remove("active");
+          p = 1;
+          countBtn[1].innerText = p;
+          updateTotalPrice(currentProductIndex); // 초기화 시 총 가격 업데이트
         });
     });
   });
 
+  const cartCounter = () => {
+    countBtn[1].innerText = p;
+    countBtn[0].addEventListener("click", () => {
+      if (p > 1) {
+        p--;
+        countBtn[1].innerText = p;
+        updateTotalPrice(currentProductIndex); // 감소 시 총 가격 업데이트
+      } else if (p === 1) {
+        countBtn[1].innerText = p;
+      }
+    });
+    countBtn[2].addEventListener("click", () => {
+      if (p < 99) {
+        p++;
+        countBtn[1].innerText = p;
+        updateTotalPrice(currentProductIndex); // 증가 시 총 가격 업데이트
+      }
+    });
+  };
+
+  cartCounter();
+
+  const cartCounterTotal = (i) => {
+    let price = Number(data.products[i].price.replace(/,| 원/g, ""));
+    let totalPrice = price * p;
+    let result = new Intl.NumberFormat("ko-kr").format(totalPrice);
+    return result;
+  };
+
+  const updateTotalPrice = (i) => {
+    totalPrice.innerText = cartCounterTotal(i);
+  };
+
   productCartin[0].addEventListener("click", () => {
+    currentProductIndex = 0; // 첫 번째 제품의 인덱스 설정
     productModalImg.style.background = `url(${data.products[0].thumbnail}) center/cover no-repeat`;
     productModalName.innerText = data.products[0].productName;
     productModalSubName.innerText = data.products[0].productName;
     productModalPrice.innerText = data.products[0].price;
     productModalOriPrice.innerText = data.products[0].originalPrice;
+    updateTotalPrice(0); // 첫 번째 제품의 총 가격 업데이트
   });
 
-  productCartin[1].addEventListener("click", () => {
-    productModalImg.style.background = `url(${data.products[2].thumbnail}) center/cover no-repeat`;
-    productModalName.innerText = data.products[2].productName;
-    productModalSubName.innerText = data.products[2].productName;
-    productModalPrice.innerText = data.products[2].price;
-    productModalOriPrice.innerText = data.products[2].originalPrice;
-  });
-
-  productCartin[2].addEventListener("click", () => {
-    productModalImg.style.background = `url(${data.products[3].thumbnail}) center/cover no-repeat`;
-    productModalName.innerText = data.products[3].productName;
-    productModalSubName.innerText = data.products[3].productName;
-    productModalPrice.innerText = data.products[3].price;
-    productModalOriPrice.innerText = data.products[3].originalPrice;
-  });
-
-  let n = 4;
-  for (let i = 3; i < 17; i++) {
-    productCartin[i].addEventListener("click", () => {
-      productModalImg.style.background = `url(${data.products[n].thumbnail}) center/cover no-repeat`;
-      productModalName.innerText = data.products[n].productName;
-      productModalSubName.innerText = data.products[n].productName;
-      productModalPrice.innerText = data.products[n].price;
-      productModalOriPrice.innerText = data.products[n].originalPrice;
-      n++;
+  const productCartinModalText = (i) => {
+    productCartin[i - 1].addEventListener("click", () => {
+      currentProductIndex = i; // 현재 선택된 제품의 인덱스 설정
+      productModalImg.style.background = `url(${data.products[i].thumbnail}) center/cover no-repeat`;
+      productModalName.innerText = data.products[i].productName;
+      productModalSubName.innerText = data.products[i].productName;
+      productModalPrice.innerText = data.products[i].price;
+      productModalOriPrice.innerText = data.products[i].originalPrice;
+      updateTotalPrice(i); // 선택된 제품의 총 가격 업데이트
     });
+  };
+
+  for (let i = 1; i < 17; i++) {
+    productCartinModalText(i + 1);
   }
 };
 

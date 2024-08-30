@@ -535,6 +535,7 @@ body {
         border-radius: 15px;
         overflow: hidden;
         height: 475px;
+        cursor: pointer;
         img {
           width: 100%;
           object-fit: cover;
@@ -606,6 +607,7 @@ body {
         border-radius: 15px;
         overflow: hidden;
         height: 475px;
+        cursor: pointer;
         img {
           width: 100%;
           object-fit: cover;
@@ -705,6 +707,7 @@ body {
           overflow: hidden;
           height: 330px;
           position: relative;
+          cursor: pointer;
           &:hover > img {
             transform: scale(103%);
           }
