@@ -86,7 +86,7 @@ refundSecondBtn.addEventListener("click", () => {
 // json
 const productInfo = ".././json/db.json";
 fetch(productInfo)
-  .then((response) => response.json())
+  .then((resoponse) => resoponse.json())
   .then((data) => {
     const params = new URLSearchParams(window.location.search);
     const productId = params.get("id");
