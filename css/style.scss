@@ -6,6 +6,7 @@ body {
   display: flex;
   flex-direction: column;
 }
+
 $color: (
   bg-light-color: #fff,
   main-color: #5f0080,
@@ -237,11 +238,13 @@ header {
 
 // footer
 footer {
+  border: 1px solid #f00;
   width: 100%;
   height: 360px;
-  position: absolute;
-  bottom: 0;
+  position: relative;
   .footer_wrapper {
+    position: absolute;
+    bottom: 0;
     border-top: 1px solid #ddd;
     width: 100%;
     height: 100%;
@@ -282,7 +285,7 @@ footer {
               font-weight: normal;
               transition: all 0.3s;
               &:hover {
-                background: map-get($color, main-color);
+                // background: map-get($color, main-color);
                 color: white;
                 border: 1px solid map-get($color, main-color);
               }

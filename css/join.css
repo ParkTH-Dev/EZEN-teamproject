@@ -20,11 +20,18 @@ li {
   overflow: hidden;
 }
 
+input:-webkit-autofill {
+  -webkit-transition: background 10000s ease-in-out 0s;
+}
+
 #join_container {
   font: normal 16px/1 "Noto Sans KR", sans-serif;
   width: 1080px;
   margin: 0 auto;
   color: #333333;
+}
+#join_container .mobileHeader {
+  display: none;
 }
 #join_container .join_inner {
   display: flex;
@@ -80,14 +87,122 @@ li {
   padding: 10px 16px;
   display: flex;
   line-height: 40px;
+  /*error*/
+  /*address*/
   /*top 1 td*/
   /*top 2 td*/
   /*top 3 td*/
   /*email Two Td*/
+  /*phone*/
+  /*phoneCheck*/
   /*adrass*/
   /*Birth*/
   /*gender*/
   /*invit*/
+}
+#join_container .join_inner #main form #private li.errContainer {
+  height: inherit;
+  padding: inherit;
+  font-size: 0.8rem;
+  line-height: 8px;
+}
+#join_container
+  .join_inner
+  #main
+  form
+  #private
+  li.errContainer
+  > div:nth-child(2) {
+  padding-left: 20px;
+  text-align: start;
+  color: #ef7793;
+  font-weight: 600;
+}
+#join_container .join_inner #main form #private li.addressInner.active {
+  height: 84px;
+}
+#join_container
+  .join_inner
+  #main
+  form
+  #private
+  li.addressInner.active
+  .address {
+  display: none;
+}
+#join_container
+  .join_inner
+  #main
+  form
+  #private
+  li.addressInner.active
+  .addressChange {
+  display: block;
+}
+#join_container
+  .join_inner
+  #main
+  form
+  #private
+  li.addressInner.active
+  .addressChange
+  > div {
+  margin-top: 4px;
+  display: flex;
+  gap: 2px;
+}
+#join_container
+  .join_inner
+  #main
+  form
+  #private
+  li.addressInner.active
+  .addressChange
+  > div
+  #sample6_detailAddress {
+  flex: 3;
+}
+#join_container
+  .join_inner
+  #main
+  form
+  #private
+  li.addressInner.active
+  .addressChange
+  > div
+  #sample6_detailAddress:focus::-moz-placeholder {
+  opacity: 1;
+}
+#join_container
+  .join_inner
+  #main
+  form
+  #private
+  li.addressInner.active
+  .addressChange
+  > div
+  #sample6_detailAddress:focus::placeholder {
+  opacity: 1;
+}
+#join_container
+  .join_inner
+  #main
+  form
+  #private
+  li.addressInner.active
+  .addressChange
+  > div
+  #sample6_extraAddress {
+  flex: 2;
+}
+#join_container
+  .join_inner
+  #main
+  form
+  #private
+  li.addressInner.active
+  .address2 {
+  display: block;
 }
 #join_container .join_inner #main form #private li > div:nth-child(1) {
   width: 150px;
@@ -102,7 +217,7 @@ li {
 }
 #join_container .join_inner #main form #private li > div:nth-child(3) > input {
   width: 80%;
-  height: 40px;
+  height: 38px;
   margin-right: 10px;
   line-height: 10px;
   background: #fff;
@@ -111,12 +226,8 @@ li {
   border: 1px solid #c5c5c5;
   border-radius: 4px;
 }
-#join_container .join_inner #main form #private li > div:nth-child(3) > input .action {
-  color: #5f0080;
-  border: 1px solid #5f0080;
-  border-radius: 4px;
-}
-#join_container .join_inner #main form #private li input[type=text], #join_container .join_inner #main form #private li input[type=password] {
+#join_container .join_inner #main form #private li input[type="text"],
+#join_container .join_inner #main form #private li input[type="password"] {
   width: 100%;
   height: 40px;
   outline: none;
@@ -124,17 +235,69 @@ li {
   border-radius: 4px;
   padding-left: 10px;
 }
-#join_container .join_inner #main form #private li input[type=text]::-moz-placeholder, #join_container .join_inner #main form #private li input[type=password]::-moz-placeholder {
+#join_container
+  .join_inner
+  #main
+  form
+  #private
+  li
+  input[type="text"]::-moz-placeholder,
+#join_container
+  .join_inner
+  #main
+  form
+  #private
+  li
+  input[type="password"]::-moz-placeholder {
   -moz-transition: all 0.3s;
   transition: all 0.3s;
 }
-#join_container .join_inner #main form #private li input[type=text]::placeholder, #join_container .join_inner #main form #private li input[type=password]::placeholder {
+#join_container
+  .join_inner
+  #main
+  form
+  #private
+  li
+  input[type="text"]::placeholder,
+#join_container
+  .join_inner
+  #main
+  form
+  #private
+  li
+  input[type="password"]::placeholder {
   transition: all 0.3s;
 }
-#join_container .join_inner #main form #private li input[type=text]:focus::-moz-placeholder, #join_container .join_inner #main form #private li input[type=password]:focus::-moz-placeholder {
+#join_container
+  .join_inner
+  #main
+  form
+  #private
+  li
+  input[type="text"]:focus::-moz-placeholder,
+#join_container
+  .join_inner
+  #main
+  form
+  #private
+  li
+  input[type="password"]:focus::-moz-placeholder {
   opacity: 0;
 }
-#join_container .join_inner #main form #private li input[type=text]:focus::placeholder, #join_container .join_inner #main form #private li input[type=password]:focus::placeholder {
+#join_container
+  .join_inner
+  #main
+  form
+  #private
+  li
+  input[type="text"]:focus::placeholder,
+#join_container
+  .join_inner
+  #main
+  form
+  #private
+  li
+  input[type="password"]:focus::placeholder {
   opacity: 0;
 }
 #join_container .join_inner #main form #private li .emailTwo {
@@ -149,22 +312,53 @@ li {
 #join_container .join_inner #main form #private li .emailTwo > div {
   flex-grow: 1;
 }
-#join_container .join_inner #main form #private li .emailTwo > div:nth-child(1) {
+#join_container
+  .join_inner
+  #main
+  form
+  #private
+  li
+  .emailTwo
+  > div:nth-child(1) {
   height: 100%;
   width: 100%;
 }
-#join_container .join_inner #main form #private li .emailTwo > div:nth-child(1) input {
+#join_container
+  .join_inner
+  #main
+  form
+  #private
+  li
+  .emailTwo
+  > div:nth-child(1)
+  input {
   height: 36px;
   border: none;
+  color: #727272;
 }
-#join_container .join_inner #main form #private li .emailTwo > div:nth-child(2) {
+#join_container
+  .join_inner
+  #main
+  form
+  #private
+  li
+  .emailTwo
+  > div:nth-child(2) {
   display: flex;
   align-items: center;
   width: 100%;
   height: 100%;
   position: relative;
 }
-#join_container .join_inner #main form #private li .emailTwo > div:nth-child(2) select {
+#join_container
+  .join_inner
+  #main
+  form
+  #private
+  li
+  .emailTwo
+  > div:nth-child(2)
+  select {
   width: 90%;
   right: 0;
   height: 100%;
@@ -173,13 +367,38 @@ li {
   position: absolute;
   color: #727272;
 }
-#join_container .join_inner #main form #private li .emailTwo > div:nth-child(2) select:focus {
+#join_container
+  .join_inner
+  #main
+  form
+  #private
+  li
+  .emailTwo
+  > div:nth-child(2)
+  select:focus {
   outline: none;
 }
-#join_container .join_inner #main form #private li .emailTwo > div:nth-child(2) select option {
+#join_container
+  .join_inner
+  #main
+  form
+  #private
+  li
+  .emailTwo
+  > div:nth-child(2)
+  select
+  option {
   font-size: 1rem;
 }
-#join_container .join_inner #main form #private li .emailTwo > div:nth-child(2) .hiddenS {
+#join_container
+  .join_inner
+  #main
+  form
+  #private
+  li
+  .emailTwo
+  > div:nth-child(2)
+  .hiddenS {
   display: none;
   height: 99%;
   width: 76%;
@@ -187,18 +406,127 @@ li {
   right: 20px;
   top: 0;
 }
-#join_container .join_inner #main form #private li .emailTwo > div:nth-child(2) .hiddenS > input {
+#join_container
+  .join_inner
+  #main
+  form
+  #private
+  li
+  .emailTwo
+  > div:nth-child(2)
+  .hiddenS
+  > input {
   border: none;
   height: 100%;
   border-radius: 0;
+  color: #727272;
 }
-#join_container .join_inner #main form #private li .emailTwo > div:nth-child(2) .hiddenS.active {
+#join_container
+  .join_inner
+  #main
+  form
+  #private
+  li
+  .emailTwo
+  > div:nth-child(2)
+  .hiddenS.active {
   display: block;
   z-index: 2;
+}
+#join_container .join_inner #main form #private li .checkBtn.active {
+  color: #fff;
+  border: 1px solid #5f0080;
+  background: #5f0080;
+  transition: background 0.3s, color 0.3s;
+}
+#join_container .join_inner #main form #private li .checkBtn.active:hover {
+  color: #5f0080;
+  border: 1px solid #5f0080;
+  background: #fff;
+}
+#join_container .join_inner #main form #private li.phoneCheck {
+  display: none;
+}
+#join_container
+  .join_inner
+  #main
+  form
+  #private
+  li.phoneCheck
+  > div:nth-child(2) {
+  position: relative;
+}
+#join_container
+  .join_inner
+  #main
+  form
+  #private
+  li.phoneCheck
+  > div:nth-child(2)
+  .time {
+  position: absolute;
+  top: 2px;
+  right: 10px;
+  color: #ef7793;
+}
+#join_container .join_inner #main form #private li.phoneCheck .numCheckBtn {
+  color: #fff;
+  border: 1px solid #5f0080;
+  background: #5f0080;
+  transition: background 0.3s, color 0.3s;
+}
+#join_container
+  .join_inner
+  #main
+  form
+  #private
+  li.phoneCheck
+  .numCheckBtn:hover {
+  color: #5f0080;
+  border: 1px solid #5f0080;
+  background: #fff;
+}
+#join_container
+  .join_inner
+  #main
+  form
+  #private
+  li.phoneCheck
+  .numCheckBtn.numDisable {
+  width: 80%;
+  height: 38px;
+  margin-right: 10px;
+  line-height: 10px;
+  background: #fff;
+  color: #c5c5c5;
+  font-size: 0.9rem;
+  border: 1px solid #c5c5c5;
+  border-radius: 4px;
 }
 #join_container .join_inner #main form #private li .address {
   width: 100%;
   background: #fff;
+  color: #5f0080;
+  border: 1px solid #5f0080;
+  border-radius: 4px;
+  transition: background 0.3s, color 0.3s, border 0.3s;
+}
+#join_container .join_inner #main form #private li .address:hover {
+  color: #fff;
+  border: 1px solid #5f0080;
+  background: #5f0080;
+}
+#join_container .join_inner #main form #private li .addressChange {
+  display: none;
+}
+#join_container .join_inner #main form #private li .address2 {
+  display: none;
+  width: 80%;
+  height: 40px;
+  margin: 0 8px;
+  line-height: 10px;
+  background: #fff;
+  font-size: 0.9rem;
   color: #5f0080;
   border: 1px solid #5f0080;
   border-radius: 4px;
@@ -226,22 +554,46 @@ li {
   justify-content: center;
   gap: 8px;
 }
-#join_container .join_inner #main form #private li .genders span input[type=radio],
+#join_container
+  .join_inner
+  #main
+  form
+  #private
+  li
+  .genders
+  span
+  input[type="radio"],
 #join_container .join_inner #main form #private li .genders span label {
   cursor: pointer;
 }
-#join_container .join_inner #main form #private li .genders span input[type=radio] {
+#join_container
+  .join_inner
+  #main
+  form
+  #private
+  li
+  .genders
+  span
+  input[type="radio"] {
   cursor: pointer;
   margin-top: 10px;
   -webkit-appearance: none;
-     -moz-appearance: none;
-          appearance: none;
+  -moz-appearance: none;
+  appearance: none;
   border: 1px solid #5f0080;
   border-radius: 50%;
   width: 1.2rem;
   height: 1.2rem;
 }
-#join_container .join_inner #main form #private li .genders span input[type=radio]:checked {
+#join_container
+  .join_inner
+  #main
+  form
+  #private
+  li
+  .genders
+  span
+  input[type="radio"]:checked {
   border: 7px solid #5f0080;
 }
 #join_container .join_inner #main form #private li .Additional {
@@ -253,23 +605,76 @@ li {
   justify-content: center;
   gap: 4px;
 }
-#join_container .join_inner #main form #private li .Additional span input[type=radio],
+#join_container
+  .join_inner
+  #main
+  form
+  #private
+  li
+  .Additional
+  span
+  input[type="radio"],
 #join_container .join_inner #main form #private li .Additional span label {
   cursor: pointer;
 }
-#join_container .join_inner #main form #private li .Additional span input[type=radio] {
+#join_container
+  .join_inner
+  #main
+  form
+  #private
+  li
+  .Additional
+  span
+  input[type="radio"] {
   cursor: pointer;
   margin-top: 8px;
   -webkit-appearance: none;
-     -moz-appearance: none;
-          appearance: none;
+  -moz-appearance: none;
+  appearance: none;
   border: 1px solid #5f0080;
   border-radius: 50%;
   width: 1.2rem;
   height: 1.2rem;
 }
-#join_container .join_inner #main form #private li .Additional span input[type=radio]:checked {
+#join_container
+  .join_inner
+  #main
+  form
+  #private
+  li
+  .Additional
+  span
+  input[type="radio"]:checked {
   border: 7px solid #5f0080;
+}
+#join_container .join_inner #main form #private li.hidden-add {
+  display: none;
+}
+#join_container .join_inner #main form #private li.hidden-add.active {
+  display: flex;
+}
+#join_container
+  .join_inner
+  #main
+  form
+  #private
+  li.hidden-add.active
+  .IdEvftn.active {
+  color: #fff;
+  border: 1px solid #5f0080;
+  background: #5f0080;
+  transition: background 0.3s, color 0.3s;
+}
+#join_container
+  .join_inner
+  #main
+  form
+  #private
+  li.hidden-add.active
+  .IdEvftn.active:hover {
+  color: #5f0080;
+  border: 1px solid #5f0080;
+  background: #fff;
 }
 
 /*bootom_chekinner*/
@@ -293,7 +698,7 @@ li {
   /*1 line all*/
   /*receive*/
 }
-#checkinner > div:nth-child(2) input[type=checkbox] {
+#checkinner > div:nth-child(2) input[type="checkbox"] {
   display: none;
 }
 #checkinner > div:nth-child(2) ul {
@@ -334,9 +739,27 @@ li {
   color: #5f0080;
   margin: 5px 5px 0 0;
 }
+#checkinner > div:nth-child(2) ul li .checkIcon {
+  font-size: 24px;
+  padding-bottom: 3px;
+  padding: 1px;
+  cursor: pointer;
+}
+#checkinner > div:nth-child(2) ul li .checkIcon.active {
+  font-size: 24px;
+}
+#checkinner > div:nth-child(2) ul li .checkIcon.active svg path {
+  stroke: #5f0080;
+}
 #checkinner > div:nth-child(2) #allCheck + label span {
   font-size: 1.2rem;
   font-weight: bold;
+}
+#checkinner > div:nth-child(2) #allCheck + label.active {
+  font-size: 24px;
+}
+#checkinner > div:nth-child(2) #allCheck + label.active svg path {
+  stroke: #5f0080;
 }
 #checkinner > div:nth-child(2) .allSub {
   font-size: 0.9 0.5rem;
@@ -373,7 +796,8 @@ li {
   height: 100%;
   width: 100%;
   background: rgba(0, 0, 0, 0.4);
-  z-index: 5;
+  z-index: 6;
+  display: none;
 }
 .modalBase .modalInner {
   width: 1080px;
@@ -388,61 +812,89 @@ li {
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
-  border-radius: 40px;
+  border-radius: 20px;
 }
 .modalBase .modalInner .HModal .modal_title h1 {
   position: absolute;
-  font-size: 1.6rem;
-  margin: 50px 0 0 25px;
-  font-weight: 800;
+  font-size: 1.2rem;
+  margin: 50px 0 0 30px;
+  font-weight: 600;
+  color: #333333;
 }
 .modalBase .modalInner .HModal .frame {
-  width: 400px;
-  height: 500px;
-  margin: 100px 25px 50px 25px;
+  width: 450px;
+  height: 480px;
+  margin: 100px 0 50px 0;
+  padding: 0 30px;
   overflow: scroll;
   padding-top: 20px;
   overflow-x: hidden;
   overflow-y: hidden;
 }
-.modalBase .modalInner .HModal .frame .yblock {
-  overflow-y: scroll;
-}
 .modalBase .modalInner .HModal .frame h2 {
-  font-size: 1.4rem;
+  font-size: 1.1rem;
   font-weight: 600;
+  color: #333333;
 }
 .modalBase .modalInner .HModal .frame h3 {
-  font-size: 1.4rem;
+  font-size: 1rem;
   font-weight: 600;
+  color: #333333;
 }
-.modalBase .modalInner .HModal .frame th {
+.modalBase .modalInner .HModal .frame table {
+  width: 100%;
+}
+.modalBase .modalInner .HModal .frame table p {
+  font-size: 0.8rem;
+}
+.modalBase .modalInner .HModal .frame table th {
   background-color: #c5c5c5;
   text-align: center;
 }
-.modalBase .modalInner .HModal .frame tr,
-.modalBase .modalInner .HModal .frame th,
-.modalBase .modalInner .HModal .frame td {
+.modalBase .modalInner .HModal .frame table tr,
+.modalBase .modalInner .HModal .frame table th,
+.modalBase .modalInner .HModal .frame table td {
   border: 1px solid #727272;
-  padding: 4px;
+  font-size: 0.9rem;
+  padding: 6px;
 }
-.modalBase .modalInner .HModal.tap1Modal2 {
+.modalBase .modalInner .HModal.tapModal1 {
   display: none;
 }
-.modalBase .modalInner .HModal.tap1Modal3 {
+.modalBase .modalInner .HModal.tapModal2 {
   display: none;
+}
+.modalBase .modalInner .HModal.tapModal2 .mobileTable {
+  display: none;
+}
+.modalBase .modalInner .HModal.tapModal3 {
+  height: 360px;
+  display: none;
+}
+.modalBase .modalInner .HModal.tapModal4 {
+  height: 200px;
+  width: 350px;
+  display: none;
+}
+.modalBase .modalInner .HModal.tapModal4 .frame {
+  width: 100%;
+  height: 180px;
+  margin: 0;
+  text-align: center;
+  padding-top: 70px;
+}
+.modalBase .modalInner .HModal.tapModal4 .frame .modalText {
+  font-size: 1.1rem;
+  font-weight: 400;
 }
 .modalBase .modalInner .HModal .modal_close h1 {
   cursor: pointer;
   position: absolute;
-  font-size: 1.2rem;
+  font-size: 1.1rem;
   color: #5f0080;
-  bottom: 4px;
+  bottom: 12px;
   right: 50%;
   transform: translateX(50%);
-}
-.modalBase.noneActive {
-  display: none;
 }
 
 @media screen and (max-width: 1050px) {
@@ -509,8 +961,134 @@ li {
     height: 100%;
     width: 100%;
     padding: 0;
+    /*phone*/
     /*gender*/
     /*hidden add*/
+  }
+  #join_container .join_inner #main form #private li.errContainer {
+    height: inherit;
+    padding: inherit;
+    font-size: 0.8rem;
+    line-height: 8px;
+  }
+  #join_container
+    .join_inner
+    #main
+    form
+    #private
+    li.errContainer
+    > div:nth-child(1) {
+    display: none;
+  }
+  #join_container
+    .join_inner
+    #main
+    form
+    #private
+    li.errContainer
+    > div:nth-child(2) {
+    margin-top: 10px;
+    padding-left: 0px;
+    text-align: start;
+    color: #ef7793;
+    font-weight: 600;
+  }
+  #join_container
+    .join_inner
+    #main
+    form
+    #private
+    li.errContainer
+    > div:nth-child(3) {
+    display: none;
+  }
+  #join_container .join_inner #main form #private li.addressInner.active {
+    height: 100%;
+  }
+  #join_container
+    .join_inner
+    #main
+    form
+    #private
+    li.addressInner.active
+    .address {
+    display: none;
+  }
+  #join_container
+    .join_inner
+    #main
+    form
+    #private
+    li.addressInner.active
+    .addressChange {
+    display: block;
+  }
+  #join_container
+    .join_inner
+    #main
+    form
+    #private
+    li.addressInner.active
+    .addressChange
+    > div {
+    margin: 2px 0;
+    display: flex;
+    gap: 2px;
+  }
+  #join_container
+    .join_inner
+    #main
+    form
+    #private
+    li.addressInner.active
+    .addressChange
+    > div
+    #sample6_detailAddress {
+    flex: 3;
+  }
+  #join_container
+    .join_inner
+    #main
+    form
+    #private
+    li.addressInner.active
+    .addressChange
+    > div
+    #sample6_detailAddress:focus::-moz-placeholder {
+    opacity: 1;
+  }
+  #join_container
+    .join_inner
+    #main
+    form
+    #private
+    li.addressInner.active
+    .addressChange
+    > div
+    #sample6_detailAddress:focus::placeholder {
+    opacity: 1;
+  }
+  #join_container
+    .join_inner
+    #main
+    form
+    #private
+    li.addressInner.active
+    .addressChange
+    > div
+    #sample6_extraAddress {
+    flex: 2;
+  }
+  #join_container
+    .join_inner
+    #main
+    form
+    #private
+    li.addressInner.active
+    .address2 {
+    display: block;
+    width: 100%;
+    margin: 0;
   }
   #join_container .join_inner #main form #private li > div:nth-child(1) {
     width: 100%;
@@ -524,10 +1102,18 @@ li {
   #join_container .join_inner #main form #private li > div:nth-child(3) {
     width: 100%;
   }
-  #join_container .join_inner #main form #private li > div:nth-child(3) > input {
+  #join_container
+    .join_inner
+    #main
+    form
+    #private
+    li
+    > div:nth-child(3)
+    > input {
     width: 100%;
   }
-  #join_container .join_inner #main form #private li input[type=text], #join_container .join_inner #main form #private li input[type=password] {
+  #join_container .join_inner #main form #private li input[type="text"],
+  #join_container .join_inner #main form #private li input[type="password"] {
     width: 100%;
     height: 40px;
     outline: none;
@@ -535,26 +1121,78 @@ li {
     border-radius: 4px;
     padding-left: 10px;
   }
+  #join_container
+    .join_inner
+    #main
+    form
+    #private
+    li.phoneCheck
+    > div:nth-child(1) {
+    display: none;
+  }
+  #join_container .join_inner #main form #private li.phoneCheck .numCheckBtn {
+    width: 100%;
+  }
+  #join_container
+    .join_inner
+    #main
+    form
+    #private
+    li.phoneCheck
+    .numCheckBtn.numDisable {
+    width: 100%;
+    margin: 0;
+  }
   #join_container .join_inner #main form #private li .birth > input {
     border: none;
   }
   #join_container .join_inner #main form #private li .genders span {
     gap: 8px;
   }
-  #join_container .join_inner #main form #private li .genders span input[type=radio],
+  #join_container
+    .join_inner
+    #main
+    form
+    #private
+    li
+    .genders
+    span
+    input[type="radio"],
   #join_container .join_inner #main form #private li .genders span label {
     cursor: pointer;
   }
-  #join_container .join_inner #main form #private li .genders span input[type=radio] {
+  #join_container
+    .join_inner
+    #main
+    form
+    #private
+    li
+    .genders
+    span
+    input[type="radio"] {
     cursor: pointer;
     margin-top: 10px;
     width: 1.2rem;
     height: 1.2rem;
   }
-  #join_container .join_inner #main form #private li .genders span input[type=radio]:checked {
+  #join_container
+    .join_inner
+    #main
+    form
+    #private
+    li
+    .genders
+    span
+    input[type="radio"]:checked {
     border: 7px solid #5f0080;
   }
-  #join_container .join_inner #main form #private li.hidden-add > div:nth-child(1) {
+  #join_container
+    .join_inner
+    #main
+    form
+    #private
+    li.hidden-add
+    > div:nth-child(1) {
     display: none;
   }
   /*bottom_chekinner*/
@@ -582,6 +1220,7 @@ li {
   #checkinner > div:nth-child(2) ul li {
     display: flex;
     justify-content: space-between;
+    /*error*/
   }
   #checkinner > div:nth-child(2) ul li label {
     display: flex;
@@ -611,7 +1250,10 @@ li {
   }
   #checkinner > div:nth-child(2) .allSub {
     font-size: 0.7rem;
+    width: 310px;
+    line-height: 1.1rem;
     margin-left: 36px;
+    margin-bottom: 5px;
   }
   #checkinner > div:nth-child(2) .top-receive {
     display: flex;
@@ -628,5 +1270,77 @@ li {
   .mainBtn {
     margin: 0 50px 30px;
     width: calc(100% - 100px);
+  }
+  /*modal*/
+  .modalBase .modalInner .HModal {
+    width: 340px;
+    height: 540px;
+  }
+  .modalBase .modalInner .HModal .modal_title h1 {
+    position: absolute;
+    font-size: 1.2rem;
+    margin: 50px 0 0 15px;
+    font-weight: 600;
+    color: #333333;
+  }
+  .modalBase .modalInner .HModal .frame {
+    width: 340px;
+    height: 380px;
+    margin: 100px 0 50px 0;
+    padding: 0 20px;
+  }
+  .modalBase .modalInner .HModal .frame h2 {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #333333;
+  }
+  .modalBase .modalInner .HModal .frame h3 {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #333333;
+  }
+  .modalBase .modalInner .HModal .frame table {
+    width: 100%;
+  }
+  .modalBase .modalInner .HModal .frame table p {
+    font-size: 0.8rem;
+  }
+  .modalBase .modalInner .HModal .frame table th {
+    background-color: #c5c5c5;
+    text-align: center;
+  }
+  .modalBase .modalInner .HModal .frame table tr,
+  .modalBase .modalInner .HModal .frame table th,
+  .modalBase .modalInner .HModal .frame table td {
+    border: 1px solid #727272;
+    font-size: 0.9rem;
+  }
+  .modalBase .modalInner .HModal.tapModal1 {
+    display: none;
+  }
+  .modalBase .modalInner .HModal.tapModal2 {
+    display: none;
+  }
+  .modalBase .modalInner .HModal.tapModal2 .desktopTable {
+    display: none;
+  }
+  .modalBase .modalInner .HModal.tapModal2 .mobileTable {
+    display: block;
+  }
+  .modalBase .modalInner .HModal.tapModal2 .frame {
+    padding: 0 10px;
+  }
+  .modalBase .modalInner .HModal.tapModal3 {
+    height: 360px;
+    display: none;
+  }
+  .modalBase .modalInner .HModal .modal_close h1 {
+    cursor: pointer;
+    position: absolute;
+    font-size: 1.1rem;
+    color: #5f0080;
+    bottom: 12px;
+    right: 50%;
+    transform: translateX(50%);
   }
 }
