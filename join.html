@@ -15,18 +15,22 @@
       src="https://kit.fontawesome.com/f75707ac34.js"
       crossorigin="anonymous"
     ></script>
+    <!--adress-->
+    <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+    <script src="//dapi.kakao.com/v2/maps/sdk.js?appkey=발급받은 API KEY를 사용하세요&libraries=services"></script>
     <!--custcom-->
     <link rel="stylesheet" href="./css/join.css" />
+    <script defer src="./js/join.js"></script>
     <title>Document</title>
   </head>
   <body>
     <div class="top-content">
       <!--modal-->
-      <div class="modalBase noneActive">
+      <div class="modalBase">
         <div class="modalInner">
-          <div class="HModal tap1Modal1">
+          <div class="HModal tapModal1">
             <div class="modal_title">
-              <h1>이용약관 <b>필수</b></h1>
+              <h1>이용약관 <b>(필수)</b></h1>
             </div>
             <div class="frame">
               <div class="madal_desc">
@@ -70,13 +74,13 @@
               <h1>확인</h1>
             </div>
           </div>
-          <div class="HModal tap1Modal2">
+          <div class="HModal tapModal2">
             <div class="modal_title">
-              <h1>개인 정보 수집 및 이용 동의 <b>필수</b></h1>
+              <h1>개인 정보 수집 및 이용 동의 <b>(필수)</b></h1>
             </div>
             <div class="frame">
               <div class="madal_desc">
-                <table>
+                <table class="desktopTable">
                   <thead>
                     <tr>
                       <th>수집 목적</th>
@@ -88,8 +92,7 @@
                     <tr>
                       <td>
                         Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                        Natus culpa sed cupiditate dolorum id magnam fugit et
-                        iure earum illum ex amet repellat quibusdam,
+                        Natus culpa sed cupiditate
                       </td>
                       <td>
                         orem ipsum dolor sit amet consectetur adipisicing elit.
@@ -109,15 +112,52 @@
                     </tr>
                   </tbody>
                 </table>
+                <table class="mobileTable">
+                  <thead>
+                    <tr>
+                      <th>수집 목적</th>
+                      <th>수집항목</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                        Natus culpa sed cupiditate
+                      </td>
+                      <td>
+                        orem ipsum dolor sit amet consectetur adipisicing elit.
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                        Natus culpa sed cupiditate dolorum .
+                      </td>
+                      <td>
+                        orem ipsum dolor sit amet consectetur adipisicing elit.
+                      </td>
+                    </tr>
+                    <tr>
+                      <th colspan="2">보유 및 이용</th>
+                    </tr>
+                    <tr>
+                      <td colspan="2">
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                        Natus culpa sed cupiditate dolorum .
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
               </div>
             </div>
             <div class="modal_close">
               <h1>확인</h1>
             </div>
           </div>
-          <div class="HModal tap1Modal3">
+          <div class="HModal tapModal3">
             <div class="modal_title">
-              <h1>개인 정보 수집 및 이용 동의 <b>필수</b></h1>
+              <h1>개인 정보 수집 및 이용 동의 <b>(필수)</b></h1>
             </div>
             <div class="frame">
               <div class="madal_desc">
@@ -137,7 +177,20 @@
                     </tr>
                   </tbody>
                 </table>
-                <p>*Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                <p>*Lorem ipsum dolor sit amet conse adipisicing elit.</p>
+              </div>
+            </div>
+            <div class="modal_close">
+              <h1>확인</h1>
+            </div>
+          </div>
+          <div class="HModal tapModal4">
+            <div class="modal_title">
+              <h1></h1>
+            </div>
+            <div class="frame">
+              <div class="madal_desc">
+                <div class="modalText"></div>
               </div>
             </div>
             <div class="modal_close">
@@ -181,6 +234,11 @@
                   </div>
                   <div></div>
                 </li>
+                <li class="errContainer">
+                  <div></div>
+                  <div class="iderr err"></div>
+                  <div></div>
+                </li>
                 <!--pass-->
                 <li>
                   <div>
@@ -195,6 +253,11 @@
                       placeholder="비밀번호를 입력해주세요"
                     />
                   </div>
+                  <div></div>
+                </li>
+                <li class="errContainer">
+                  <div></div>
+                  <div class="passerr err"></div>
                   <div></div>
                 </li>
                 <!--pass2-->
@@ -213,6 +276,11 @@
                   </div>
                   <div></div>
                 </li>
+                <li class="errContainer">
+                  <div></div>
+                  <div class="pw2err err"></div>
+                  <div></div>
+                </li>
                 <!--name-->
                 <li>
                   <div>
@@ -227,6 +295,11 @@
                       placeholder="이름을 입력해주세요"
                     />
                   </div>
+                  <div></div>
+                </li>
+                <li class="errContainer">
+                  <div></div>
+                  <div class="nameErr err"></div>
                   <div></div>
                 </li>
                 <!--****email****-->
@@ -248,21 +321,34 @@
                     <div>
                       <div>@</div>
                       <select name="email" id="email">
-                        <option value="none" selected disabled>선택하기</option>
-                        <option value="naver">naver.com</option>
-                        <option value="gmail">gmail.com</option>
-                        <option value="hanmail">hanmail.net</option>
-                        <option value="kakao">kakao.com</option>
-                        <option value="daum">daum.net</option>
-                        <option value="hotmail">hotmail.com</option>
-                        <option value="yahoo">yahoo.co.kr</option>
-                        <option value="direct">직접입력</option>
+                        <option class="domain" value="none" selected disabled>
+                          선택하기
+                        </option>
+                        <option class="domain" value="naver">naver.com</option>
+                        <option class="domain" value="gmail">gmail.com</option>
+                        <option class="domain" value="hanmail">
+                          hanmail.net
+                        </option>
+                        <option class="domain" value="kakao">kakao.com</option>
+                        <option class="domain" value="daum">daum.net</option>
+                        <option class="domain" value="hotmail">
+                          hotmail.com
+                        </option>
+                        <option class="domain" value="yahoo">
+                          yahoo.co.kr
+                        </option>
+                        <option class="domain" value="direct">직접입력</option>
                       </select>
                       <div class="hiddenS">
                         <input type="text" name="emailDr" id="emailDr" />
                       </div>
                     </div>
                   </div>
+                  <div></div>
+                </li>
+                <li class="errContainer">
+                  <div></div>
+                  <div class="emailerr err"></div>
                   <div></div>
                 </li>
                 <!--phon Num-->
@@ -284,22 +370,83 @@
                       class="checkBtn"
                       type="button"
                       value="인증번호 받기"
+                      disabled
                     />
                   </div>
                 </li>
+                <li class="errContainer">
+                  <div></div>
+                  <div class="phonerr err"></div>
+                  <div></div>
+                </li>
+                <!--phon Num2-->
+                <li class="phoneCheck">
+                  <div></div>
+                  <div>
+                    <input
+                      type="text"
+                      name="userNumCheck"
+                      id="userNumCheck"
+                      placeholder="인증번호를 입력해주세요"
+                    />
+                    <span class="time">
+                      <span class="timeset">3:00</span>
+                    </span>
+                  </div>
+                  <div>
+                    <input class="numCheckBtn" type="button" value="확인" />
+                  </div>
+                </li>
+                <li class="errContainer">
+                  <div></div>
+                  <div class="uNCInerr err"></div>
+                  <div></div>
+                </li>
                 <!--****adrass****-->
-                <li>
+                <li class="addressInner">
                   <div>
                     주소
                     <span class="star">*</span>
                   </div>
                   <div>
-                    <button class="address">
+                    <button
+                      class="address"
+                      type="button"
+                      onclick="sample6_execDaumPostcode()"
+                    >
                       <i class="fa-solid fa-magnifying-glass"></i>
                       주소검색
                     </button>
+                    <div class="addressChange">
+                      <input
+                        type="text"
+                        id="sample6_address"
+                        placeholder="주소"
+                      />
+                      <div>
+                        <input
+                          type="text"
+                          id="sample6_detailAddress"
+                          placeholder="상세주소"
+                        />
+                        <input
+                          type="text"
+                          id="sample6_extraAddress"
+                          placeholder="참고항목"
+                        />
+                      </div>
+                    </div>
                   </div>
-                  <div></div>
+                  <div>
+                    <button
+                      class="address2"
+                      type="button"
+                      onclick="sample6_execDaumPostcode()"
+                    >
+                      <i class="fa-solid fa-magnifying-glass"></i>
+                      재검색
+                    </button>
+                  </div>
                 </li>
                 <!--**genger**-->
                 <li>
@@ -314,7 +461,12 @@
                       <label for="female">여자</label>
                     </span>
                     <span>
-                      <input type="radio" name="genders" id="genderHdn" />
+                      <input
+                        type="radio"
+                        name="genders"
+                        id="genderHdn"
+                        checked
+                      />
                       <label for="genderHdn">선택안함</label>
                     </span>
                   </div>
@@ -329,12 +481,33 @@
                       name="year"
                       id="year"
                       placeholder="YYYY"
+                      onkeyup="onchange()"
+                      onchange="changebirth1()"
                     />
                     <span>/</span>
-                    <input type="text" name="moth" id="moth" placeholder="MM" />
+                    <input
+                      type="text"
+                      name="moth"
+                      id="moth"
+                      placeholder="MM"
+                      onkeyup="onchange()"
+                      onchange="changebirth2()"
+                    />
                     <span>/</span>
-                    <input type="text" name="day" id="day" placeholder="DD" />
+                    <input
+                      type="text"
+                      name="day"
+                      id="day"
+                      placeholder="DD"
+                      onkeyup="onchange()"
+                      onchange="changebirth3()"
+                    />
                   </div>
+                  <div></div>
+                </li>
+                <li class="errContainer">
+                  <div></div>
+                  <div class="birtherr err"></div>
                   <div></div>
                 </li>
                 <!--***invit***-->
@@ -351,7 +524,16 @@
                         name="Additional"
                         id="participationE"
                       />
-                      <label for="participationE">참여 이벤트명</label>
+                      <label for="participationE">참여 이벤트</label>
+                    </span>
+                    <span>
+                      <input
+                        type="radio"
+                        name="Additional"
+                        id="eventNone"
+                        checked
+                      />
+                      <label for="eventNone">없음</label>
                     </span>
                   </div>
                   <div></div>
@@ -364,10 +546,12 @@
                       type="text"
                       name="invite-text"
                       id="invite-text"
-                      placeholder="추천인 아이디를 입력해 주세요"
+                      placeholder="추천인 아이디 혹은 이벤트를 입력해 주세요"
                     />
                   </div>
-                  <div><input type="button" value="아이디 확인" /></div>
+                  <div>
+                    <input type="button" value="확인" class="IdEvftn" />
+                  </div>
                 </li>
               </ul>
               <!-------buttom join agree------->
@@ -380,10 +564,15 @@
                   <ul id="checkList">
                     <!--all-->
                     <li>
-                      <input type="checkbox" name="allCheck" id="allCheck" />
+                      <input
+                        type="checkbox"
+                        name="allCheck"
+                        id="allCheck"
+                        class="allCheckBox"
+                      />
                       <div>
                         <label for="allCheck">
-                          <div class="chackIcon">
+                          <div class="checkIcon allCheck">
                             <svg
                               width="24"
                               height="24"
@@ -419,9 +608,10 @@
                         type="checkbox"
                         name="termsCheck"
                         id="termsCheck"
+                        class="checkElement"
                       />
                       <label for="termsCheck">
-                        <div class="chackIcon">
+                        <div class="checkIcon termsCheck">
                           <svg
                             width="24"
                             height="24"
@@ -443,13 +633,13 @@
                             ></path>
                           </svg>
                         </div>
-                        <span
+                        <span class="termsCheckText"
                           >이용약관 동의
-                          <b>(필수)</b>
+                          <b class="termsCheckText2">(필수)</b>
                         </span>
                       </label>
-                      <div class="tapmodal tap1">
-                        <div>
+                      <div class="tapmodal">
+                        <div class="tap1 tap">
                           약관보기
                           <span>
                             <i class="fa-solid fa-chevron-right"></i>
@@ -463,9 +653,10 @@
                         type="checkbox"
                         name="privateCheck"
                         id="privateCheck"
+                        class="checkElement"
                       />
                       <label for="privateCheck">
-                        <div class="chackIcon">
+                        <div class="checkIcon privateCheck">
                           <svg
                             width="24"
                             height="24"
@@ -487,13 +678,13 @@
                             ></path>
                           </svg>
                         </div>
-                        <span
+                        <span class="privateCheckText"
                           >개인정보 수집·이용동의
-                          <b>(필수)</b>
+                          <b class="privateCheckText2">(필수)</b>
                         </span>
                       </label>
-                      <div class="tapmodal tap2">
-                        <div>
+                      <div class="tapmodal">
+                        <div class="tap2 tap">
                           약관보기
                           <span>
                             <i class="fa-solid fa-chevron-right"></i>
@@ -507,9 +698,10 @@
                         type="checkbox"
                         name="private2Check"
                         id="private2Check"
+                        class="checkElement"
                       />
                       <label for="private2Check">
-                        <div class="chackIcon">
+                        <div class="checkIcon private2Check">
                           <svg
                             width="24"
                             height="24"
@@ -536,8 +728,8 @@
                           <b>(선택)</b>
                         </span>
                       </label>
-                      <div class="tapmodal tap3">
-                        <div>
+                      <div class="tapmodal">
+                        <div class="tap3 tap">
                           약관보기
                           <span>
                             <i class="fa-solid fa-chevron-right"></i>
@@ -547,11 +739,16 @@
                     </li>
                     <!--receive-->
                     <li>
-                      <input type="checkbox" name="receive" id="receive" />
+                      <input
+                        type="checkbox"
+                        name="receive"
+                        id="receive"
+                        class="checkElement subAll"
+                      />
                       <div>
                         <label for="receive">
                           <div class="top-receive">
-                            <div class="chackIcon">
+                            <div class="checkIcon receive">
                               <svg
                                 width="24"
                                 height="24"
@@ -580,9 +777,14 @@
                           </div>
                         </label>
                         <div class="botton-receive">
-                          <input type="checkbox" name="sns" id="sns" />
+                          <input
+                            type="checkbox"
+                            name="sns"
+                            id="sns"
+                            class="checkElement subElement"
+                          />
                           <label for="sns">
-                            <div class="chackIcon">
+                            <div class="checkIcon sns">
                               <svg
                                 width="24"
                                 height="24"
@@ -606,9 +808,14 @@
                             </div>
                             <span>SNS</span>
                           </label>
-                          <input type="checkbox" name="emailck" id="emailck" />
+                          <input
+                            type="checkbox"
+                            name="emailck"
+                            id="emailck"
+                            class="checkElement subElement"
+                          />
                           <label for="emailck">
-                            <div class="chackIcon">
+                            <div class="checkIcon emailck">
                               <svg
                                 width="24"
                                 height="24"
@@ -637,9 +844,14 @@
                     </li>
                     <!--14Age x-->
                     <li>
-                      <input type="checkbox" name="14Age" id="14Age" />
-                      <label for="14Age">
-                        <div class="chackIcon">
+                      <input
+                        type="checkbox"
+                        name="A14Age"
+                        id="A14Age"
+                        class="checkElement"
+                      />
+                      <label for="A14Age">
+                        <div class="checkIcon A14Age">
                           <svg
                             width="24"
                             height="24"
@@ -661,9 +873,9 @@
                             ></path>
                           </svg>
                         </div>
-                        <span
+                        <span class="A14AgeText"
                           >본인은 만 14세 이상입니다.
-                          <b>(필수)</b>
+                          <b class="A14AgeText2">(필수)</b>
                         </span>
                       </label>
                     </li>

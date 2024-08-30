@@ -5,6 +5,7 @@
 $color: (
   main: #5f0080,
   light: #fff,
+  submitTop: #f9c9d4,
 );
 
 $font-color: (
@@ -35,12 +36,19 @@ li {
   }
 }
 
+input:-webkit-autofill {
+  // -webkit-box-shadow: 0 0 0 1000px white inset;
+  -webkit-transition: background 10000s ease-in-out 0s;
+}
+
 #join_container {
   font: normal 16px/1 "Noto Sans KR", sans-serif;
   width: 1080px;
   margin: 0 auto;
-
   color: map-get($font-color, font-dark);
+  .mobileHeader {
+    display: none;
+  }
   .join_inner {
     display: flex;
     flex-direction: column;
@@ -94,6 +102,51 @@ li {
             padding: 10px 16px;
             display: flex;
             line-height: 40px;
+            /*error*/
+            &.errContainer {
+              // display: none;
+              height: inherit;
+              padding: inherit;
+              font-size: 0.8rem;
+              line-height: 8px;
+              & > div:nth-child(2) {
+                padding-left: 20px;
+                text-align: start;
+                color: map-get($font-color, font-red);
+                font-weight: 600;
+              }
+            }
+            /*address*/
+            &.addressInner {
+              &.active {
+                height: 84px;
+                .address {
+                  display: none;
+                }
+                .addressChange {
+                  display: block;
+                  & > div {
+                    margin-top: 4px;
+                    display: flex;
+                    gap: 2px;
+                    #sample6_detailAddress {
+                      flex: 3;
+                      &:focus {
+                        &::placeholder {
+                          opacity: 1;
+                        }
+                      }
+                    }
+                    #sample6_extraAddress {
+                      flex: 2;
+                    }
+                  }
+                }
+                .address2 {
+                  display: block;
+                }
+              }
+            }
             /*top 1 td*/
             & > div:nth-child(1) {
               width: 150px;
@@ -109,7 +162,7 @@ li {
               text-align: center;
               & > input {
                 width: 80%;
-                height: 40px;
+                height: 38px;
                 margin-right: 10px;
                 line-height: 10px;
                 background: map-get($color, light);
@@ -117,11 +170,6 @@ li {
                 font-size: 0.9rem;
                 border: 1px solid map-get($font-color, font-line);
                 border-radius: 4px;
-                .action {
-                  color: map-get($color, main);
-                  border: 1px solid map-get($color, main);
-                  border-radius: 4px;
-                }
               }
             }
             & input[type="text"],
@@ -150,6 +198,7 @@ li {
               line-height: 37px;
               border: 1px solid map-get($font-color, font-line);
               border-radius: 4px;
+
               color: map-get($font-color, font-dark);
               & > div {
                 flex-grow: 1;
@@ -159,6 +208,7 @@ li {
                   input {
                     height: 36px;
                     border: none;
+                    color: map-get($font-color, font-light);
                   }
                 }
                 &:nth-child(2) {
@@ -193,6 +243,7 @@ li {
                       border: none;
                       height: 100%;
                       border-radius: 0;
+                      color: map-get($font-color, font-light);
                     }
                     &.active {
                       display: block;
@@ -202,11 +253,86 @@ li {
                 }
               }
             }
-
+            /*phone*/
+            .checkBtn {
+              &.active {
+                color: map-get($color, light);
+                border: 1px solid map-get($color, main);
+                background: map-get($color, main);
+                transition: background 0.3s, color 0.3s;
+                &:hover {
+                  color: map-get($color, main);
+                  border: 1px solid map-get($color, main);
+                  background: map-get($color, light);
+                }
+              }
+            }
+            /*phoneCheck*/
+            &.phoneCheck {
+              display: none;
+              & > div:nth-child(2) {
+                position: relative;
+                .time {
+                  position: absolute;
+                  top: 2px;
+                  right: 10px;
+                  color: map-get($font-color, font-red);
+                }
+              }
+              .numCheckBtn {
+                color: map-get($color, light);
+                border: 1px solid map-get($color, main);
+                background: map-get($color, main);
+                transition: background 0.3s, color 0.3s;
+                &:hover {
+                  color: map-get($color, main);
+                  border: 1px solid map-get($color, main);
+                  background: map-get($color, light);
+                }
+                &.numDisable {
+                  width: 80%;
+                  height: 38px;
+                  margin-right: 10px;
+                  line-height: 10px;
+                  background: map-get($color, light);
+                  color: map-get($font-color, font-line);
+                  font-size: 0.9rem;
+                  border: 1px solid map-get($font-color, font-line);
+                  border-radius: 4px;
+                }
+              }
+            }
             /*adrass*/
             .address {
               width: 100%;
               background: map-get($color, light);
+              color: map-get($color, main);
+              border: 1px solid map-get($color, main);
+              border-radius: 4px;
+              transition: background 0.3s, color 0.3s, border 0.3s;
+              &:hover {
+                color: map-get($color, light);
+                border: 1px solid map-get($color, main);
+                background: map-get($color, main);
+              }
+              // &.essenBoxs2 {
+              //   background: map-get($color, submitTop);
+              //   &:hover {
+              //     border: 1px solid map-get($font-color, font-red);
+              //   }
+              // }
+            }
+            .addressChange {
+              display: none;
+            }
+            .address2 {
+              display: none;
+              width: 80%;
+              height: 40px;
+              margin: 0 8px;
+              line-height: 10px;
+              background: map-get($color, light);
+              font-size: 0.9rem;
               color: map-get($color, main);
               border: 1px solid map-get($color, main);
               border-radius: 4px;
@@ -278,6 +404,26 @@ li {
                 }
               }
             }
+
+            &.hidden-add {
+              display: none;
+              &.active {
+                display: flex;
+                .IdEvftn {
+                  &.active {
+                    color: map-get($color, light);
+                    border: 1px solid map-get($color, main);
+                    background: map-get($color, main);
+                    transition: background 0.3s, color 0.3s;
+                    &:hover {
+                      color: map-get($color, main);
+                      border: 1px solid map-get($color, main);
+                      background: map-get($color, light);
+                    }
+                  }
+                }
+              }
+            }
           }
         }
       }
@@ -343,6 +489,18 @@ li {
           color: map-get($color, main);
           margin: 5px 5px 0 0;
         }
+        .checkIcon {
+          font-size: 24px;
+          padding-bottom: 3px;
+          padding: 1px;
+          cursor: pointer;
+          &.active {
+            font-size: 24px;
+            svg path {
+              stroke: map-get($color, main);
+            }
+          }
+        }
       }
     }
     /*1 line all*/
@@ -350,6 +508,12 @@ li {
       span {
         font-size: 1.2rem;
         font-weight: bold;
+      }
+      &.active {
+        font-size: 24px;
+        svg path {
+          stroke: map-get($color, main);
+        }
       }
     }
     .allSub {
@@ -390,7 +554,8 @@ li {
   height: 100%;
   width: 100%;
   background: rgba(0, 0, 0, 0.4);
-  z-index: 5;
+  z-index: 6;
+  display: none;
 
   .modalInner {
     width: 1080px;
@@ -404,71 +569,102 @@ li {
       left: 50%;
       top: 50%;
       transform: translate(-50%, -50%);
-      border-radius: 40px;
+      border-radius: 20px;
+
       .modal_title {
         h1 {
           position: absolute;
-          font-size: 1.6rem;
-          margin: 50px 0 0 25px;
-          font-weight: 800;
+          font-size: 1.2rem;
+          margin: 50px 0 0 30px;
+          font-weight: 600;
+          color: map-get($font-color, font-dark);
         }
       }
       .frame {
-        width: 400px;
-        height: 500px;
-        margin: 100px 25px 50px 25px;
+        width: 450px;
+        height: 480px;
+        margin: 100px 0 50px 0;
+        padding: 0 30px;
         overflow: scroll;
         padding-top: 20px;
         overflow-x: hidden;
         overflow-y: hidden;
-        .yblock {
-          overflow-y: scroll;
-        }
         h2 {
-          font-size: 1.4rem;
+          font-size: 1.1rem;
           font-weight: 600;
+          color: map-get($font-color, font-dark);
         }
         h3 {
-          font-size: 1.4rem;
+          font-size: 1rem;
           font-weight: 600;
+          color: map-get($font-color, font-dark);
         }
-        th {
-          background-color: map-get($font-color, font-line);
+        table {
+          width: 100%;
+          p {
+            font-size: 0.8rem;
+          }
+          th {
+            background-color: map-get($font-color, font-line);
+            text-align: center;
+          }
+          tr,
+          th,
+          td {
+            border: 1px solid map-get($font-color, font-light);
+            font-size: 0.9rem;
+            padding: 6px;
+          }
+        }
+      }
+      &.tapModal1 {
+        display: none;
+        // display: block;
+      }
+      &.tapModal2 {
+        display: none;
+        .mobileTable {
+          display: none;
+        }
+      }
+      &.tapModal3 {
+        height: 360px;
+        display: none;
+      }
+      &.tapModal4 {
+        height: 200px;
+        width: 350px;
+        display: none;
+        .frame {
+          width: 100%;
+          height: 180px;
+          margin: 0;
           text-align: center;
+          padding-top: 70px;
+          .modalText {
+            font-size: 1.1rem;
+            font-weight: 400;
+          }
         }
-        tr,
-        th,
-        td {
-          border: 1px solid map-get($font-color, font-light);
-          padding: 4px;
-        }
-      }
-      &.tap1Modal1 {
-        // display: none;
-      }
-      &.tap1Modal2 {
-        display: none;
-      }
-      &.tap1Modal3 {
-        display: none;
       }
       .modal_close {
         h1 {
           cursor: pointer;
           position: absolute;
-          font-size: 1.2rem;
+          font-size: 1.1rem;
           color: map-get($color, main);
-          bottom: 4px;
+          bottom: 12px;
           right: 50%;
           transform: translateX(50%);
         }
       }
     }
   }
-  &.noneActive {
-    display: none;
-  }
 }
+
+// .essenBoxs {
+//   background: map-get($color, submitTop);
+// }
 
 //////*media*//////
 @media screen and (max-width: 1050px) {
@@ -534,6 +730,57 @@ li {
               height: 100%;
               width: 100%;
               padding: 0;
+              &.errContainer {
+                height: inherit;
+                padding: inherit;
+                font-size: 0.8rem;
+                line-height: 8px;
+                & > div:nth-child(1) {
+                  display: none;
+                }
+                & > div:nth-child(2) {
+                  margin-top: 10px;
+                  padding-left: 0px;
+                  text-align: start;
+                  color: map-get($font-color, font-red);
+                  font-weight: 600;
+                }
+                & > div:nth-child(3) {
+                  display: none;
+                }
+              }
+              &.addressInner {
+                &.active {
+                  height: 100%;
+                  .address {
+                    display: none;
+                  }
+                  .addressChange {
+                    display: block;
+                    & > div {
+                      margin: 2px 0;
+                      display: flex;
+                      gap: 2px;
+                      #sample6_detailAddress {
+                        flex: 3;
+                        &:focus {
+                          &::placeholder {
+                            opacity: 1;
+                          }
+                        }
+                      }
+                      #sample6_extraAddress {
+                        flex: 2;
+                      }
+                    }
+                  }
+                  .address2 {
+                    display: block;
+                    width: 100%;
+                    margin: 0;
+                  }
+                }
+              }
               & > div:nth-child(1) {
                 width: 100%;
                 height: 32px;
@@ -557,6 +804,19 @@ li {
                 border: 1px solid map-get($font-color, font-line);
                 border-radius: 4px;
                 padding-left: 10px;
+              }
+              /*phone*/
+              &.phoneCheck {
+                & > div:nth-child(1) {
+                  display: none;
+                }
+                .numCheckBtn {
+                  width: 100%;
+                  &.numDisable {
+                    width: 100%;
+                    margin: 0;
+                  }
+                }
               }
               .birth {
                 & > input {
@@ -615,6 +875,7 @@ li {
         li {
           display: flex;
           justify-content: space-between;
+          /*error*/
           label {
             display: flex;
             align-items: center;
@@ -648,7 +909,10 @@ li {
       }
       .allSub {
         font-size: 0.7rem;
+        width: 310px;
+        line-height: 1.1rem;
         margin-left: 36px;
+        margin-bottom: 5px;
       }
       /*receive*/
       .top-receive {
@@ -669,5 +933,88 @@ li {
   .mainBtn {
     margin: 0 50px 30px;
     width: calc(100% - 100px);
+  }
+
+  /*modal*/
+  .modalBase {
+    .modalInner {
+      .HModal {
+        width: 340px;
+        height: 540px;
+
+        .modal_title {
+          h1 {
+            position: absolute;
+            font-size: 1.2rem;
+            margin: 50px 0 0 15px;
+            font-weight: 600;
+            color: map-get($font-color, font-dark);
+          }
+        }
+        .frame {
+          width: 340px;
+          height: 380px;
+          margin: 100px 0 50px 0;
+          padding: 0 20px;
+          h2 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: map-get($font-color, font-dark);
+          }
+          h3 {
+            font-size: 1rem;
+            font-weight: 600;
+            color: map-get($font-color, font-dark);
+          }
+          table {
+            width: 100%;
+            p {
+              font-size: 0.8rem;
+            }
+            th {
+              background-color: map-get($font-color, font-line);
+              text-align: center;
+            }
+            tr,
+            th,
+            td {
+              border: 1px solid map-get($font-color, font-light);
+              font-size: 0.9rem;
+            }
+          }
+        }
+        &.tapModal1 {
+          display: none;
+          // display: block;
+        }
+        &.tapModal2 {
+          display: none;
+          .desktopTable {
+            display: none;
+          }
+          .mobileTable {
+            display: block;
+          }
+          .frame {
+            padding: 0 10px;
+          }
+        }
+        &.tapModal3 {
+          height: 360px;
+          display: none;
+        }
+        .modal_close {
+          h1 {
+            cursor: pointer;
+            position: absolute;
+            font-size: 1.1rem;
+            color: map-get($color, main);
+            bottom: 12px;
+            right: 50%;
+            transform: translateX(50%);
+          }
+        }
+      }
+    }
   }
 }

@@ -41,14 +41,6 @@ function modalClose() {
   });
 }
 
-// //==auto Num input & check==
-// function autoModal() {
-//   document.querySelector(".autonum").innerText = randomNum;
-//   autoActive.classList.add("active");
-//   //auto num & id,password check
-//   autoCheck();
-// }
-
 // const auto num check
 function autoCheck() {
   if (randomNum == autoN.value) {
