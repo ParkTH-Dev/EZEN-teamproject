@@ -1,0 +1,65 @@
+@import "./reset.css";
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&display=swap");
+$color: (
+  bg-light-color: #fff,
+  main-color: #5f0080,
+  point1-color: #bd76ff,
+  point2-color: #26074d,
+  point3-color: #652c91,
+  point4-color: #7897bc,
+  point5-color: #a864d8,
+  point6-color: #faf4ff,
+);
+
+body {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  background: #f9f9f9;
+}
+.mobileCategory {
+  width: 390px;
+  background: #fff;
+  .inner {
+    //   width: 360px;
+    .mobile_header {
+      border-bottom: 1px solid #ddd;
+      background: #fff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      .mobile_header_wrap {
+        width: 360px;
+        .top {
+          padding: 20px 10px 10px;
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          a {
+            color: map-get($color, main-color);
+            cursor: pointer;
+          }
+          .mobileHeaderTitle {
+            padding: 0 10px;
+            text-overflow: ellipsis;
+            overflow: hidden;
+            white-space: nowrap;
+          }
+
+          & > div {
+            cursor: pointer;
+            display: flex;
+            gap: 10px;
+            font-size: 20px;
+            color: map-get($color, main-color);
+          }
+        }
+      }
+    }
+  }
+}

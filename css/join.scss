@@ -1005,6 +1005,7 @@ footer {
     background: #f9f9f9;
     position: relative;
     .mobileHeader {
+      border-bottom: 1px solid #ccc;
       position: sticky;
       top: 0;
       width: 390px;
@@ -1023,6 +1024,7 @@ footer {
         align-items: center;
         position: relative;
         .mobileClose {
+          cursor: pointer;
           font-size: 16px;
           position: absolute;
           top: 50%;

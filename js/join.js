@@ -54,6 +54,11 @@ const essenAgrees = document.querySelectorAll(".essenAgrees");
 const essenBoxs2 = document.querySelectorAll(".essenBoxs2");
 const detail = document.getElementById("sample6_detailAddress");
 const saAdress = document.getElementById("sample6_address");
+
+const mobileClose = document.querySelector(".mobileClose");
+mobileClose.addEventListener("click", () => {
+  window.history.back();
+});
 //--submit check array
 let submitList = [];
 function checkarrMinus(mainArr, arrayE) {

@@ -83,6 +83,11 @@ refundSecondBtn.addEventListener("click", () => {
   }
 });
 
+const mobileClose = document.querySelector(".mobileClose");
+mobileClose.addEventListener("click", () => {
+  window.history.back();
+});
+
 // json
 const productInfo = ".././json/db.json";
 fetch(productInfo)

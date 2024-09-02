@@ -1262,6 +1262,7 @@ footer {
         background: #fff;
         display: flex;
         justify-content: center;
+
         width: 100%;
         position: sticky;
         top: 0;
@@ -1271,6 +1272,7 @@ footer {
           .top {
             padding: 20px 10px 10px;
             display: flex;
+            align-items: center;
             justify-content: space-between;
             a {
               color: map-get($color, main-color);

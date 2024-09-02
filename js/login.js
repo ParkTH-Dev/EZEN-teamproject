@@ -16,6 +16,11 @@ const loginBtn = form.querySelector(".login");
 const modalBack = document.querySelector("#blackB");
 const modal = document.querySelector("#longModal");
 
+const mobileClose = document.querySelector(".mobileClose");
+mobileClose.addEventListener("click", () => {
+  window.history.back();
+});
+
 //==id value only EN & num==
 userId.addEventListener("input", function (text) {
   const idText = userId.value;
@@ -40,7 +45,6 @@ function modalClose() {
     });
   });
 }
-
 // const auto num check
 function autoCheck() {
   if (randomNum == autoN.value) {

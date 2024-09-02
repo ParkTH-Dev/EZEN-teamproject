@@ -12935,6 +12935,7 @@ footer .footer_wrapper .inner .footer_right .footer_right_third {
     position: relative;
   }
   #join_container .mobileHeader {
+    border-bottom: 1px solid #ccc;
     position: sticky;
     top: 0;
     width: 390px;
@@ -12955,6 +12956,7 @@ footer .footer_wrapper .inner .footer_right .footer_right_third {
     position: relative;
   }
   #join_container .mobileHeader .inner .mobileClose {
+    cursor: pointer;
     font-size: 16px;
     position: absolute;
     top: 50%;

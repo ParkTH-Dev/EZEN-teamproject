@@ -26,6 +26,10 @@ const cartRecItem = document.querySelectorAll(
   ".cart-rec-item:not(.slick-cloned)"
 );
 const cartRecImg = document.querySelector(".cart-rec-img");
+const mobileClose = document.querySelector(".mobileClose");
+mobileClose.addEventListener("click", () => {
+  window.history.back();
+});
 
 const productInfo = ".././json/db.json";
 fetch(productInfo)
@@ -52,7 +56,6 @@ fetch(productInfo)
               <div class="rec-price-coupon">
                 <span>${product.discount} 세일</span>
               </div>
- 
               <div class="cart-rec-btn">
                 <button>
                   <i class="fa-solid fa-cart-shopping"></i>

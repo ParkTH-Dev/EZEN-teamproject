@@ -1231,6 +1231,7 @@ footer .footer_wrapper .inner .footer_right .footer_right_third {
   .container .inner .mobile_header .mobile_header_wrap .top {
     padding: 20px 10px 10px;
     display: flex;
+    align-items: center;
     justify-content: space-between;
   }
   .container .inner .mobile_header .mobile_header_wrap .top a {
