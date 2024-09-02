@@ -231,6 +231,7 @@ header {
     height: 100%;
     .header_bottom_gnb {
       display: grid;
+
       // justify-items: center;
       grid-template-columns: 100px 2fr 100px;
       font-size: 16px;
@@ -292,7 +293,7 @@ header {
           color: #666;
           top: 53px;
           left: 300px;
-          & > div {
+          & div {
             padding: 10px 20px;
             transition: all 0.3s;
             &:hover {
@@ -309,8 +310,7 @@ header {
         display: flex;
         justify-content: center;
         gap: 120px;
-
-        span {
+        a {
           padding: 15px 10px;
           cursor: pointer;
           transition: all 0.3s;

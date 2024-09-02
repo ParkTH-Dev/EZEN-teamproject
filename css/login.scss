@@ -302,7 +302,7 @@ header {
           color: #666;
           top: 53px;
           left: 300px;
-          & > div {
+          & div {
             padding: 10px 20px;
             transition: all 0.3s;
             &:hover {
@@ -320,7 +320,7 @@ header {
         justify-content: center;
         gap: 120px;
 
-        span {
+        a {
           padding: 15px 10px;
           cursor: pointer;
           transition: all 0.3s;

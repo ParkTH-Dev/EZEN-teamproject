@@ -63,13 +63,17 @@ fetch(categoryInfo)
       // 기존에 표시된 서브 카테고리들을 모두 제거
       subCategories.forEach((sub) => {
         // 각 서브 카테고리에 대해 반복 실행
+        const a = document.createElement("a");
+        a.href = `./search.html`;
+
         const subDiv = document.createElement("div");
         // 새로운 div 요소를 생성
         subDiv.className = "sub-category-item";
         // 생성한 div 요소에 클래스 이름을 'sub-category-item'으로 설정
         subDiv.innerText = sub.name;
+        a.appendChild(subDiv);
         // 생성한 div 요소의 텍스트를 서브 카테고리의 이름으로 설정
-        subCategoryGnb.appendChild(subDiv);
+        subCategoryGnb.appendChild(a);
         // 생성한 div 요소를 서브 카테고리 요소에 추가
       });
     };

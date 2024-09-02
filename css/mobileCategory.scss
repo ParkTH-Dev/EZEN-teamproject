@@ -21,6 +21,7 @@ body {
 .mobileCategory {
   width: 390px;
   background: #fff;
+  box-shadow: 0 0 10px rgba($color: #000000, $alpha: 0.1);
   .inner {
     display: flex;
     flex-direction: column;
@@ -68,12 +69,12 @@ body {
       height: 100vh;
       margin: 0 auto;
       display: flex;
-      border: 1px solid red;
+
       .left {
         flex: 1;
         background: #ddd;
         color: #555;
-        border: 1px solid red;
+
         ul {
           li {
             padding: 10px 0 10px 20px;
@@ -82,7 +83,7 @@ body {
       }
       .right {
         flex: 2;
-        border: 1px solid red;
+
         ul {
           li {
             padding: 10px 0 10px 20px;
