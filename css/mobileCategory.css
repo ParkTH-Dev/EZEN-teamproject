@@ -12,6 +12,10 @@ body {
   width: 390px;
   background: #fff;
 }
+.mobileCategory .inner {
+  display: flex;
+  flex-direction: column;
+}
 .mobileCategory .inner .mobile_header {
   border-bottom: 1px solid #ddd;
   background: #fff;
@@ -48,4 +52,27 @@ body {
   gap: 10px;
   font-size: 20px;
   color: #5f0080;
+}
+.mobileCategory .inner .mobile_contents {
+  width: 390px;
+  height: 100vh;
+  margin: 0 auto;
+  display: flex;
+  border: 1px solid red;
+}
+.mobileCategory .inner .mobile_contents .left {
+  flex: 1;
+  background: #ddd;
+  color: #555;
+  border: 1px solid red;
+}
+.mobileCategory .inner .mobile_contents .left ul li {
+  padding: 10px 0 10px 20px;
+}
+.mobileCategory .inner .mobile_contents .right {
+  flex: 2;
+  border: 1px solid red;
+}
+.mobileCategory .inner .mobile_contents .right ul li {
+  padding: 10px 0 10px 20px;
 }

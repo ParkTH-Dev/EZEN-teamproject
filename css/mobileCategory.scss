@@ -22,6 +22,8 @@ body {
   width: 390px;
   background: #fff;
   .inner {
+    display: flex;
+    flex-direction: column;
     //   width: 360px;
     .mobile_header {
       border-bottom: 1px solid #ddd;
@@ -57,6 +59,33 @@ body {
             gap: 10px;
             font-size: 20px;
             color: map-get($color, main-color);
+          }
+        }
+      }
+    }
+    .mobile_contents {
+      width: 390px;
+      height: 100vh;
+      margin: 0 auto;
+      display: flex;
+      border: 1px solid red;
+      .left {
+        flex: 1;
+        background: #ddd;
+        color: #555;
+        border: 1px solid red;
+        ul {
+          li {
+            padding: 10px 0 10px 20px;
+          }
+        }
+      }
+      .right {
+        flex: 2;
+        border: 1px solid red;
+        ul {
+          li {
+            padding: 10px 0 10px 20px;
           }
         }
       }
