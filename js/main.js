@@ -364,11 +364,12 @@ heartBtn.forEach((e) => {
 const liveItem = document.querySelectorAll(".live_item");
 
 liveItem.forEach((e) => {
+  e.querySelector(".live_video > video").play();
   e.addEventListener("mouseover", () => {
-    e.querySelector(".live_video > video").play();
-  });
-  e.addEventListener("mouseout", () => {
     e.querySelector(".live_video > video").pause();
+  });
+  e.addEventListener("mouseleave", () => {
+    e.querySelector(".live_video > video").play();
   });
 });
 
