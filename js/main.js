@@ -457,6 +457,7 @@ for (let i = 0; i <= 1; i++) {
 }
 
 //JSON fetch
+
 const liveInfo = (data) => {
   const brandArea = document.querySelectorAll(".ui_brand");
   const liveProductNameArea = document.querySelectorAll(".ui_name");
@@ -479,11 +480,21 @@ const liveInfo = (data) => {
   liveProductNameArea[3].innerText = data.products[9].productName;
   liveProductNameArea[4].innerText = data.products[16].productName;
 
-  livePriceArea[0].innerText = data.products[1].originalPrice;
-  livePriceArea[1].innerText = data.products[5].originalPrice;
-  livePriceArea[2].innerText = data.products[8].originalPrice;
-  livePriceArea[3].innerText = data.products[9].originalPrice;
-  livePriceArea[4].innerText = data.products[16].originalPrice;
+  livePriceArea[0].innerText = `${new Intl.NumberFormat("ko-kr").format(
+    data.products[1].originalPrice
+  )}원`;
+  livePriceArea[1].innerText = `${new Intl.NumberFormat("ko-kr").format(
+    data.products[5].originalPrice
+  )}원`;
+  livePriceArea[2].innerText = `${new Intl.NumberFormat("ko-kr").format(
+    data.products[8].originalPrice
+  )}원`;
+  livePriceArea[3].innerText = `${new Intl.NumberFormat("ko-kr").format(
+    data.products[9].originalPrice
+  )}원`;
+  livePriceArea[4].innerText = `${new Intl.NumberFormat("ko-kr").format(
+    data.products[16].originalPrice
+  )}원`;
 
   liveRateArea[0].innerText = data.products[1].discount;
   liveRateArea[1].innerText = data.products[5].discount;
@@ -491,57 +502,98 @@ const liveInfo = (data) => {
   liveRateArea[3].innerText = data.products[9].discount;
   liveRateArea[4].innerText = data.products[16].discount;
 
-  liveSalePriceArea[0].innerText = data.products[1].price;
-  liveSalePriceArea[1].innerText = data.products[5].price;
-  liveSalePriceArea[2].innerText = data.products[8].price;
-  liveSalePriceArea[3].innerText = data.products[9].price;
-  liveSalePriceArea[4].innerText = data.products[16].price;
+  liveSalePriceArea[0].innerText = `${new Intl.NumberFormat("ko-kr").format(
+    data.products[1].price
+  )}원`;
+  liveSalePriceArea[1].innerText = `${new Intl.NumberFormat("ko-kr").format(
+    data.products[5].price
+  )}원`;
+  liveSalePriceArea[2].innerText = `${new Intl.NumberFormat("ko-kr").format(
+    data.products[8].price
+  )}원`;
+  liveSalePriceArea[3].innerText = `${new Intl.NumberFormat("ko-kr").format(
+    data.products[9].price
+  )}원`;
+  liveSalePriceArea[4].innerText = `${new Intl.NumberFormat("ko-kr").format(
+    data.products[16].price
+  )}원`;
 };
 
-const todayImg = document.querySelectorAll(".product_img > img");
+const todayImg = document.querySelectorAll(".product_img img");
 const todayName = document.querySelectorAll(".today_product_name");
 const todayOriPrice = document.querySelectorAll(".today_price");
 const todayRating = document.querySelectorAll(".today_rating");
 const todayPrice = document.querySelectorAll(".today_Sprice");
+const todayReview = document.querySelectorAll(".today_Review");
 
 const todayInfo = (data) => {
   let n = 0;
   for (let i = 0; i <= 1; i++) {
+    const price = new Intl.NumberFormat("ko-kr").format(data.products[n].price);
+    const originalPrice = new Intl.NumberFormat("ko-kr").format(
+      data.products[n].originalPrice
+    );
+    todayImg[
+      i
+    ].parentElement.href = `./productdetail.html?id=${data.products[n].id}`;
     todayImg[i].src = data.products[n].thumbnail;
+    todayName[
+      i
+    ].parentElement.href = `./productdetail.html?id=${data.products[n].id}`;
     todayName[i].innerText = data.products[n].productName;
-    todayOriPrice[i].innerText = data.products[n].originalPrice;
+    todayOriPrice[i].innerText = `${originalPrice}원`;
     todayRating[i].innerText = data.products[n].discount;
-    todayPrice[i].innerText = data.products[n].price;
+    todayPrice[i].innerText = `${price}원`;
+    todayReview[i].innerText = data.products[n].reviews.length;
     n = n + 2;
   }
 };
 
 const limitedInfo = (data) => {
+  const price = new Intl.NumberFormat("ko-kr").format(data.products[3].price);
+  const originalPrice = new Intl.NumberFormat("ko-kr").format(
+    data.products[3].originalPrice
+  );
+  todayImg[2].parentElement.href = `./productdetail.html?id=${data.products[3].id}`;
   todayImg[2].src = data.products[3].thumbnail;
   todayImg[2].style.position = "relative";
   todayImg[2].style.top = "-130px";
+  todayName[2].parentElement.href = `./productdetail.html?id=${data.products[3].id}`;
   todayName[2].innerText = data.products[3].productName;
-  todayOriPrice[2].innerText = data.products[3].originalPrice;
+  todayOriPrice[2].innerText = `${originalPrice}원`;
   todayRating[2].innerText = data.products[3].discount;
-  todayPrice[2].innerText = data.products[3].price;
+  todayPrice[2].innerText = `${price}원`;
+  todayReview[2].innerText = data.products[3].reviews.length;
 };
 
 const productInfoDetail = (data) => {
-  const productImg = document.querySelectorAll(".product_item_img > img");
+  const productImg = document.querySelectorAll(".product_item_img  img");
   const productName = document.querySelectorAll(".product_name");
   const productOriPrice = document.querySelectorAll(".product_price");
   const productRating = document.querySelectorAll(".product_rating");
   const productPrice = document.querySelectorAll(".product_Sprice");
   const ratingCoupon = document.querySelectorAll(".rating_coupon");
-
+  const productReview = document.querySelectorAll(".product_review");
   let n = 4;
+
   for (let i = 0; i < productImg.length; i++) {
+    const price = new Intl.NumberFormat("ko-kr").format(data.products[n].price);
+    const originalPrice = new Intl.NumberFormat("ko-kr").format(
+      data.products[n].originalPrice
+    );
+    productImg[
+      i
+    ].parentElement.href = `./productdetail.html?id=${data.products[n].id}`;
     productImg[i].src = data.products[n].thumbnail;
+    productName[
+      i
+    ].parentElement.href = `./productdetail.html?id=${data.products[n].id}`;
     productName[i].innerText = data.products[n].productName;
-    productOriPrice[i].innerText = data.products[n].originalPrice;
+    productOriPrice[i].innerText = `${originalPrice}원`;
     productRating[i].innerText = data.products[n].discount;
-    productPrice[i].innerText = data.products[n].price;
+    productPrice[i].innerText = `${price}원`;
     ratingCoupon[i].innerText = `${data.products[n].discount} 할인`;
+    productReview[i].innerText = data.products[n].reviews.length;
     n++;
   }
 };
@@ -557,12 +609,11 @@ const cartinModal = (data) => {
   const productModalOriPrice = document.querySelector(".modal_Wprice");
   const countBtn = document.querySelectorAll(".modal_counter > span");
   const totalPrice = document.querySelector(".totalprice > span");
-
   let p = 1;
   let currentProductIndex = 0; // 현재 선택된 상품의 인덱스를 추적하는 변수
-
   productCartin.forEach((item, index) => {
-    item.addEventListener("click", () => {
+    item.addEventListener("click", (e) => {
+      e.preventDefault();
       modalArea.classList.add("active");
       currentProductIndex = index; // 클릭된 상품의 인덱스 설정
       modalArea.querySelector("#overlay").addEventListener("click", () => {
@@ -605,7 +656,13 @@ const cartinModal = (data) => {
   cartCounter();
 
   const cartCounterTotal = (i) => {
-    let price = Number(data.products[i].price.replace(/,| 원/g, ""));
+    let priceString = String(data.products[i].price);
+
+    if (typeof priceString === "string") {
+      priceString = priceString.replace(/[^0-9]/g, "");
+    }
+
+    let price = Number(priceString);
     let totalPrice = price * p;
     let result = new Intl.NumberFormat("ko-kr").format(totalPrice);
     return result;
@@ -616,26 +673,58 @@ const cartinModal = (data) => {
   };
 
   productCartin[0].addEventListener("click", () => {
+    const price = new Intl.NumberFormat("ko-kr").format(data.products[0].price);
+    const originalPrice = new Intl.NumberFormat("ko-kr").format(
+      data.products[0].originalPrice
+    );
+    new Intl.NumberFormat("ko-kr").format(totalPrice);
     currentProductIndex = 0; // 첫 번째 제품의 인덱스 설정
     productModalImg.style.background = `url(${data.products[0].thumbnail}) center/cover no-repeat`;
     productModalName.innerText = data.products[0].productName;
     productModalSubName.innerText = data.products[0].productName;
-    productModalPrice.innerText = data.products[0].price;
-    productModalOriPrice.innerText = data.products[0].originalPrice;
+    productModalPrice.innerText = `${price}원`;
+    productModalOriPrice.innerText = `${originalPrice}원`;
     updateTotalPrice(0); // 첫 번째 제품의 총 가격 업데이트
   });
 
   const productCartinModalText = (i) => {
     productCartin[i - 1].addEventListener("click", () => {
+      const price = new Intl.NumberFormat("ko-kr").format(
+        data.products[i].price
+      );
+      const originalPrice = new Intl.NumberFormat("ko-kr").format(
+        data.products[i].originalPrice
+      );
       currentProductIndex = i; // 현재 선택된 제품의 인덱스 설정
       productModalImg.style.background = `url(${data.products[i].thumbnail}) center/cover no-repeat`;
       productModalName.innerText = data.products[i].productName;
       productModalSubName.innerText = data.products[i].productName;
-      productModalPrice.innerText = data.products[i].price;
-      productModalOriPrice.innerText = data.products[i].originalPrice;
+      productModalPrice.innerText = `${price}원`;
+      productModalOriPrice.innerText = `${originalPrice}원`;
       updateTotalPrice(i); // 선택된 제품의 총 가격 업데이트
     });
   };
+  const saveToLocalStorage = (product, quantity) => {
+    let cart = JSON.parse(localStorage.getItem("cart")) || [];
+    let productIndex = cart.findIndex(
+      (item) => item.productName === product.productName
+    );
+
+    if (productIndex !== -1) {
+      cart[productIndex].quantity += quantity; // 기존 제품이 있으면 수량 추가
+    } else {
+      cart.push({ ...product, quantity }); // 새로운 제품 추가
+    }
+
+    localStorage.setItem("cart", JSON.stringify(cart));
+  };
+
+  // 담기 버튼 클릭 시 로컬 스토리지에 저장
+  document.querySelector(".button_cartin").addEventListener("click", () => {
+    const selectedProduct = data.products[currentProductIndex];
+    saveToLocalStorage(selectedProduct, p);
+    modalArea.classList.remove("active"); // 모달 닫기
+  });
 
   for (let i = 1; i < 17; i++) {
     productCartinModalText(i + 1);
@@ -652,6 +741,8 @@ fetch(productInfo)
     productInfoDetail(data);
     cartinModal(data);
   });
+
+// localstorage
 
 // 라이브 위치 이동(MO)
 const listClientWidth = liveSliceArea.clientWidth;

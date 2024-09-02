@@ -17,7 +17,7 @@ body .cart-container .cart-header {
   display: flex;
   align-items: center;
 }
-body .cart-container .cart-header .mobileClose {
+body .cart-container .mobileHeader {
   display: none;
 }
 body .cart-container .cart-title-text {
@@ -146,7 +146,10 @@ header .header_wrapper .inner .header_main .header_main_left span {
   cursor: pointer;
   font-size: 18px;
   color: #5f0080;
-  font-weight: 500;
+  font-weight: 450;
+}
+header .header_wrapper .inner .header_main .header_main_left .logo {
+  width: 82px;
 }
 header .header_wrapper .inner .header_main .header_main_left > img:nth-child(2) {
   display: none;
@@ -175,7 +178,17 @@ header .header_wrapper .inner .header_main .header_main_center input:focus::plac
   transition: all 0.1s;
   color: transparent;
 }
-header .header_wrapper .inner .header_main .header_main_center .fa-magnifying-glass {
+header .header_wrapper .inner .header_main .header_main_center button {
+  background-color: transparent; /* 배경색 투명 */
+  border: none; /* 테두리 제거 */
+  padding: 0; /* 안쪽 여백 제거 */
+  margin: 0; /* 바깥 여백 제거 */
+  cursor: pointer; /* 마우스 커서 포인터로 변경 */
+  display: flex; /* 버튼 내용을 중앙 정렬하기 위해 flexbox 사용 */
+  align-items: center; /* 세로 중앙 정렬 */
+  justify-content: center; /* 가로 중앙 정렬 */
+}
+header .header_wrapper .inner .header_main .header_main_center button .fa-magnifying-glass {
   cursor: pointer;
   font-size: 20px;
   position: absolute;
@@ -1042,23 +1055,41 @@ footer .footer_wrapper .inner .footer_right .footer_right_third {
     justify-content: center;
   }
   body .cart-container .cart-header {
+    display: none;
+  }
+  body .cart-container .mobileHeader {
     width: 100%;
     height: 59px;
     display: flex;
     justify-content: center;
-    align-items: center;
+    top: 0;
+    border-bottom: 1px solid #ddd;
+    position: sticky;
+    z-index: 10;
+  }
+  body .cart-container .mobileHeader .mobileHeaderInner {
+    background: #fff;
+    width: 360px;
     position: relative;
   }
-  body .cart-container .cart-header .mobileClose {
-    font-size: 16px;
-    display: block;
+  body .cart-container .mobileHeader .mobileHeaderInner .mobileClose {
+    color: #5f0080;
     position: absolute;
     top: 50%;
     left: 10px;
     transform: translateY(-50%);
   }
-  body .cart-container .cart-title-text {
+  body .cart-container .mobileHeader .mobileHeaderInner .mobile-cart-title {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    display: block;
+    color: #333;
     font-size: 16px;
+    transform: translate(-50%, -50%);
+  }
+  body .cart-container .cart-title-text {
+    display: none;
   }
   body .cart-container .checkbox {
     font-size: 14px;
@@ -1081,6 +1112,11 @@ footer .footer_wrapper .inner .footer_right .footer_right_third {
   main #main #cart_item-box {
     width: 100%;
     flex-direction: column;
+  }
+  main #main #cart_item-box .cart-item-box {
+    margin: 0;
+    padding: 0;
+    border-top: none;
   }
   main #main #cart_item-box .cart-item-box .cart-logo img {
     display: none;

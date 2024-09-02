@@ -72,7 +72,10 @@ header {
             cursor: pointer;
             font-size: 18px;
             color: map-get($color, main-color);
-            font-weight: 500;
+            font-weight: 450;
+          }
+          .logo {
+            width: 82px;
           }
           & > img:nth-child(2) {
             display: none;
@@ -96,14 +99,24 @@ header {
               }
             }
           }
-          .fa-magnifying-glass {
-            cursor: pointer;
-            font-size: 20px;
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            right: 20px;
-            color: map-get($color, main-color);
+          button {
+            background-color: transparent; /* 배경색 투명 */
+            border: none; /* 테두리 제거 */
+            padding: 0; /* 안쪽 여백 제거 */
+            margin: 0; /* 바깥 여백 제거 */
+            cursor: pointer; /* 마우스 커서 포인터로 변경 */
+            display: flex; /* 버튼 내용을 중앙 정렬하기 위해 flexbox 사용 */
+            align-items: center; /* 세로 중앙 정렬 */
+            justify-content: center; /* 가로 중앙 정렬 */
+            .fa-magnifying-glass {
+              cursor: pointer;
+              font-size: 20px;
+              position: absolute;
+              top: 50%;
+              transform: translateY(-50%);
+              right: 20px;
+              color: map-get($color, main-color);
+            }
           }
         }
         .header_main_right {
@@ -1245,6 +1258,7 @@ footer {
         }
       }
       .mobile_header {
+        border-bottom: 1px solid #ddd;
         background: #fff;
         display: flex;
         justify-content: center;
