@@ -9,7 +9,7 @@ fetch(categoryInfo)
         id: idCounter++,
       })),
     };
-    console.log(categorys.data);
+    const left = document;
   })
   .catch((error) => {
     console.log(error);

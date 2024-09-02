@@ -600,7 +600,6 @@ const productInfoDetail = (data) => {
 
 const cartinModal = (data) => {
   const productCartin = document.querySelectorAll(".product_cartin");
-
   const modalArea = document.querySelector("#modal_area");
   const productModalImg = document.querySelector(".modal_img");
   const productModalName = document.querySelector(".modal_product_name");
