@@ -3,7 +3,7 @@
 //2. 휴대폰 인증번호 받기 << 월요일-화 작업 완료 예정
 
 // form 요소들
-const form = document.querySelector("form");
+const form = document.querySelector("#login_form");
 const mainBtn = document.querySelector(".mainBtn");
 const userId = document.querySelector("#userId");
 const userpw = document.querySelector("#userpw");
@@ -66,7 +66,7 @@ function checkarrMinus(mainArr, arrayE) {
     for (let i = 0; i < mainArr.length; i++) {
       if (mainArr[i] === arrayE) {
         mainArr.splice(i, 1);
-        // i--;
+        i--;
       }
     }
 }
@@ -114,7 +114,7 @@ userpw.addEventListener("change", function () {
 //----pass2 //pd2Succ
 pwCheck.addEventListener("change", function () {
   const pass2In = document.querySelector(".pw2err");
-  submitList.pop();
+  checkarrMinus(submitList, "pwCheck");
   if (pwCheck.value === "") {
     checkarrMinus(submitList, "pwCheck");
   } else if (pwCheck.value === userpw.value) {
@@ -209,6 +209,7 @@ userEmail.addEventListener("input", function () {
       if (optionText === domain) {
         emailselect.value = option.value;
         optionFound = true;
+        submitList.push("domainS");
         break;
       }
     }
@@ -218,6 +219,9 @@ userEmail.addEventListener("input", function () {
       hiddenS.classList.add("active");
       emailDirectInput.focus();
       emailDirectInput.value = domain;
+      if (!hiddenS === "") {
+        submitList.push("domainS");
+      }
     }
   }
   userEmail.value = null;
@@ -581,18 +585,6 @@ function checkHandler(all, element) {
   });
 }
 
-//체크 확인용
-inputChs.forEach((inputCh) => {
-  inputCh.addEventListener("change", () => {
-    checkarrMinus(submitList, "termsCheck");
-    checkarrMinus(submitList, "privateCheck");
-    checkarrMinus(submitList, "b14Age");
-    if (termsCheck.checked === true) submitList.push("termsCheck");
-    if (privateCheck.checked === true) submitList.push("privateCheck");
-    if (b14Age.checked === true) submitList.push("b14Age");
-    console.log(submitList);
-  });
-});
 //--------submit-------------------//
 const style = (Elet) => {
   Elet.style.backgroundColor = "#f9c9d4";
@@ -670,16 +662,51 @@ const redalert = function () {
   }
 };
 
+const checkAlready = (element) => {
+  if (submitList.includes(element)) {
+    return;
+  } else {
+    submitList.push(element);
+  }
+};
+const checkNone = (element) => {
+  const i = submitList.indexOf(element);
+  // console.log(i);
+  submitList.splice(i, 1);
+};
+
 mainBtn.addEventListener("click", (e) => {
+  termsCheck.checked === true
+    ? checkAlready("termsCheck")
+    : checkNone("termsCheck");
+
+  privateCheck.checked === true
+    ? checkAlready("privateCheck")
+    : checkNone("privateCheck");
+
+  b14Age.checked === true ? checkAlready("b14Age") : checkNone("b14Age");
+
   e.preventDefault();
   //top
   redalert();
   console.log(submitList);
-  if (submitList.length === 12) {
+  if (submitList.length === 13) {
     modalText.innerText = "환영합니다.";
     modalBase.style.display = "block";
     document.body.style.overflow = "hidden";
     tapModal4.style.display = "block";
+    modalBase.addEventListener("click", () => {
+      modalBase.style.display = "none";
+      document.body.style.overflow = "auto";
+      tapModal4.style.display = "none";
+      window.location.href = "./index.html";
+    });
+    document.querySelector(".closeBtn").addEventListener("click", () => {
+      modalBase.style.display = "none";
+      document.body.style.overflow = "auto";
+      tapModal4.style.display = "none";
+      window.location.href = "./index.html";
+    });
   } else {
     modalText.innerText = "필수요소를 확인해주세요.";
     modalBase.style.display = "block";

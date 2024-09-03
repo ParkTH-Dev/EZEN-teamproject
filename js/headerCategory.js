@@ -3,6 +3,25 @@ const categoryGnb = document.querySelector(".category");
 const subCategoryGnb = document.querySelector(".subCategory");
 const customerServiceBtn = document.querySelector(".customerServiceBtn");
 const customerService = document.querySelector(".customerService");
+const userIdandPass = document.querySelector(
+  ".header_top_bar span:nth-child(1)"
+);
+const userIdandPass2 = document.querySelector(
+  ".header_top_bar span:nth-child(2)"
+);
+console.log(userIdandPass, userIdandPass2);
+
+if (localStorage.getItem("id")) {
+  const userIdName = localStorage.getItem("id");
+  userIdandPass.innerText = `${userIdName}님 환영합니다.`;
+  userIdandPass2.innerText = `로그아웃`;
+  userIdandPass2.addEventListener("click", () => {
+    window.localStorage.removeItem("id");
+    userIdandPass.innerText = `회원가입`;
+    userIdandPass2.innerText = `로그인`;
+    window.location.href = "./login.html";
+  });
+}
 
 categoryBtn.addEventListener("mouseover", () => {
   categoryGnb.classList.add("active");

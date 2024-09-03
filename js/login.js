@@ -2,7 +2,7 @@
 // modal
 const long = document.querySelector("#longModal");
 //form
-const form = document.querySelector("form");
+const form = document.querySelector("#login_form");
 //user input d
 const userId = form.querySelector("#login_id");
 const userPass = form.querySelector("#login_password");
@@ -40,8 +40,17 @@ const password = "1234";
 function modalClose() {
   document.querySelectorAll(".close, #blackB").forEach((item) => {
     item.addEventListener("click", () => {
-      modalBack.classList.remove("active");
-      modal.classList.remove("active");
+      if (modal.querySelector("h1").innerText.includes("환영합니다")) {
+        modalBack.classList.remove("active");
+        modal.classList.remove("active");
+        document.body.style.overflow = "auto";
+        window.location.href = "./index.html";
+        localStorage.setItem("id", "test");
+      } else {
+        modalBack.classList.remove("active");
+        modal.classList.remove("active");
+        document.body.style.overflow = "auto";
+      }
     });
   });
 }
@@ -51,12 +60,15 @@ function autoCheck() {
     modal.querySelector("h1").innerText = `${id}님 환영합니다`;
     modalBack.classList.add("active");
     modal.classList.add("active");
+    document.body.style.overflow = "hidden";
     modalClose();
   } else {
     modal.querySelector("h1").innerHTML = `자동방지 숫자를 확인해주세요`;
     document.querySelector(".autonum").innerText = randomNum;
     modalBack.classList.add("active");
     modal.classList.add("active");
+    document.body.style.overflow = "hidden";
+    modalClose();
   }
 }
 
@@ -72,6 +84,7 @@ form.addEventListener("submit", (e) => {
       modal.querySelector("h1").innerText = `${id}님 환영합니다`;
       modalBack.classList.add("active");
       modal.classList.add("active");
+      document.body.style.overflow = "hidden";
       modalClose();
     }
   } else {
@@ -79,6 +92,7 @@ form.addEventListener("submit", (e) => {
     modalBack.classList.add("active");
     modal.classList.add("active");
     modal.querySelector("h1").innerText = `아이디와 비밀번호를 확인해주세요`;
+    document.body.style.overflow = "hidden";
     modalClose();
     if (falseCount >= 3) {
       document.querySelector(".autonum").innerText = randomNum;

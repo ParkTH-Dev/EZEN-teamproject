@@ -12387,6 +12387,7 @@ header .header_wrapper .inner .header_main .header_main_right span {
   display: flex;
   flex-direction: column;
   width: 100%;
+  padding-left: 0;
 }
 #join_container .join_inner #main form #private li {
   width: 100%;
@@ -12413,6 +12414,7 @@ header .header_wrapper .inner .header_main .header_main_right span {
   font-size: 0.8rem;
   line-height: 8px;
   width: 100%;
+  margin-left: 16px;
 }
 #join_container .join_inner #main form #private li.errContainer > div {
   width: 100%;
@@ -12509,6 +12511,7 @@ header .header_wrapper .inner .header_main .header_main_right span {
   width: 100%;
 }
 #join_container .join_inner #main form #private li .emailTwo > div:nth-child(1) input {
+  background: #fff;
   height: 36px;
   border: none;
   color: #727272;
