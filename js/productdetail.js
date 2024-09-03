@@ -341,23 +341,30 @@ fetch(productInfo)
 
     createModal(product);
     const cartBtn = document.querySelector(".button_cartin");
+
     cartBtn.addEventListener("click", () => {
       let cart = JSON.parse(localStorage.getItem("cart")) || [];
       // 장바구니에 동일한 상품이 있는지 확인
       const existingProductIndex = cart.findIndex(
         (item) => item.id === product.id
       );
-      // console.log(existingProductIndex);
+      // 상품이 이미 장바구니에 있으면 수량만 증가
       if (existingProductIndex !== -1) {
-        // 상품이 이미 장바구니에 있으면 수량만 증가
-        cart[existingProductIndex].quantity += 1;
+        cart[existingProductIndex].quantity += parseInt(
+          document.querySelector(".modal_counter > span:nth-child(2)").innerText
+        );
       } else {
         // 상품이 없으면 장바구니에 추가
-        product.quantity = 1;
+        product.quantity = parseInt(
+          document.querySelector(".modal_counter > span:nth-child(2)").innerText
+        );
         cart.push(product);
       }
       // 로컬스토리지에 업데이트된 장바구니 데이터를 저장
       localStorage.setItem("cart", JSON.stringify(cart));
+
+      const cartModal = document.querySelector(".modal_area");
+      cartModal.classList.remove("active");
     });
   })
   .catch((error) => {

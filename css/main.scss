@@ -1388,6 +1388,13 @@ footer {
             .logo {
               display: none;
             }
+            .mobileLogin {
+              display: block;
+              position: absolute;
+              top: 50%;
+              left: 10px;
+              transform: translateY(-50%);
+            }
             .mobileLogo {
               display: block;
               width: 70px;

@@ -1351,6 +1351,13 @@ footer .footer_wrapper .inner .footer_right .footer_right_third {
   header .header_wrapper .inner .header_main .header_main_left .logo {
     display: none;
   }
+  header .header_wrapper .inner .header_main .header_main_left .mobileLogin {
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: 10px;
+    transform: translateY(-50%);
+  }
   header .header_wrapper .inner .header_main .header_main_left .mobileLogo {
     display: block;
     width: 70px;

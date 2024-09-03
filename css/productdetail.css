@@ -1345,6 +1345,31 @@ footer .footer_wrapper .inner .footer_right .footer_right_third {
   .header_sticky {
     display: none;
   }
+  .modal_area {
+    width: 390px;
+    top: static;
+    bottom: 0;
+    left: 50%;
+    transform: translate(-50%, 0);
+  }
+  .modal_area #overlay {
+    display: none;
+  }
+  .modal_area #modal {
+    width: 100%;
+    height: -moz-fit-content;
+    height: fit-content;
+    top: static;
+    bottom: 0;
+    left: 50%;
+    justify-content: flex-end;
+    transform: translateX(-50%);
+    border-radius: 15px 15px 0 0;
+    border: 1px solid #ccc;
+  }
+  .modal_area #modal .modal_bottom .modal_totalprice {
+    display: none;
+  }
   .container {
     width: 100%;
     background: #f9f9f9;
