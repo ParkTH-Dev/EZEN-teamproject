@@ -740,6 +740,7 @@ fetch(productInfo)
     limitedInfo(data);
     productInfoDetail(data);
     cartinModal(data);
+    console.log(data);
   });
 
 // localstorage

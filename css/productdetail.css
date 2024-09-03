@@ -233,6 +233,154 @@ header .header_wrapper .inner .header_main .header_main_right span {
   color: #5f0080;
 }
 
+#modal_area {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: none;
+}
+#modal_area.active {
+  display: block;
+}
+#modal_area #overlay {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  background: rgba(0, 0, 0, 0.7);
+  z-index: 100;
+  cursor: pointer;
+}
+#modal_area #modal {
+  width: 450px;
+  height: auto;
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%, 50%);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: #fff;
+  padding: 35px;
+  border-radius: 15px;
+  z-index: 101;
+}
+#modal_area #modal .modal_top {
+  width: 100%;
+  display: flex;
+  gap: 18px;
+  align-items: center;
+  padding-bottom: 18px;
+  border-bottom: 1px solid #ccc;
+}
+#modal_area #modal .modal_top .modal_img {
+  width: 76px;
+  height: 76px;
+  background: url("../img/main/product_01.jpg") center/cover no-repeat;
+  border-radius: 5px;
+}
+#modal_area #modal .modal_top .modal_product_name {
+  width: 276px;
+  font-size: 16px;
+}
+#modal_area #modal .modal_middle {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  padding: 15px 0;
+  border-bottom: 1px solid #ccc;
+}
+#modal_area #modal .modal_middle .modal_subname {
+  font-size: 14px;
+}
+#modal_area #modal .modal_middle .modal_price_counter {
+  display: flex;
+  justify-content: space-between;
+}
+#modal_area #modal .modal_middle .modal_price_counter .modal_price {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+}
+#modal_area #modal .modal_middle .modal_price_counter .modal_price .modal_discount_price {
+  font-size: 16px;
+  font-weight: 700;
+}
+#modal_area #modal .modal_middle .modal_price_counter .modal_price .modal_Wprice {
+  font-size: 12px;
+  font-weight: 700;
+  color: #ccc;
+  text-decoration: line-through;
+}
+#modal_area #modal .modal_middle .modal_price_counter .modal_counter {
+  width: 90px;
+  height: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+#modal_area #modal .modal_middle .modal_price_counter .modal_counter span {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 30px;
+  height: 30px;
+  padding-bottom: 2px;
+}
+#modal_area #modal .modal_middle .modal_price_counter .modal_counter span:nth-child(1), #modal_area #modal .modal_middle .modal_price_counter .modal_counter span:nth-child(3) {
+  cursor: pointer;
+}
+#modal_area #modal .modal_bottom {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  padding-top: 15px;
+}
+#modal_area #modal .modal_bottom .modal_totalprice {
+  display: flex;
+  justify-content: space-between;
+  font-size: 20px;
+}
+#modal_area #modal .modal_bottom .modal_totalprice .totalprice {
+  display: flex;
+  align-items: flex-end;
+}
+#modal_area #modal .modal_bottom .modal_totalprice .totalprice span {
+  font-size: 24px;
+  font-weight: 700;
+}
+#modal_area #modal .modal_buttons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 7px;
+}
+#modal_area #modal .modal_buttons div {
+  width: 180px;
+  height: 45px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 5px;
+  cursor: pointer;
+}
+#modal_area #modal .modal_buttons div.button_cancle {
+  border: 1px solid #ccc;
+  background: #fff;
+  color: #ccc;
+}
+#modal_area #modal .modal_buttons div.button_cartin {
+  background: #5f0080;
+  color: #fff;
+}
+
 .container {
   color: #333;
   width: 100%;

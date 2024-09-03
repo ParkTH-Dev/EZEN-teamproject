@@ -87,12 +87,103 @@ const mobileClose = document.querySelector(".mobileClose");
 mobileClose.addEventListener("click", () => {
   window.history.back();
 });
+const cartIn = (data) => {
+  console.log(data.products);
+  const cartBtn = document.querySelector(".cartIn");
+  const cartModalClose = document.querySelector(".button_cancle");
+  const modalArea = document.querySelector("#modal_area");
+  let quantity = 1;
+
+  // 모달 창 열기
+  cartBtn.addEventListener("click", () => {
+    // 제품 정보를 모달에 표시
+    const product = data.products; // 여기서 product는 data에서 전달받는 제품 정보라고 가정
+    const modalImg = document.querySelector(".modal_img");
+    const modalProductName = document.querySelector(".modal_product_name");
+    const modalSubName = document.querySelector(".modal_subname");
+    const modalDiscountPrice = document.querySelector(".modal_discount_price");
+    const modalWprice = document.querySelector(".modal_Wprice");
+    const modalTotalPrice = document.querySelector(".totalprice span");
+
+    modalImg.style.backgroundImage = `url(${product.thumbnail})`;
+    modalProductName.innerText = product.productName;
+    modalSubName.innerText = product.productName;
+    modalDiscountPrice.innerText =
+      new Intl.NumberFormat("ko-kr").format(product.price) + "원";
+    modalWprice.innerText =
+      new Intl.NumberFormat("ko-kr").format(product.originalPrice) + "원";
+    modalTotalPrice.innerText =
+      new Intl.NumberFormat("ko-kr").format(product.price) + "원";
+
+    // 모달 활성화
+    modalArea.classList.add("active");
+  });
+
+  // 모달 창 닫기
+  cartModalClose.addEventListener("click", () => {
+    modalArea.classList.remove("active");
+    quantity = 1; // 초기화
+    document.querySelector(".counterValue").innerText = quantity;
+  });
+
+  // 수량 조절 및 총 가격 업데이트
+  const updateTotalPrice = (data) => {
+    const modalTotalPrice = document.querySelector(".totalprice span");
+    const totalPriceValue = data.products.price * quantity;
+    modalTotalPrice.innerText =
+      new Intl.NumberFormat("ko-kr").format(totalPriceValue) + "원";
+  };
+
+  const productCounterPlus = document.querySelector(".counterPlus");
+  const productCounterMinus = document.querySelector(".counterMinus");
+  const counterValue = document.querySelector(".counterValue");
+
+  productCounterPlus.addEventListener("click", () => {
+    if (quantity < 99) {
+      quantity++;
+      counterValue.innerText = quantity;
+      updateTotalPrice(data.products); // Update price based on the current product
+    }
+  });
+
+  productCounterMinus.addEventListener("click", () => {
+    if (quantity > 1) {
+      quantity--;
+      counterValue.innerText = quantity;
+      updateTotalPrice(data.products); // Update price based on the current product
+    }
+  });
+
+  // 장바구니에 담기
+  const cartInBtn = document.querySelector(".button_cartin");
+  cartInBtn.addEventListener("click", () => {
+    saveToLocalStorage(data.products, quantity);
+    modalArea.classList.remove("active"); // 모달 닫기
+  });
+
+  // 로컬 스토리지에 저장하는 함수
+  const saveToLocalStorage = (products, quantity) => {
+    let cart = JSON.parse(localStorage.getItem("cart")) || [];
+    let productIndex = cart.findIndex(
+      (item) => item.productName === products.productName
+    );
+
+    if (productIndex !== -1) {
+      cart[productIndex].quantity += quantity; // 기존 제품이 있으면 수량 추가
+    } else {
+      cart.push({ ...products, quantity }); // 새로운 제품 추가
+    }
+
+    localStorage.setItem("cart", JSON.stringify(cart));
+  };
+};
 
 // json
 const productInfo = ".././json/db.json";
 fetch(productInfo)
   .then((resoponse) => resoponse.json())
   .then((data) => {
+    cartIn(data);
     const params = new URLSearchParams(window.location.search);
     const productId = params.get("id");
     const product = data.products[productId - 1];
