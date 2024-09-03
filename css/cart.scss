@@ -583,6 +583,14 @@ main {
               color: #5f0080;
             }
           }
+
+          #sample5_address {
+            margin-top: 8px;
+            padding: 10px;
+            width: 238px;
+            display: none;
+            outline: none;
+          }
           input[type="button"] {
             width: 239px;
             height: 37px;
@@ -780,7 +788,7 @@ main {
   display: none;
   // display: flex;
   position: fixed;
-  z-index: 1;
+  z-index: 10;
   left: 0;
   top: 0;
   width: 100%;
@@ -792,20 +800,19 @@ main {
     text-align: center;
     background-color: #fefefe;
     margin: 15% auto;
-    border-radius: 5px;
+    border-radius: 8px;
     .modal_heading {
-      background: #5f0080;
-      border-radius: 2px 2px 0 0;
+      background: #fefefe;
+      border-radius: 8px 8px 0 0;
       top: 0;
       width: 100%;
-      height: 22px;
+      height: 12px;
       color: #5f0080;
       display: flex;
       justify-content: end;
       .order {
         display: flex;
         justify-content: center;
-        font-size: 10px;
       }
       .close {
         color: #aaa;
@@ -813,6 +820,7 @@ main {
         margin-right: 10px;
         font-size: 14px;
         font-weight: bold;
+        margin-top: 4px;
       }
       .close:hover,
       .close:focus {
@@ -824,32 +832,43 @@ main {
     .modal_order_btn {
       display: flex;
       justify-content: center;
-      margin-top: 25px;
+      margin-top: 20px;
       border-right: 1px solid #fff;
+      align-items: center;
+      border-bottom: 4px solid #f4f4f4;
+
       span {
-        text-align: center;
         font-size: 12px;
         font-weight: normal;
+        line-height: 10px;
+        display: inline-block;
+        margin-top: 14px;
       }
-      :nth-child(1) {
-        width: 150px;
-        height: 28px;
+      a:nth-child(1) {
+        text-align: center;
+        width: 180px;
+        height: 40px;
         background: #5f0080;
         color: #f4f4f4;
-        border-radius: 2px 0 0 0;
+        border-radius: 8px 8px 0 0;
+        border-width: 1px 1px 0 1px;
+        border-style: solid;
+        border-color: #5f0080;
       }
-      :nth-child(2) {
-        width: 150px;
-        height: 28px;
-        background: #5f0080;
-        color: #f4f4f4;
-        border-radius: 0 2px 0 0;
+      a:nth-child(2) {
+        text-align: center;
+        width: 180px;
+        height: 40px;
+        background: #f4f4f4;
+        color: #5f0080;
+        border-radius: 8px 8px 0 0;
       }
     }
     .modal_content {
       display: flex;
       margin-left: 130px;
       margin-right: 130px;
+      margin-top: 20px;
       .modal_login {
         margin-top: 10px;
         :focus {
@@ -875,14 +894,14 @@ main {
         }
         .idpw_such {
           gap: 4px;
-          margin-bottom: 5px;
+          margin-bottom: 12px;
           text-align: right;
           span {
             font-size: 13px;
             color: #333;
           }
           .such {
-            font-size: 10px;
+            font-size: 12px;
             cursor: pointer;
             border-bottom: 1px solid transparent;
           }
@@ -893,11 +912,11 @@ main {
           }
         }
         #easy_login {
-          margin-top: 6px;
+          margin-top: 12px;
           margin-bottom: 10px;
-          font-size: 12px;
+          font-size: 16px;
           font-weight: bold;
-          color: #333;
+          color: #727272;
         }
         #icon_img {
           display: flex;
@@ -911,6 +930,7 @@ main {
           flex-direction: column;
           justify-content: center;
           align-items: center;
+          margin-top: 12px;
           span {
             display: flex;
             flex-direction: column;
@@ -921,15 +941,17 @@ main {
             display: flex;
             justify-content: center;
             align-items: center;
-            width: 100px;
-            height: 20px;
-            margin-top: 12px;
+            width: 180px;
+            height: 40px;
+            margin-top: 10px;
             margin-bottom: 10px;
             background-color: #5f0080;
-            color: #fff;
-            border-radius: 4px;
-            font-size: 10px;
+            color: #f4f4f4;
+            border-radius: 6px;
+            font-size: 14px;
+            font-weight: 300;
             text-align: center;
+            border: none;
             cursor: pointer;
           }
         }

@@ -28,12 +28,12 @@ $font-color: (
 );
 
 /*custom*/
-.top-content {
-  &.modalAction {
-    height: 100vh;
-    overflow: hidden;
-  }
-}
+// .top-content {
+//   &.modalAction {
+//     height: 100vh;
+//     overflow: hidden;
+//   }
+// }
 
 input:-webkit-autofill {
   // -webkit-box-shadow: 0 0 0 1000px white inset;
@@ -260,6 +260,122 @@ header {
           &:hover {
             color: map-get($color, main-color);
           }
+        }
+      }
+    }
+  }
+}
+
+/*modal*/
+.modalBase {
+  top: 0;
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.4);
+  z-index: 30;
+  display: none;
+  .modalInner {
+    position: relative;
+    width: 1080px;
+    height: 100%;
+    margin: 0 auto;
+    .HModal {
+      position: absolute;
+      width: 450px;
+      height: 650px;
+      z-index: 20;
+      background: map-get($color, light);
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      border-radius: 20px;
+
+      .modal_title {
+        h1 {
+          position: absolute;
+          font-size: 1.2rem;
+          margin: 50px 0 0 30px;
+          font-weight: 600;
+          color: map-get($font-color, font-dark);
+        }
+      }
+      .frame {
+        width: 450px;
+        height: 480px;
+        margin: 100px 0 50px 0;
+        padding: 0 30px;
+        overflow: scroll;
+        padding-top: 20px;
+        overflow-x: hidden;
+        overflow-y: hidden;
+        h2 {
+          font-size: 1.1rem;
+          font-weight: 600;
+          color: map-get($font-color, font-dark);
+        }
+        h3 {
+          font-size: 1rem;
+          font-weight: 600;
+          color: map-get($font-color, font-dark);
+        }
+        table {
+          width: 100%;
+          p {
+            font-size: 0.8rem;
+          }
+          th {
+            background-color: map-get($font-color, font-line);
+            text-align: center;
+          }
+          tr,
+          th,
+          td {
+            border: 1px solid map-get($font-color, font-light);
+            font-size: 0.9rem;
+            padding: 6px;
+          }
+        }
+      }
+      &.tapModal1 {
+        display: none;
+        // display: block;
+      }
+      &.tapModal2 {
+        display: none;
+        .mobileTable {
+          display: none;
+        }
+      }
+      &.tapModal3 {
+        height: 360px;
+        display: none;
+      }
+      &.tapModal4 {
+        height: 200px;
+        width: 350px;
+        display: none;
+        .frame {
+          width: 100%;
+          height: 180px;
+          margin: 0;
+          text-align: center;
+          padding-top: 70px;
+          .modalText {
+            font-size: 1.1rem;
+            font-weight: 400;
+          }
+        }
+      }
+      .modal_close {
+        h1 {
+          cursor: pointer;
+          position: absolute;
+          font-size: 1.1rem;
+          color: map-get($color, main);
+          bottom: 12px;
+          right: 50%;
+          transform: translateX(50%);
         }
       }
     }
@@ -773,120 +889,6 @@ header {
   border: 1px solid map-get($color, main);
   border-radius: 4px;
   margin-bottom: 40px;
-}
-
-/*modal*/
-.modalBase {
-  position: fixed;
-  height: 100%;
-  width: 100%;
-  background: rgba(0, 0, 0, 0.4);
-  z-index: 6;
-  display: none;
-
-  .modalInner {
-    width: 1080px;
-    margin: 0 auto;
-    .HModal {
-      position: absolute;
-      width: 450px;
-      height: 650px;
-      z-index: 10;
-      background: map-get($color, light);
-      left: 50%;
-      top: 50%;
-      transform: translate(-50%, -50%);
-      border-radius: 20px;
-
-      .modal_title {
-        h1 {
-          position: absolute;
-          font-size: 1.2rem;
-          margin: 50px 0 0 30px;
-          font-weight: 600;
-          color: map-get($font-color, font-dark);
-        }
-      }
-      .frame {
-        width: 450px;
-        height: 480px;
-        margin: 100px 0 50px 0;
-        padding: 0 30px;
-        overflow: scroll;
-        padding-top: 20px;
-        overflow-x: hidden;
-        overflow-y: hidden;
-        h2 {
-          font-size: 1.1rem;
-          font-weight: 600;
-          color: map-get($font-color, font-dark);
-        }
-        h3 {
-          font-size: 1rem;
-          font-weight: 600;
-          color: map-get($font-color, font-dark);
-        }
-        table {
-          width: 100%;
-          p {
-            font-size: 0.8rem;
-          }
-          th {
-            background-color: map-get($font-color, font-line);
-            text-align: center;
-          }
-          tr,
-          th,
-          td {
-            border: 1px solid map-get($font-color, font-light);
-            font-size: 0.9rem;
-            padding: 6px;
-          }
-        }
-      }
-      &.tapModal1 {
-        display: none;
-        // display: block;
-      }
-      &.tapModal2 {
-        display: none;
-        .mobileTable {
-          display: none;
-        }
-      }
-      &.tapModal3 {
-        height: 360px;
-        display: none;
-      }
-      &.tapModal4 {
-        height: 200px;
-        width: 350px;
-        display: none;
-        .frame {
-          width: 100%;
-          height: 180px;
-          margin: 0;
-          text-align: center;
-          padding-top: 70px;
-          .modalText {
-            font-size: 1.1rem;
-            font-weight: 400;
-          }
-        }
-      }
-      .modal_close {
-        h1 {
-          cursor: pointer;
-          position: absolute;
-          font-size: 1.1rem;
-          color: map-get($color, main);
-          bottom: 12px;
-          right: 50%;
-          transform: translateX(50%);
-        }
-      }
-    }
-  }
 }
 
 footer {

@@ -11989,11 +11989,6 @@ html {
 /*font*/
 /*variable*/
 /*custom*/
-.top-content.modalAction {
-  height: 100vh;
-  overflow: hidden;
-}
-
 input:-webkit-autofill {
   -webkit-transition: background 10000s ease-in-out 0s;
 }
@@ -12223,6 +12218,116 @@ header .header_wrapper .inner .header_main .header_main_right span {
 }
 .header_sticky .inner .header_bottom_gnb .gnb a:hover {
   color: #5f0080;
+}
+
+/*modal*/
+.modalBase {
+  top: 0;
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.4);
+  z-index: 30;
+  display: none;
+}
+.modalBase .modalInner {
+  position: relative;
+  width: 1080px;
+  height: 100%;
+  margin: 0 auto;
+}
+.modalBase .modalInner .HModal {
+  position: absolute;
+  width: 450px;
+  height: 650px;
+  z-index: 20;
+  background: #fff;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 20px;
+}
+.modalBase .modalInner .HModal .modal_title h1, .modalBase .modalInner .HModal .modal_title .h1 {
+  position: absolute;
+  font-size: 1.2rem;
+  margin: 50px 0 0 30px;
+  font-weight: 600;
+  color: #333333;
+}
+.modalBase .modalInner .HModal .frame {
+  width: 450px;
+  height: 480px;
+  margin: 100px 0 50px 0;
+  padding: 0 30px;
+  overflow: scroll;
+  padding-top: 20px;
+  overflow-x: hidden;
+  overflow-y: hidden;
+}
+.modalBase .modalInner .HModal .frame h2, .modalBase .modalInner .HModal .frame .h2 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #333333;
+}
+.modalBase .modalInner .HModal .frame h3, .modalBase .modalInner .HModal .frame .h3 {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #333333;
+}
+.modalBase .modalInner .HModal .frame table {
+  width: 100%;
+}
+.modalBase .modalInner .HModal .frame table p {
+  font-size: 0.8rem;
+}
+.modalBase .modalInner .HModal .frame table th {
+  background-color: #c5c5c5;
+  text-align: center;
+}
+.modalBase .modalInner .HModal .frame table tr,
+.modalBase .modalInner .HModal .frame table th,
+.modalBase .modalInner .HModal .frame table td {
+  border: 1px solid #727272;
+  font-size: 0.9rem;
+  padding: 6px;
+}
+.modalBase .modalInner .HModal.tapModal1 {
+  display: none;
+}
+.modalBase .modalInner .HModal.tapModal2 {
+  display: none;
+}
+.modalBase .modalInner .HModal.tapModal2 .mobileTable {
+  display: none;
+}
+.modalBase .modalInner .HModal.tapModal3 {
+  height: 360px;
+  display: none;
+}
+.modalBase .modalInner .HModal.tapModal4 {
+  height: 200px;
+  width: 350px;
+  display: none;
+}
+.modalBase .modalInner .HModal.tapModal4 .frame {
+  width: 100%;
+  height: 180px;
+  margin: 0;
+  text-align: center;
+  padding-top: 70px;
+}
+.modalBase .modalInner .HModal.tapModal4 .frame .modalText {
+  font-size: 1.1rem;
+  font-weight: 400;
+}
+.modalBase .modalInner .HModal .modal_close h1, .modalBase .modalInner .HModal .modal_close .h1 {
+  cursor: pointer;
+  position: absolute;
+  font-size: 1.1rem;
+  color: #5f0080;
+  bottom: 12px;
+  right: 50%;
+  transform: translateX(50%);
 }
 
 #join_container {
@@ -12718,113 +12823,6 @@ header .header_wrapper .inner .header_main .header_main_right span {
   border: 1px solid #5f0080;
   border-radius: 4px;
   margin-bottom: 40px;
-}
-
-/*modal*/
-.modalBase {
-  position: fixed;
-  height: 100%;
-  width: 100%;
-  background: rgba(0, 0, 0, 0.4);
-  z-index: 6;
-  display: none;
-}
-.modalBase .modalInner {
-  width: 1080px;
-  margin: 0 auto;
-}
-.modalBase .modalInner .HModal {
-  position: absolute;
-  width: 450px;
-  height: 650px;
-  z-index: 10;
-  background: #fff;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
-  border-radius: 20px;
-}
-.modalBase .modalInner .HModal .modal_title h1, .modalBase .modalInner .HModal .modal_title .h1 {
-  position: absolute;
-  font-size: 1.2rem;
-  margin: 50px 0 0 30px;
-  font-weight: 600;
-  color: #333333;
-}
-.modalBase .modalInner .HModal .frame {
-  width: 450px;
-  height: 480px;
-  margin: 100px 0 50px 0;
-  padding: 0 30px;
-  overflow: scroll;
-  padding-top: 20px;
-  overflow-x: hidden;
-  overflow-y: hidden;
-}
-.modalBase .modalInner .HModal .frame h2, .modalBase .modalInner .HModal .frame .h2 {
-  font-size: 1.1rem;
-  font-weight: 600;
-  color: #333333;
-}
-.modalBase .modalInner .HModal .frame h3, .modalBase .modalInner .HModal .frame .h3 {
-  font-size: 1rem;
-  font-weight: 600;
-  color: #333333;
-}
-.modalBase .modalInner .HModal .frame table {
-  width: 100%;
-}
-.modalBase .modalInner .HModal .frame table p {
-  font-size: 0.8rem;
-}
-.modalBase .modalInner .HModal .frame table th {
-  background-color: #c5c5c5;
-  text-align: center;
-}
-.modalBase .modalInner .HModal .frame table tr,
-.modalBase .modalInner .HModal .frame table th,
-.modalBase .modalInner .HModal .frame table td {
-  border: 1px solid #727272;
-  font-size: 0.9rem;
-  padding: 6px;
-}
-.modalBase .modalInner .HModal.tapModal1 {
-  display: none;
-}
-.modalBase .modalInner .HModal.tapModal2 {
-  display: none;
-}
-.modalBase .modalInner .HModal.tapModal2 .mobileTable {
-  display: none;
-}
-.modalBase .modalInner .HModal.tapModal3 {
-  height: 360px;
-  display: none;
-}
-.modalBase .modalInner .HModal.tapModal4 {
-  height: 200px;
-  width: 350px;
-  display: none;
-}
-.modalBase .modalInner .HModal.tapModal4 .frame {
-  width: 100%;
-  height: 180px;
-  margin: 0;
-  text-align: center;
-  padding-top: 70px;
-}
-.modalBase .modalInner .HModal.tapModal4 .frame .modalText {
-  font-size: 1.1rem;
-  font-weight: 400;
-}
-.modalBase .modalInner .HModal .modal_close h1, .modalBase .modalInner .HModal .modal_close .h1 {
-  cursor: pointer;
-  position: absolute;
-  font-size: 1.1rem;
-  color: #5f0080;
-  bottom: 12px;
-  right: 50%;
-  transform: translateX(50%);
 }
 
 footer {

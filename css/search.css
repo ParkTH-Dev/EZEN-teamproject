@@ -242,6 +242,7 @@ header .header_wrapper .inner .header_main .header_main_right span {
   top: 0;
   left: 0;
   display: none;
+  z-index: 10;
 }
 #modal_area.active {
   display: block;
