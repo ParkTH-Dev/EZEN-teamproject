@@ -87,103 +87,12 @@ const mobileClose = document.querySelector(".mobileClose");
 mobileClose.addEventListener("click", () => {
   window.history.back();
 });
-const cartIn = (data) => {
-  console.log(data.products);
-  const cartBtn = document.querySelector(".cartIn");
-  const cartModalClose = document.querySelector(".button_cancle");
-  const modalArea = document.querySelector("#modal_area");
-  let quantity = 1;
-
-  // 모달 창 열기
-  cartBtn.addEventListener("click", () => {
-    // 제품 정보를 모달에 표시
-    const product = data.products; // 여기서 product는 data에서 전달받는 제품 정보라고 가정
-    const modalImg = document.querySelector(".modal_img");
-    const modalProductName = document.querySelector(".modal_product_name");
-    const modalSubName = document.querySelector(".modal_subname");
-    const modalDiscountPrice = document.querySelector(".modal_discount_price");
-    const modalWprice = document.querySelector(".modal_Wprice");
-    const modalTotalPrice = document.querySelector(".totalprice span");
-
-    modalImg.style.backgroundImage = `url(${product.thumbnail})`;
-    modalProductName.innerText = product.productName;
-    modalSubName.innerText = product.productName;
-    modalDiscountPrice.innerText =
-      new Intl.NumberFormat("ko-kr").format(product.price) + "원";
-    modalWprice.innerText =
-      new Intl.NumberFormat("ko-kr").format(product.originalPrice) + "원";
-    modalTotalPrice.innerText =
-      new Intl.NumberFormat("ko-kr").format(product.price) + "원";
-
-    // 모달 활성화
-    modalArea.classList.add("active");
-  });
-
-  // 모달 창 닫기
-  cartModalClose.addEventListener("click", () => {
-    modalArea.classList.remove("active");
-    quantity = 1; // 초기화
-    document.querySelector(".counterValue").innerText = quantity;
-  });
-
-  // 수량 조절 및 총 가격 업데이트
-  const updateTotalPrice = (data) => {
-    const modalTotalPrice = document.querySelector(".totalprice span");
-    const totalPriceValue = data.products.price * quantity;
-    modalTotalPrice.innerText =
-      new Intl.NumberFormat("ko-kr").format(totalPriceValue) + "원";
-  };
-
-  const productCounterPlus = document.querySelector(".counterPlus");
-  const productCounterMinus = document.querySelector(".counterMinus");
-  const counterValue = document.querySelector(".counterValue");
-
-  productCounterPlus.addEventListener("click", () => {
-    if (quantity < 99) {
-      quantity++;
-      counterValue.innerText = quantity;
-      updateTotalPrice(data.products); // Update price based on the current product
-    }
-  });
-
-  productCounterMinus.addEventListener("click", () => {
-    if (quantity > 1) {
-      quantity--;
-      counterValue.innerText = quantity;
-      updateTotalPrice(data.products); // Update price based on the current product
-    }
-  });
-
-  // 장바구니에 담기
-  const cartInBtn = document.querySelector(".button_cartin");
-  cartInBtn.addEventListener("click", () => {
-    saveToLocalStorage(data.products, quantity);
-    modalArea.classList.remove("active"); // 모달 닫기
-  });
-
-  // 로컬 스토리지에 저장하는 함수
-  const saveToLocalStorage = (products, quantity) => {
-    let cart = JSON.parse(localStorage.getItem("cart")) || [];
-    let productIndex = cart.findIndex(
-      (item) => item.productName === products.productName
-    );
-
-    if (productIndex !== -1) {
-      cart[productIndex].quantity += quantity; // 기존 제품이 있으면 수량 추가
-    } else {
-      cart.push({ ...products, quantity }); // 새로운 제품 추가
-    }
-
-    localStorage.setItem("cart", JSON.stringify(cart));
-  };
-};
 
 // json
 const productInfo = ".././json/db.json";
 fetch(productInfo)
   .then((resoponse) => resoponse.json())
   .then((data) => {
-    cartIn(data);
     const params = new URLSearchParams(window.location.search);
     const productId = params.get("id");
     const product = data.products[productId - 1];
@@ -429,10 +338,121 @@ fetch(productInfo)
       alert("잘못된 접근입니다.");
       window.history.back();
     }
+
+    createModal(product);
+    const cartBtn = document.querySelector(".button_cartin");
+    cartBtn.addEventListener("click", () => {
+      let cart = JSON.parse(localStorage.getItem("cart")) || [];
+      // 장바구니에 동일한 상품이 있는지 확인
+      const existingProductIndex = cart.findIndex(
+        (item) => item.id === product.id
+      );
+      // console.log(existingProductIndex);
+      if (existingProductIndex !== -1) {
+        // 상품이 이미 장바구니에 있으면 수량만 증가
+        cart[existingProductIndex].quantity += 1;
+      } else {
+        // 상품이 없으면 장바구니에 추가
+        product.quantity = 1;
+        cart.push(product);
+      }
+      // 로컬스토리지에 업데이트된 장바구니 데이터를 저장
+      localStorage.setItem("cart", JSON.stringify(cart));
+    });
   })
   .catch((error) => {
     console.log(error);
   });
+
+// cart modal
+const cartModal = document.querySelector(".modal_area");
+
+const createModal = (product) => {
+  cartModal.innerHTML = `
+  <div id="overlay"></div>
+      <div id="modal">
+        <div class="modal_top">
+          <img src="${product.thumbnail}" class="modal_img">
+            
+          </img>
+          <div class="modal_product_name">
+            ${product.productName}
+          </div>
+        </div>
+        <div class="modal_middle">
+          <div class="modal_subname">
+          ${product.productName}
+          </div>
+          <div class="modal_price_counter">
+            <div class="modal_price">
+              <div class="modal_discount_price">${new Intl.NumberFormat(
+                "ko-kr"
+              ).format(product.price)}원</div>
+              <div class="modal_Wprice">${new Intl.NumberFormat("ko-kr").format(
+                product.originalPrice
+              )}원</div>
+            </div>
+            <div class="modal_counter">
+              <span>-</span>
+              <span>1</span>
+              <span>+</span>
+            </div>
+          </div>
+        </div>
+        <div class="modal_bottom">
+          <div class="modal_totalprice">
+            <div>합계</div>
+            <div class="totalprice"><span>${new Intl.NumberFormat(
+              "ko-kr"
+            ).format(product.price)}</span>원</div>
+          </div>
+          <div class="modal_buttons">
+            <div class="button_cancle">취소</div>
+            <div class="button_cartin">장바구니 담기</div>
+          </div>
+        </div>
+      </div>
+  `;
+
+  const modalBtn = document.querySelector(".cartIn");
+  const totalprice = document.querySelector(".totalprice");
+
+  const cartModalClose = document.querySelector(".button_cancle");
+  const countBtn = document.querySelectorAll(".modal_counter > span");
+
+  modalBtn.addEventListener("click", () => {
+    cartModal.classList.add("active");
+  });
+  cartModalClose.addEventListener("click", () => {
+    cartModal.classList.remove("active");
+  });
+
+  const cartCounter = () => {
+    let p = 1;
+    countBtn[1].innerText = p;
+    countBtn[0].addEventListener("click", () => {
+      if (p > 1) {
+        p--;
+        countBtn[1].innerText = p;
+        totalprice.innerHTML = `<span>${new Intl.NumberFormat("ko-kr").format(
+          product.price * p
+        )}</span>원`;
+      } else if (p === 1) {
+        countBtn[1].innerText = p;
+      }
+    });
+    countBtn[2].addEventListener("click", () => {
+      if (p < 99) {
+        p++;
+        countBtn[1].innerText = p;
+        totalprice.innerHTML = `<span>${new Intl.NumberFormat("ko-kr").format(
+          product.price * p
+        )}</span>원`;
+      }
+    });
+  };
+  cartCounter();
+};
 
 // scroll
 window.addEventListener("scroll", () => {
