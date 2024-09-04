@@ -298,6 +298,17 @@ const loadCart = () => {
 
         // 해당 상품 삭제
         cart.splice(index, 1);
+        const cartEmptyText = document.querySelector(".cart_empty_text");
+
+        if (cart.length === 0) {
+          // 장바구니가 비어 있으면 메시지와 패딩 적용
+          cartEmptyText.innerText = `장바구니에 담긴 상품이 없습니다.`;
+          cartEmptyText.style.padding = "100px";
+        } else {
+          // 장바구니에 상품이 있으면 패딩을 없앰
+          cartEmptyText.innerText = ""; // 또는 다른 메시지를 설정할 수 있음
+          cartEmptyText.style.padding = "0";
+        }
 
         // 로컬스토리지 업데이트
         localStorage.setItem("cart", JSON.stringify(cart));
@@ -307,10 +318,45 @@ const loadCart = () => {
       });
     });
   };
+  if (cart.length === 0) {
+    document.querySelector(
+      ".cart_empty_text"
+    ).innerText = `장바구니에 담긴 상품이 없습니다.`;
+    const cartEmptyText = document.querySelector(".cart_empty_text");
+
+    if (cart.length === 0) {
+      // 장바구니가 비어 있으면 메시지와 패딩 적용
+      cartEmptyText.innerText = `장바구니에 담긴 상품이 없습니다.`;
+      cartEmptyText.style.padding = "100px";
+    } else {
+      // 장바구니에 상품이 있으면 패딩을 없앰
+      cartEmptyText.innerText = ""; // 또는 다른 메시지를 설정할 수 있음
+      cartEmptyText.style.padding = "0";
+    }
+  }
 
   // 처음 렌더링
   renderCart();
 };
+const chiceProductBtn = document.querySelector(".check-item-del");
+
+chiceProductBtn.addEventListener("click", () => {
+  let cart = JSON.parse(localStorage.getItem("cart")) || [];
+  const selectedItems = document.querySelectorAll(
+    '.item-inner-box .custom-checkbox input[type="checkbox"]:checked'
+  );
+
+  selectedItems.forEach((checkbox) => {
+    const index = checkbox.getAttribute("data-index");
+    cart.splice(index, 1); // 선택된 상품 삭제
+  });
+
+  // 로컬스토리지에 업데이트된 장바구니 데이터 저장
+  localStorage.setItem("cart", JSON.stringify(cart));
+
+  // UI 업데이트 (재렌더링)
+  loadCart();
+});
 
 loadCart();
 // 주문하기 모달

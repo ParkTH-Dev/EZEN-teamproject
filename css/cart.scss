@@ -383,10 +383,15 @@ main {
           background: #fff;
           border-radius: 10px;
           padding-right: 20px;
+          .cart_empty_text {
+            color: #ccc;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+          }
           .item-inner-box {
             display: flex;
             flex-direction: column;
-
             margin-bottom: 26px;
             #prozen-item-example {
               width: 100%;

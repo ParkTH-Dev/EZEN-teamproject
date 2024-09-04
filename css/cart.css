@@ -375,6 +375,12 @@ main #main #cart_item-box .cart-item-box .cart-item-inner {
   border-radius: 10px;
   padding-right: 20px;
 }
+main #main #cart_item-box .cart-item-box .cart-item-inner .cart_empty_text {
+  color: #ccc;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 main #main #cart_item-box .cart-item-box .cart-item-inner .item-inner-box {
   display: flex;
   flex-direction: column;
@@ -1400,4 +1406,4 @@ footer .footer_wrapper .inner .footer_right .footer_right_third {
   footer {
     display: none;
   }
-}/*# sourceMappingURL=cart.css.map */
+}
