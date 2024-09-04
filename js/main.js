@@ -568,7 +568,7 @@ const limitedInfo = (data) => {
 };
 
 const productInfoDetail = (data) => {
-  const productImg = document.querySelectorAll(".product_item_img  img");
+  const productImg = document.querySelectorAll(".product_item_img img");
   const productName = document.querySelectorAll(".product_name");
   const productOriPrice = document.querySelectorAll(".product_price");
   const productRating = document.querySelectorAll(".product_rating");
@@ -740,6 +740,7 @@ fetch(productInfo)
     limitedInfo(data);
     productInfoDetail(data);
     cartinModal(data);
+    console.log(data);
   });
 
 // localstorage
