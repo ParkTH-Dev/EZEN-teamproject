@@ -403,6 +403,7 @@ header {
     height: 100%;
     position: relative;
     .topButton {
+      z-index: 20;
       position: fixed;
       bottom: 100px;
       right: 50px;
