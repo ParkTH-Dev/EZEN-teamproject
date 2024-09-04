@@ -82,6 +82,9 @@ header {
           .logo {
             width: 82px;
           }
+          .mobileLogin {
+            display: none;
+          }
           .mobileLogo {
             display: none;
           }
@@ -622,7 +625,7 @@ footer {
 @media screen and (max-width: 1050px) {
   body {
     width: 100%;
-
+    height: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -671,6 +674,13 @@ footer {
             }
             .logo {
               display: none;
+            }
+            .mobileLogin {
+              display: block;
+              position: absolute;
+              top: 50%;
+              left: 10px;
+              transform: translateY(-50%);
             }
             .mobileLogo {
               display: block;
@@ -735,8 +745,11 @@ footer {
   }
   section {
     width: 390px;
-    height: 100vh;
-    padding-top: 20px;
+    height: 100%;
+    min-height: 100vh;
+    padding: 20px 0;
+    display: flex;
+    align-items: start;
     box-shadow: 0 0 10px rgba($color: #000000, $alpha: 0.1);
     .inner {
       margin: 0;
@@ -747,6 +760,7 @@ footer {
       .searchItem {
         .product_items {
           display: flex;
+
           flex-wrap: wrap;
           gap: 14px;
           .product_item {

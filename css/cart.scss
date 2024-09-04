@@ -21,7 +21,8 @@ body {
     display: flex;
     align-items: center;
     flex-direction: column;
-    margin-bottom: 60px;
+    padding-bottom: 60px;
+    background: rgba($color: #e2d9e6, $alpha: 0.3);
     .cart-header {
       width: 1050px;
       display: flex;
@@ -39,17 +40,19 @@ body {
       justify-content: center;
       align-items: center;
       font-size: 20px;
-      font-weight: normal;
-      color: #d1d1d1;
+      font-weight: 600;
+      color: #222;
+      gap: 4px;
     }
     .checkbox {
       display: flex;
       align-items: center;
       gap: 10px;
-      margin-bottom: 20px;
+      margin-bottom: 14px;
       .custom-checkbox {
         display: flex;
         align-items: center;
+        font-size: 14px;
         cursor: pointer;
         margin-left: 30px;
         input {
@@ -91,6 +94,22 @@ body {
           background: white;
           transform: translate(-50%, -50%);
           transition: width 0.3s, height 0.3s;
+        }
+      }
+      span {
+        font-size: 13px;
+        color: #333;
+      }
+      .check-item-del {
+        span {
+          font-size: 13px;
+          padding: 2px 8px;
+          border-radius: 10px;
+          background: rgba($color: #d1d1d1, $alpha: 0.3);
+        }
+        :hover {
+          background: rgba($color: #5f0080, $alpha: 0.8);
+          color: #fff;
         }
       }
     }
@@ -361,6 +380,9 @@ main {
         .cart-item-inner {
           display: flex;
           flex-direction: column;
+          background: #fff;
+          border-radius: 10px;
+          padding-right: 20px;
           .item-inner-box {
             display: flex;
             flex-direction: column;
@@ -398,7 +420,6 @@ main {
                   // flex: 2;
                   .checkbox {
                     display: flex;
-                    margin-left: 10px;
                     margin-bottom: 10px;
                     align-items: center;
                     gap: 10px;
@@ -457,6 +478,7 @@ main {
                       height: 80px;
                       border-radius: 4px;
                       margin-left: 8px;
+                      margin-right: 8px;
                     }
                     span {
                       font-size: 14px;
@@ -465,9 +487,6 @@ main {
                     .delivery_mark {
                       display: flex;
                       flex-direction: column;
-                      span {
-                        font-size: 14px;
-                      }
                       .delivery_info {
                         display: flex;
                         align-items: center;
@@ -476,12 +495,14 @@ main {
                           display: flex;
                           justify-content: center;
                           align-items: center;
-                          height: 28px;
-                          padding: 0 3px;
+                          font-size: 12px;
+                          font-weight: 500;
+                          height: 22px;
+                          padding: 0 6px;
                           // width: 40px;
                           // border: 1px solid #222;
                           border-radius: 4px;
-                          color: white;
+                          color: #69a3e1;
                         }
                         .delivery_text {
                           color: #5f0080;
@@ -519,7 +540,7 @@ main {
                   }
                 }
                 .check-num {
-                  border: 1px solid #ddd;
+                  background: #eceff3;
                   border-radius: 3px;
                   width: 88px;
                   height: 30px;
@@ -1131,7 +1152,7 @@ footer {
             top: 50%;
             left: 50%;
             display: block;
-            color: #333;
+            color: #222;
             font-size: 16px;
             transform: translate(-50%, -50%);
           }
@@ -1142,6 +1163,9 @@ footer {
       }
       .checkbox {
         font-size: 14px;
+        margin-top: 14px;
+        margin-bottom: 0;
+        margin: 14px 14px 10px 0;
       }
     }
   }
@@ -1262,6 +1286,10 @@ footer {
                           transition: width 0.3s, height 0.3s;
                         }
                       }
+                      .check-item-del {
+                        span {
+                        }
+                      }
                     }
                     .cart-item-text {
                       display: flex;
@@ -1278,8 +1306,6 @@ footer {
                         padding: 8px;
                       }
                       .delivery_mark {
-                        display: flex;
-                        flex-direction: column;
                         span {
                           font-size: 14px;
                         }
@@ -1297,12 +1323,20 @@ footer {
                             font-size: 12px;
                           }
                         }
+                        a {
+                          .product-title-name {
+                            padding-left: 2px;
+                          }
+                        }
                       }
                     }
                   }
                   .cart_price_num_box {
-                    justify-content: center;
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-around;
                     gap: 25px;
+                    padding-left: 70px;
                     .cart-item-price {
                       margin-right: 22px;
                       span {

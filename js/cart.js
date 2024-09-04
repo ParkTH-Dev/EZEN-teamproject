@@ -180,7 +180,7 @@ const loadCart = () => {
                     <span>내일 새벽 도착</span>
                   </div>
                   <a href="./productdetail.html?id=${product.id}"> 
-                  <span>${product.productName}</span>
+                  <span class="product-title-name">${product.productName}</span>
                   </a>
                 </div>
               </div>
@@ -208,9 +208,11 @@ const loadCart = () => {
         `#prozen-item-example[data-index="${index}"] .frozen-status`
       );
       if (product.frozen === "냉장") {
-        frozenStatusElement.style.backgroundColor = "#2CAA18"; // 냉장일 경우 초록색
+        frozenStatusElement.style.backgroundColor = "#def1eb";
+        frozenStatusElement.style.color = "#67bfa4";
+        // 냉장일 경우 초록색
       } else {
-        frozenStatusElement.style.backgroundColor = "#7897bc"; // 냉동일 경우 파란색
+        frozenStatusElement.style.backgroundColor = "#dfebf9"; // 냉동일 경우 파란색
       }
     });
 
@@ -401,3 +403,21 @@ function sample5_execDaumPostcode() {
     },
   }).open();
 }
+
+// 전체 선택
+// "selectAll" 체크박스에 이벤트 리스너 추가
+document.getElementById("selectAll").addEventListener("change", function () {
+  const isChecked = this.checked;
+  const itemCheckboxes = document.querySelectorAll(
+    '.item-inner-box .custom-checkbox input[type="checkbox"]'
+  );
+  itemCheckboxes.forEach((checkbox) => {
+    checkbox.checked = isChecked;
+    const checkmark = checkbox.nextElementSibling;
+    if (isChecked) {
+      checkmark.classList.add("checked");
+    } else {
+      checkmark.classList.remove("checked");
+    }
+  });
+});

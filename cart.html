@@ -122,14 +122,27 @@
           <div class="mobile-cart-title">장바구니</div>
         </div>
       </div>
-      <div class="cart-title-text">장바구니</div>
+      <div class="cart-title-text">
+        <img
+          src="./img/cart_img/cart-img.png"
+          alt="cart-title-img"
+          width="30px"
+        />장바구니
+      </div>
       <main>
         <section id="main">
           <div id="cart_item-box">
             <div class="cart-item-box">
-              <div class="cart-logo">
-                <img src="./img/logo.svg" alt="cart_logo" />
-                <span>마켓컬리</span>
+              <div class="checkbox">
+                <label class="custom-checkbox">
+                  <input type="checkbox" id="selectAll" />
+                  <span class="checkmark"></span>
+                  전체선택
+                </label>
+                <span>|</span>
+                <label class="check-item-del">
+                  <span class="checkmark">선택삭제</span>
+                </label>
               </div>
               <div class="cart-item-inner">
                 <div class="item-inner-box">
@@ -185,18 +198,6 @@
                     </div> -->
                   </div>
                 </div>
-              </div>
-              <div class="checkbox">
-                <label class="custom-checkbox">
-                  <input type="checkbox" id="selectAll" />
-                  <span class="checkmark"></span>
-                  전체선택(0/0)
-                </label>
-                <span>|</span>
-                <label>
-                  <span class="checkmark"></span>
-                  선택삭제
-                </label>
               </div>
             </div>
             <div id="cart-order-box">
