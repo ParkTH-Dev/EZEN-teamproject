@@ -151,7 +151,7 @@ header .header_wrapper .inner .header_main .header_main_right span {
 }
 
 .header_sticky {
-  z-index: 1;
+  z-index: 2;
   width: 100%;
   background: #fff;
   display: flex;
@@ -302,6 +302,9 @@ header .header_wrapper .inner .header_main .header_main_right span {
   display: none;
 }
 #main_banner .main_banner_arrow {
+  width: 1050px;
+  display: flex;
+  justify-content: center;
   position: relative;
   top: 50%;
   left: 50%;
@@ -309,15 +312,16 @@ header .header_wrapper .inner .header_main .header_main_right span {
   transition: all 0.3s;
   opacity: 0;
   cursor: pointer;
+  z-index: 1;
 }
 #main_banner .main_banner_arrow .main_banner_btn.left {
   z-index: 1;
-  position: absolute;
-  left: 20px;
+  position: fixed;
+  left: 10px;
 }
 #main_banner .main_banner_arrow .main_banner_btn.right {
   position: absolute;
-  right: 20px;
+  right: 10px;
 }
 #main_banner .main_banner_arrow .fa-solid {
   padding: 20px 23px;
@@ -631,7 +635,7 @@ header .header_wrapper .inner .header_main .header_main_right span {
 }
 #live_area .live_slide_arrow .live_slide_btn i {
   font-size: 20px;
-  padding: 15px 20px;
+  padding: 15px 18px;
   background: #fff;
   border-radius: 50%;
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
@@ -890,11 +894,10 @@ header .header_wrapper .inner .header_main .header_main_right span {
 .product_list {
   width: 100%;
   height: auto;
-  margin-bottom: 95px;
+  margin-bottom: 40px;
 }
 .product_list > h2 {
   text-align: center;
-  margin-top: 100px;
   font-size: 35px;
   font-weight: 700;
 }
@@ -1610,8 +1613,10 @@ footer .footer_wrapper .inner .footer_right .footer_right_third {
     width: 100%;
   }
   body #app_container #today_area .today_contents_area .today_item_area .product_img {
-    height: 200px;
+    height: 300px;
     position: relative;
+    -o-object-fit: cover;
+       object-fit: cover;
   }
   body #app_container #today_area .today_contents_area .today_item_area .product_img img {
     position: absolute;

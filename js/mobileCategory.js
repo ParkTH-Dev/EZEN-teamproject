@@ -64,10 +64,16 @@ fetch(categoryInfo)
     // 스크롤 이벤트 리스너 추가
     right.addEventListener("scroll", () => {
       const scrollPosition = right.scrollTop;
+      const scrollBottom = scrollPosition + right.clientHeight; // 현재 스크롤 위치 + 화면에 보이는 영역 높이
 
-      categoryPositions.forEach(({ top, bottom, leftItem }) => {
-        if (scrollPosition >= top && scrollPosition < bottom) {
-          // 현재 카테고리가 보일 때
+      categoryPositions.forEach(({ top, bottom, leftItem }, index) => {
+        const isLastCategory = index === categoryPositions.length - 1;
+
+        if (
+          (scrollPosition >= top && scrollPosition < bottom) ||
+          (isLastCategory && scrollBottom >= right.scrollHeight)
+        ) {
+          // 현재 카테고리가 보일 때 또는 마지막 카테고리가 보일 때
           leftItems.forEach((item) => {
             item.style.backgroundColor = "";
             item.style.color = "";

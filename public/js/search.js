@@ -5,6 +5,14 @@ const form = document.querySelector(".header_main_center > form");
 const productItems = document.querySelector(".product_items");
 let allProducts = [];
 
+const shuffleArray = (array) => {
+  for (let i = array.length - 1; i > 0; i--) {
+    const randomIndex = Math.floor(Math.random() * (i + 1));
+    [array[i], array[randomIndex]] = [array[randomIndex], array[i]];
+  }
+  return array;
+};
+
 const createProduct = (product) => {
   const price = createKoPrice(product);
   const productItem = document.createElement("div");
@@ -70,26 +78,25 @@ const searchProduct = (e) => {
 };
 
 const filterAndDisplayProducts = (keyword) => {
+  removeAll(); // 기존 상품 제거
+  let productsToDisplay = allProducts;
+
   if (keyword) {
-    removeAll(); // 기존 상품 제거
-    const filteredProducts = allProducts.filter((product) =>
+    productsToDisplay = allProducts.filter((product) =>
       product.productName.includes(keyword)
     );
-    if (filteredProducts.length > 0) {
-      // 필터링된 상품이 있는 경우 화면에 생성
-      filteredProducts.forEach((product) => {
-        createProduct(product);
-      });
-    } else {
-      // 필터링된 결과가 없는 경우
-      document.querySelector(
-        ".noItem"
-      ).innerHTML = `<div><span>등록된 상품이 없습니다.</span></div>`;
-    }
-  } else {
-    allProducts.forEach((product) => {
+  }
+
+  if (productsToDisplay.length > 0) {
+    // 배열을 무작위로 섞고 상품 표시
+    const shuffledProducts = shuffleArray(productsToDisplay);
+    shuffledProducts.forEach((product) => {
       createProduct(product);
     });
+  } else {
+    document.querySelector(
+      ".noItem"
+    ).innerHTML = `<div><span>등록된 상품이 없습니다.</span></div>`;
   }
 };
 
@@ -106,16 +113,15 @@ const cartinModal = (products) => {
   let p = 1;
   let currentProductIndex = 0; // 현재 선택된 상품의 인덱스를 추적하는 변수
   productCartin.forEach((item, index) => {
-    console.log(item, index);
     item.addEventListener("click", (e) => {
       e.preventDefault();
       modalArea.classList.add("active");
-      currentProductIndex = index; // 클릭된 상품의 인덱스 설정
+      currentProductIndex = index;
       modalArea.querySelector("#overlay").addEventListener("click", () => {
         modalArea.classList.remove("active");
         p = 1;
         countBtn[1].innerText = p;
-        updateTotalPrice(currentProductIndex); // 초기화 시 총 가격 업데이트
+        updateTotalPrice(currentProductIndex);
       });
       modalArea
         .querySelector(".button_cancle")
@@ -123,11 +129,10 @@ const cartinModal = (products) => {
           modalArea.classList.remove("active");
           p = 1;
           countBtn[1].innerText = p;
-          updateTotalPrice(currentProductIndex); // 초기화 시 총 가격 업데이트
+          updateTotalPrice(currentProductIndex);
         });
     });
   });
-
   const cartCounter = () => {
     countBtn[1].innerText = p;
     countBtn[0].addEventListener("click", () => {

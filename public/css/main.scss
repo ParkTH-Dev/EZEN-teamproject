@@ -102,12 +102,9 @@ header {
           .logo {
             width: 82px;
           }
-<<<<<<< HEAD
-=======
           .mobileLogin {
             display: none;
           }
->>>>>>> 22a90e18434852a999d6940bf592ac85afafb7f6
           .mobileLogo {
             display: none;
           }
@@ -211,7 +208,7 @@ header {
           display: none;
           position: absolute;
           top: 53px;
-
+          z-index: 2;
           & > div {
             padding: 10px 20px;
             color: #666;
@@ -322,17 +319,23 @@ header {
     display: none;
   }
   .main_banner_arrow {
-    width: 1280px;
-    display: flex;
-    justify-content: space-between;
-    position: absolute;
+    position: relative;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     transition: all 0.3s;
     opacity: 0;
     cursor: pointer;
-    z-index: 2;
+
+    .main_banner_btn.left {
+      z-index: 1;
+      position: absolute;
+      left: 20px;
+    }
+    .main_banner_btn.right {
+      position: absolute;
+      right: 20px;
+    }
     .fa-solid {
       padding: 20px 23px;
       background: rgba($color: #000000, $alpha: 0.5);
@@ -498,6 +501,7 @@ header {
                 i {
                   font-size: 24px;
                   position: absolute;
+                  z-index: 100;
                   top: 2px;
                   left: -20px;
                   color: map-get($color, bg-light-color);
@@ -583,6 +587,13 @@ header {
               }
             }
           }
+        }
+        a {
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
         }
       }
       .live_item_more {
@@ -911,10 +922,10 @@ header {
 .product_list {
   width: 100%;
   height: auto;
-  margin-bottom: 95px;
+  margin-bottom: 40px;
   & > h2 {
     text-align: center;
-    margin-top: 100px;
+    // margin-top: 100px;
     font-size: 35px;
     font-weight: 700;
   }
@@ -944,13 +955,13 @@ header {
           height: 330px;
           position: relative;
           cursor: pointer;
-          &:hover > img {
+          &:hover > a > img {
             transform: scale(103%);
           }
           img {
             width: 100%;
             object-fit: cover;
-            transition: all 0.5s;
+            transition: transform 0.5s;
           }
           .rating_coupon {
             position: absolute;
@@ -1404,10 +1415,7 @@ footer {
             .mobileLogo {
               display: block;
               width: 70px;
-<<<<<<< HEAD
-=======
               margin-right: 10px;
->>>>>>> 22a90e18434852a999d6940bf592ac85afafb7f6
               text-align: center;
             }
             .mobileToggle {
@@ -1540,12 +1548,15 @@ footer {
           margin-top: 50px;
         }
         .live_slide_area {
-          width: 770px;
+          width: 360px;
+          border-radius: 15px;
           .live_items {
-            transform: translateX(20px);
+            width: 1800px;
+            gap: 0;
             .live_item {
-              width: 250px;
-              height: 420px;
+              width: 360px;
+              height: 500px;
+              border-radius: 0;
               .live_video_ui {
                 padding: 20px;
                 .video_ui_top {
@@ -1605,7 +1616,21 @@ footer {
           }
         }
         .live_slide_arrow {
-          display: none;
+          width: 350px;
+          opacity: 0.8;
+          .live_slide_btn {
+            padding: 15px;
+            i {
+              font-size: 16px;
+              opacity: 70%;
+            }
+            &.left {
+              top: -280px;
+            }
+            &.right {
+              top: -280px;
+            }
+          }
         }
       }
       #sub_banner {
@@ -1674,25 +1699,38 @@ footer {
         }
       }
       .product_list {
+        width: 350px;
+        margin: 0 auto;
         margin-bottom: 70px;
+        overflow: hidden;
         .product_slide_area {
-          width: 100%;
+          width: 370px;
           margin: 0 0;
-          padding: 20px;
+          overflow: hidden;
           .product_items {
-            width: calc((210px * 7) + (5px * 6));
+            width: calc((172px * 7) + (5px * 6));
             gap: 5px;
             .product_item {
-              width: 210px;
-              height: 480px;
+              width: 172px;
+              height: 420px;
               .product_item_img {
-                height: 265px;
+                height: 200px;
               }
               .product_cartin {
                 height: 45px;
                 font-size: 18px;
                 i {
                   font-size: 16px;
+                }
+              }
+              .product_item_text {
+                .product_name {
+                  display: -webkit-box;
+                  -webkit-box-orient: vertical;
+                  -webkit-line-clamp: 2; /* 최대 2줄 */
+                  overflow: hidden;
+                  text-overflow: ellipsis; /* 말줄임표 표시 */
+                  white-space: normal;
                 }
               }
             }
@@ -1703,9 +1741,9 @@ footer {
         }
         .mo_all_view {
           display: block;
-          width: 89%;
+          width: 100%;
           height: 50px;
-          margin: 15px 20px;
+          margin-top: 15px;
           border: 1px solid #ccc;
           border-radius: 5px;
           background: map-get($color, bg-light-color);
@@ -1720,6 +1758,21 @@ footer {
         }
         .product_slide_arrow {
           display: none;
+          width: 380px;
+          opacity: 1;
+          .product_slide_btn {
+            padding: 15px;
+            i {
+              font-size: 16px;
+              opacity: 50%;
+            }
+            &.left {
+              top: -400px;
+            }
+            &.right {
+              top: -400px;
+            }
+          }
         }
       }
     }

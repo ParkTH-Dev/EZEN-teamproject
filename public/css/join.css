@@ -12232,11 +12232,7 @@ header .header_wrapper .inner .header_main .header_main_right span {
 }
 .modalBase .modalInner {
   position: relative;
-<<<<<<< HEAD
-  width: 1080px;
-=======
   width: 100%;
->>>>>>> 22a90e18434852a999d6940bf592ac85afafb7f6
   height: 100%;
   margin: 0 auto;
 }
@@ -12535,10 +12531,7 @@ header .header_wrapper .inner .header_main .header_main_right span {
   z-index: 1;
   position: absolute;
   color: #727272;
-<<<<<<< HEAD
-=======
   background-color: white;
->>>>>>> 22a90e18434852a999d6940bf592ac85afafb7f6
 }
 #join_container .join_inner #main form #private li .emailTwo > div:nth-child(2) select:focus {
   outline: none;
@@ -12927,12 +12920,9 @@ footer .footer_wrapper .inner .footer_right .footer_right_third {
 }
 
 @media screen and (max-width: 1050px) {
-<<<<<<< HEAD
-=======
   .box {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   }
->>>>>>> 22a90e18434852a999d6940bf592ac85afafb7f6
   header {
     display: none;
   }
@@ -13205,15 +13195,8 @@ footer .footer_wrapper .inner .footer_right .footer_right_third {
     color: #333333;
   }
   .modalBase .modalInner .HModal .frame {
-<<<<<<< HEAD
-    width: 340px;
-    height: 380px;
-    margin: 100px 0 50px 0;
-    padding: 0 20px;
-=======
     height: 370px;
     width: 330px;
->>>>>>> 22a90e18434852a999d6940bf592ac85afafb7f6
   }
   .modalBase .modalInner .HModal .frame h2, .modalBase .modalInner .HModal .frame .h2 {
     font-size: 1.1rem;
