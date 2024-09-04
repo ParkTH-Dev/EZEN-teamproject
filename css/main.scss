@@ -102,6 +102,9 @@ header {
           .logo {
             width: 82px;
           }
+          .mobileLogin {
+            display: none;
+          }
           .mobileLogo {
             display: none;
           }
@@ -1398,6 +1401,7 @@ footer {
             .mobileLogo {
               display: block;
               width: 70px;
+              margin-right: 10px;
               text-align: center;
             }
             .mobileToggle {
