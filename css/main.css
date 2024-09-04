@@ -195,6 +195,7 @@ header .header_wrapper .inner .header_main .header_main_right span {
   display: none;
   position: absolute;
   top: 53px;
+  z-index: 2;
 }
 .header_sticky .inner .header_bottom_gnb .lnb .category > div {
   padding: 10px 20px;
@@ -301,17 +302,22 @@ header .header_wrapper .inner .header_main .header_main_right span {
   display: none;
 }
 #main_banner .main_banner_arrow {
-  width: 1280px;
-  display: flex;
-  justify-content: space-between;
-  position: absolute;
+  position: relative;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   transition: all 0.3s;
   opacity: 0;
   cursor: pointer;
-  z-index: 2;
+}
+#main_banner .main_banner_arrow .main_banner_btn.left {
+  z-index: 1;
+  position: absolute;
+  left: 20px;
+}
+#main_banner .main_banner_arrow .main_banner_btn.right {
+  position: absolute;
+  right: 20px;
 }
 #main_banner .main_banner_arrow .fa-solid {
   padding: 20px 23px;

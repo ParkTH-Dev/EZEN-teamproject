@@ -1,7 +1,7 @@
 // main slide
 const mainBanner = document.querySelector("#main_banner");
-const mainSlideArrowLeft = document.querySelector("#leftArrow");
-const mainSlideArrowRight = document.querySelector("#rightArrow");
+const mainSlideArrowLeft = document.querySelector(".main_banner_btn.left");
+const mainSlideArrowRight = document.querySelector(".main_banner_btn.right");
 const mainSlideImgPC = document.querySelector(".bg_imgPC");
 const mainSlideImgMO = document.querySelector(".bg_imgMO");
 const mainCounterNow = document.querySelector(".now_counter");
