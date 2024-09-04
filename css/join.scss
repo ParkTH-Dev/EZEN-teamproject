@@ -277,7 +277,8 @@ header {
   display: none;
   .modalInner {
     position: relative;
-    width: 1080px;
+    // width: 1080px;
+    width: 100%;
     height: 100%;
     margin: 0 auto;
     .HModal {
@@ -387,6 +388,7 @@ header {
   width: 1080px;
   margin: 0 auto;
   color: map-get($font-color, font-dark);
+
   .mobileHeader {
     display: none;
   }
@@ -572,6 +574,7 @@ header {
                     z-index: 1;
                     position: absolute;
                     color: map-get($font-color, font-light);
+                    background-color: #ffff;
                     &:focus {
                       outline: none;
                     }
@@ -995,6 +998,9 @@ footer {
 
 //////*media*//////
 @media screen and (max-width: 1050px) {
+  .box {
+    box-shadow: 0 0 10px rgba($color: #000000, $alpha: 0.1);
+  }
   header {
     display: none;
   }
@@ -1010,6 +1016,7 @@ footer {
     align-items: center;
     background: #f9f9f9;
     position: relative;
+
     .mobileHeader {
       border-bottom: 1px solid #ccc;
       position: sticky;
@@ -1048,7 +1055,6 @@ footer {
     .join_inner {
       width: 390px;
       background: #fff;
-      // box-shadow: 0 4px 10px rgba($color: #000000, $alpha: 0.1);
       #title {
         display: none;
       }
@@ -1288,10 +1294,8 @@ footer {
           }
         }
         .frame {
-          width: 340px;
-          height: 380px;
-          margin: 100px 0 50px 0;
-          padding: 0 20px;
+          height: 370px;
+          width: 330px;
           h2 {
             font-size: 1.1rem;
             font-weight: 600;

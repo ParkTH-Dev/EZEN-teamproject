@@ -975,6 +975,14 @@
       "packaging": "1팩",
       "reviews": [
         {
+          "reviewId": 11,
+          "username": "이**",
+          "like": 5,
+          "comment": "재구매 의사 있습니다. 정말 맛있어요!",
+          "date": "2024-08-10",
+          "img": "https://img-cf.kurly.com/hdims/resize/%3E640x%3E640/quality/90/src/shop/data/review/20240903/d23fde44-70ca-4bb4-8300-fc3e4f74fe40.jpeg"
+        },
+        {
           "reviewId": 1,
           "username": "이**",
           "like": 512,
@@ -996,7 +1004,7 @@
           "like": 35,
           "comment": "마라탕 너무 맛있어요! 자주 시켜먹을 것 같아요.",
           "date": "2024-08-14",
-          "img": "https://img-cf.kurly.com/hdims/resize/%3E640x%3E640/quality/90/src/shop/data/review/20240814/5a3f98ec-d94d-411f-b02f-e67628a6b7c7.jpeg"
+          "img": "https://img-cf.kurly.com/hdims/resize/%3E640x%3E640/quality/90/src/shop/data/review/20240904/9c0a19ef-67bd-4ab2-a1a8-048c1e3580c5.jpeg"
         },
         {
           "reviewId": 4,
@@ -1004,7 +1012,15 @@
           "like": 13,
           "comment": "맛은 괜찮은데 제 입맛에는 좀 매웠어요.",
           "date": "2024-08-14",
-          "img": "https://img-cf.kurly.com/hdims/resize/%3E640x%3E640/quality/90/src/shop/data/review/20240814/ef2d4e8c-4d4a-45fa-890f-8e1e9e1c1e5f.jpg"
+          "img": "https://img-cf.kurly.com/hdims/resize/%3E640x%3E640/quality/90/src/shop/data/review/20240904/81e2a775-c72c-4bd3-a53a-66e500549026.jpg"
+        },
+        {
+          "reviewId": 1,
+          "username": "이**",
+          "like": 512,
+          "comment": "[금룡각] 마라탕 맛있게 잘먹었습니다.",
+          "date": "2024-08-15",
+          "img": "https://img-cf.kurly.com/hdims/resize/%3E640x%3E640/quality/90/src/shop/data/review/20240815/caed27a6-2be8-457b-baf3-ec1f8bd25c58.jpeg"
         },
         {
           "reviewId": 5,
@@ -1012,7 +1028,7 @@
           "like": 4,
           "comment": "신선한 재료로 만들어져서 그런지 더 맛있는 것 같아요.",
           "date": "2024-08-13",
-          "img": "https://img-cf.kurly.com/hdims/resize/%3E640x%3E640/quality/90/src/shop/data/review/20240813/b3b1cdea-4e36-4715-92f3-c5a4e12f8b9f.jpeg"
+          "img": "https://img-cf.kurly.com/hdims/resize/%3E640x%3E640/quality/90/src/shop/data/review/20240904/990aa126-b455-41d2-88aa-a9ecd17f8c6b.jpg"
         },
         {
           "reviewId": 6,
@@ -1020,7 +1036,7 @@
           "like": 25,
           "comment": "매운 걸 좋아하는데 딱 맞아요. 강추합니다!",
           "date": "2024-08-13",
-          "img": "https://img-cf.kurly.com/hdims/resize/%3E640x%3E640/quality/90/src/shop/data/review/20240813/21b0e741-d2df-4ff0-b028-283dac8a5d7b.jpeg"
+          "img": "https://img-cf.kurly.com/hdims/resize/%3E640x%3E640/quality/90/src/shop/data/review/20240904/17c599da-19a1-45a7-a49c-6980ce2bc349.jpg"
         },
         {
           "reviewId": 7,
@@ -1028,7 +1044,7 @@
           "like": 12,
           "comment": "생각보다 별로였어요. 다시 사지는 않을 것 같아요.",
           "date": "2024-08-12",
-          "img": "https://img-cf.kurly.com/hdims/resize/%3E640x%3E640/quality/90/src/shop/data/review/20240812/a1c9c1b2-9f54-4f7d-a4d4-bb3b9d36e7b9.jpeg"
+          "img": "https://img-cf.kurly.com/hdims/resize/%3E640x%3E640/quality/90/src/shop/data/review/20240904/ccb3682d-8ab6-4185-a5f9-b5d3712987a5.jpg"
         },
         {
           "reviewId": 8,
@@ -1036,7 +1052,7 @@
           "like": 25,
           "comment": "포장이 깔끔하고 맛도 좋았어요. 재구매 의사 있습니다.",
           "date": "2024-08-12",
-          "img": "https://img-cf.kurly.com/hdims/resize/%3E640x%3E640/quality/90/src/shop/data/review/20240812/dc7e2fa5-789f-4f13-8a1e-d3f70dd26f82.jpeg"
+          "img": "https://img-cf.kurly.com/hdims/resize/%3E640x%3E640/quality/90/src/shop/data/review/20240904/da3a01ea-db2c-49ba-867c-f697ede010b1.jpeg"
         },
         {
           "reviewId": 9,
@@ -1044,7 +1060,15 @@
           "like": 4,
           "comment": "맛은 좋았는데 양이 조금 아쉽네요.",
           "date": "2024-08-11",
-          "img": "https://img-cf.kurly.com/hdims/resize/%3E640x%3E640/quality/90/src/shop/data/review/20240811/0b374b38-58df-4f44-8c6c-e56f4efef8e3.jpeg"
+          "img": "https://img-cf.kurly.com/hdims/resize/%3E640x%3E640/quality/90/src/shop/data/review/20240903/4b401290-392e-4028-a7f0-dc4a3ba32b80.jpg"
+        },
+        {
+          "reviewId": 5,
+          "username": "정**",
+          "like": 4,
+          "comment": "신선한 재료로 만들어져서 그런지 더 맛있는 것 같아요.",
+          "date": "2024-08-13",
+          "img": "https://img-cf.kurly.com/hdims/resize/%3E640x%3E640/quality/90/src/shop/data/review/20240904/990aa126-b455-41d2-88aa-a9ecd17f8c6b.jpg"
         },
         {
           "reviewId": 10,
@@ -1052,7 +1076,7 @@
           "like": 3,
           "comment": "무난한 맛이었어요. 특별한 건 없었습니다.",
           "date": "2024-08-11",
-          "img": "https://img-cf.kurly.com/hdims/resize/%3E640x%3E640/quality/90/src/shop/data/review/20240811/4f7efcf4-59e5-40ec-a5d7-2a1a4b6c9df2.jpeg"
+          "img": "https://img-cf.kurly.com/hdims/resize/%3E640x%3E640/quality/90/src/shop/data/review/20240903/4d593b7c-acb6-4d4b-ac4b-0cf5369ae815.jpg"
         },
         {
           "reviewId": 11,
@@ -1060,7 +1084,7 @@
           "like": 5,
           "comment": "재구매 의사 있습니다. 정말 맛있어요!",
           "date": "2024-08-10",
-          "img": "https://img-cf.kurly.com/hdims/resize/%3E640x%3E640/quality/90/src/shop/data/review/20240810/6b2b3ed2-6167-43a9-888b-b1b73f3b1b9f.jpeg"
+          "img": "https://img-cf.kurly.com/hdims/resize/%3E640x%3E640/quality/90/src/shop/data/review/20240903/d23fde44-70ca-4bb4-8300-fc3e4f74fe40.jpeg"
         }
       ]
     },

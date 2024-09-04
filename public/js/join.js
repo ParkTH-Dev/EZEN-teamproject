@@ -1,7 +1,10 @@
+<<<<<<< HEAD
 //남은 작업
 //1 submit 버튼 누를 때 필수조건 확인 & 아이디 겹침 확인 << 화-수요일 작업 완료 예정
 //2. 휴대폰 인증번호 받기 << 월요일-화 작업 완료 예정
 
+=======
+>>>>>>> 22a90e18434852a999d6940bf592ac85afafb7f6
 // form 요소들
 const form = document.querySelector("#login_form");
 const mainBtn = document.querySelector(".mainBtn");
@@ -100,11 +103,17 @@ userpw.addEventListener("change", function () {
   if (userpw.value === "") {
     passIn.innerText = "";
     checkarrMinus(submitList, "userpw");
+<<<<<<< HEAD
     console.log(submitList);
   } else if (!pwErr.test(userpw.value)) {
     passIn.innerText = "10자 이상에 영문 숫자 특수문자 조합만 가능합니다.";
     checkarrMinus(submitList, "userpw");
     console.log(submitList);
+=======
+  } else if (!pwErr.test(userpw.value)) {
+    passIn.innerText = "10자 이상에 영문 숫자 특수문자 조합만 가능합니다.";
+    checkarrMinus(submitList, "userpw");
+>>>>>>> 22a90e18434852a999d6940bf592ac85afafb7f6
   } else {
     passIn.innerText = "";
     submitList.push("userpw");
@@ -309,7 +318,11 @@ const regularphonCheck = () => {
 checkBtn.addEventListener("click", () => {
   const randomNum = String(Math.floor(Math.random() * 100000)).padStart(6, "0");
   alert(`인증번호는 ${randomNum}입니다.`);
+<<<<<<< HEAD
   console.log(`${randomNum}`);
+=======
+
+>>>>>>> 22a90e18434852a999d6940bf592ac85afafb7f6
   const phoneCheck = document.querySelector(".phoneCheck");
   phoneCheck.style.display = "flex";
   userNumCheck.disabled = false;
@@ -346,7 +359,11 @@ checkBtn.addEventListener("click", () => {
 //실행문
 function sample6_execDaumPostcode() {
   checkarrMinus(submitList, "address");
+<<<<<<< HEAD
   console.log(submitList);
+=======
+
+>>>>>>> 22a90e18434852a999d6940bf592ac85afafb7f6
   new daum.Postcode({
     theme: {
       searchBgColor: "#5F0080",
@@ -391,6 +408,7 @@ function sample6_execDaumPostcode() {
     checkarrMinus(submitList, "address3");
     if (detail.value === "") {
       checkarrMinus(submitList, "address2");
+<<<<<<< HEAD
       console.log(submitList);
     } else {
       submitList.push("address2");
@@ -402,6 +420,15 @@ function sample6_execDaumPostcode() {
     } else {
       submitList.push("address3");
       console.log(submitList);
+=======
+    } else {
+      submitList.push("address2");
+    }
+    if (saAdress.value === "") {
+      checkarrMinus(submitList, "address3");
+    } else {
+      submitList.push("address3");
+>>>>>>> 22a90e18434852a999d6940bf592ac85afafb7f6
     }
   });
   saAdress.addEventListener("change", () => {
@@ -411,6 +438,7 @@ function sample6_execDaumPostcode() {
     checkarrMinus(submitList, "address3");
     if (detail.value === "") {
       checkarrMinus(submitList, "address2");
+<<<<<<< HEAD
       console.log(submitList);
     } else {
       submitList.push("address2");
@@ -422,6 +450,15 @@ function sample6_execDaumPostcode() {
     } else {
       submitList.push("address3");
       console.log(submitList);
+=======
+    } else {
+      submitList.push("address2");
+    }
+    if (saAdress.value === "") {
+      checkarrMinus(submitList, "address3");
+    } else {
+      submitList.push("address3");
+>>>>>>> 22a90e18434852a999d6940bf592ac85afafb7f6
     }
   });
 }
@@ -586,6 +623,11 @@ function checkHandler(all, element) {
 }
 
 //--------submit-------------------//
+<<<<<<< HEAD
+=======
+
+//컬러 개별
+>>>>>>> 22a90e18434852a999d6940bf592ac85afafb7f6
 const style = (Elet) => {
   Elet.style.backgroundColor = "#f9c9d4";
 };
@@ -593,6 +635,10 @@ const styleNone = (Elet) => {
   Elet.style.backgroundColor = "";
 };
 
+<<<<<<< HEAD
+=======
+//컬러 종합- 배열 확인 후 컬러 넣기
+>>>>>>> 22a90e18434852a999d6940bf592ac85afafb7f6
 const subColor = (elementN, variN) => {
   if (submitList.includes(elementN)) {
     styleNone(variN);
@@ -601,12 +647,20 @@ const subColor = (elementN, variN) => {
   }
 };
 
+<<<<<<< HEAD
+=======
+// 복수확인 input이 포함된 최종 확인 함수
+>>>>>>> 22a90e18434852a999d6940bf592ac85afafb7f6
 const redalert = function () {
   subColor("userId", userId);
   subColor("userpw", userpw);
   subColor("pwCheck", pwCheck);
   subColor("userName", userName);
+<<<<<<< HEAD
   subColor("userName", userName);
+=======
+
+>>>>>>> 22a90e18434852a999d6940bf592ac85afafb7f6
   if (submitList.includes("domainS") && submitList.includes("emailS")) {
     styleNone(emailTwo);
     styleNone(userEmail);
@@ -660,8 +714,20 @@ const redalert = function () {
     document.querySelector(".A14AgeText").style.color = "#ef7793";
     document.querySelector(".A14AgeText2").style.color = "#ef7793";
   }
+<<<<<<< HEAD
 };
 
+=======
+
+  // if (submitList.includes("termsCheck")) {
+  //   document.querySelector(".termsCheckText").style.color = "#727272";
+  // } else {
+  //   document.querySelector(".A14AgeText").style.color = "rgb(114, 114, 114)";
+  // }
+};
+
+//체크 확인함수
+>>>>>>> 22a90e18434852a999d6940bf592ac85afafb7f6
 const checkAlready = (element) => {
   if (submitList.includes(element)) {
     return;
@@ -671,10 +737,20 @@ const checkAlready = (element) => {
 };
 const checkNone = (element) => {
   const i = submitList.indexOf(element);
+<<<<<<< HEAD
   // console.log(i);
   submitList.splice(i, 1);
 };
 
+=======
+
+  if (0 <= i) {
+    submitList.splice(i, 1);
+  }
+};
+
+//가입하기버튼 이벤트
+>>>>>>> 22a90e18434852a999d6940bf592ac85afafb7f6
 mainBtn.addEventListener("click", (e) => {
   termsCheck.checked === true
     ? checkAlready("termsCheck")
@@ -685,11 +761,17 @@ mainBtn.addEventListener("click", (e) => {
     : checkNone("privateCheck");
 
   b14Age.checked === true ? checkAlready("b14Age") : checkNone("b14Age");
+<<<<<<< HEAD
 
   e.preventDefault();
   //top
   redalert();
   console.log(submitList);
+=======
+  e.preventDefault();
+  redalert();
+
+>>>>>>> 22a90e18434852a999d6940bf592ac85afafb7f6
   if (submitList.length === 13) {
     modalText.innerText = "환영합니다.";
     modalBase.style.display = "block";
@@ -712,6 +794,19 @@ mainBtn.addEventListener("click", (e) => {
     modalBase.style.display = "block";
     document.body.style.overflow = "hidden";
     tapModal4.style.display = "block";
+<<<<<<< HEAD
+=======
+    modalBase.addEventListener("click", () => {
+      modalBase.style.display = "none";
+      document.body.style.overflow = "auto";
+      tapModal4.style.display = "none";
+    });
+    document.querySelector(".closeBtn").addEventListener("click", () => {
+      modalBase.style.display = "none";
+      document.body.style.overflow = "auto";
+      tapModal4.style.display = "none";
+    });
+>>>>>>> 22a90e18434852a999d6940bf592ac85afafb7f6
   }
 });
 

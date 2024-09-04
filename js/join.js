@@ -1,7 +1,3 @@
-//남은 작업
-//1 submit 버튼 누를 때 필수조건 확인 & 아이디 겹침 확인 << 화-수요일 작업 완료 예정
-//2. 휴대폰 인증번호 받기 << 월요일-화 작업 완료 예정
-
 // form 요소들
 const form = document.querySelector("#login_form");
 const mainBtn = document.querySelector(".mainBtn");
@@ -100,11 +96,9 @@ userpw.addEventListener("change", function () {
   if (userpw.value === "") {
     passIn.innerText = "";
     checkarrMinus(submitList, "userpw");
-    console.log(submitList);
   } else if (!pwErr.test(userpw.value)) {
     passIn.innerText = "10자 이상에 영문 숫자 특수문자 조합만 가능합니다.";
     checkarrMinus(submitList, "userpw");
-    console.log(submitList);
   } else {
     passIn.innerText = "";
     submitList.push("userpw");
@@ -309,7 +303,7 @@ const regularphonCheck = () => {
 checkBtn.addEventListener("click", () => {
   const randomNum = String(Math.floor(Math.random() * 100000)).padStart(6, "0");
   alert(`인증번호는 ${randomNum}입니다.`);
-  console.log(`${randomNum}`);
+
   const phoneCheck = document.querySelector(".phoneCheck");
   phoneCheck.style.display = "flex";
   userNumCheck.disabled = false;
@@ -346,7 +340,7 @@ checkBtn.addEventListener("click", () => {
 //실행문
 function sample6_execDaumPostcode() {
   checkarrMinus(submitList, "address");
-  console.log(submitList);
+
   new daum.Postcode({
     theme: {
       searchBgColor: "#5F0080",
@@ -391,17 +385,13 @@ function sample6_execDaumPostcode() {
     checkarrMinus(submitList, "address3");
     if (detail.value === "") {
       checkarrMinus(submitList, "address2");
-      console.log(submitList);
     } else {
       submitList.push("address2");
-      console.log(submitList);
     }
     if (saAdress.value === "") {
       checkarrMinus(submitList, "address3");
-      console.log(submitList);
     } else {
       submitList.push("address3");
-      console.log(submitList);
     }
   });
   saAdress.addEventListener("change", () => {
@@ -411,17 +401,13 @@ function sample6_execDaumPostcode() {
     checkarrMinus(submitList, "address3");
     if (detail.value === "") {
       checkarrMinus(submitList, "address2");
-      console.log(submitList);
     } else {
       submitList.push("address2");
-      console.log(submitList);
     }
     if (saAdress.value === "") {
       checkarrMinus(submitList, "address3");
-      console.log(submitList);
     } else {
       submitList.push("address3");
-      console.log(submitList);
     }
   });
 }
@@ -586,6 +572,8 @@ function checkHandler(all, element) {
 }
 
 //--------submit-------------------//
+
+//컬러 개별
 const style = (Elet) => {
   Elet.style.backgroundColor = "#f9c9d4";
 };
@@ -593,6 +581,7 @@ const styleNone = (Elet) => {
   Elet.style.backgroundColor = "";
 };
 
+//컬러 종합- 배열 확인 후 컬러 넣기
 const subColor = (elementN, variN) => {
   if (submitList.includes(elementN)) {
     styleNone(variN);
@@ -601,12 +590,13 @@ const subColor = (elementN, variN) => {
   }
 };
 
+// 복수확인 input이 포함된 최종 확인 함수
 const redalert = function () {
   subColor("userId", userId);
   subColor("userpw", userpw);
   subColor("pwCheck", pwCheck);
   subColor("userName", userName);
-  subColor("userName", userName);
+
   if (submitList.includes("domainS") && submitList.includes("emailS")) {
     styleNone(emailTwo);
     styleNone(userEmail);
@@ -660,8 +650,15 @@ const redalert = function () {
     document.querySelector(".A14AgeText").style.color = "#ef7793";
     document.querySelector(".A14AgeText2").style.color = "#ef7793";
   }
+
+  // if (submitList.includes("termsCheck")) {
+  //   document.querySelector(".termsCheckText").style.color = "#727272";
+  // } else {
+  //   document.querySelector(".A14AgeText").style.color = "rgb(114, 114, 114)";
+  // }
 };
 
+//체크 확인함수
 const checkAlready = (element) => {
   if (submitList.includes(element)) {
     return;
@@ -671,10 +668,13 @@ const checkAlready = (element) => {
 };
 const checkNone = (element) => {
   const i = submitList.indexOf(element);
-  // console.log(i);
-  submitList.splice(i, 1);
+
+  if (0 <= i) {
+    submitList.splice(i, 1);
+  }
 };
 
+//가입하기버튼 이벤트
 mainBtn.addEventListener("click", (e) => {
   termsCheck.checked === true
     ? checkAlready("termsCheck")
@@ -685,11 +685,9 @@ mainBtn.addEventListener("click", (e) => {
     : checkNone("privateCheck");
 
   b14Age.checked === true ? checkAlready("b14Age") : checkNone("b14Age");
-
   e.preventDefault();
-  //top
   redalert();
-  console.log(submitList);
+
   if (submitList.length === 13) {
     modalText.innerText = "환영합니다.";
     modalBase.style.display = "block";
@@ -712,6 +710,16 @@ mainBtn.addEventListener("click", (e) => {
     modalBase.style.display = "block";
     document.body.style.overflow = "hidden";
     tapModal4.style.display = "block";
+    modalBase.addEventListener("click", () => {
+      modalBase.style.display = "none";
+      document.body.style.overflow = "auto";
+      tapModal4.style.display = "none";
+    });
+    document.querySelector(".closeBtn").addEventListener("click", () => {
+      modalBase.style.display = "none";
+      document.body.style.overflow = "auto";
+      tapModal4.style.display = "none";
+    });
   }
 });
 

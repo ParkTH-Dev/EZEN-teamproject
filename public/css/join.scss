@@ -277,7 +277,12 @@ header {
   display: none;
   .modalInner {
     position: relative;
+<<<<<<< HEAD
     width: 1080px;
+=======
+    // width: 1080px;
+    width: 100%;
+>>>>>>> 22a90e18434852a999d6940bf592ac85afafb7f6
     height: 100%;
     margin: 0 auto;
     .HModal {
@@ -387,6 +392,10 @@ header {
   width: 1080px;
   margin: 0 auto;
   color: map-get($font-color, font-dark);
+<<<<<<< HEAD
+=======
+
+>>>>>>> 22a90e18434852a999d6940bf592ac85afafb7f6
   .mobileHeader {
     display: none;
   }
@@ -572,6 +581,10 @@ header {
                     z-index: 1;
                     position: absolute;
                     color: map-get($font-color, font-light);
+<<<<<<< HEAD
+=======
+                    background-color: #ffff;
+>>>>>>> 22a90e18434852a999d6940bf592ac85afafb7f6
                     &:focus {
                       outline: none;
                     }
@@ -995,6 +1008,12 @@ footer {
 
 //////*media*//////
 @media screen and (max-width: 1050px) {
+<<<<<<< HEAD
+=======
+  .box {
+    box-shadow: 0 0 10px rgba($color: #000000, $alpha: 0.1);
+  }
+>>>>>>> 22a90e18434852a999d6940bf592ac85afafb7f6
   header {
     display: none;
   }
@@ -1010,6 +1029,10 @@ footer {
     align-items: center;
     background: #f9f9f9;
     position: relative;
+<<<<<<< HEAD
+=======
+
+>>>>>>> 22a90e18434852a999d6940bf592ac85afafb7f6
     .mobileHeader {
       border-bottom: 1px solid #ccc;
       position: sticky;
@@ -1048,7 +1071,10 @@ footer {
     .join_inner {
       width: 390px;
       background: #fff;
+<<<<<<< HEAD
       // box-shadow: 0 4px 10px rgba($color: #000000, $alpha: 0.1);
+=======
+>>>>>>> 22a90e18434852a999d6940bf592ac85afafb7f6
       #title {
         display: none;
       }
@@ -1288,10 +1314,15 @@ footer {
           }
         }
         .frame {
+<<<<<<< HEAD
           width: 340px;
           height: 380px;
           margin: 100px 0 50px 0;
           padding: 0 20px;
+=======
+          height: 370px;
+          width: 330px;
+>>>>>>> 22a90e18434852a999d6940bf592ac85afafb7f6
           h2 {
             font-size: 1.1rem;
             font-weight: 600;

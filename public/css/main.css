@@ -86,6 +86,12 @@ header .header_wrapper .inner .header_main .header_main_left span {
 header .header_wrapper .inner .header_main .header_main_left .logo {
   width: 82px;
 }
+<<<<<<< HEAD
+=======
+header .header_wrapper .inner .header_main .header_main_left .mobileLogin {
+  display: none;
+}
+>>>>>>> 22a90e18434852a999d6940bf592ac85afafb7f6
 header .header_wrapper .inner .header_main .header_main_left .mobileLogo {
   display: none;
 }
@@ -1361,6 +1367,10 @@ footer .footer_wrapper .inner .footer_right .footer_right_third {
   header .header_wrapper .inner .header_main .header_main_left .mobileLogo {
     display: block;
     width: 70px;
+<<<<<<< HEAD
+=======
+    margin-right: 10px;
+>>>>>>> 22a90e18434852a999d6940bf592ac85afafb7f6
     text-align: center;
   }
   header .header_wrapper .inner .header_main .header_main_left .mobileToggle {
