@@ -72,7 +72,13 @@ header .header_wrapper .inner .header_main .header_main_left span {
 header .header_wrapper .inner .header_main .header_main_left .logo {
   width: 82px;
 }
-header .header_wrapper .inner .header_main .header_main_left > img:nth-child(2) {
+header .header_wrapper .inner .header_main .header_main_left .mobileLogin {
+  display: none;
+}
+header .header_wrapper .inner .header_main .header_main_left .mobileLogo {
+  display: none;
+}
+header .header_wrapper .inner .header_main .header_main_left .mobileToggle {
   display: none;
 }
 header .header_wrapper .inner .header_main .header_main_center {
@@ -123,15 +129,19 @@ header .header_wrapper .inner .header_main .header_main_right {
   justify-content: flex-end;
   align-items: center;
   gap: 25px;
-  font-size: 26px;
+  font-size: 28px;
+  line-height: 1;
   color: #5f0080;
 }
 header .header_wrapper .inner .header_main .header_main_right span {
   cursor: pointer;
 }
+header .header_wrapper .inner .header_main .header_main_right span:hover path {
+  stroke: #5f0080;
+}
 
 .header_sticky {
-  z-index: 5;
+  z-index: 2;
   width: 100%;
   background: #fff;
   display: flex;
@@ -175,6 +185,7 @@ header .header_wrapper .inner .header_main .header_main_right span {
   display: none;
   position: absolute;
   top: 53px;
+  z-index: 2;
 }
 .header_sticky .inner .header_bottom_gnb .lnb .category > div {
   padding: 10px 20px;
@@ -227,10 +238,11 @@ header .header_wrapper .inner .header_main .header_main_right span {
 .header_sticky .inner .header_bottom_gnb .gnb a {
   padding: 15px 10px;
   cursor: pointer;
+  color: #888;
   transition: all 0.3s;
 }
-.header_sticky .inner .header_bottom_gnb .gnb a:hover {
-  color: #5f0080;
+.header_sticky .inner .header_bottom_gnb .gnb a:hover span {
+  border-bottom: 1px solid #888;
 }
 
 .modal_area {
