@@ -485,7 +485,6 @@ header {
                 }
                 .addressChange {
                   display: block;
-                  margin-left: 26px;
                   & > div {
                     margin-top: 4px;
                     display: flex;
@@ -505,7 +504,6 @@ header {
                 }
                 .address2 {
                   display: block;
-                  margin: 0px 0px 0px 10px;
                 }
               }
             }
@@ -515,9 +513,24 @@ header {
             }
             /*top 2 td*/
             & > div:nth-child(2) {
-              width: calc(100% - 150px);
-              display: flex;
-              gap: 10px;
+              width: calc(100% - 270px);
+              text-align: center;
+            }
+            /*top 3 td*/
+            & > div:nth-child(3) {
+              width: 120px;
+              text-align: center;
+              & > input {
+                width: 80%;
+                height: 38px;
+                margin-right: 10px;
+                line-height: 10px;
+                background: map-get($color, light);
+                color: map-get($font-color, font-line);
+                font-size: 0.9rem;
+                border: 1px solid map-get($font-color, font-line);
+                border-radius: 4px;
+              }
             }
             & input[type="text"],
             & input[type="password"] {
@@ -527,10 +540,6 @@ header {
               border: 1px solid map-get($font-color, font-line);
               border-radius: 4px;
               padding-left: 10px;
-              &#userPhon,
-              &#userNumCheck {
-                width: calc(100% - 100px);
-              }
               &::placeholder {
                 transition: all 0.3s;
               }
@@ -610,9 +619,6 @@ header {
             }
             /*phone*/
             .checkBtn {
-              width: 90px;
-              border: 1px solid #ccc;
-              border-radius: 4px;
               &.active {
                 color: map-get($color, light);
                 border: 1px solid map-get($color, main);
@@ -633,13 +639,11 @@ header {
                 .time {
                   position: absolute;
                   top: 2px;
-                  right: 110px;
+                  right: 10px;
                   color: map-get($font-color, font-red);
                 }
               }
               .numCheckBtn {
-                width: 90px;
-                border-radius: 4px;
                 color: map-get($color, light);
                 border: 1px solid map-get($color, main);
                 background: map-get($color, main);
@@ -687,7 +691,7 @@ header {
             }
             .address2 {
               display: none;
-              width: 90px;
+              width: 80%;
               height: 40px;
               margin: 0 8px;
               line-height: 10px;
@@ -1103,24 +1107,22 @@ footer {
                   color: map-get($font-color, font-red);
                   font-weight: 600;
                 }
+                & > div:nth-child(3) {
+                  display: none;
+                }
               }
-
               &.addressInner {
                 &.active {
                   height: 100%;
-                  display: flex;
                   .address {
                     display: none;
                   }
                   .addressChange {
                     display: block;
-                    width: 100%;
                     & > div {
-                      width: 100%;
-                      // margin: 0px 0px 0px;
-                      // margin: 2px 0;
-                      // display: flex;
-                      // gap: 2px;
+                      margin: 2px 0;
+                      display: flex;
+                      gap: 2px;
                       #sample6_detailAddress {
                         flex: 3;
                         &:focus {
@@ -1150,6 +1152,12 @@ footer {
                 width: 100%;
                 margin-bottom: 2px;
               }
+              & > div:nth-child(3) {
+                width: 100%;
+                & > input {
+                  width: 100%;
+                }
+              }
               & input[type="text"],
               & input[type="password"] {
                 width: 100%;
@@ -1165,9 +1173,9 @@ footer {
                   display: none;
                 }
                 .numCheckBtn {
-                  width: 90px;
+                  width: 100%;
                   &.numDisable {
-                    width: 90px;
+                    width: 100%;
                     margin: 0;
                   }
                 }

@@ -426,7 +426,6 @@ header .header_wrapper .inner .header_main .header_main_right span:hover path {
   /*address*/
   /*top 1 td*/
   /*top 2 td*/
-  /*top 3 td*/
   /*email Two Td*/
   /*phone*/
   /*phoneCheck*/
@@ -461,6 +460,7 @@ header .header_wrapper .inner .header_main .header_main_right span:hover path {
 }
 #join_container .join_inner #main form #private li.addressInner.active .addressChange {
   display: block;
+  margin-left: 26px;
 }
 #join_container .join_inner #main form #private li.addressInner.active .addressChange > div {
   margin-top: 4px;
@@ -481,28 +481,15 @@ header .header_wrapper .inner .header_main .header_main_right span:hover path {
 }
 #join_container .join_inner #main form #private li.addressInner.active .address2 {
   display: block;
+  margin: 0px 0px 0px 10px;
 }
 #join_container .join_inner #main form #private li > div:nth-child(1) {
   width: 150px;
 }
 #join_container .join_inner #main form #private li > div:nth-child(2) {
-  width: calc(100% - 270px);
-  text-align: center;
-}
-#join_container .join_inner #main form #private li > div:nth-child(3) {
-  width: 120px;
-  text-align: center;
-}
-#join_container .join_inner #main form #private li > div:nth-child(3) > input {
-  width: 80%;
-  height: 38px;
-  margin-right: 10px;
-  line-height: 10px;
-  background: #fff;
-  color: #c5c5c5;
-  font-size: 0.9rem;
-  border: 1px solid #c5c5c5;
-  border-radius: 4px;
+  width: calc(100% - 150px);
+  display: flex;
+  gap: 10px;
 }
 #join_container .join_inner #main form #private li input[type=text], #join_container .join_inner #main form #private li input[type=password] {
   width: 100%;
@@ -511,6 +498,9 @@ header .header_wrapper .inner .header_main .header_main_right span:hover path {
   border: 1px solid #c5c5c5;
   border-radius: 4px;
   padding-left: 10px;
+}
+#join_container .join_inner #main form #private li input[type=text]#userPhon, #join_container .join_inner #main form #private li input[type=text]#userNumCheck, #join_container .join_inner #main form #private li input[type=password]#userPhon, #join_container .join_inner #main form #private li input[type=password]#userNumCheck {
+  width: calc(100% - 100px);
 }
 #join_container .join_inner #main form #private li input[type=text]::-moz-placeholder, #join_container .join_inner #main form #private li input[type=password]::-moz-placeholder {
   -moz-transition: all 0.3s;
@@ -589,6 +579,11 @@ header .header_wrapper .inner .header_main .header_main_right span:hover path {
   display: block;
   z-index: 2;
 }
+#join_container .join_inner #main form #private li .checkBtn {
+  width: 90px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
 #join_container .join_inner #main form #private li .checkBtn.active {
   color: #fff;
   border: 1px solid #5f0080;
@@ -609,10 +604,12 @@ header .header_wrapper .inner .header_main .header_main_right span:hover path {
 #join_container .join_inner #main form #private li.phoneCheck > div:nth-child(2) .time {
   position: absolute;
   top: 2px;
-  right: 10px;
+  right: 110px;
   color: #ef7793;
 }
 #join_container .join_inner #main form #private li.phoneCheck .numCheckBtn {
+  width: 90px;
+  border-radius: 4px;
   color: #fff;
   border: 1px solid #5f0080;
   background: #5f0080;
@@ -652,7 +649,7 @@ header .header_wrapper .inner .header_main .header_main_right span:hover path {
 }
 #join_container .join_inner #main form #private li .address2 {
   display: none;
-  width: 80%;
+  width: 90px;
   height: 40px;
   margin: 0 8px;
   line-height: 10px;
@@ -1056,22 +1053,19 @@ footer .footer_wrapper .inner .footer_right .footer_right_third {
     color: #ef7793;
     font-weight: 600;
   }
-  #join_container .join_inner #main form #private li.errContainer > div:nth-child(3) {
-    display: none;
-  }
   #join_container .join_inner #main form #private li.addressInner.active {
     height: 100%;
+    display: flex;
   }
   #join_container .join_inner #main form #private li.addressInner.active .address {
     display: none;
   }
   #join_container .join_inner #main form #private li.addressInner.active .addressChange {
     display: block;
+    width: 100%;
   }
   #join_container .join_inner #main form #private li.addressInner.active .addressChange > div {
-    margin: 2px 0;
-    display: flex;
-    gap: 2px;
+    width: 100%;
   }
   #join_container .join_inner #main form #private li.addressInner.active .addressChange > div #sample6_detailAddress {
     flex: 3;
@@ -1099,12 +1093,6 @@ footer .footer_wrapper .inner .footer_right .footer_right_third {
     width: 100%;
     margin-bottom: 2px;
   }
-  #join_container .join_inner #main form #private li > div:nth-child(3) {
-    width: 100%;
-  }
-  #join_container .join_inner #main form #private li > div:nth-child(3) > input {
-    width: 100%;
-  }
   #join_container .join_inner #main form #private li input[type=text], #join_container .join_inner #main form #private li input[type=password] {
     width: 100%;
     height: 40px;
@@ -1117,10 +1105,10 @@ footer .footer_wrapper .inner .footer_right .footer_right_third {
     display: none;
   }
   #join_container .join_inner #main form #private li.phoneCheck .numCheckBtn {
-    width: 100%;
+    width: 90px;
   }
   #join_container .join_inner #main form #private li.phoneCheck .numCheckBtn.numDisable {
-    width: 100%;
+    width: 90px;
     margin: 0;
   }
   #join_container .join_inner #main form #private li .birth > input {
