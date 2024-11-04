@@ -489,29 +489,7 @@ header .header_wrapper .inner .header_main .header_main_right span:hover path {
 #live_area .live_slide_area .live_items .live_item .live_video_ui .video_ui_top .video_ui_icon {
   display: flex;
   gap: 8px;
-}
-#live_area .live_slide_area .live_items .live_item .live_video_ui .video_ui_top .video_ui_icon .heart_icon {
-  position: relative;
-}
-#live_area .live_slide_area .live_items .live_item .live_video_ui .video_ui_top .video_ui_icon .heart_icon i {
-  font-size: 24px;
-  position: absolute;
-  z-index: 100;
-  top: 2px;
-  left: -20px;
-  color: #fff;
-  cursor: pointer;
-  transition: opacity 0.3s;
-}
-#live_area .live_slide_area .live_items .live_item .live_video_ui .video_ui_top .video_ui_icon .heart_icon i.fa-solid {
-  color: #ff3156;
-  opacity: 0;
-}
-#live_area .live_slide_area .live_items .live_item .live_video_ui .video_ui_top .video_ui_icon .heart_icon i.fa-solid.active {
-  opacity: 1;
-}
-#live_area .live_slide_area .live_items .live_item .live_video_ui .video_ui_top .video_ui_icon .heart_icon i.fa-regular.active {
-  opacity: 0;
+  z-index: 2;
 }
 #live_area .live_slide_area .live_items .live_item .live_video_ui .video_ui_top .video_ui_icon img {
   cursor: pointer;
@@ -733,7 +711,7 @@ header .header_wrapper .inner .header_main .header_main_right span:hover path {
 #today_area .today_contents_area .today_first_area .clock_icon .clock_back {
   width: 100%;
   height: 100%;
-  background: #5f0080;
+  border: 3px solid #5f0080;
   border-radius: 50%;
 }
 #today_area .today_contents_area .today_first_area .clock_icon .clock_hand1 {
@@ -743,7 +721,7 @@ header .header_wrapper .inner .header_main .header_main_right span:hover path {
   width: 3px;
   height: 13px;
   border-radius: 3px;
-  background: #eee;
+  background: #5f0080;
   transform: translateX(-50%);
 }
 #today_area .today_contents_area .today_first_area .clock_icon .clock_hand2 {
@@ -753,7 +731,7 @@ header .header_wrapper .inner .header_main .header_main_right span:hover path {
   width: 12px;
   height: 3px;
   border-radius: 3px;
-  background: #eee;
+  background: #5f0080;
   transform: translateY(-50%);
   animation: clockHand 3s linear infinite;
 }
@@ -1605,6 +1583,7 @@ footer .footer_wrapper .inner .footer_right .footer_right_third {
   body #app_container #sub_banner .mo_subbanner {
     display: block;
     width: 100%;
+    border-radius: 0;
     -o-object-fit: cover;
        object-fit: cover;
   }
@@ -1694,6 +1673,7 @@ footer .footer_wrapper .inner .footer_right .footer_right_third {
   }
   body #app_container .product_list .product_slide_area .product_items .product_item .product_item_text .product_name {
     display: -webkit-box;
+    line-clamp: 2;
     -webkit-box-orient: vertical;
     -webkit-line-clamp: 2; /* 최대 2줄 */
     overflow: hidden;

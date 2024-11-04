@@ -29,7 +29,7 @@ const mainPicsMO = [
   "main_05.jpg",
   "main_06.jpg",
   "main_07.jpg",
-  "main_08.png",
+  "main_08.jpg",
   "main_09.jpg",
   "main_10.jpg",
 ];
@@ -350,16 +350,14 @@ if (window.innerWidth < 1050) {
 }
 
 //라이브 영역
-// 라이브 하트 버튼
-const heartBtn = document.querySelectorAll(".heart_icon");
+//공유하기 버튼
+const shereBtn = document.querySelectorAll(".video_ui_icon");
 
-heartBtn.forEach((e) => {
+shereBtn.forEach((e) => {
   e.addEventListener("click", () => {
-    e.querySelector("i:nth-child(1)").classList.toggle("active");
-    e.querySelector("i:nth-child(2)").classList.toggle("active");
+    alert("준비 중인 기능입니다.");
   });
 });
-
 // 라이브 마우스오버 비디오 재생 이벤트
 const liveItem = document.querySelectorAll(".live_item");
 
