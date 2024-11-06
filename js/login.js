@@ -33,8 +33,8 @@ userId.addEventListener("input", function (text) {
   }
 });
 
-const id = "test";
-const password = "1234";
+const id = "admin";
+const password = "Ezen369!";
 
 //==modal close==
 function modalClose() {
@@ -45,7 +45,7 @@ function modalClose() {
         modal.classList.remove("active");
         document.body.style.overflow = "auto";
         window.location.href = "./index.html";
-        localStorage.setItem("id", "test");
+        localStorage.setItem("id", id);
       } else {
         modalBack.classList.remove("active");
         modal.classList.remove("active");
