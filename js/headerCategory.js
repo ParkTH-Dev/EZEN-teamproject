@@ -9,7 +9,6 @@ const userIdandPass = document.querySelector(
 const userIdandPass2 = document.querySelector(
   ".header_top_bar span:nth-child(2)"
 );
-console.log(userIdandPass, userIdandPass2);
 
 if (localStorage.getItem("id")) {
   const userIdName = localStorage.getItem("id");

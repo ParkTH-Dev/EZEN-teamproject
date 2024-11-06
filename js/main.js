@@ -29,7 +29,7 @@ const mainPicsMO = [
   "main_05.jpg",
   "main_06.jpg",
   "main_07.jpg",
-  "main_08.png",
+  "main_08.jpg",
   "main_09.jpg",
   "main_10.jpg",
 ];
@@ -350,16 +350,14 @@ if (window.innerWidth < 1050) {
 }
 
 //라이브 영역
-// 라이브 하트 버튼
-const heartBtn = document.querySelectorAll(".heart_icon");
+//공유하기 버튼
+const shereBtn = document.querySelectorAll(".video_ui_icon");
 
-heartBtn.forEach((e) => {
+shereBtn.forEach((e) => {
   e.addEventListener("click", () => {
-    e.querySelector("i:nth-child(1)").classList.toggle("active");
-    e.querySelector("i:nth-child(2)").classList.toggle("active");
+    alert("준비 중인 기능입니다.");
   });
 });
-
 // 라이브 마우스오버 비디오 재생 이벤트
 const liveItem = document.querySelectorAll(".live_item");
 
@@ -745,106 +743,7 @@ fetch(productInfo)
     limitedInfo(data);
     productInfoDetail(data);
     cartinModal(data);
-    console.log(data);
   });
-
-// localstorage
-
-// // 라이브 위치 이동(MO)
-// const listClientWidth = liveSliceArea.clientWidth;
-// const listScrollWidth = liveSliceArea.clientWidth + 900;
-
-// // 최초 터치 및 마우스다운 지점
-// let startX = 0;
-
-// // 현재 이동중인 지점
-// let nowX = 0;
-
-// // 터치 종료 지점
-// let endX = 0;
-
-// // 두번째 터치 지점
-// let listX = 0;
-
-// const getClientX = (e) => {
-//   return e.touches ? e.touches[0].clientX : e.clientX;
-// };
-
-// const getTranslateX = () => {
-//   const transform = getComputedStyle(liveSliceArea).transform;
-//   if (transform === "none") return 0;
-//   return parseInt(transform.split(/[^\-0-9]+/g)[5]);
-// };
-
-// const setTranslateX = (x) => {
-//   liveSliceArea.style.transform = `translateX(${x}px)`;
-//   if (x === 0) {
-//     liveSliceArea.style.transform = `translateX(20px)`;
-//   }
-// };
-
-// const onScrollMove = (e) => {
-//   e.preventDefault(); // 기본 스크롤 동작 방지
-//   nowX = getClientX(e);
-//   setTranslateX(listX + nowX - startX);
-// };
-
-// const onScrollEnd = () => {
-//   endX = getTranslateX();
-//   listX = getTranslateX();
-
-//   // 이동 범위 조정
-//   if (listX > 0) {
-//     setTranslateX(0);
-//     liveSliceArea.style.transition = `transform 0.3s ease`;
-//     listX = 0;
-//   } else if (listX < listClientWidth - listScrollWidth) {
-//     setTranslateX(listClientWidth - listScrollWidth);
-//     liveSliceArea.style.transition = `transform 0.3s ease`;
-//     listX = listClientWidth - listScrollWidth;
-//   } else {
-//     liveSliceArea.style.transition = `transform 0.3s ease`;
-//   }
-
-//   // 이벤트 핸들러 제거
-//   liveSliceArea.removeEventListener("touchmove", onScrollMove);
-//   liveSliceArea.removeEventListener("mousemove", onScrollMove);
-//   liveSliceArea.removeEventListener("touchend", onScrollEnd);
-//   liveSliceArea.removeEventListener("mouseup", onScrollEnd);
-// };
-
-// const onScrollStart = (e) => {
-//   startX = getClientX(e);
-//   listX = getTranslateX();
-
-//   liveSliceArea.addEventListener("touchmove", onScrollMove);
-//   liveSliceArea.addEventListener("mousemove", onScrollMove);
-//   liveSliceArea.addEventListener("touchend", onScrollEnd);
-//   liveSliceArea.addEventListener("mouseup", onScrollEnd);
-//   liveSliceArea.addEventListener("mouseleave", onScrollEnd);
-// };
-
-// window.addEventListener("resize", () => {
-//   if (window.innerWidth < 1050) {
-//     liveSliceArea.addEventListener("touchstart", onScrollStart);
-//     liveSliceArea.addEventListener("mousedown", onScrollStart);
-//     liveSliceArea.style.transform = "translateX(20px)";
-//   } else {
-//     liveSliceArea.removeEventListener("touchstart", onScrollStart);
-//     liveSliceArea.removeEventListener("mousedown", onScrollStart);
-//     liveSliceArea.removeEventListener("touchmove", onScrollMove);
-//     liveSliceArea.removeEventListener("mousemove", onScrollMove);
-//     liveSliceArea.removeEventListener("touchend", onScrollEnd);
-//     liveSliceArea.removeEventListener("mouseup", onScrollEnd);
-//     liveSliceArea.style.transform = "translateX(0px)";
-//   }
-// });
-
-// // 초기 페이지 로드 시 화면 크기에 맞게 설정
-// if (window.innerWidth < 1050) {
-//   liveSliceArea.addEventListener("touchstart", onScrollStart);
-//   liveSliceArea.addEventListener("mousedown", onScrollStart);
-// }
 
 // 타이머
 const timer24 = document.querySelector("#timer24");
@@ -1049,211 +948,3 @@ window.addEventListener("resize", () => {
     productSliceArea[1].style.transform = `translateX(0)`;
   }
 });
-
-// const productSliceArea = document.querySelectorAll(".product_items");
-// const product1SlideArrowLeft = document.querySelector("#product1_leftArrow");
-// const product1SlideArrowRight = document.querySelector("#product1_rightArrow");
-// const product2SlideArrowLeft = document.querySelector("#product2_leftArrow");
-// const product2SlideArrowRight = document.querySelector("#product2_rightArrow");
-// const productArea = document.querySelectorAll(".product_slide_area");
-
-// let slideStartProduct = [true, true];
-// let slideEndProduct = [false, false];
-
-// for (let i = 0; i <= 1; i++) {
-//   if (i === 0) {
-//     product1SlideArrowLeft.addEventListener("click", () => {
-//       if (slideEndProduct[i] === true) {
-//         productSliceArea[i].style.transform = `translateX(0)`;
-//         slideStartProduct[i] = true;
-//         slideEndProduct[i] = false;
-//         product1SlideArrowLeft.style.opacity = "0";
-//         product1SlideArrowRight.style.opacity = "1";
-//       }
-//     });
-
-//     product1SlideArrowRight.addEventListener("click", () => {
-//       if (slideStartProduct[i] === true) {
-//         productSliceArea[i].style.transform = `translateX(-${
-//           mainWidth + 10
-//         }px)`;
-//         slideEndProduct[i] = true;
-//         slideStartProduct[i] = false;
-//         product1SlideArrowRight.style.opacity = "0";
-//         product1SlideArrowLeft.style.opacity = "1";
-//       }
-//     });
-//   } else {
-//     product2SlideArrowLeft.addEventListener("click", () => {
-//       if (slideEndProduct[i] === true) {
-//         productSliceArea[i].style.transform = `translateX(0)`;
-//         slideStartProduct[i] = true;
-//         slideEndProduct[i] = false;
-//         product2SlideArrowLeft.style.opacity = "0";
-//         product2SlideArrowRight.style.opacity = "1";
-//       }
-//     });
-
-//     product2SlideArrowRight.addEventListener("click", () => {
-//       if (slideStartProduct[i] === true) {
-//         productSliceArea[i].style.transform = `translateX(-${
-//           mainWidth + 10
-//         }px)`;
-//         slideEndProduct[i] = true;
-//         slideStartProduct[i] = false;
-//         product2SlideArrowRight.style.opacity = "0";
-//         product2SlideArrowLeft.style.opacity = "1";
-//       }
-//     });
-//   }
-// }
-
-// let startPointProduct = 0;
-// let endPointProduct = 0;
-// let productC = 0;
-
-// productArea.forEach((item) => {
-//   item.addEventListener("mousedown", (e) => {
-//     startPointProduct = e.pageX; // 터치가 시작되는 위치 저장
-//   });
-//   item.addEventListener("mouseup", (e) => {
-//     endPointProduct = e.pageX; // 터치가 끝나는 위치 저장
-//     if (startPointProduct < endPointProduct) {
-//       if (productC > 0) {
-//         productC--;
-//       } else {
-//         productC = 5;
-//       }
-//       item.querySelector(".product_items").style.transform = `translateX(${
-//         -productC * 177
-//       }px)`;
-//     } else if (startPointProduct > endPointProduct) {
-//       if (productC < 5) {
-//         productC++;
-//       } else {
-//         productC = 0;
-//       }
-//       item.querySelector(".product_items").style.transform = `translateX(${
-//         -productC * 177
-//       }px)`;
-//     }
-//   });
-//   item.addEventListener("touchstart", (e) => {
-//     startPointProduct = e.pageX; // 터치가 시작되는 위치 저장
-//   });
-//   item.addEventListener("touchend", (e) => {
-//     endPointProduct = e.pageX; // 터치가 끝나는 위치 저장
-//     if (startPointProduct < endPointProduct) {
-//       if (productC > 0) {
-//         productC--;
-//       } else {
-//         productC = 5;
-//       }
-//       item.querySelector(".product_items").style.transform = `translateX(${
-//         -productC * 177
-//       }px)`;
-//     } else if (startPointProduct > endPointProduct) {
-//       if (productC < 5) {
-//         productC++;
-//       } else {
-//         productC = 0;
-//       }
-//       item.querySelector(".product_items").style.transform = `translateX(${
-//         -productC * 177
-//       }px)`;
-//     }
-//   });
-// });
-
-// const productSlide = (i) => {
-//   let startXproduct = 0;
-//   let nowXproduct = 0;
-//   let listXproduct = 0;
-
-//   const getClientXproduct = (e) => {
-//     return e.touches ? e.touches[0].clientX : e.clientX;
-//   };
-
-//   const getTranslateXproduct = () => {
-//     const transform = getComputedStyle(productItems[i]).transform;
-//     if (transform === "none") return 0;
-//     return parseInt(transform.split(/[^\-0-9]+/g)[5]);
-//   };
-
-//   const setTranslateXproduct = (x) => {
-//     productItems[i].style.transform = `translateX(${x}px)`;
-//   };
-
-//   const onScrollMoveproduct = (e) => {
-//     e.preventDefault();
-//     nowXproduct = getClientXproduct(e);
-//     setTranslateXproduct(listXproduct + nowXproduct - startXproduct);
-//   };
-
-//   const onScrollEndproduct = () => {
-//     listXproduct = getTranslateXproduct();
-
-//     // 슬라이드 가능한 전체 너비와 최대 이동 가능 거리 계산
-//     const productAreaWidth = productArea[i].clientWidth;
-//     const productScrollWidth = productItems[i].scrollWidth + 40;
-//     const maxTranslateX = productAreaWidth - productScrollWidth;
-
-//     // 스냅 위치 계산
-//     if (listXproduct > 0) {
-//       setTranslateXproduct(0);
-//       listXproduct = 0;
-//     } else if (listXproduct < maxTranslateX) {
-//       setTranslateXproduct(maxTranslateX);
-//       listXproduct = maxTranslateX;
-//     } else {
-//       // 가장 가까운 항목에 스냅
-//       const itemWidth = productItems[i].children[0].clientWidth; // 슬라이드 아이템의 너비 + 간격
-//       const nearestSnap = Math.round(listXproduct / itemWidth) * itemWidth;
-//       setTranslateXproduct(nearestSnap);
-//       listXproduct = nearestSnap;
-//     }
-
-//     productItems[i].style.transition = `transform 0.3s ease`;
-
-//     // 이벤트 핸들러 제거
-//     productArea[i].removeEventListener("touchmove", onScrollMoveproduct);
-//     productArea[i].removeEventListener("mousemove", onScrollMoveproduct);
-//     productArea[i].removeEventListener("touchend", onScrollEndproduct);
-//     productArea[i].removeEventListener("mouseup", onScrollEndproduct);
-//   };
-
-//   const onScrollStartproduct = (e) => {
-//     startXproduct = getClientXproduct(e);
-//     listXproduct = getTranslateXproduct();
-
-//     productArea[i].addEventListener("touchmove", onScrollMoveproduct);
-//     productArea[i].addEventListener("mousemove", onScrollMoveproduct);
-//     productArea[i].addEventListener("touchend", onScrollEndproduct);
-//     productArea[i].addEventListener("mouseup", onScrollEndproduct);
-//     productArea[i].addEventListener("mouseleave", onScrollEndproduct);
-//   };
-
-//   window.addEventListener("resize", () => {
-//     if (window.innerWidth < 1050) {
-//       productArea[i].addEventListener("touchstart", onScrollStartproduct);
-//       productArea[i].addEventListener("mousedown", onScrollStartproduct);
-//     } else {
-//       productArea[i].removeEventListener("touchstart", onScrollStartproduct);
-//       productArea[i].removeEventListener("mousedown", onScrollStartproduct);
-//       productArea[i].removeEventListener("touchmove", onScrollMoveproduct);
-//       productArea[i].removeEventListener("mousemove", onScrollMoveproduct);
-//       productArea[i].removeEventListener("touchend", onScrollEndproduct);
-//       productArea[i].removeEventListener("mouseup", onScrollEndproduct);
-//       setTranslateXproduct(0); // 초기화
-//     }
-//   });
-
-//   if (window.innerWidth < 1050) {
-//     productArea[i].addEventListener("touchstart", onScrollStartproduct);
-//     productArea[i].addEventListener("mousedown", onScrollStartproduct);
-//   }
-// };
-
-// for (let i = 0; i < productArea.length; i++) {
-//   productSlide(i);
-// }

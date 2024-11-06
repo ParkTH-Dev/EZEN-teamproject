@@ -115,11 +115,12 @@ header {
         .header_main_right {
           display: flex;
           justify-content: flex-end;
-          align-items: center;
+          align-items: flex-end;
           gap: 25px;
           font-size: 26px;
           color: map-get($color, main-color);
           span {
+            border: 1px solid #f00;
             cursor: pointer;
           }
         }

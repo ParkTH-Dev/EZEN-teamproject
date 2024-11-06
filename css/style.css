@@ -109,12 +109,13 @@ header .header_wrapper .inner .header_main .header_main_center .fa-magnifying-gl
 header .header_wrapper .inner .header_main .header_main_right {
   display: flex;
   justify-content: flex-end;
-  align-items: center;
+  align-items: flex-end;
   gap: 25px;
   font-size: 26px;
   color: #5f0080;
 }
 header .header_wrapper .inner .header_main .header_main_right span {
+  border: 1px solid #f00;
   cursor: pointer;
 }
 

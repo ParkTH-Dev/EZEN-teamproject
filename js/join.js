@@ -12,7 +12,7 @@ const emailselect = document.getElementById("email");
 const emailDirectInput = document.getElementById("emailDr");
 //
 const hiddenS = document.querySelector(".hiddenS");
-const directOptionValue = "direct";
+// const directOptionValue = "direct";
 const userPhon = document.querySelector("#userPhon");
 const userNumCheck = document.querySelector("#userNumCheck");
 const checkBtn = document.querySelector(".checkBtn");
@@ -145,6 +145,7 @@ hiddenS.addEventListener("input", () => {
   if (emailDirectInput.value === "") {
     checkarrMinus(submitList, "domainS");
   } else {
+    checkarrMinus(submitList, "domainS");
     submitList.push("domainS");
   }
 });
@@ -196,20 +197,20 @@ userEmail.addEventListener("input", function () {
     const domain = emailValue.substring(atIndex + 1);
     let optionFound = false;
     for (let option of emailselect.options) {
-      if (option.value === directOptionValue) {
-        continue;
-      }
+      // if (option.value === directOptionValue) {
+      //   continue;
+      // }
       const optionText = option.textContent || option.innerText;
       if (optionText === domain) {
+        submitList.push("domainS");
         emailselect.value = option.value;
         optionFound = true;
-        submitList.push("domainS");
         break;
       }
     }
     // 도메인이 일치하는 옵션이 없으면 '직접입력' 옵션 선택
     if (!optionFound) {
-      emailselect.value = directOptionValue;
+      // emailselect.value = directOptionValue;
       hiddenS.classList.add("active");
       emailDirectInput.focus();
       emailDirectInput.value = domain;
@@ -676,6 +677,10 @@ const checkNone = (element) => {
 
 //가입하기버튼 이벤트
 mainBtn.addEventListener("click", (e) => {
+  if (emailselect.value !== "") {
+    checkarrMinus(submitList, "domainS");
+    submitList.push("domainS");
+  }
   termsCheck.checked === true
     ? checkAlready("termsCheck")
     : checkNone("termsCheck");
