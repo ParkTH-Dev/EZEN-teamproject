@@ -1,7 +1,7 @@
 {
   "data": [
     {
-      "name": "컬리세일",
+      "name": "캘리세일",
       "img": "./img/categoryIcon/1.png",
       "subdata": [
         { "name": "특가상품" },
@@ -285,7 +285,7 @@
       ]
     },
     {
-      "name": "컬리상품권",
+      "name": "캘리상품권",
       "img": "./img/categoryIcon/28.png",
       "subdata": [{ "name": "온라인상품권" }, { "name": "오프라인상품권" }]
     }
