@@ -1063,6 +1063,7 @@ footer .footer_wrapper .inner .footer_right .footer_right_third {
   #join_container .join_inner #main form #private li.addressInner.active .addressChange {
     display: block;
     width: 100%;
+    margin-left: 0px;
   }
   #join_container .join_inner #main form #private li.addressInner.active .addressChange > div {
     width: 100%;
