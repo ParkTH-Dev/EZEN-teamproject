@@ -68,9 +68,6 @@ header .header_wrapper .inner .header_main .header_main_left span {
   color: #5f0080;
   font-weight: 450;
 }
-header .header_wrapper .inner .header_main .header_main_left .logo {
-  width: 82px;
-}
 header .header_wrapper .inner .header_main .header_main_left .mobileLogin {
   display: none;
 }
