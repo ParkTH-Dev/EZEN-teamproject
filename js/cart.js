@@ -31,8 +31,8 @@ mobileClose.addEventListener("click", () => {
   window.history.back();
 });
 
-const productInfo = ".././json/db.json";
-fetch(productInfo)
+const productInfoCart = ".././json/db.json";
+fetch(productInfoCart)
   .then((response) => response.json())
   .then((data) => {
     cartRecItem.forEach((item, index) => {

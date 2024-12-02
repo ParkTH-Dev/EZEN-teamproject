@@ -1,3 +1,8 @@
+window.allpage = window.allpage || {};
+window.allpage.showAlert = () => {
+  alert("현재 지원하지 않는 기능입니다.");
+};
+
 const categoryBtn = document.querySelector(".lnb");
 const categoryGnb = document.querySelector(".category");
 const subCategoryGnb = document.querySelector(".subCategory");
@@ -33,6 +38,19 @@ customerServiceBtn.addEventListener("mouseover", () => {
 });
 customerServiceBtn.addEventListener("mouseout", () => {
   customerService.classList.remove("active");
+});
+customerService.addEventListener("click", () => {
+  allpage.showAlert();
+});
+
+const headerBtn = document.querySelectorAll(
+  ".header_main_right span:nth-child(-n+2)"
+);
+
+headerBtn.forEach((e) => {
+  e.addEventListener("click", () => {
+    allpage.showAlert();
+  });
 });
 
 const categoryInfo = ".././json/headerCategory.json";
@@ -105,3 +123,15 @@ fetch(categoryInfo)
   .catch((error) => {
     console.log(error);
   });
+
+const h2Elements = document.querySelectorAll(".footer_left h2");
+const footerSpan = document.querySelectorAll(".footer_right_first span");
+const footerAnchor = document.querySelectorAll(".footer_right_second h4 b");
+
+const disabledBtn = [...h2Elements, ...footerSpan, ...footerAnchor];
+
+disabledBtn.forEach((e) => {
+  e.addEventListener("click", () => {
+    allpage.showAlert();
+  });
+});

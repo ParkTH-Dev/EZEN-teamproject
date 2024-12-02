@@ -100,7 +100,7 @@ const filterAndDisplayProducts = (keyword) => {
   }
 };
 
-const cartinModal = (products) => {
+const cartinModalSearch = (products) => {
   const productCartin = document.querySelectorAll(".product_cartin");
   const modalArea = document.querySelector("#modal_area");
   const productModalImg = document.querySelector(".modal_img");
@@ -238,8 +238,7 @@ fetch(productInfo)
   .then(({ products }) => {
     allProducts = products;
     filterAndDisplayProducts(keyword); // 페이지 로드 시 필터링 실행
-    cartinModal(products);
-    console.log(products);
+    cartinModalSearch(products);
   });
 
 form.addEventListener("submit", searchProduct);

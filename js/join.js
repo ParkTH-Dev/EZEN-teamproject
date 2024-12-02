@@ -1,5 +1,5 @@
 // form 요소들
-const form = document.querySelector("#login_form");
+const formLogin = document.querySelector("#login_form");
 const mainBtn = document.querySelector(".mainBtn");
 const userId = document.querySelector("#userId");
 const userpw = document.querySelector("#userpw");

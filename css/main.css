@@ -152,7 +152,7 @@ header .header_wrapper .inner .header_main .header_main_right span:hover path {
 }
 
 .header_sticky {
-  z-index: 2;
+  z-index: 3;
   width: 100%;
   background: #fff;
   display: flex;
@@ -196,7 +196,7 @@ header .header_wrapper .inner .header_main .header_main_right span:hover path {
   display: none;
   position: absolute;
   top: 53px;
-  z-index: 2;
+  z-index: 4;
 }
 .header_sticky .inner .header_bottom_gnb .lnb .category > div {
   padding: 10px 20px;
@@ -229,6 +229,7 @@ header .header_wrapper .inner .header_main .header_main_right span:hover path {
   color: #666;
   top: 53px;
   left: 300px;
+  z-index: 4;
 }
 .header_sticky .inner .header_bottom_gnb .lnb .subCategory div {
   padding: 10px 20px;
@@ -279,13 +280,13 @@ header .header_wrapper .inner .header_main .header_main_right span:hover path {
   width: 100%;
   height: 370px;
   position: relative;
+  cursor: pointer;
 }
 #main_banner:hover > .main_banner_arrow {
   opacity: 1;
 }
 #main_banner .bg_imgPC {
   height: 100%;
-  cursor: pointer;
   position: absolute;
   top: 0;
   left: 0;
@@ -303,36 +304,29 @@ header .header_wrapper .inner .header_main .header_main_right span:hover path {
 #main_banner .bg_imgMO {
   display: none;
 }
-#main_banner .main_banner_arrow {
-  width: 1050px;
-  display: flex;
-  justify-content: center;
-  position: relative;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  transition: all 0.3s;
-  opacity: 0;
-  cursor: pointer;
-  z-index: 1;
-}
-#main_banner .main_banner_arrow .main_banner_btn.left {
-  z-index: 1;
-  position: fixed;
-  left: 10px;
-}
-#main_banner .main_banner_arrow .main_banner_btn.right {
+#main_banner .main_banner_btn.left {
   position: absolute;
-  right: 10px;
+  left: 10%;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 2;
 }
-#main_banner .main_banner_arrow .fa-solid {
+#main_banner .main_banner_btn.right {
+  position: absolute;
+  left: 87%;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 2;
+}
+#main_banner .fa-solid {
   padding: 20px 23px;
   background: rgba(0, 0, 0, 0.5);
   border-radius: 50%;
   color: #fff;
 }
 #main_banner .main_banner_counter {
-  width: 1280px;
+  width: -moz-fit-content;
+  width: fit-content;
   height: 100%;
   margin: 0 auto;
   position: relative;
@@ -340,7 +334,7 @@ header .header_wrapper .inner .header_main .header_main_right span:hover path {
 #main_banner .main_banner_counter .counter_wrapper {
   position: absolute;
   bottom: 20px;
-  right: 0%;
+  left: 480px;
   text-align: center;
   width: 80px;
   height: 30px;
@@ -644,16 +638,16 @@ header .header_wrapper .inner .header_main .header_main_right span:hover path {
   opacity: 1;
 }
 
-#sub_banner {
+.sub_banner {
   width: 100%;
   text-align: center;
   cursor: pointer;
   margin-bottom: 95px;
 }
-#sub_banner img {
+.sub_banner img {
   border-radius: 12px;
 }
-#sub_banner .mo_subbanner {
+.sub_banner .mo_subbanner {
   display: none;
 }
 
@@ -968,7 +962,6 @@ header .header_wrapper .inner .header_main .header_main_right span:hover path {
   height: 145px;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
 }
 .product_list .product_slide_area .product_items .product_item .product_item_text .product_name {
   font-size: 16px;
@@ -1458,7 +1451,7 @@ footer .footer_wrapper .inner .footer_right .footer_right_third {
     -o-object-fit: cover;
        object-fit: cover;
   }
-  body #app_container #main_banner .main_banner_arrow {
+  body #app_container #main_banner .main_banner_btn {
     display: none;
   }
   body #app_container #main_banner .main_banner_counter {
@@ -1570,14 +1563,14 @@ footer .footer_wrapper .inner .footer_right .footer_right_third {
   body #app_container #live_area .live_slide_arrow .live_slide_btn.right {
     top: -280px;
   }
-  body #app_container #sub_banner {
+  body #app_container .sub_banner {
     width: 100%;
     margin-bottom: 70px;
   }
-  body #app_container #sub_banner .pc_subbanner {
+  body #app_container .sub_banner .pc_subbanner {
     display: none;
   }
-  body #app_container #sub_banner .mo_subbanner {
+  body #app_container .sub_banner .mo_subbanner {
     display: block;
     width: 100%;
     border-radius: 0;

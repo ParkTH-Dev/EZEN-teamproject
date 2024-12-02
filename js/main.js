@@ -39,6 +39,14 @@ let currentIdx = 0;
 
 // mainSlideImg.style.backgroundImage = `url(../img/main/${mainPicsPC[i]})`;
 
+mainSlideImgPC.addEventListener("click", () => {
+  window.location.href = "./search.html";
+});
+
+mainSlideImgMO.addEventListener("click", () => {
+  window.location.href = "./search.html";
+});
+
 mainCounterAll.innerText = mainPicsPC.length;
 // console.log(mainPicsPC.length);
 mainCounterNow.innerText = currentIdx + 1;
@@ -355,7 +363,7 @@ const shereBtn = document.querySelectorAll(".video_ui_icon");
 
 shereBtn.forEach((e) => {
   e.addEventListener("click", () => {
-    alert("준비 중인 기능입니다.");
+    allpage.showAlert();
   });
 });
 // 라이브 마우스오버 비디오 재생 이벤트
@@ -439,6 +447,13 @@ window.addEventListener("resize", () => {
     liveSlideArrowLeft.addEventListener("click", livePCEventDecrease);
     liveSlideArrowRight.addEventListener("click", livePCEventIncrease);
   }
+});
+
+const subBanner = document.querySelectorAll(".sub_banner");
+subBanner.forEach((e) => {
+  e.addEventListener("click", () => {
+    allpage.showAlert();
+  });
 });
 
 // 초기 페이지 로드 시 화면 크기에 맞게 설정
@@ -734,8 +749,8 @@ const cartinModal = (data) => {
   }
 };
 
-const productInfo = ".././json/db.json";
-fetch(productInfo)
+const productInfoMain = ".././json/db.json";
+fetch(productInfoMain)
   .then((response) => response.json())
   .then((data) => {
     liveInfo(data);

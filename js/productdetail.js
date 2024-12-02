@@ -89,8 +89,8 @@ mobileClose.addEventListener("click", () => {
 });
 
 // json
-const productInfo = ".././json/db.json";
-fetch(productInfo)
+const productInfoProductDetail = ".././json/db.json";
+fetch(productInfoProductDetail)
   .then((resoponse) => resoponse.json())
   .then((data) => {
     const params = new URLSearchParams(window.location.search);
